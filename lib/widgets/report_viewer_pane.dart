@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'dart:io';
-import 'dart:typed_data';
+import 'dart:ui';
 
-import 'package:blurbox/blurbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:open_filex/open_filex.dart';
@@ -815,12 +814,13 @@ class _ObscuredReportContentState extends State<_ObscuredReportContent> {
               top: _blurStartPosition,
               bottom: 0,
               child: ClipRect(
-                child: BlurBox(
-                  width: double.infinity,
-                  height: double.infinity,
-                  blur: 4,
-                  color: colorScheme.surface.withValues(alpha: 0.4),
-                  child: const SizedBox.expand(),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                  child: Container(
+                    color: colorScheme.surface.withValues(alpha: 0.4),
+                    width: double.infinity,
+                    height: double.infinity,
+                  ),
                 ),
               ),
             ),

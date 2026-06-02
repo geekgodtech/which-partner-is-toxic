@@ -45,7 +45,6 @@ dependencies:
   open_filex: ^4.6.0
   webview_flutter: ^4.10.0
   shared_preferences: ^2.3.3
-  blurbox: ^0.0.6
   telephony: ^0.2.0
   permission_handler: ^11.3.1
   flutter_contacts: ^1.1.9
