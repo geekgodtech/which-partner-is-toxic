@@ -93,7 +93,7 @@ class _AnalysisLoadingViewState extends State<_AnalysisLoadingView>
             border: Border.all(color: Colors.blue, width: 3),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.3),
+                color: Colors.black.withOpacity(0.3),
                 blurRadius: 20,
                 spreadRadius: 5,
               ),
@@ -817,7 +817,7 @@ class _ObscuredReportContentState extends State<_ObscuredReportContent> {
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
                   child: Container(
-                    color: colorScheme.surface.withValues(alpha: 0.4),
+                    color: colorScheme.surface.withOpacity(0.4),
                     width: double.infinity,
                     height: double.infinity,
                   ),

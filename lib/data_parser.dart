@@ -7,7 +7,7 @@ import 'package:which_partner_is_toxic/models.dart';
 class DataParserService {
   static Future<ConversationThread?> pickAndParseFile() async {
     // We use the 'fp' nickname here to force it to use the official package
-    fp.FilePickerResult? result = await fp.FilePicker.pickFiles(
+    fp.FilePickerResult? result = await fp.FilePicker.platform.pickFiles(
       type: fp.FileType.custom, // Also updated this to use the nickname!
       allowedExtensions: ['csv', 'txt'],
     );
@@ -25,8 +25,9 @@ class DataParserService {
 
     if (fileName.endsWith('.csv')) {
       // We use the 'csv_lib' nickname here to force it to find the real class
-      List<List<dynamic>> rows = csv_lib.csv.decode(fileContents);
-      
+      List<List<dynamic>> rows =
+          const csv_lib.CsvToListConverter().convert(fileContents);
+
       for (int i = 1; i < rows.length; i++) {
         var row = rows[i];
         if (row.length >= 3) {

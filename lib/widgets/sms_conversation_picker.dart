@@ -330,8 +330,8 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
               Text(
                 'SMS Permission Required',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
               const SizedBox(height: 12),
               Text(
@@ -362,7 +362,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
               Icon(
                 Icons.chat_bubble_outline,
                 size: 80,
-                color: colorScheme.primary.withValues(alpha: 0.5),
+                color: colorScheme.primary.withOpacity(0.5),
               ),
               const SizedBox(height: 24),
               Text(
@@ -414,7 +414,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
             subtitle: Text(
               '${conversation.messageCount} messages',
               style: TextStyle(
-                color: colorScheme.onSurface.withValues(alpha: 0.7),
+                color: colorScheme.onSurface.withOpacity(0.7),
               ),
             ),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),

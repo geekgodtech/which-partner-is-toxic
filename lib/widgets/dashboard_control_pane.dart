@@ -181,8 +181,7 @@ class _ResponsiveButtonGrid extends StatelessWidget {
           children: children
               .map(
                 (child) => SizedBox(
-                  width:
-                      (constraints.maxWidth - (12 * (columnCount - 1))) /
+                  width: (constraints.maxWidth - (12 * (columnCount - 1))) /
                       columnCount,
                   child: child,
                 ),
@@ -201,8 +200,7 @@ class _RandomAnalysisSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final canRun =
-        controller.activeThread != null &&
+    final canRun = controller.activeThread != null &&
         !controller.isAnalyzing &&
         !controller.isRandomizingMetrics &&
         !controller.isIngesting;
@@ -225,7 +223,7 @@ class _RandomAnalysisSection extends StatelessWidget {
                 BoxShadow(
                   color: Theme.of(
                     context,
-                  ).colorScheme.primary.withValues(alpha: 0.35),
+                  ).colorScheme.primary.withOpacity(0.35),
                   blurRadius: 18,
                   spreadRadius: 2,
                 ),
@@ -241,16 +239,15 @@ class _RandomAnalysisSection extends StatelessWidget {
               }
             : null,
         child: ElevatedButton.icon(
-          onPressed: canRun
-              ? controller.selectRandomMetricsAndExecuteAnalysis
-              : null,
+          onPressed:
+              canRun ? controller.selectRandomMetricsAndExecuteAnalysis : null,
           icon: const Icon(Icons.help_outline),
           label: Text(
             controller.isRandomizingMetrics
                 ? 'Spinning the metric wheel...'
                 : canRun
-                ? 'Randomly select ${ToxicityAnalyzerController.requiredMetricSelectionCount} Metrics and\nAnalyze'
-                : 'Load a conversation to\nrandomly select and analyze',
+                    ? 'Randomly select ${ToxicityAnalyzerController.requiredMetricSelectionCount} Metrics and\nAnalyze'
+                    : 'Load a conversation to\nrandomly select and analyze',
             textAlign: TextAlign.center,
           ),
           style: ElevatedButton.styleFrom(
@@ -353,7 +350,7 @@ class _FromFileButton extends StatelessWidget {
 
   Future<void> _pickFile(BuildContext context) async {
     try {
-      final result = await FilePicker.pickFiles(
+      final result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['txt', 'doc', 'docx', 'pdf'],
         allowMultiple: false,
@@ -591,8 +588,7 @@ class _IngestionStatusCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final activeThread = controller.activeThread;
-    final message =
-        controller.errorMessage ??
+    final message = controller.errorMessage ??
         controller.statusMessage ??
         'No conversation loaded yet. Select a conversation to analyze.';
     final color = controller.errorMessage == null
@@ -746,20 +742,20 @@ class _MetricButtonTile extends StatelessWidget {
     final backgroundColor = isSelected
             ? color
             : Color.alphaBlend(
-                Theme.of(context).colorScheme.surface.withValues(alpha: 0.62),
+                Theme.of(context).colorScheme.surface.withOpacity(0.62),
                 color,
               ),
         foregroundColor =
             ThemeData.estimateBrightnessForColor(backgroundColor) ==
-                Brightness.dark
-            ? Colors.white
-            : Colors.black87;
+                    Brightness.dark
+                ? Colors.white
+                : Colors.black87;
 
     return AnimatedScale(
       scale: isSelected ? 0.98 : 0.94,
       duration: const Duration(milliseconds: 160),
       child: Material(
-        color: backgroundColor.withValues(alpha: isSelected ? 1 : 0.58),
+        color: backgroundColor.withOpacity(isSelected ? 1 : 0.58),
         borderRadius: BorderRadius.circular(14),
         elevation: isSelected ? 5 : 1,
         child: InkWell(

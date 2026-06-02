@@ -382,8 +382,8 @@ class _MembershipHero extends StatelessWidget {
                     'Become a member to get full analysis report',
                     textAlign: isWide ? TextAlign.start : TextAlign.center,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                   const SizedBox(height: 12),
                   Text(
@@ -435,7 +435,7 @@ class _TierCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundColor: accentColor.withValues(alpha: 0.16),
+                backgroundColor: accentColor.withOpacity(0.16),
                 child: Icon(icon, size: 32, color: accentColor),
               ),
               const SizedBox(height: 16),
@@ -452,9 +452,9 @@ class _TierCard extends StatelessWidget {
                 price,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  color: accentColor,
-                  fontWeight: FontWeight.bold,
-                ),
+                      color: accentColor,
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
               const SizedBox(height: 16),
               Expanded(
