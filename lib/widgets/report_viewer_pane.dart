@@ -794,6 +794,7 @@ class _ObscuredReportContentState extends State<_ObscuredReportContent> {
     if (renderBox != null && mounted) {
       final height = renderBox.size.height;
       setState(() {
+        // Show 25% of content, blur the bottom 75%
         _blurStartPosition = height * 0.25;
       });
     }

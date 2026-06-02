@@ -44,7 +44,7 @@ class MembershipLandingPage extends StatelessWidget {
                                 benefits: const [
                                   'Analyze SMS text messages',
                                   'Run a report preview',
-                                  'View about 15% of the report',
+                                  'View about 25% of the report',
                                   'Locked full report details',
                                 ],
                                 buttonLabel: 'Current free access',
