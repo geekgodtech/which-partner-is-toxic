@@ -1,0 +1,18 @@
+# Windsurf Autonomy Rules for Flutter/DeepSeek Project
+
+[developer_profile]
+background = "Experienced OOP Developer (VB.NET, Java). New to Flutter and Dart."
+preference = "Strongly-typed, object-oriented, clean separation of concerns."
+
+[architecture_rules]
+state_management = "Use a clean ChangeNotifier or basic Controller pattern. Do not nest massive business logic inside UI Widgets."
+api_service = "Encapsulate all DeepSeek V3.2 API calls inside a dedicated, strongly-typed repository class."
+models = "Create explicit Data Models with clear fromJson/toJson methods for handling the chat log input and PDF output."
+
+[code_style]
+ui_structure = "Keep UI widgets small and modular. Break large view layouts into separate private methods or small stateless widgets."
+comments = "Provide explicit, structural comments explaining Flutter-specific paradigms (like BuildContext or Widget trees) where they differ drastically from traditional OOP."
+
+[automation_workflow]
+packages = "Autonomously run 'flutter pub get' immediately after adding any dependencies (like http, path_provider, or pdf)."
+testing = "Verify that the code compiles successfully by running basic syntax checks after modifying multiple files."
