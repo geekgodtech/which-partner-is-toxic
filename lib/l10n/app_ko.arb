@@ -1,0 +1,687 @@
+{
+  "@@locale": "ko",
+  "@@author": "App Developer",
+  
+  "appTitle": "AI ?? ?? ???",
+  "@appTitle": {
+    "description": "The app title displayed in the app bar"
+  },
+
+  "psychologicalMetrics": "?? ??",
+  "@psychologicalMetrics": {
+    "description": "Title for the metrics selection section"
+  },
+
+  "metricsDescription": "Fewer selected metrics produce a deeper, more concentrated analysis of those behaviors. More selected metrics produce a broader report with less detail per metric.",
+  "@metricsDescription": {
+    "description": "Explanation of how metric selection affects analysis"
+  },
+  
+  "selectSMS": "SMS / RCS ?? ??",
+  "@selectSMS": {
+    "description": "Button to select SMS messages"
+  },
+  
+  "selectFile": "Select file",
+  "@selectFile": {
+    "description": "Button to select a file"
+  },
+  
+  "analyzeSelectedMetrics": "Analyze Selected metrics",
+  "@analyzeSelectedMetrics": {
+    "description": "Button to analyze selected metrics"
+  },
+  
+  "analyze20RandomMetrics": "Analyze 20 Random metrics",
+  "@analyze20RandomMetrics": {
+    "description": "Button to analyze 20 random metrics"
+  },
+  
+  "membershipOptions": "Membership Options",
+  "@membershipOptions": {
+    "description": "Title for membership landing page"
+  },
+  
+  "free": "Free",
+  "@free": {
+    "description": "Free tier label"
+  },
+  
+  "oneTimeUnlock": "One-Time Report Unlock",
+  "@oneTimeUnlock": {
+    "description": "One-time unlock tier label"
+  },
+  
+  "standard": "Standard",
+  "@standard": {
+    "description": "Standard tier label"
+  },
+  
+  "discordAddon": "Discord Addon",
+  "@discordAddon": {
+    "description": "Discord addon label"
+  },
+  
+  "analyze": "Analyze",
+  "@analyze": {
+    "description": "Analyze button/action"
+  },
+  
+  "report": "Report",
+  "@report": {
+    "description": "Report label"
+  },
+  
+  "pdfReport": "PDF Report",
+  "@pdfReport": {
+    "description": "PDF report label"
+  },
+
+  "openPdf": "Open PDF",
+  "@openPdf": {
+    "description": "Button to open PDF"
+  },
+
+  "sharePdf": "Share PDF",
+  "@sharePdf": {
+    "description": "Button to share PDF"
+  },
+
+  "printPdf": "Print PDF",
+  "@printPdf": {
+    "description": "Button to print PDF"
+  },
+
+  "closePdfPreview": "Close PDF Preview Window",
+  "@closePdfPreview": {
+    "description": "Button to close PDF preview"
+  },
+
+  "openPdfPreview": "Open PDF Preview Window",
+  "@openPdfPreview": {
+    "description": "Button to open PDF preview"
+  },
+
+  "pdfPreviewDescription": "The embedded PDF window starts closed to keep the report compact.",
+  "@pdfPreviewDescription": {
+    "description": "Explanation of PDF preview window"
+  },
+
+  "notNow": "Not now",
+  "@notNow": {
+    "description": "Button to dismiss dialog"
+  },
+
+  "unlockThisReport": "Unlock This Report - $20",
+  "@unlockThisReport": {
+    "description": "Button to unlock single report"
+  },
+
+  "joinStandard": "Join Standard - $9.99/mo",
+  "@joinStandard": {
+    "description": "Button to join Standard membership"
+  },
+
+  "instantUnlockTitle": "Instant Report Unlock - $20",
+  "@instantUnlockTitle": {
+    "description": "Title for instant unlock dialog"
+  },
+
+  "instantUnlockDescription": "This is a one-time purchase to unlock the current report only. No subscription required. Future reports will require separate unlocks or a membership.\n\nProceed with payment?",
+  "@instantUnlockDescription": {
+    "description": "Description for instant unlock purchase"
+  },
+
+  "purchaseFor20": "Purchase for $20",
+  "@purchaseFor20": {
+    "description": "Button to purchase for $20"
+  },
+  
+  "share": "Share",
+  "@share": {
+    "description": "Share action"
+  },
+  
+  "print": "Print",
+  "@print": {
+    "description": "Print action"
+  },
+  
+  "save": "Save",
+  "@save": {
+    "description": "Save action"
+  },
+  
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel action"
+  },
+  
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button"
+  },
+  
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading indicator text"
+  },
+  
+  "error": "Error",
+  "@error": {
+    "description": "Error label"
+  },
+  
+  "success": "Success",
+  "@success": {
+    "description": "Success label"
+  },
+  
+  "conversations": "Conversations",
+  "@conversations": {
+    "description": "Conversations label"
+  },
+  
+  "messages": "Messages",
+  "@messages": {
+    "description": "Messages label"
+  },
+  
+  "selectConversation": "Select Conversation",
+  "@selectConversation": {
+    "description": "Select conversation prompt"
+  },
+
+  "selectSmsConversation": "SMS / RCS 채팅 선택",
+  "@selectSmsConversation": {
+    "description": "Title for SMS conversation picker screen"
+  },
+
+  "searchConversations": "Search conversations...",
+  "@searchConversations": {
+    "description": "Hint text for conversation search field"
+  },
+
+  "loadingConversations": "Loading conversations...",
+  "@loadingConversations": {
+    "description": "Loading indicator text for conversations"
+  },
+
+  "errorLoadingConversations": "Error Loading Conversations",
+  "@errorLoadingConversations": {
+    "description": "Error dialog title for conversation loading failure"
+  },
+
+  "selectConversationToAnalyze": "Select Conversation to Analyze",
+  "@selectConversationToAnalyze": {
+    "description": "Dashboard title prompt"
+  },
+
+  "analyzeWithSelectedMetrics": "Analyze with the selected metrics",
+  "@analyzeWithSelectedMetrics": {
+    "description": "Button to analyze with selected metrics"
+  },
+
+  "loadConversationAndSelectMetric": "Load a conversation and select at least one metric",
+  "@loadConversationAndSelectMetric": {
+    "description": "Hint to load conversation first"
+  },
+
+  "selectAtLeastOneMetric": "At least one metric needs to be selected to run the report.",
+  "@selectAtLeastOneMetric": {
+    "description": "Error message when no metrics selected"
+  },
+
+  "spinningMetricWheel": "Spinning the metric wheel...",
+  "@spinningMetricWheel": {
+    "description": "Text shown while randomizing metrics"
+  },
+
+  "loadConversationToAnalyze": "Load a conversation to analyze",
+  "@loadConversationToAnalyze": {
+    "description": "Hint to load conversation for random analysis"
+  },
+  
+  "noConversationsFound": "No conversations found",
+  "@noConversationsFound": {
+    "description": "Message when no conversations exist"
+  },
+  
+  "permissionsRequired": "Permissions Required",
+  "@permissionsRequired": {
+    "description": "Permissions dialog title"
+  },
+  
+  "smsPermission": "Text Messages",
+  "@smsPermission": {
+    "description": "SMS permission label"
+  },
+  
+  "contactsPermission": "Contacts",
+  "@contactsPermission": {
+    "description": "Contacts permission label"
+  },
+  
+  "smsPermissionDescription": "To analyze your SMS conversations for relationship patterns",
+  "@smsPermissionDescription": {
+    "description": "SMS permission description"
+  },
+  
+  "contactsPermissionDescription": "To display contact names instead of phone numbers",
+  "@contactsPermissionDescription": {
+    "description": "Contacts permission description"
+  },
+  
+  "analyzingMessage": "Stand by while your psychological analysis is generated by AI...",
+  "@analyzingMessage": {
+    "description": "Message shown while AI is analyzing"
+  },
+
+  "analyzingStatus": "Analyzing conversation...",
+  "@analyzingStatus": {
+    "description": "Short status message shown during analysis"
+  },
+  
+  "analyzingSubMessage": "Please be patient, this process could take up to a minute depending on your connection speed and the quantity of selected metrics",
+  "@analyzingSubMessage": {
+    "description": "Sub-message shown while AI is analyzing"
+  },
+  
+  "unlockFullReport": "Unlock and show this entire report",
+  "@unlockFullReport": {
+    "description": "Button to unlock full report"
+  },
+  
+  "fullReportLocked": "Full Report Locked",
+  "@fullReportLocked": {
+    "description": "Title when report is locked"
+  },
+  
+  "upgradeToUnlock": "Upgrade your membership to unlock the full psychological analysis report with all metrics and detailed insights.",
+  "@upgradeToUnlock": {
+    "description": "Message explaining why report is locked"
+  },
+  
+  "language": "Language",
+  "@language": {
+    "description": "Language selector label"
+  },
+  
+  "english": "English",
+  "@english": {
+    "description": "English language name"
+  },
+  
+  "spanish": "Spanish",
+  "@spanish": {
+    "description": "Spanish language name"
+  },
+  
+  "french": "French",
+  "@french": {
+    "description": "French language name"
+  },
+  
+  "german": "German",
+  "@german": {
+    "description": "German language name"
+  },
+  
+  "italian": "Italian",
+  "@italian": {
+    "description": "Italian language name"
+  },
+  
+  "portuguese": "Portuguese",
+  "@portuguese": {
+    "description": "Portuguese language name"
+  },
+  
+  "dutch": "Dutch",
+  "@dutch": {
+    "description": "Dutch language name"
+  },
+  
+  "russian": "Russian",
+  "@russian": {
+    "description": "Russian language name"
+  },
+  
+  "chinese": "Chinese",
+  "@chinese": {
+    "description": "Chinese language name"
+  },
+  
+  "japanese": "Japanese",
+  "@japanese": {
+    "description": "Japanese language name"
+  },
+  
+  "korean": "Korean",
+  "@korean": {
+    "description": "Korean language name"
+  },
+  
+  "arabic": "Arabic",
+  "@arabic": {
+    "description": "Arabic language name"
+  },
+  
+  "hindi": "Hindi",
+  "@hindi": {
+    "description": "Hindi language name"
+  },
+  
+  "turkish": "Turkish",
+  "@turkish": {
+    "description": "Turkish language name"
+  },
+  
+  "polish": "Polish",
+  "@polish": {
+    "description": "Polish language name"
+  },
+  
+  "ukrainian": "Ukrainian",
+  "@ukrainian": {
+    "description": "Ukrainian language name"
+  },
+
+  "runAnotherAnalysis": "Run another analysis?",
+  "becomeMemberTitle": "Become a member to get the full analysis report",
+  "becomeMemberSubtitle": "Choose the access level that matches the conversations and reports you need to analyze.",
+  "benefitAnalyzeSms": "Analyze SMS text messages",
+  "benefitReportPreview": "Run a report preview",
+  "benefitViewPartialReport": "View about 25% of the report",
+  "benefitLockedDetails": "Locked full report details",
+  "currentFreeAccess": "Current free access",
+  "benefitUnlockCurrentReport": "Unlock this current full report",
+  "benefitNoSubscription": "No subscription",
+  "benefitSavePrintShareThis": "Save, print, and share this report",
+  "benefitBestSingleAnalysis": "Best if you only need one analysis",
+  "unlockThisReportShort": "Unlock This Report",
+  "benefitFullSmsReport": "Full SMS analysis report",
+  "benefitSavePrintSharePdf": "Save, print, and share PDF reports",
+  "benefitTenReports": "10 reports per 24-hour period",
+  "benefitBestTextReview": "Best for text-message relationship review",
+  "benefitDateRangeFilter": "Filter analysis by date range",
+  "signUpStandard": "Sign up for Standard Membership",
+  "benefitAddToStandard": "Add to Standard membership",
+  "benefitAnalyzeDiscord": "Analyze Discord server chats",
+  "benefitRequiresBot": "Requires bot installation",
+  "benefitBestGamers": "Best for gamers and Discord communities",
+  "addDiscordAnalysis": "Add Discord Analysis",
+  "requiresStandardMembership": "Requires Standard Membership",
+  "comingSoon": "Coming Soon",
+  "comingSoonWithNextUpdate": "Coming soon with next update:",
+  "proMembershipTier": "Pro Membership Tier - $19.99",
+  "proPlusMembershipTier": "Pro-Plus Membership Tier - $24.99",
+  "proGetsLabel": "Pro gets:",
+  "proGetsDescription": "Analyze chat threads from all the other popular texting and social media platforms such as:",
+  "proPlatformsList": "LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X (Twitter), Email, and Calendar",
+  "proPlusGetsLabel": "Pro-Plus gets:",
+  "proPlusGetsDescription": "Everything in Pro, plus the Discord addon at a reduced price.",
+  "purchaseSuccessfulUnlocked": "Purchase successful! Report unlocked.",
+  "purchaseFailed": "Purchase failed. Please try again.",
+  "membershipActivated": "Membership activated!",
+  "dateRangeFilter": "Date Range Filter",
+  "dateRangeOptional": "(optional)",
+  "startDate": "Start Date",
+  "endDate": "End Date",
+  "clear": "Clear",
+  "dateRangeRequiresMembership": "Requires Standard Membership or higher",
+  "selectUpToCount": "Select up to {max}. Current: {current}",
+  "selectConversationToAnalyze": "Select conversation to analyze",
+  "clearSelections": "Clear Selections",
+  "analyzeRandomMetrics": "Analyze {count} random metrics",
+  "saveSelections": "Save Selections",
+  "loadSelections": "Load Selections",
+  "saveMetricListName": "Save Metric List",
+  "enterListName": "Enter a name for this metric list:",
+  "save": "Save",
+  "cancel": "Cancel",
+  "chooseSavedMetrics": "Choose saved metrics list:",
+  "noSavedLists": "No saved metric lists to load at this time.",
+  "metricListSaved": "Metric list saved successfully.",
+  "metricListLoaded": "Metric list loaded successfully.",
+  "filters": "??",
+  "@filters": {
+    "description": "Header for the filters section in SMS conversation picker"
+  },
+  "sortBy": "?? ??:",
+  "@sortBy": {
+    "description": "Label for sort options"
+  },
+  "recent": "??",
+  "@recent": {
+    "description": "Sort option for most recent messages"
+  },
+  "name": "??",
+  "@name": {
+    "description": "Sort option by contact name"
+  },
+  "count": "?",
+  "@count": {
+    "description": "Sort option by message count"
+  },
+  "namedOnly": "?? ?? ??",
+  "@namedOnly": {
+    "description": "Checkbox label to show only threads with contact names"
+  },
+  "minMessages": "?? ???:",
+  "@minMessages": {
+    "description": "Checkbox label for minimum message count filter"
+  },
+  "minimumMessages": "?? ??? ?:",
+  "@minimumMessages": {
+    "description": "Label showing the minimum message count value"
+  },
+  "executiveSummary": "??",
+  "metricScores": "??? ??",
+  "contextualEvidenceExamples": "?? ?? ??",
+  "neutralSynthesis": "??? ??",
+  "analysisOfSender": "Analysis of {sender} (Sender)",
+  "analysisOfReceiver": "Analysis of {receiver} (Receiver)",
+  "finalConclusion": "?? ??",
+
+  "metric_1_name": "Contempt",
+  "metric_1_description": "Looks for superiority, disgust, mockery, eye-rolling language, or insults that place one partner beneath the other.",
+  "metric_2_name": "Defensiveness",
+  "metric_2_description": "Tracks reflexive self-protection, counterattacks, excuses, and refusal to consider the other person's complaint.",
+  "metric_3_name": "Stonewalling",
+  "metric_3_description": "Identifies shutdown, withdrawal, ignoring, refusal to answer, or ending conversations to avoid engagement.",
+  "metric_4_name": "Criticism",
+  "metric_4_description": "Detects attacks on character or personality instead of specific behaviors, needs, or incidents.",
+  "metric_5_name": "Gaslighting Indicators",
+  "metric_5_description": "Flags attempts to make someone doubt memory, perception, sanity, or the legitimacy of their experience.",
+  "metric_6_name": "Blame Shifting",
+  "metric_6_description": "Measures whether responsibility is redirected onto the other partner instead of being acknowledged directly.",
+  "metric_7_name": "Escalation Pattern",
+  "metric_7_description": "Evaluates whether tone, accusations, intensity, or threats increase instead of moving toward resolution.",
+  "metric_8_name": "Repair Attempt Recognition",
+  "metric_8_description": "Checks whether apologies, humor, pauses, reassurance, or peace offerings are noticed and accepted.",
+  "metric_9_name": "Accountability Language",
+  "metric_9_description": "Looks for clear ownership of harm, specific responsibility, and willingness to change behavior.",
+  "metric_10_name": "Boundary Respect",
+  "metric_10_description": "Assesses whether stated limits around time, privacy, body, emotions, or contact are honored.",
+  "metric_11_name": "Coercive Control Indicators",
+  "metric_11_description": "Flags patterns of intimidation, restriction, monitoring, dependency, or control over choices and movement.",
+  "metric_12_name": "Threat Language",
+  "metric_12_description": "Identifies explicit or implied threats involving safety, abandonment, exposure, retaliation, or punishment.",
+  "metric_13_name": "Dismissiveness",
+  "metric_13_description": "Detects brushing off concerns, treating needs as unimportant, or refusing to take distress seriously.",
+  "metric_14_name": "Invalidation",
+  "metric_14_description": "Measures denial, ridicule, or correction of another person's emotions instead of acknowledging them.",
+  "metric_15_name": "Empathy Expression",
+  "metric_15_description": "Looks for perspective-taking, care, emotional recognition, and concern for the other person's experience.",
+  "metric_16_name": "Reciprocity",
+  "metric_16_description": "Assesses whether attention, effort, apology, compromise, and emotional support flow both ways.",
+  "metric_17_name": "Emotional Regulation",
+  "metric_17_description": "Evaluates ability to stay grounded, pause, self-soothe, and communicate without explosive reactivity.",
+  "metric_18_name": "Sarcasm Used as Harm",
+  "metric_18_description": "Flags sarcasm used to belittle, punish, humiliate, or disguise hostility as humor.",
+  "metric_19_name": "Name Calling",
+  "metric_19_description": "Identifies derogatory labels, insults, profanity directed at the person, or identity-based attacks.",
+  "metric_20_name": "Silent Treatment Pattern",
+  "metric_20_description": "Tracks silence used as punishment, control, avoidance, or withdrawal of connection.",
+  "metric_21_name": "Jealousy Framing",
+  "metric_21_description": "Evaluates suspicion, possessiveness, accusations, or jealousy presented as proof of care.",
+  "metric_22_name": "Isolation Pressure",
+  "metric_22_description": "Flags efforts to separate a partner from friends, family, support systems, or outside perspectives.",
+  "metric_23_name": "Financial Control Indicators",
+  "metric_23_description": "Looks for control of money, spending, employment, access to accounts, or financial independence.",
+  "metric_24_name": "Privacy Invasion Indicators",
+  "metric_24_description": "Detects snooping, password demands, device checks, location tracking, or privacy violations.",
+  "metric_25_name": "Apology Specificity",
+  "metric_25_description": "Measures whether apologies name the exact harm, impact, and future correction instead of staying vague.",
+  "metric_26_name": "Forgiveness Pressure",
+  "metric_26_description": "Flags demands to move on, forgive quickly, or stop discussing harm before repair occurs.",
+  "metric_27_name": "Minimization",
+  "metric_27_description": "Detects downplaying harm, calling serious concerns dramatic, or reducing impact to avoid responsibility.",
+  "metric_28_name": "Projection",
+  "metric_28_description": "Looks for accusations that mirror the speaker's own behavior, motives, or unresolved feelings.",
+  "metric_29_name": "Interruption Pattern",
+  "metric_29_description": "Tracks cutting off, talking over, refusing completion, or controlling conversational turns.",
+  "metric_30_name": "Topic Deflection",
+  "metric_30_description": "Identifies changing the subject, bringing up unrelated issues, or avoiding the central concern.",
+  "metric_31_name": "Resolution Orientation",
+  "metric_31_description": "Measures whether messages aim toward solutions, clarity, agreements, and next steps.",
+  "metric_32_name": "Mutual Problem Solving",
+  "metric_32_description": "Assesses collaborative language, shared responsibility, brainstorming, and willingness to find workable compromises.",
+  "metric_33_name": "Emotional Flooding",
+  "metric_33_description": "Detects overwhelm, panic, shutdown, spiraling, or inability to process during conflict.",
+  "metric_34_name": "Fear Response Cues",
+  "metric_34_description": "Looks for appeasing, careful wording, dread, safety concerns, or fear of the partner's reaction.",
+  "metric_35_name": "Consistency of Claims",
+  "metric_35_description": "Evaluates whether accounts remain internally consistent across messages and time.",
+  "metric_36_name": "Evidence-Based Recollection",
+  "metric_36_description": "Checks whether claims reference concrete events, quotes, timelines, or observable behavior.",
+  "metric_37_name": "Demand Withdrawal Pattern",
+  "metric_37_description": "Tracks one partner pursuing answers or change while the other avoids, shuts down, or exits.",
+  "metric_38_name": "Power Imbalance Indicators",
+  "metric_38_description": "Flags unequal decision power, fear of consequences, dependence, intimidation, or unilateral control.",
+  "metric_39_name": "Respectful Disagreement",
+  "metric_39_description": "Measures whether conflict preserves dignity, curiosity, and disagreement without degradation.",
+  "metric_40_name": "Rupture and Repair Cycle",
+  "metric_40_description": "Assesses whether conflict is followed by acknowledgment, reconnection, and actual repair.",
+  "metric_41_name": "Affection Withdrawal",
+  "metric_41_description": "Detects love, warmth, sex, attention, or reassurance being withheld as punishment or leverage.",
+  "metric_42_name": "Public Humiliation References",
+  "metric_42_description": "Flags threats, jokes, or actions that embarrass the partner in front of others.",
+  "metric_43_name": "Substance-Linked Conflict Cues",
+  "metric_43_description": "Looks for alcohol or drug use being tied to aggression, unreliability, conflict, or harm.",
+  "metric_44_name": "Parenting Conflict Pressure",
+  "metric_44_description": "Identifies children, custody, parenting roles, or parental guilt used in conflict or leverage.",
+  "metric_45_name": "Sexual Boundary Respect",
+  "metric_45_description": "Assesses respect for consent, pressure, refusal, comfort, timing, and sexual autonomy.",
+  "metric_46_name": "Digital Harassment Indicators",
+  "metric_46_description": "Tracks repeated unwanted messages, spam calls, online pressure, surveillance, or platform-based intimidation.",
+  "metric_47_name": "Monitoring or Surveillance Language",
+  "metric_47_description": "Flags checking whereabouts, demanding proof, tracking behavior, or constant verification.",
+  "metric_48_name": "Future Orientation",
+  "metric_48_description": "Measures whether partners discuss future improvement, commitments, plans, or constructive direction.",
+  "metric_49_name": "Safety Planning Signals",
+  "metric_49_description": "Looks for attempts to seek help, create distance, document harm, or plan for physical/emotional safety.",
+  "metric_50_name": "Mutual De-escalation Attempts",
+  "metric_50_description": "Tracks pauses, calming language, softer tone, timeouts, and attempts by both partners to reduce intensity.",
+  "metric_51_name": "Secure Attachment Cues",
+  "metric_51_description": "Identifies trust, direct reassurance, emotional availability, and comfort with closeness and independence.",
+  "metric_52_name": "Anxious Attachment Activation",
+  "metric_52_description": "Flags protest behavior, urgent reassurance needs, abandonment fear, and heightened sensitivity to distance.",
+  "metric_53_name": "Avoidant Attachment Distancing",
+  "metric_53_description": "Detects emotional minimization, independence defenses, withdrawal from vulnerability, or discomfort with needs.",
+  "metric_54_name": "Disorganized Attachment Signals",
+  "metric_54_description": "Looks for approach-avoid cycles, fear mixed with need, chaotic reactions, or confusing intimacy patterns.",
+  "metric_55_name": "Emotional Bids and Responses",
+  "metric_55_description": "Measures invitations for attention, comfort, or connection and whether they are accepted or missed.",
+  "metric_56_name": "Turning Away from Connection",
+  "metric_56_description": "Flags ignoring, dismissing, or failing to respond to bids for closeness or support.",
+  "metric_57_name": "Turning Against Connection",
+  "metric_57_description": "Detects hostile or punishing responses to attempts at affection, vulnerability, or repair.",
+  "metric_58_name": "Positive Sentiment Override",
+  "metric_58_description": "Looks for generosity, benefit-of-the-doubt, fondness, and interpreting conflict through care.",
+  "metric_59_name": "Negative Sentiment Override",
+  "metric_59_description": "Flags assuming bad intent, interpreting neutral messages negatively, and persistent hostile framing.",
+  "metric_60_name": "Harsh Startup Pattern",
+  "metric_60_description": "Identifies conversations that begin with accusation, attack, contempt, or blame rather than a request.",
+  "metric_61_name": "Soft Startup Pattern",
+  "metric_61_description": "Looks for gentle openings using feelings, needs, specific requests, and non-accusatory language.",
+  "metric_62_name": "Physiological Self-Soothing",
+  "metric_62_description": "Assesses attempts to pause, breathe, take space, or regulate the body before continuing conflict.",
+  "metric_63_name": "Conflict Avoidance Pattern",
+  "metric_63_description": "Tracks repeated avoidance of necessary topics, discomfort, disagreement, or emotional honesty.",
+  "metric_64_name": "Volatile Conflict Style",
+  "metric_64_description": "Detects high-intensity conflict with direct expression that may still include engagement and repair.",
+  "metric_65_name": "Validating Conflict Style",
+  "metric_65_description": "Measures whether partners acknowledge each other's perspective while disagreeing.",
+  "metric_66_name": "Hostile Conflict Style",
+  "metric_66_description": "Flags frequent criticism, contempt, defensiveness, attacks, and adversarial framing.",
+  "metric_67_name": "Hostile-Detached Pattern",
+  "metric_67_description": "Identifies cold hostility, emotional disengagement, contempt, and low repair motivation.",
+  "metric_68_name": "Compromise Willingness",
+  "metric_68_description": "Looks for flexibility, negotiation, middle-ground proposals, and sacrifices that respect both needs.",
+  "metric_69_name": "Influence Acceptance",
+  "metric_69_description": "Measures openness to being affected by the partner's feelings, needs, or perspective.",
+  "metric_70_name": "Gridlocked Conflict Signals",
+  "metric_70_description": "Flags repeated unsolved issues tied to values, dreams, identity, or chronic incompatibility.",
+  "metric_71_name": "Solvable Problem Framing",
+  "metric_71_description": "Detects practical, concrete problem definitions that can lead to specific agreements.",
+  "metric_72_name": "Shared Meaning References",
+  "metric_72_description": "Looks for values, rituals, goals, memories, or identity language that creates a shared relationship story.",
+  "metric_73_name": "Love Map Awareness",
+  "metric_73_description": "Assesses knowledge of the partner's inner world, stressors, preferences, fears, and daily life.",
+  "metric_74_name": "Fondness and Admiration",
+  "metric_74_description": "Identifies appreciation, respect, warmth, compliments, gratitude, and positive regard.",
+  "metric_75_name": "Emotional Labor Imbalance",
+  "metric_75_description": "Flags one partner carrying disproportionate planning, soothing, remembering, explaining, or relationship maintenance.",
+  "metric_76_name": "Mental Load Dismissal",
+  "metric_76_description": "Detects minimizing invisible planning work, household coordination, scheduling, or responsibility tracking.",
+  "metric_77_name": "Weaponized Incompetence Cues",
+  "metric_77_description": "Looks for claiming inability, confusion, or helplessness to avoid fair responsibility.",
+  "metric_78_name": "Trauma Trigger Sensitivity",
+  "metric_78_description": "Measures awareness of triggers, trauma responses, and careful handling of vulnerable topics.",
+  "metric_79_name": "Hypervigilance Cues",
+  "metric_79_description": "Flags scanning for danger, over-monitoring tone, fear of mistakes, or constant emotional alertness.",
+  "metric_80_name": "Abandonment Fear Language",
+  "metric_80_description": "Detects fear of being left, replaced, ignored, discarded, or emotionally deserted.",
+  "metric_81_name": "Reassurance Seeking Pattern",
+  "metric_81_description": "Tracks repeated requests for proof of love, commitment, safety, or continued interest.",
+  "metric_82_name": "Pursuer-Distancer Cycle",
+  "metric_82_description": "Identifies one partner escalating pursuit for closeness while the other increases distance.",
+  "metric_83_name": "Resentment Accumulation",
+  "metric_83_description": "Looks for stored grievances, repeated past references, bitterness, and unresolved emotional debt.",
+  "metric_84_name": "Scorekeeping Behavior",
+  "metric_84_description": "Flags transactional counting of faults, favors, sacrifices, or mistakes to gain leverage.",
+  "metric_85_name": "Conditional Affection",
+  "metric_85_description": "Detects love, approval, access, or warmth offered only when compliance is achieved.",
+  "metric_86_name": "Love Bombing Indicators",
+  "metric_86_description": "Flags intense affection, promises, pressure, or idealization used to accelerate attachment or control.",
+  "metric_87_name": "Hoovering Attempts",
+  "metric_87_description": "Identifies attempts to pull someone back through guilt, nostalgia, promises, crises, or sudden affection.",
+  "metric_88_name": "DARVO Pattern",
+  "metric_88_description": "Detects deny, attack, and reverse-victim-offender responses when confronted about harm.",
+  "metric_89_name": "Victim Stance Pattern",
+  "metric_89_description": "Flags recurring self-victimization that avoids accountability or redirects attention from harm caused.",
+  "metric_90_name": "Moral Superiority Framing",
+  "metric_90_description": "Looks for righteousness, purity claims, or ethical superiority used to dominate conflict.",
+  "metric_91_name": "Character Assassination",
+  "metric_91_description": "Detects broad attacks on identity, integrity, mental health, or worth rather than specific behavior.",
+  "metric_92_name": "Triangulation Indicators",
+  "metric_92_description": "Flags bringing third parties into conflict to pressure, compare, validate, or destabilize the partner.",
+  "metric_93_name": "Social Comparison Pressure",
+  "metric_93_description": "Looks for comparisons to exes, friends, other couples, or ideals used to shame or coerce.",
+  "metric_94_name": "Autonomy Support",
+  "metric_94_description": "Measures respect for independent choices, friendships, goals, boundaries, and personal agency.",
+  "metric_95_name": "Consent and Choice Respect",
+  "metric_95_description": "Assesses whether decisions are freely made without pressure, guilt, threats, or manipulation.",
+  "metric_96_name": "Collaborative Planning",
+  "metric_96_description": "Looks for shared scheduling, joint decisions, coordinated responsibilities, and practical follow-through.",
+  "metric_97_name": "Repair Follow-Through",
+  "metric_97_description": "Measures whether promised changes are later reflected in behavior, not just words.",
+  "metric_98_name": "Changed Behavior Evidence",
+  "metric_98_description": "Checks for observable, repeated actions showing learning, adjustment, or reduced harmful behavior.",
+  "metric_99_name": "Emotional Safety Language",
+  "metric_99_description": "Identifies language that invites honesty, lowers fear, protects dignity, and reassures safe expression.",
+  "metric_100_name": "Relationship Ambivalence",
+  "metric_100_description": "Detects uncertainty, mixed commitment, push-pull messaging, or unclear desire to continue."
+}

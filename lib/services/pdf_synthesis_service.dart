@@ -2,12 +2,14 @@ import 'dart:typed_data';
 
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:which_partner_is_toxic/models.dart';
+import 'package:airta/models.dart';
 
 class PdfSynthesisService {
   Future<Uint8List> constructForensicDocument({
     required ConversationThread thread,
     required PsychologicalAnalysisReport report,
+    DateTime? dateRangeStart,
+    DateTime? dateRangeEnd,
   }) async {
     final document = pw.Document();
 
@@ -16,14 +18,26 @@ class PdfSynthesisService {
         pageFormat: PdfPageFormat.a4,
         margin: const pw.EdgeInsets.all(32),
         build: (context) {
-          return [
+          final headerChildren = [
             pw.Header(
               level: 0,
               child: pw.Text('AI Relationship Toxicity Analyzer Report'),
             ),
             pw.Text('Source: ${_sanitizePdfText(thread.platformSource)}'),
             pw.Text('Messages analyzed: ${thread.totalMessages}'),
-            pw.SizedBox(height: 18),
+          ];
+
+          // Add date range if specified
+          if (dateRangeStart != null && dateRangeEnd != null) {
+            final dateFormat = '${dateRangeStart.year}-${dateRangeStart.month.toString().padLeft(2, '0')}-${dateRangeStart.day.toString().padLeft(2, '0')}';
+            final endDateFormat = '${dateRangeEnd.year}-${dateRangeEnd.month.toString().padLeft(2, '0')}-${dateRangeEnd.day.toString().padLeft(2, '0')}';
+            headerChildren.add(pw.Text('Analysis date range: $dateFormat to $endDateFormat'));
+          }
+
+          headerChildren.add(pw.SizedBox(height: 18));
+
+          return [
+            ...headerChildren,
             pw.Header(level: 1, child: pw.Text('Executive Summary')),
             pw.Text(_sanitizePdfText(report.executiveSummary)),
             pw.SizedBox(height: 14),

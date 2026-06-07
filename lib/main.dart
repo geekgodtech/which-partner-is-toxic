@@ -1,15 +1,34 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:which_partner_is_toxic/controllers/toxicity_analyzer_controller.dart';
-import 'package:which_partner_is_toxic/widgets/toxicity_analyzer_master_view.dart';
-import 'package:which_partner_is_toxic/services/subscription_service.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:airta/controllers/toxicity_analyzer_controller.dart';
+import 'package:airta/widgets/toxicity_analyzer_master_view.dart';
+import 'package:airta/services/subscription_service.dart';
+import 'package:airta/services/remote_config_service.dart';
+import 'package:airta/services/version_check_service.dart';
+import 'package:airta/services/language_service.dart';
+import 'package:airta/l10n/app_localizations.dart';
+import 'package:airta/screens/force_update_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Initialize Firebase (optional - won't hang if not configured)
+  try {
+    await Firebase.initializeApp();
+    await RemoteConfigService().initialize();
+  } catch (e) {
+    print('Firebase not configured yet: $e');
+    // App will use default values
+  }
+
   // Initialize subscription service
   await SubscriptionService().initialize();
+
+  // Initialize language service
+  await LanguageService().initialize();
 
   runApp(const ToxicityAnalyzerApp());
 }
@@ -24,10 +43,41 @@ class ToxicityAnalyzerApp extends StatefulWidget {
 class _ToxicityAnalyzerAppState extends State<ToxicityAnalyzerApp> {
   bool _permissionsGranted = false;
   bool _showPermissionDialog = true;
+  bool _updateRequired = false;
+  bool _checkingVersion = true;
 
   @override
   void initState() {
     super.initState();
+    _initializeApp();
+  }
+
+  Future<void> _initializeApp() async {
+    try {
+      // Check if update is required with timeout
+      final versionService = VersionCheckService();
+      final updateRequired = await versionService
+          .isUpdateRequired()
+          .timeout(const Duration(seconds: 5), onTimeout: () {
+        print('Version check timed out, continuing...');
+        return false;
+      });
+
+      if (updateRequired) {
+        setState(() {
+          _updateRequired = true;
+          _checkingVersion = false;
+        });
+        return;
+      }
+    } catch (e) {
+      print('Version check error: $e');
+    }
+
+    // If no update required, check permissions
+    setState(() {
+      _checkingVersion = false;
+    });
     _checkPermissions();
   }
 
@@ -57,20 +107,52 @@ class _ToxicityAnalyzerAppState extends State<ToxicityAnalyzerApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Which partner is at fault?',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
-        useMaterial3: true,
-      ),
-      home: _showPermissionDialog
-          ? _PermissionRequestScreen(onAccept: _requestPermissions)
-          : ChangeNotifierProvider(
-              create: (_) => ToxicityAnalyzerController()
-                ..loadPersistentFreeTierState()
-                ..initializeIosShareIntentListener(),
-              child: const ToxicityAnalyzerMasterView(),
+    return ChangeNotifierProvider.value(
+      value: LanguageService(),
+      child: Consumer<LanguageService>(
+        builder: (context, languageService, child) {
+          return MaterialApp(
+            title: 'Which partner is at fault?',
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+              useMaterial3: true,
             ),
+            locale: languageService.currentLocale,
+            supportedLocales: LanguageService.supportedLocales,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            localeResolutionCallback: LanguageService.localeResolutionCallback,
+            home: _checkingVersion
+                ? const Scaffold(
+                    body: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  )
+                : _updateRequired
+                    ? ForceUpdateScreen()
+                    : _showPermissionDialog
+                        ? _PermissionRequestScreen(
+                            onAccept: _requestPermissions)
+                        : MultiProvider(
+                            providers: [
+                              ChangeNotifierProvider(
+                                create: (_) => ToxicityAnalyzerController()
+                                  ..loadPersistentFreeTierState()
+                                  ..initializeIosShareIntentListener(),
+                              ),
+                              ChangeNotifierProvider.value(
+                                value: SubscriptionService(),
+                              ),
+                            ],
+                            child: const ToxicityAnalyzerMasterView(),
+                          ),
+          );
+        },
+      ),
     );
   }
 }
@@ -120,9 +202,9 @@ class _PermissionRequestScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.blue.withOpacity(0.1),
+                  color: Colors.blue.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.blue.withOpacity(0.3)),
+                  border: Border.all(color: Colors.blue.withValues(alpha: 0.3)),
                 ),
                 child: const Row(
                   children: [
@@ -178,7 +260,7 @@ class _PermissionItem extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.blueGrey.withOpacity(0.1),
+            color: Colors.blueGrey.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Icon(icon, color: Colors.blueGrey),

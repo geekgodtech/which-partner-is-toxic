@@ -18,6 +18,7 @@ class SubscriptionService extends ChangeNotifier {
   static const String proMonthlyId = 'pro_monthly';
   static const String proPlusMonthlyId = 'pro_plus_monthly';
   static const String oneTimeUnlockId = 'one_time_unlock';
+  static const String discordAddonMonthlyId = 'discord_addon_monthly';
 
   // Available products
   List<ProductDetails> _products = [];
@@ -68,7 +69,7 @@ class SubscriptionService extends ChangeNotifier {
 
     try {
       final response = await _iap.queryProductDetails(productIds);
-      
+
       if (response.error != null) {
         debugPrint('Error loading products: ${response.error}');
         return;
@@ -76,11 +77,12 @@ class SubscriptionService extends ChangeNotifier {
 
       _products = response.productDetails;
       debugPrint('Loaded ${_products.length} products');
-      
+
       for (final product in _products) {
-        debugPrint('Product: ${product.id} - ${product.title} - ${product.price}');
+        debugPrint(
+            'Product: ${product.id} - ${product.title} - ${product.price}');
       }
-      
+
       notifyListeners();
     } catch (e) {
       debugPrint('Exception loading products: $e');
@@ -113,7 +115,7 @@ class SubscriptionService extends ChangeNotifier {
   Future<void> _verifyAndActivatePurchase(PurchaseDetails purchase) async {
     // In production, verify the purchase with your backend server
     // For now, we'll trust the store's verification
-    
+
     final productId = purchase.productID;
     MembershipTier tier = MembershipTier.free;
 
@@ -139,11 +141,11 @@ class SubscriptionService extends ChangeNotifier {
   /// Activate a membership tier
   Future<void> _activateTier(MembershipTier tier) async {
     _activeTier = tier;
-    
+
     // Save to local storage
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('membership_tier', tier.name);
-    
+
     notifyListeners();
   }
 
@@ -155,7 +157,7 @@ class SubscriptionService extends ChangeNotifier {
     );
 
     final purchaseParam = PurchaseParam(productDetails: product);
-    
+
     try {
       final success = await _iap.buyNonConsumable(purchaseParam: purchaseParam);
       return success;
@@ -169,11 +171,11 @@ class SubscriptionService extends ChangeNotifier {
   Future<void> restorePurchases() async {
     try {
       await _iap.restorePurchases();
-      
+
       // Load saved tier from local storage
       final prefs = await SharedPreferences.getInstance();
       final savedTier = prefs.getString('membership_tier');
-      
+
       if (savedTier != null) {
         _activeTier = MembershipTier.values.firstWhere(
           (t) => t.name == savedTier,
@@ -189,6 +191,12 @@ class SubscriptionService extends ChangeNotifier {
   /// Check if user has a specific tier or higher
   bool hasTier(MembershipTier tier) {
     return _activeTier.index >= tier.index;
+  }
+
+  /// Debug method to manually set tier for testing
+  Future<void> debugSetTier(MembershipTier tier) async {
+    await _activateTier(tier);
+    debugPrint('DEBUG: Manually set tier to $tier');
   }
 
   /// Get product by ID

@@ -2,7 +2,7 @@ import 'dart:io';
 // We give these imports strict nicknames so the app CANNOT get confused
 import 'package:file_picker/file_picker.dart' as fp;
 import 'package:csv/csv.dart' as csv_lib;
-import 'package:which_partner_is_toxic/models.dart';
+import 'package:airta/models.dart';
 
 class DataParserService {
   static Future<ConversationThread?> pickAndParseFile() async {

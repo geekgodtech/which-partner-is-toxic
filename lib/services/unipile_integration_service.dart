@@ -3,8 +3,76 @@ import 'package:http/http.dart' as http;
 import '../models.dart';
 
 class UnipileIntegrationService {
-  static const String baseUrl = 'https://api22.unipile.com:15260/api/v1';
-  static const String _apiKey = 'UNIPILE_API_KEY_HERE';
+  // Unipile credentials from environment variables (passed via --dart-define)
+  // Never commit these to Git!
+  static const String baseUrl = String.fromEnvironment(
+    'UNIPILE_API_URL',
+    defaultValue: '',
+  );
+
+  static const String _apiKey = String.fromEnvironment(
+    'UNIPILE_API_KEY',
+    defaultValue: '',
+  );
+
+  // Demo mode - automatically enabled if credentials not provided
+  static bool get _demoMode => baseUrl.isEmpty || _apiKey.isEmpty;
+
+  /// Generates a hosted auth link for user to connect their messaging accounts
+  ///
+  /// Returns the URL to redirect user to for authentication
+  /// In demo mode, returns null to indicate credentials not configured
+  Future<String?> generateHostedAuthLink({
+    required String userId,
+    String? successRedirectUrl,
+    String? failureRedirectUrl,
+  }) async {
+    if (_demoMode) {
+      // Demo mode - credentials not configured yet
+      return null;
+    }
+
+    try {
+      final uri = Uri.parse('$baseUrl/hosted/accounts/link');
+
+      final body = {
+        'type': 'create',
+        'api_url': baseUrl.replaceAll('/api/v1', ''),
+        'expiresOn':
+            DateTime.now().add(const Duration(hours: 1)).toIso8601String(),
+        'providers': '*', // All providers
+        'name': userId, // Your internal user ID for matching
+        if (successRedirectUrl != null)
+          'success_redirect_url': successRedirectUrl,
+        if (failureRedirectUrl != null)
+          'failure_redirect_url': failureRedirectUrl,
+      };
+
+      final response = await http.post(
+        uri,
+        headers: {
+          'X-API-KEY': _apiKey,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: json.encode(body),
+      );
+
+      if (response.statusCode != 200) {
+        throw _createApiException(response.statusCode, response.body);
+      }
+
+      final jsonData = json.decode(response.body) as Map<String, dynamic>;
+      return jsonData['url'] as String?;
+    } catch (e) {
+      if (e is UnipileApiException) {
+        rethrow;
+      }
+      throw UnipileApiException(
+        'Failed to generate hosted auth link: ${e.toString()}',
+      );
+    }
+  }
 
   /// Fetches premium chat threads for a given account ID from Unipile API
   ///
@@ -94,8 +162,7 @@ class UnipileIntegrationService {
     final chatId =
         unipileChat['chat_id'] as String? ?? unipileChat['id'] as String? ?? '';
 
-    final platform =
-        unipileChat['platform'] as String? ??
+    final platform = unipileChat['platform'] as String? ??
         unipileChat['provider'] as String? ??
         'Unknown';
 
@@ -104,8 +171,7 @@ class UnipileIntegrationService {
       platformSource: platform,
       fileSource:
           platform, // Using platform as file source for API-fetched threads
-      messages:
-          [], // Messages will be loaded separately via fetchMessagesForThread
+      messages: [], // Messages will be loaded separately via fetchMessagesForThread
     );
   }
 
@@ -114,31 +180,26 @@ class UnipileIntegrationService {
     Map<String, dynamic> unipileMessage,
     String? localUserId,
   ) {
-    final messageId =
-        unipileMessage['message_id'] as String? ??
+    final messageId = unipileMessage['message_id'] as String? ??
         unipileMessage['id'] as String? ??
         '';
 
-    final senderId =
-        unipileMessage['sender_id'] as String? ??
+    final senderId = unipileMessage['sender_id'] as String? ??
         unipileMessage['from'] as String? ??
         'unknown';
 
-    final textBody =
-        unipileMessage['text'] as String? ??
+    final textBody = unipileMessage['text'] as String? ??
         unipileMessage['content'] as String? ??
         unipileMessage['body'] as String? ??
         '';
 
-    final senderName =
-        unipileMessage['sender_name'] as String? ??
+    final senderName = unipileMessage['sender_name'] as String? ??
         unipileMessage['from_name'] as String? ??
         senderId;
 
     // Parse timestamp - handle multiple possible timestamp formats
     DateTime timestamp;
-    final timestampValue =
-        unipileMessage['timestamp'] ??
+    final timestampValue = unipileMessage['timestamp'] ??
         unipileMessage['created_at'] ??
         unipileMessage['date'];
 

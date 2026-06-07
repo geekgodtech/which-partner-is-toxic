@@ -11,6 +11,7 @@ class ChatMessage {
   final String senderName;
   final String textContent;
   final bool isAttachment;
+  final String messageType; // 'SMS' or 'MMS' (RCS stored as MMS)
 
   ChatMessage({
     String? messageId,
@@ -22,6 +23,7 @@ class ChatMessage {
     List<Uint8List>? mediaAttachments,
     this.isInitiator = false,
     this.isAttachment = false,
+    this.messageType = 'SMS',
   }) : messageId = messageId ?? timestamp.microsecondsSinceEpoch.toString(),
        senderIdentifier = senderIdentifier ?? senderName,
        textBody = textBody ?? textContent ?? '',
@@ -45,6 +47,7 @@ class ChatMessage {
           .toList(),
       isInitiator: json['isInitiator'] as bool? ?? false,
       isAttachment: json['isAttachment'] as bool? ?? false,
+      messageType: json['messageType'] as String? ?? 'SMS',
     );
   }
 
@@ -59,6 +62,7 @@ class ChatMessage {
       'senderName': senderName,
       'textContent': textContent,
       'isAttachment': isAttachment,
+      'messageType': messageType,
     };
   }
 

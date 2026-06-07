@@ -5,12 +5,14 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:which_partner_is_toxic/config/app_secrets.dart';
-import 'package:which_partner_is_toxic/data_parser.dart';
-import 'package:which_partner_is_toxic/models.dart';
-import 'package:which_partner_is_toxic/services/deepseek_api_service.dart';
-import 'package:which_partner_is_toxic/services/pdf_synthesis_service.dart';
-import 'package:which_partner_is_toxic/services/unipile_integration_service.dart';
+import 'package:airta/config/app_secrets.dart';
+import 'package:airta/data_parser.dart';
+import 'package:airta/models.dart';
+import 'package:airta/services/deepseek_api_service.dart';
+import 'package:airta/services/language_service.dart';
+import 'package:airta/services/pdf_synthesis_service.dart';
+import 'package:airta/services/unipile_integration_service.dart';
+import 'package:airta/services/android_sms_service.dart' if (dart.library.io) 'package:airta/services/android_sms_service.dart';
 
 class ToxicityAnalyzerController extends ChangeNotifier {
   static const int requiredMetricSelectionCount =
@@ -40,6 +42,15 @@ class ToxicityAnalyzerController extends ChangeNotifier {
   final List<DateTime> _standardReportRunTimes = <DateTime>[];
   StreamSubscription<List<SharedMediaFile>>? _sharedMediaSubscription;
 
+  // Cached global message type counts
+  int _globalSmsCount = 0;
+  int _globalMmsCount = 0;
+  bool _globalCountsLoaded = false;
+
+  // Last fetch counts from SMS service
+  int _lastFetchSmsCount = 0;
+  int _lastFetchMmsCount = 0;
+
   ConversationThread? activeThread;
   PsychologicalAnalysisReport? activeReport;
   Uint8List? activePdfBytes;
@@ -49,6 +60,7 @@ class ToxicityAnalyzerController extends ChangeNotifier {
   bool isPremiumUnlocked = false;
   bool isCurrentReportUnlocked = false;
   bool isConnectedAccountsUnlocked = false;
+  bool isDiscordAddonUnlocked = false;
   bool isFetchingCloudData = false;
   int notNowPressCount = 0;
   bool hasSeenReferralOffer = false;
@@ -56,6 +68,9 @@ class ToxicityAnalyzerController extends ChangeNotifier {
   bool hasCompletedFirstReport = false;
   String? statusMessage;
   String? errorMessage;
+  DateTime? dateRangeStart;
+  DateTime? dateRangeEnd;
+  int randomMetricsCount = 20;
 
   List<PsychologicalMetric> get selectedMetrics {
     return availableMetrics
@@ -68,6 +83,8 @@ class ToxicityAnalyzerController extends ChangeNotifier {
       _selectedMetricIds.length <= requiredMetricSelectionCount;
 
   int get selectedMetricCount => _selectedMetricIds.length;
+
+  Set<String> get selectedMetricIds => _selectedMetricIds;
 
   bool get canAccessFullCurrentReport =>
       isPremiumUnlocked || isCurrentReportUnlocked;
@@ -111,6 +128,192 @@ class ToxicityAnalyzerController extends ChangeNotifier {
     isPremiumUnlocked = true;
     isConnectedAccountsUnlocked = true;
     notifyListeners();
+  }
+
+  void unlockDiscordAddon() {
+    isDiscordAddonUnlocked = true;
+    notifyListeners();
+  }
+
+  void setDateRange(DateTime? start, DateTime? end) {
+    dateRangeStart = start;
+    // Set end date to end of day to include all messages on that day
+    if (end != null) {
+      dateRangeEnd = DateTime(end.year, end.month, end.day, 23, 59, 59, 999);
+    } else {
+      dateRangeEnd = null;
+    }
+    notifyListeners();
+  }
+
+  void clearDateRange() {
+    dateRangeStart = null;
+    dateRangeEnd = null;
+    notifyListeners();
+  }
+
+  bool get hasDateRange => dateRangeStart != null && dateRangeEnd != null;
+
+  void setRandomMetricsCount(int count) {
+    randomMetricsCount = count.clamp(2, 20);
+    notifyListeners();
+  }
+
+  List<ChatMessage> filterMessagesByDateRange(List<ChatMessage> messages) {
+    if (!hasDateRange) return messages;
+
+    int messagesWithTimestamp = 0;
+    int messagesInRange = 0;
+
+    final filtered = messages.where((message) {
+      final messageDate = message.timestamp;
+      if (messageDate == null) return false;
+
+      messagesWithTimestamp++;
+
+      // Normalize dates to midnight for comparison
+      final messageDateNormalized = DateTime(messageDate.year, messageDate.month, messageDate.day);
+      final startDateNormalized = DateTime(dateRangeStart!.year, dateRangeStart!.month, dateRangeStart!.day);
+      final endDateNormalized = DateTime(dateRangeEnd!.year, dateRangeEnd!.month, dateRangeEnd!.day);
+
+      // Check if message date is within the inclusive date range
+      final isInRange = !messageDateNormalized.isBefore(startDateNormalized) &&
+                        !messageDateNormalized.isAfter(endDateNormalized);
+      
+      if (isInRange) messagesInRange++;
+      
+      return isInRange;
+    }).toList();
+
+    _filteredMessageCount = messagesInRange;
+    _totalMessagesWithTimestamp = messagesWithTimestamp;
+    return filtered;
+  }
+
+  int _filteredMessageCount = 0;
+  int _totalMessagesWithTimestamp = 0;
+
+  String getDebugInfo() {
+    DateTime? newestMessageTimestamp;
+    if (activeThread != null && activeThread!.messages.isNotEmpty) {
+      newestMessageTimestamp = activeThread!.messages
+          .map((m) => m.timestamp)
+          .where((t) => t != null)
+          .cast<DateTime>()
+          .reduce((a, b) => a.isAfter(b) ? a : b);
+    }
+
+    // Count message types in current thread
+    int smsCount = 0;
+    int mmsCount = 0;
+    if (activeThread != null) {
+      for (final msg in activeThread!.messages) {
+        if (msg.messageType == 'SMS') {
+          smsCount++;
+        } else if (msg.messageType == 'MMS') {
+          mmsCount++;
+        }
+      }
+    }
+
+    // Load global counts if not already loaded
+    if (!_globalCountsLoaded && Platform.isAndroid) {
+      _loadGlobalMessageCounts();
+    }
+
+    return '''Date Range Debug Info:
+- hasDateRange: $hasDateRange
+- dateRangeStart: $dateRangeStart
+- dateRangeEnd: $dateRangeEnd
+- selectedMetricCount: $selectedMetricCount
+- hasSelectedMetricCount: $hasSelectedMetricCount
+- activeThread: ${activeThread != null ? 'Loaded (${activeThread!.messages.length} messages)' : 'Not loaded'}
+- isAnalyzing: $isAnalyzing
+- hasApiKey: $hasApiKey
+- hasReachedStandardDailyReportLimit: $hasReachedStandardDailyReportLimit
+- selectedMetricIds: $selectedMetricIds
+- Messages with timestamps: $_totalMessagesWithTimestamp
+- Messages in date range: $_filteredMessageCount
+- Newest message timestamp: $newestMessageTimestamp
+- Current thread SMS messages: $smsCount
+- Current thread MMS messages (pictures, videos, group texts): $mmsCount
+- Last fetch SMS messages: $_lastFetchSmsCount
+- Last fetch MMS messages: $_lastFetchMmsCount
+- Global SMS messages: $_globalSmsCount
+- Global MMS messages (pictures, videos, group texts): $_globalMmsCount''';
+  }
+
+  Future<void> _loadGlobalMessageCounts() async {
+    if (Platform.isAndroid) {
+      try {
+        final smsService = AndroidSmsService();
+        final counts = await smsService.getMessageTypeCounts();
+        _globalSmsCount = counts['sms'] ?? 0;
+        _globalMmsCount = counts['mms'] ?? 0;
+        _globalCountsLoaded = true;
+        notifyListeners();
+      } catch (e) {
+        // Ignore if not on Android or error
+      }
+    }
+  }
+
+  List<ChatMessage> sampleMessagesForTokenLimit(List<ChatMessage> messages, int maxTokens) {
+    // Estimate tokens (rough approximation: 4 chars per token)
+    int estimateTokens(String text) => (text.length / 4).ceil();
+
+    int totalTokens = 0;
+    List<ChatMessage> sampled = [];
+
+    if (messages.isEmpty) return messages;
+
+    // If within token limit, return all
+    for (var message in messages) {
+      totalTokens += estimateTokens(message.textBody);
+    }
+
+    if (totalTokens <= maxTokens) return messages;
+
+    // Otherwise, sample from beginning, middle, and end
+    final sortedMessages = List<ChatMessage>.from(messages);
+    sortedMessages.sort((a, b) => (a.timestamp ?? DateTime.now()).compareTo(b.timestamp ?? DateTime.now()));
+
+    final n = sortedMessages.length;
+    final sampleSize = (n / 3).ceil();
+
+    // Take from beginning
+    int currentTokens = 0;
+    for (int i = 0; i < sampleSize && i < n; i++) {
+      final tokens = estimateTokens(sortedMessages[i].textBody);
+      if (currentTokens + tokens > maxTokens / 3) break;
+      sampled.add(sortedMessages[i]);
+      currentTokens += tokens;
+    }
+
+    // Take from middle
+    currentTokens = 0;
+    final middleStart = (n / 2 - sampleSize / 2).floor().clamp(0, n);
+    for (int i = middleStart; i < middleStart + sampleSize && i < n; i++) {
+      final tokens = estimateTokens(sortedMessages[i].textBody);
+      if (currentTokens + tokens > maxTokens / 3) break;
+      sampled.add(sortedMessages[i]);
+      currentTokens += tokens;
+    }
+
+    // Take from end
+    currentTokens = 0;
+    final endStart = (n - sampleSize).clamp(0, n);
+    for (int i = endStart; i < n; i++) {
+      final tokens = estimateTokens(sortedMessages[i].textBody);
+      if (currentTokens + tokens > maxTokens / 3) break;
+      sampled.add(sortedMessages[i]);
+      currentTokens += tokens;
+    }
+
+    // Sort by timestamp
+    sampled.sort((a, b) => (a.timestamp ?? DateTime.now()).compareTo(b.timestamp ?? DateTime.now()));
+
+    return sampled;
   }
 
   Future<void> loadPersistentFreeTierState() async {
@@ -228,9 +431,9 @@ class ToxicityAnalyzerController extends ChangeNotifier {
   }
 
   Future<void> selectRandomMetricsAndExecuteAnalysis() async {
-    if (availableMetrics.length < requiredMetricSelectionCount) {
+    if (availableMetrics.length < randomMetricsCount) {
       errorMessage =
-          'At least $requiredMetricSelectionCount metrics are required for random selection.';
+          'At least $randomMetricsCount metrics are required for random selection.';
       notifyListeners();
       return;
     }
@@ -238,14 +441,14 @@ class ToxicityAnalyzerController extends ChangeNotifier {
     isRandomizingMetrics = true;
     _selectedMetricIds.clear();
     statusMessage =
-        'The wheel is spinning for $requiredMetricSelectionCount random metrics.';
+        'The wheel is spinning for $randomMetricsCount random metrics.';
     errorMessage = null;
     notifyListeners();
 
     final shuffledMetrics = List<PsychologicalMetric>.of(availableMetrics)
       ..shuffle(Random());
     final selectedRandomMetrics = shuffledMetrics
-        .take(requiredMetricSelectionCount)
+        .take(randomMetricsCount)
         .toList(growable: false);
 
     for (var index = 0; index < selectedRandomMetrics.length; index += 1) {
@@ -253,13 +456,13 @@ class ToxicityAnalyzerController extends ChangeNotifier {
       await Future<void>.delayed(const Duration(milliseconds: 120));
       _selectedMetricIds.add(metric.id);
       statusMessage =
-          'Contestant ${index + 1}/$requiredMetricSelectionCount: ${metric.name} is selected.';
+          'Contestant ${index + 1}/$randomMetricsCount: ${metric.name} is selected.';
       notifyListeners();
     }
 
     await Future<void>.delayed(const Duration(milliseconds: 350));
     statusMessage =
-        'Final answer locked: $requiredMetricSelectionCount metrics selected.';
+        'Final answer locked: $randomMetricsCount metrics selected.';
     isRandomizingMetrics = false;
     notifyListeners();
 
@@ -365,9 +568,36 @@ class ToxicityAnalyzerController extends ChangeNotifier {
     notifyListeners();
 
     try {
+      // Apply date range filtering if set
+      ConversationThread analysisThread = thread;
+      if (hasDateRange && dateRangeStart != null && dateRangeEnd != null) {
+        var filteredMessages = filterMessagesByDateRange(thread.messages);
+        
+        // Ensure we have messages after filtering
+        if (filteredMessages.isEmpty) {
+          errorMessage = 'No messages found in the selected date range. Please adjust your date range or clear it.';
+          isAnalyzing = false;
+          notifyListeners();
+          return;
+        }
+        
+        // Apply token limit sampling if needed (DeepSeek token limit ~128k)
+        const int maxTokens = 128000;
+        filteredMessages = sampleMessagesForTokenLimit(filteredMessages, maxTokens);
+        
+        // Create a new thread with filtered messages
+        analysisThread = ConversationThread(
+          threadId: thread.threadId,
+          platformSource: thread.platformSource,
+          messages: filteredMessages,
+          fileSource: thread.fileSource,
+        );
+      }
+      
       final report = await _deepSeekApiService.executeForensicAnalysis(
-        targetThread: thread,
+        targetThread: analysisThread,
         selectedMetrics: selectedMetricBundle,
+        languageCode: LanguageService().currentLanguageCode,
       );
       activeReport = report;
       _recordCompletedReportRun();
@@ -380,6 +610,8 @@ class ToxicityAnalyzerController extends ChangeNotifier {
         activePdfBytes = await _pdfSynthesisService.constructForensicDocument(
           thread: thread,
           report: report,
+          dateRangeStart: dateRangeStart,
+          dateRangeEnd: dateRangeEnd,
         );
         statusMessage =
             'AI analysis and PDF generation completed successfully.';
@@ -441,19 +673,18 @@ class ToxicityAnalyzerController extends ChangeNotifier {
       return;
     }
 
-    _sharedMediaSubscription ??= ReceiveSharingIntent.instance
-        .getMediaStream()
-        .listen(
-          _handleSharedMediaFiles,
-          onError: (Object error) {
-            errorMessage = error.toString();
-            notifyListeners();
-          },
-        );
+    _sharedMediaSubscription ??=
+        ReceiveSharingIntent.instance.getMediaStream().listen(
+      _handleSharedMediaFiles,
+      onError: (Object error) {
+        errorMessage = error.toString();
+        notifyListeners();
+      },
+    );
 
     ReceiveSharingIntent.instance.getInitialMedia().then(
-      _handleSharedMediaFiles,
-    );
+          _handleSharedMediaFiles,
+        );
   }
 
   void loadSmsThread(ConversationThread thread) {
@@ -464,6 +695,19 @@ class ToxicityAnalyzerController extends ChangeNotifier {
     statusMessage =
         'Loaded ${thread.totalMessages} messages from ${thread.platformSource}.';
     errorMessage = null;
+    
+    // Update last fetch counts from SMS service
+    if (Platform.isAndroid) {
+      try {
+        final smsService = AndroidSmsService();
+        final counts = smsService.getLastFetchCounts();
+        _lastFetchSmsCount = counts['sms'] ?? 0;
+        _lastFetchMmsCount = counts['mms'] ?? 0;
+      } catch (e) {
+        // Ignore if error
+      }
+    }
+    
     notifyListeners();
   }
 
@@ -1064,8 +1308,8 @@ List<PsychologicalMetric> _buildMetricCatalog() {
       severityWeight: number <= 10
           ? 5
           : number <= 30
-          ? 3
-          : 2,
+              ? 3
+              : 2,
     );
   }, growable: false);
 }

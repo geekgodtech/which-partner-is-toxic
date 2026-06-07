@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:provider/provider.dart';
-import 'package:which_partner_is_toxic/controllers/toxicity_analyzer_controller.dart';
-import 'package:which_partner_is_toxic/models.dart';
+import 'package:airta/controllers/toxicity_analyzer_controller.dart';
+import 'package:airta/models.dart';
 
 /// Screen for capturing iOS SMS messages via screenshots
 /// Since iOS doesn't allow direct SMS access, we guide users through
@@ -30,7 +29,21 @@ class _IosSmsCaptureScreenState extends State<IosSmssCaptureScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('iOS SMS Capture'),
+        title: LayoutBuilder(
+          builder: (context, constraints) {
+            final isNarrow = constraints.maxWidth < 400;
+            return Text(
+              'iOS SMS Capture',
+              style: TextStyle(
+                fontSize: isNarrow ? 18 : 20,
+                height: 1.0,
+                letterSpacing: isNarrow ? -0.5 : 0,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            );
+          },
+        ),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: SafeArea(

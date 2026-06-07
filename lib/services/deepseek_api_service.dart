@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:which_partner_is_toxic/models.dart';
+import 'package:airta/models.dart';
 
 class DeepSeekApiService {
   static const String deepSeekModel = 'deepseek-v4-flash';
@@ -18,17 +18,37 @@ class DeepSeekApiService {
     required this.apiKey,
     String endpoint = defaultEndpoint,
     http.Client? httpClient,
-  }) : endpoint = Uri.parse(endpoint),
-       httpClient = httpClient ?? http.Client();
+  })  : endpoint = Uri.parse(endpoint),
+        httpClient = httpClient ?? http.Client();
 
   Future<PsychologicalAnalysisReport> executeForensicAnalysis({
     required ConversationThread targetThread,
     required SelectedMetrics selectedMetrics,
+    String? languageCode,
+  }) async {
+    return _executeWithRetry(
+      targetThread: targetThread,
+      selectedMetrics: selectedMetrics,
+      languageCode: languageCode,
+      maxRetries: 3,
+    );
+  }
+
+  Future<PsychologicalAnalysisReport> _executeWithRetry({
+    required ConversationThread targetThread,
+    required SelectedMetrics selectedMetrics,
+    required int maxRetries,
+    String? languageCode,
+    int currentAttempt = 0,
   }) async {
     final payload = {
       'model': deepSeekModel,
       'messages': [
-        {'role': 'system', 'content': _buildSystemPrompt(selectedMetrics)},
+        {
+          'role': 'system',
+          'content':
+              _buildSystemPrompt(selectedMetrics, languageCode: languageCode)
+        },
         {'role': 'user', 'content': _serializeChatForPrompt(targetThread)},
       ],
       'temperature': 0.15,
@@ -39,6 +59,9 @@ class DeepSeekApiService {
       // Debug: Print the exact endpoint being used
       print('DeepSeek API endpoint: $endpoint');
       print('DeepSeek API endpoint toString: ${endpoint.toString()}');
+      if (currentAttempt > 0) {
+        print('Retry attempt $currentAttempt of $maxRetries');
+      }
 
       final response = await httpClient.post(
         endpoint,
@@ -49,6 +72,28 @@ class DeepSeekApiService {
         body: jsonEncode(payload),
       );
 
+      // Handle 429 Rate Limit with retry
+      if (response.statusCode == 429) {
+        if (currentAttempt < maxRetries) {
+          // Exponential backoff: 2s, 4s, 8s
+          final delaySeconds = 2 * (1 << currentAttempt);
+          print(
+              'Rate limit hit (429). Waiting ${delaySeconds}s before retry...');
+          await Future.delayed(Duration(seconds: delaySeconds));
+          return _executeWithRetry(
+            targetThread: targetThread,
+            selectedMetrics: selectedMetrics,
+            maxRetries: maxRetries,
+            currentAttempt: currentAttempt + 1,
+          );
+        } else {
+          throw DeepSeekApiException(
+            statusCode: response.statusCode,
+            responseBody: response.body,
+          );
+        }
+      }
+
       if (response.statusCode < 200 || response.statusCode >= 300) {
         throw DeepSeekApiException(
           statusCode: response.statusCode,
@@ -58,6 +103,9 @@ class DeepSeekApiService {
 
       return _deserializeDeepSeekResponseToModel(response.body);
     } catch (e) {
+      if (e is DeepSeekApiException) {
+        rethrow;
+      }
       if (e.toString().contains('SocketException') ||
           e.toString().contains('Failed host lookup')) {
         throw Exception(
@@ -71,10 +119,15 @@ class DeepSeekApiService {
     }
   }
 
-  String _buildSystemPrompt(SelectedMetrics selectedMetrics) {
+  String _buildSystemPrompt(SelectedMetrics selectedMetrics,
+      {String? languageCode}) {
+    final languageInstruction = languageCode != null && languageCode != 'en'
+        ? '\nLANGUAGE REQUIREMENT: You MUST provide ALL analysis, reports, summaries, verdicts, and conclusions in ${_getLanguageName(languageCode)} language. All text output including field names in JSON should be in ${_getLanguageName(languageCode)}.'
+        : '';
+
     return '''
 You are an expert digital forensic psychologist performing a neutral, zero-bias thematic analysis of the provided communication timeline.
-You must map the interaction strictly and logically against these selected metrics: ${selectedMetrics.names.join(', ')}.
+You must map the interaction strictly and logically against these selected metrics: ${selectedMetrics.names.join(', ')}.$languageInstruction
 CRITICAL REQUIREMENT: For EACH selected metric, you must provide at least one specific quoted example from the conversation transcript that demonstrates that metric. If a metric is not evidenced in the conversation, score it 0.0 and do not fabricate quotes.
 The selected metric count controls analysis depth: when fewer metrics are selected, provide deeper, more concentrated findings for each selected metric; when many metrics are selected, distribute attention across them and keep each metric's analysis broader and less granular.
 Do not invent metrics, assume intent, assign blame by default, or apply predetermined judgmental framing.
@@ -93,16 +146,35 @@ Return the analysis strictly as a JSON object containing:
 ''';
   }
 
+  String _getLanguageName(String languageCode) {
+    final languageNames = {
+      'en': 'English',
+      'es': 'Spanish',
+      'fr': 'French',
+      'de': 'German',
+      'it': 'Italian',
+      'pt': 'Portuguese',
+      'nl': 'Dutch',
+      'ru': 'Russian',
+      'zh': 'Chinese',
+      'ja': 'Japanese',
+      'ko': 'Korean',
+      'ar': 'Arabic',
+      'hi': 'Hindi',
+      'tr': 'Turkish',
+      'pl': 'Polish',
+      'uk': 'Ukrainian',
+    };
+    return languageNames[languageCode] ?? languageCode.toUpperCase();
+  }
+
   String _serializeChatForPrompt(ConversationThread targetThread) {
-    final transcriptLines = targetThread.messages
-        .map((message) {
-          final timestamp = message.timestamp.toIso8601String();
-          final compactBody = message.textBody
-              .replaceAll(RegExp(r'\s+'), ' ')
-              .trim();
-          return '[$timestamp] ${message.senderIdentifier}: $compactBody';
-        })
-        .toList(growable: false);
+    final transcriptLines = targetThread.messages.map((message) {
+      final timestamp = message.timestamp.toIso8601String();
+      final compactBody =
+          message.textBody.replaceAll(RegExp(r'\s+'), ' ').trim();
+      return '[$timestamp] ${message.senderIdentifier}: $compactBody';
+    }).toList(growable: false);
 
     final transcript = _buildBudgetedTranscript(transcriptLines);
 
@@ -296,6 +368,10 @@ class DeepSeekApiException implements Exception {
   String toString() {
     if (statusCode == 413) {
       return 'AI rejected the request because the conversation payload was too large. The app now samples large transcripts before sending them; please run the analysis again.';
+    }
+
+    if (statusCode == 429) {
+      return 'Rate limit exceeded. The AI service is experiencing high demand. The app automatically retried but the limit persists. Please wait a few minutes and try again.';
     }
 
     return 'AI API error (statusCode: $statusCode, responseBody: $responseBody)';

@@ -4,12 +4,21 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:which_partner_is_toxic/controllers/toxicity_analyzer_controller.dart';
-import 'package:which_partner_is_toxic/models.dart';
-import 'package:which_partner_is_toxic/widgets/membership_landing_page.dart';
-import 'package:which_partner_is_toxic/widgets/sms_conversation_picker.dart';
-import 'package:which_partner_is_toxic/widgets/ios_sms_capture_screen.dart';
+import 'package:airta/controllers/toxicity_analyzer_controller.dart';
+import 'package:airta/l10n/app_localizations.dart';
+import 'package:airta/l10n/app_localizations_extension.dart';
+import 'package:airta/models.dart';
+import 'package:airta/services/subscription_service.dart';
+import 'package:airta/widgets/membership_landing_page.dart';
+import 'package:airta/widgets/sms_conversation_picker.dart';
+import 'package:airta/widgets/ios_sms_capture_screen.dart';
+// UNIPILE INTEGRATION - COMMENTED OUT PENDING BUSINESS NEGOTIATION
+// Uncomment these imports if Unipile deal is finalized:
+// import 'package:airta/widgets/unipile_auth_view.dart';
+// import 'package:airta/widgets/unipile_conversation_picker.dart';
+// import 'package:airta/widgets/platform_credentials_page.dart'; // UNUSED - for Pro tiers later
 
 class DashboardControlPane extends StatefulWidget {
   const DashboardControlPane({super.key});
@@ -73,37 +82,46 @@ class _DashboardControlPaneState extends State<DashboardControlPane> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text(
-                            'Select Conversation to Analyze:',
-                            style: Theme.of(context).textTheme.titleLarge,
+                          LayoutBuilder(
+                            builder: (context, constraints) {
+                              // Use smaller font on narrow screens
+                              final isNarrow = constraints.maxWidth < 400;
+                              final fontSize = isNarrow ? 18.0 : null;
+                              final textStyle = Theme.of(context)
+                                  .textTheme
+                                  .titleLarge
+                                  ?.copyWith(
+                                    fontSize: fontSize,
+                                  );
+
+                              return const SizedBox.shrink();
+                            },
                           ),
                           const SizedBox(height: 12),
-                          _ResponsiveButtonGrid(
-                            columnCount: actionColumnCount,
-                            children: [
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: _TextingApplicationButton(
-                                      controller: controller,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Expanded(
-                                    child: _FromFileButton(
-                                      controller: controller,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              _AnalysisActionSection(controller: controller),
-                              _GoProButton(controller: controller),
-                              _RandomAnalysisSection(controller: controller),
-                            ],
+                          // Responsive button layout - 2x2 on wide, 1x4 on narrow
+                          // Order: Select SMS, Select file, Analyze, Random
+                          LayoutBuilder(
+                            builder: (context, constraints) {
+                              final isWide = constraints.maxWidth >= 520;
+
+                              if (isWide) {
+                                // 2x2 grid - side by side
+                                return _ConversationSelectionSection(
+                                  controller: controller,
+                                  isWide: true,
+                                );
+                              } else {
+                                // 1x4 vertical stack
+                                return _ConversationSelectionSection(
+                                  controller: controller,
+                                  isWide: false,
+                                );
+                              }
+                            },
                           ),
                           const SizedBox(height: 20),
-                          _IngestionStatusCard(controller: controller),
-                          const SizedBox(height: 20),
+                          _DateRangeFilterSection(controller: controller),
+                          const SizedBox(height: 16),
                           _MetricSelectorSection(controller: controller),
                         ],
                       ),
@@ -205,59 +223,96 @@ class _RandomAnalysisSection extends StatelessWidget {
         !controller.isRandomizingMetrics &&
         !controller.isIngesting;
 
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 240),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        gradient: controller.isRandomizingMetrics
-            ? LinearGradient(
-                colors: [
-                  Theme.of(context).colorScheme.tertiary,
-                  Theme.of(context).colorScheme.primary,
-                  Theme.of(context).colorScheme.secondary,
-                ],
-              )
-            : null,
-        boxShadow: controller.isRandomizingMetrics
-            ? [
-                BoxShadow(
-                  color: Theme.of(
-                    context,
-                  ).colorScheme.primary.withOpacity(0.35),
-                  blurRadius: 18,
-                  spreadRadius: 2,
-                ),
-              ]
-            : null,
-      ),
-      child: GestureDetector(
-        onLongPress: canRun
-            ? () {
-                HapticFeedback.mediumImpact();
-                controller.isCurrentReportUnlocked = true;
-                controller.selectRandomMetricsAndExecuteAnalysis();
-              }
-            : null,
-        child: ElevatedButton.icon(
-          onPressed:
-              canRun ? controller.selectRandomMetricsAndExecuteAnalysis : null,
-          icon: const Icon(Icons.help_outline),
-          label: Text(
-            controller.isRandomizingMetrics
-                ? 'Spinning the metric wheel...'
-                : canRun
-                    ? 'Randomly select ${ToxicityAnalyzerController.requiredMetricSelectionCount} Metrics and\nAnalyze'
-                    : 'Load a conversation to\nrandomly select and analyze',
-            textAlign: TextAlign.center,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 240),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            gradient: controller.isRandomizingMetrics
+                ? LinearGradient(
+                    colors: [
+                      Theme.of(context).colorScheme.tertiary,
+                      Theme.of(context).colorScheme.primary,
+                      Theme.of(context).colorScheme.secondary,
+                    ],
+                  )
+                : null,
+            boxShadow: controller.isRandomizingMetrics
+                ? [
+                    BoxShadow(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.primary.withValues(alpha: 0.35),
+                      blurRadius: 18,
+                      spreadRadius: 2,
+                    ),
+                  ]
+                : null,
           ),
-          style: ElevatedButton.styleFrom(
-            minimumSize: const Size.fromHeight(56),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
+          child: GestureDetector(
+            onLongPress: canRun
+                ? () {
+                    HapticFeedback.mediumImpact();
+                    controller.isCurrentReportUnlocked = true;
+                    controller.selectRandomMetricsAndExecuteAnalysis();
+                  }
+                : null,
+            child: ElevatedButton.icon(
+              onPressed:
+                  canRun ? controller.selectRandomMetricsAndExecuteAnalysis : null,
+              icon: const Icon(Icons.help_outline),
+              label: Text(
+                controller.isRandomizingMetrics
+                    ? AppLocalizations.of(context)!.spinningMetricWheel
+                    : canRun
+                        ? AppLocalizations.of(context)!.analyzeRandomMetrics(controller.randomMetricsCount)
+                        : AppLocalizations.of(context)!.loadConversationToAnalyze,
+                textAlign: TextAlign.center,
+              ),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(56),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
             ),
           ),
         ),
-      ),
+      ],
+    );
+  }
+}
+
+class _RandomMetricsSlider extends StatelessWidget {
+  final ToxicityAnalyzerController controller;
+
+  const _RandomMetricsSlider({required this.controller});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListenableBuilder(
+      listenable: controller,
+      builder: (context, child) {
+        return SliderTheme(
+          data: SliderTheme.of(context).copyWith(
+            trackHeight: 2,
+            thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
+            overlayShape: const RoundSliderOverlayShape(overlayRadius: 12),
+          ),
+          child: Slider(
+            value: controller.randomMetricsCount.toDouble(),
+            min: 2,
+            max: 20,
+            divisions: 18,
+            label: controller.randomMetricsCount.toString(),
+            onChanged: (value) {
+              controller.setRandomMetricsCount(value.toInt());
+            },
+          ),
+        );
+      },
     );
   }
 }
@@ -279,8 +334,14 @@ class _TextingApplicationButton extends StatelessWidget {
               child: CircularProgressIndicator(strokeWidth: 2),
             )
           : const Icon(Icons.sms_outlined),
-      label: const Text('From SMS', textAlign: TextAlign.center),
-      style: ElevatedButton.styleFrom(minimumSize: const Size.fromHeight(50)),
+      label: Text(AppLocalizations.of(context)!.selectSMS,
+          textAlign: TextAlign.center),
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size.fromHeight(56),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
     );
   }
 
@@ -343,12 +404,30 @@ class _FromFileButton extends StatelessWidget {
               child: CircularProgressIndicator(strokeWidth: 2),
             )
           : const Icon(Icons.file_upload_outlined),
-      label: const Text('From File', textAlign: TextAlign.center),
-      style: ElevatedButton.styleFrom(minimumSize: const Size.fromHeight(50)),
+      label: Text(AppLocalizations.of(context)!.selectFile,
+          textAlign: TextAlign.center),
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size.fromHeight(56),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
     );
   }
 
   Future<void> _pickFile(BuildContext context) async {
+    // UNIPILE INTEGRATION - COMMENTED OUT PENDING BUSINESS NEGOTIATION
+    // Uncomment this block if Unipile deal is finalized
+    // final subscriptionService = context.read<SubscriptionService>();
+    // final tier = subscriptionService.activeTier;
+    // Pro and Pro Plus members get Unipile integration
+    // if (tier == MembershipTier.pro || tier == MembershipTier.proPlus) {
+    //   _launchUnipileAuth(context);
+    //   return;
+    // }
+
+    // Free and Standard members get basic file picker (SMS only)
+    // TODO: For now, all tiers use file picker until Unipile or alternative is ready
     try {
       final result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
@@ -453,6 +532,33 @@ class _FromFileButton extends StatelessWidget {
     }
   }
 
+  // UNIPILE INTEGRATION - COMMENTED OUT PENDING BUSINESS NEGOTIATION
+  // Uncomment this method if Unipile deal is finalized
+  // Also uncomment the imports at the top:
+  // - import 'package:airta/widgets/unipile_auth_view.dart';
+  // - import 'package:airta/widgets/unipile_conversation_picker.dart';
+  /*
+  Future<void> _launchUnipileAuth(BuildContext context) async {
+    // Navigate to Unipile auth screen
+    final result = await Navigator.of(context).push<bool>(
+      MaterialPageRoute(
+        builder: (context) => const UnipileAuthView(),
+      ),
+    );
+
+    if (result == true && context.mounted) {
+      // Auth successful, navigate to conversation picker
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => UnipileConversationPicker(
+            controller: controller,
+          ),
+        ),
+      );
+    }
+  }
+  */
+
   /// Validates that the file is an SMS export and not from other messaging platforms
   /// Returns error message if invalid, null if valid
   String? _validateSmsFile(String content, String filename) {
@@ -555,95 +661,99 @@ class _FromFileButton extends StatelessWidget {
   }
 }
 
-class _GoProButton extends StatelessWidget {
-  final ToxicityAnalyzerController controller;
+// _GoProButton - COMMENTED OUT FOR CURRENT LAUNCH
+// Will be re-enabled when Pro tiers are implemented
+// class _GoProButton extends StatelessWidget {
+//   final ToxicityAnalyzerController controller;
+//
+//   const _GoProButton({required this.controller});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return OutlinedButton.icon(
+//       onPressed: () {
+//         Navigator.of(context).push(
+//           MaterialPageRoute<void>(
+//             builder: (context) => const MembershipLandingPage(),
+//           ),
+//         );
+//       },
+//       icon: const Icon(Icons.assignment_outlined),
+//       label: const Text(
+//         'Become a member to get full analysis report',
+//         textAlign: TextAlign.center,
+//       ),
+//       style: OutlinedButton.styleFrom(minimumSize: const Size.fromHeight(50)),
+//     );
+//   }
+// }
 
-  const _GoProButton({required this.controller});
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton.icon(
-      onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute<void>(
-            builder: (context) => const MembershipLandingPage(),
-          ),
-        );
-      },
-      icon: const Icon(Icons.assignment_outlined),
-      label: const Text(
-        'Become a member to get full analysis report',
-        textAlign: TextAlign.center,
-      ),
-      style: OutlinedButton.styleFrom(minimumSize: const Size.fromHeight(50)),
-    );
-  }
-}
-
-class _IngestionStatusCard extends StatelessWidget {
-  final ToxicityAnalyzerController controller;
-
-  const _IngestionStatusCard({required this.controller});
-
-  @override
-  Widget build(BuildContext context) {
-    final activeThread = controller.activeThread;
-    final message = controller.errorMessage ??
-        controller.statusMessage ??
-        'No conversation loaded yet. Select a conversation to analyze.';
-    final color = controller.errorMessage == null
-        ? Theme.of(context).colorScheme.secondaryContainer
-        : Theme.of(context).colorScheme.errorContainer;
-
-    return ColoredBox(
-      color: color,
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Current State of Analysis',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 8),
-            if (controller.isAnalyzing) ...[
-              const Row(
-                children: [
-                  SizedBox(
-                    width: 18,
-                    height: 18,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  ),
-                  SizedBox(width: 8),
-                  Text('AI is analyzing the selected metrics...'),
-                ],
-              ),
-              const SizedBox(height: 8),
-            ],
-            SelectableText(message),
-            if (activeThread != null) ...[
-              const SizedBox(height: 8),
-              SelectableText('Active source: ${activeThread.platformSource}'),
-              SelectableText('Messages loaded: ${activeThread.totalMessages}'),
-            ],
-            const SizedBox(height: 8),
-            if (controller.isConnectedAccountsUnlocked)
-              const Text('Pro membership: no daily usage limit.')
-            else if (controller.isPremiumUnlocked)
-              Text(
-                'Standard membership: ${controller.standardReportsRemaining}/${ToxicityAnalyzerController.standardReportsPerDayLimit} reports remaining in this 24-hour period.',
-              )
-            else
-              const Text(
-                'Free tier: SMS report preview is limited to the visible report sample.',
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+// _IngestionStatusCard - COMMENTED OUT per user request
+// Status messages removed from main dashboard
+// class _IngestionStatusCard extends StatelessWidget {
+//   final ToxicityAnalyzerController controller;
+//
+//   const _IngestionStatusCard({required this.controller});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     final activeThread = controller.activeThread;
+//     final message = controller.errorMessage ??
+//         controller.statusMessage ??
+//         'No conversation loaded yet. Select a conversation to analyze.';
+//     final color = controller.errorMessage == null
+//         ? Theme.of(context).colorScheme.secondaryContainer
+//         : Theme.of(context).colorScheme.errorContainer;
+//
+//     return ColoredBox(
+//       color: color,
+//       child: Padding(
+//         padding: const EdgeInsets.all(12),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Text(
+//               'Current State of Analysis',
+//               style: Theme.of(context).textTheme.titleMedium,
+//             ),
+//             const SizedBox(height: 8),
+//             if (controller.isAnalyzing) ...[
+//               const Row(
+//                 children: [
+//                   SizedBox(
+//                     width: 18,
+//                     height: 18,
+//                     child: CircularProgressIndicator(strokeWidth: 2),
+//                   ),
+//                   SizedBox(width: 8),
+//                   Text('AI is analyzing the selected metrics...'),
+//                 ],
+//               ),
+//               const SizedBox(height: 8),
+//             ],
+//             SelectableText(message),
+//             if (activeThread != null) ...[
+//               const SizedBox(height: 8),
+//               SelectableText('Active source: ${activeThread.platformSource}'),
+//               SelectableText('Messages loaded: ${activeThread.totalMessages}'),
+//             ],
+//             const SizedBox(height: 8),
+//             if (controller.isConnectedAccountsUnlocked)
+//               const Text('Pro membership: no daily usage limit.')
+//             else if (controller.isPremiumUnlocked)
+//               Text(
+//                 'Standard membership: ${controller.standardReportsRemaining}/${ToxicityAnalyzerController.standardReportsPerDayLimit} reports remaining in this 24-hour period.',
+//               )
+//             else
+//               const Text(
+//                 'Free tier: SMS report preview is limited to the visible report sample.',
+//               ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class _MetricSelectorSection extends StatelessWidget {
   final ToxicityAnalyzerController controller;
@@ -652,6 +762,7 @@ class _MetricSelectorSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return LayoutBuilder(
       builder: (context, constraints) {
         final columnCount = _metricColumnCount(constraints.maxWidth);
@@ -662,33 +773,104 @@ class _MetricSelectorSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Psychological Metrics',
+                l10n.psychologicalMetrics,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 8),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      'Select up to ${ToxicityAnalyzerController.requiredMetricSelectionCount}. Current: ${controller.selectedMetricCount}',
-                    ),
-                  ),
-                  TextButton.icon(
-                    onPressed: controller.selectedMetricCount > 0
-                        ? controller.clearMetricSelection
-                        : null,
-                    icon: const Icon(Icons.clear_all, size: 16),
-                    label: const Text('Clear Selectons'),
-                    style: TextButton.styleFrom(
-                      visualDensity: VisualDensity.compact,
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                    ),
-                  ),
-                ],
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final isNarrow = constraints.maxWidth < 400;
+                  
+                  if (isNarrow) {
+                    // Narrow screens: stack vertically
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          l10n.selectUpToCount(ToxicityAnalyzerController.requiredMetricSelectionCount, controller.selectedMetricCount),
+                        ),
+                        const SizedBox(height: 8),
+                        TextButton.icon(
+                          onPressed: controller.selectedMetricCount > 0
+                              ? () => _showSaveMetricListDialog(context, controller)
+                              : null,
+                          icon: const Icon(Icons.save, size: 16),
+                          label: Text(l10n.saveSelections),
+                          style: TextButton.styleFrom(
+                            visualDensity: VisualDensity.compact,
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                          ),
+                        ),
+                        TextButton.icon(
+                          onPressed: () => _showLoadMetricListDialog(context, controller),
+                          icon: const Icon(Icons.folder_open, size: 16),
+                          label: Text(l10n.loadSelections),
+                          style: TextButton.styleFrom(
+                            visualDensity: VisualDensity.compact,
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                          ),
+                        ),
+                        TextButton.icon(
+                          onPressed: controller.selectedMetricCount > 0
+                              ? controller.clearMetricSelection
+                              : null,
+                          icon: const Icon(Icons.clear_all, size: 16),
+                          label: Text(l10n.clearSelections),
+                          style: TextButton.styleFrom(
+                            visualDensity: VisualDensity.compact,
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                          ),
+                        ),
+                      ],
+                    );
+                  } else {
+                    // Wide screens: single row
+                    return Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            l10n.selectUpToCount(ToxicityAnalyzerController.requiredMetricSelectionCount, controller.selectedMetricCount),
+                          ),
+                        ),
+                        TextButton.icon(
+                          onPressed: controller.selectedMetricCount > 0
+                              ? () => _showSaveMetricListDialog(context, controller)
+                              : null,
+                          icon: const Icon(Icons.save, size: 16),
+                          label: Text(l10n.saveSelections),
+                          style: TextButton.styleFrom(
+                            visualDensity: VisualDensity.compact,
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                          ),
+                        ),
+                        TextButton.icon(
+                          onPressed: () => _showLoadMetricListDialog(context, controller),
+                          icon: const Icon(Icons.folder_open, size: 16),
+                          label: Text(l10n.loadSelections),
+                          style: TextButton.styleFrom(
+                            visualDensity: VisualDensity.compact,
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                          ),
+                        ),
+                        TextButton.icon(
+                          onPressed: controller.selectedMetricCount > 0
+                              ? controller.clearMetricSelection
+                              : null,
+                          icon: const Icon(Icons.clear_all, size: 16),
+                          label: Text(l10n.clearSelections),
+                          style: TextButton.styleFrom(
+                            visualDensity: VisualDensity.compact,
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                          ),
+                        ),
+                      ],
+                    );
+                  }
+                },
               ),
               const SizedBox(height: 6),
-              const Text(
-                'Fewer selected metrics produce a deeper, more concentrated analysis of those behaviors. More selected metrics produce a broader report with less detail per metric.',
+              Text(
+                l10n.metricsDescription,
               ),
               const SizedBox(height: 12),
               GridView.builder(
@@ -742,7 +924,7 @@ class _MetricButtonTile extends StatelessWidget {
     final backgroundColor = isSelected
             ? color
             : Color.alphaBlend(
-                Theme.of(context).colorScheme.surface.withOpacity(0.62),
+                Theme.of(context).colorScheme.surface.withValues(alpha: 0.62),
                 color,
               ),
         foregroundColor =
@@ -750,12 +932,13 @@ class _MetricButtonTile extends StatelessWidget {
                     Brightness.dark
                 ? Colors.white
                 : Colors.black87;
+    final l10n = AppLocalizations.of(context)!;
 
     return AnimatedScale(
       scale: isSelected ? 0.98 : 0.94,
       duration: const Duration(milliseconds: 160),
       child: Material(
-        color: backgroundColor.withOpacity(isSelected ? 1 : 0.58),
+        color: backgroundColor.withValues(alpha: isSelected ? 1 : 0.58),
         borderRadius: BorderRadius.circular(14),
         elevation: isSelected ? 5 : 1,
         child: InkWell(
@@ -779,7 +962,7 @@ class _MetricButtonTile extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                metric.name,
+                                l10n.getMetricName(metric.id),
                                 style: TextStyle(
                                   color: foregroundColor,
                                   fontWeight: FontWeight.w700,
@@ -789,10 +972,10 @@ class _MetricButtonTile extends StatelessWidget {
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                metric.description,
+                                l10n.getMetricDescription(metric.id),
                                 style: TextStyle(
-                                  color: foregroundColor.withOpacity(
-                                    isSelected ? 0.96 : 0.72,
+                                  color: foregroundColor.withValues(
+                                    alpha: isSelected ? 0.96 : 0.72,
                                   ),
                                   fontSize: 18,
                                   height: 1.18,
@@ -810,8 +993,8 @@ class _MetricButtonTile extends StatelessWidget {
                         isSelected
                             ? Icons.radio_button_checked
                             : Icons.radio_button_unchecked,
-                        color: foregroundColor.withOpacity(
-                          isSelected ? 0.95 : 0.58,
+                        color: foregroundColor.withValues(
+                          alpha: isSelected ? 0.95 : 0.58,
                         ),
                         size: 18,
                       ),
@@ -853,27 +1036,595 @@ class _AnalysisActionSection extends StatelessWidget {
             ? () {
                 if (!controller.hasSelectedMetricCount) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
+                    SnackBar(
                       content: Text(
-                        'At least one metric needs to be selected to run the report.',
+                        AppLocalizations.of(context)!.selectAtLeastOneMetric,
                       ),
                     ),
                   );
                   return;
                 }
 
+                _showDebugDialog(context, controller);
                 controller.executeAnalysis();
               }
-            : null,
-        style: ElevatedButton.styleFrom(minimumSize: const Size.fromHeight(56)),
+            : () {
+                _showDebugDialog(context, controller);
+              },
+        style: ElevatedButton.styleFrom(
+          minimumSize: const Size.fromHeight(56),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
         icon: const Icon(Icons.analytics_outlined),
         label: Text(
           hasLoadedConversation
-              ? 'Analyze Conversation Using Selected Metrics'
-              : 'Load a conversation and\nselect at least one metric',
+              ? AppLocalizations.of(context)!.analyzeWithSelectedMetrics
+              : AppLocalizations.of(context)!.loadConversationAndSelectMetric,
           textAlign: TextAlign.center,
         ),
       ),
     );
   }
 }
+
+class _ConversationSelectionSection extends StatelessWidget {
+  final ToxicityAnalyzerController controller;
+  final bool isWide;
+
+  const _ConversationSelectionSection({
+    required this.controller,
+    required this.isWide,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
+    return Card(
+      elevation: 2,
+      color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.5),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  Icons.chat_outlined,
+                  size: 20,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    l10n.selectConversationToAnalyze,
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            if (isWide)
+              Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: _TextingApplicationButton(controller: controller),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _FromFileButton(controller: controller),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: _AnalysisActionSection(controller: controller),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            _RandomAnalysisSection(controller: controller),
+                            const SizedBox(height: 4),
+                            _RandomMetricsSlider(controller: controller),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              )
+            else
+              Column(
+                children: [
+                  _TextingApplicationButton(controller: controller),
+                  const SizedBox(height: 12),
+                  _FromFileButton(controller: controller),
+                  const SizedBox(height: 12),
+                  _AnalysisActionSection(controller: controller),
+                  const SizedBox(height: 12),
+                  _RandomAnalysisSection(controller: controller),
+                  const SizedBox(height: 4),
+                  _RandomMetricsSlider(controller: controller),
+                ],
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _DateRangeFilterSection extends StatelessWidget {
+  final ToxicityAnalyzerController controller;
+
+  const _DateRangeFilterSection({required this.controller});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final hasLoadedConversation = controller.activeThread != null;
+    final subscriptionService = SubscriptionService();
+    final isFreeTier = subscriptionService.activeTier == MembershipTier.free;
+    
+    return Card(
+      elevation: 2,
+      color: Theme.of(context).colorScheme.secondaryContainer.withOpacity(0.5),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  Icons.date_range_outlined,
+                  size: 20,
+                  color: hasLoadedConversation && !isFreeTier
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.onSurface.withOpacity(0.38),
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  '${l10n.dateRangeFilter} ${l10n.dateRangeOptional}',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: hasLoadedConversation && !isFreeTier
+                        ? null
+                        : Theme.of(context).colorScheme.onSurface.withOpacity(0.38),
+                  ),
+                ),
+                const Spacer(),
+                TextButton.icon(
+                  icon: const Icon(Icons.bug_report, size: 16),
+                  label: const Text('Debug', style: TextStyle(fontSize: 12)),
+                  onPressed: () => _showDebugDialog(context, controller),
+                  style: TextButton.styleFrom(
+                    visualDensity: VisualDensity.compact,
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                  ),
+                ),
+              ],
+            ),
+            if (controller.hasDateRange) ...[
+              const SizedBox(height: 8),
+              Center(
+                child: TextButton.icon(
+                  onPressed: hasLoadedConversation && !isFreeTier
+                      ? () => controller.clearDateRange()
+                      : null,
+                  icon: const Icon(Icons.clear, size: 16),
+                  label: Text(l10n.clear),
+                ),
+              ),
+            ],
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  child: _DateField(
+                    label: l10n.startDate,
+                    date: controller.dateRangeStart,
+                    enabled: hasLoadedConversation && !isFreeTier,
+                    onTap: hasLoadedConversation && !isFreeTier
+                        ? () async {
+                            final picked = await showDatePicker(
+                              context: context,
+                              initialDate: controller.dateRangeStart ?? DateTime.now(),
+                              firstDate: DateTime(2000),
+                              lastDate: DateTime.now(),
+                            );
+                            if (picked != null) {
+                              controller.setDateRange(picked, controller.dateRangeEnd);
+                            }
+                          }
+                        : () {
+                            if (isFreeTier) {
+                              Navigator.of(context).push(
+                                MaterialPageRoute<void>(
+                                  builder: (context) => const MembershipLandingPage(),
+                                ),
+                              );
+                            }
+                          },
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: _DateField(
+                    label: l10n.endDate,
+                    date: controller.dateRangeEnd,
+                    enabled: hasLoadedConversation && !isFreeTier,
+                    onTap: hasLoadedConversation && !isFreeTier
+                        ? () async {
+                            final picked = await showDatePicker(
+                              context: context,
+                              initialDate: controller.dateRangeEnd ?? DateTime.now(),
+                              firstDate: DateTime(2000),
+                              lastDate: DateTime.now(),
+                            );
+                            if (picked != null) {
+                              controller.setDateRange(controller.dateRangeStart, picked);
+                            }
+                          }
+                        : () {
+                            if (isFreeTier) {
+                              Navigator.of(context).push(
+                                MaterialPageRoute<void>(
+                                  builder: (context) => const MembershipLandingPage(),
+                                ),
+                              );
+                            }
+                          },
+                  ),
+                ),
+              ],
+            ),
+            if (isFreeTier) ...[
+              const SizedBox(height: 8),
+              Text(
+                l10n.dateRangeRequiresMembership,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _DateField extends StatelessWidget {
+  final String label;
+  final DateTime? date;
+  final bool enabled;
+  final VoidCallback onTap;
+
+  const _DateField({
+    required this.label,
+    required this.date,
+    required this.enabled,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: enabled
+                ? Theme.of(context).colorScheme.outline
+                : Theme.of(context).colorScheme.outline.withOpacity(0.38),
+          ),
+          borderRadius: BorderRadius.circular(8),
+          color: enabled
+              ? null
+              : Theme.of(context).colorScheme.surfaceContainerHighest,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              label,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: enabled
+                    ? Theme.of(context).colorScheme.onSurfaceVariant
+                    : Theme.of(context).colorScheme.onSurface.withOpacity(0.38),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              date != null
+                  ? '${date!.month}/${date!.day}/${date!.year}'
+                  : '--/--/----',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: enabled
+                    ? null
+                    : Theme.of(context).colorScheme.onSurface.withOpacity(0.38),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+void _showDebugDialog(BuildContext context, ToxicityAnalyzerController controller) {
+  final debugInfo = controller.getDebugInfo();
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text('Debug Info'),
+      content: SelectableText(
+        debugInfo,
+        style: const TextStyle(fontFamily: 'monospace'),
+      ),
+      actions: [
+        TextButton.icon(
+          icon: const Icon(Icons.copy, size: 16),
+          label: const Text('Copy'),
+          onPressed: () {
+            Clipboard.setData(ClipboardData(text: debugInfo));
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Copied to clipboard')),
+            );
+          },
+        ),
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Close'),
+        ),
+      ],
+    ),
+  );
+}
+
+void _showSaveMetricListDialog(BuildContext context, ToxicityAnalyzerController controller) {
+  final l10n = AppLocalizations.of(context)!;
+  final TextEditingController nameController = TextEditingController();
+
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text(l10n.saveMetricListName),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(l10n.enterListName),
+          const SizedBox(height: 8),
+          TextField(
+            controller: nameController,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'My Metric List',
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(l10n.cancel),
+        ),
+        TextButton(
+          onPressed: () async {
+            final name = nameController.text.trim();
+            if (name.isEmpty) return;
+
+            try {
+              final directory = await getApplicationDocumentsDirectory();
+              final file = File('${directory.path}/metric_lists/$name.json');
+              await file.parent.create(recursive: true);
+
+              final metricList = {
+                'name': name,
+                'metrics': controller.selectedMetricIds.toList(),
+              };
+              await file.writeAsString(jsonEncode(metricList));
+
+              if (context.mounted) {
+                Navigator.of(context).pop();
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    content: Text('Your custom Selections have been saved as $name'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ),
+                );
+              }
+            } catch (e) {
+              if (context.mounted) {
+                Navigator.of(context).pop();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Error: $e')),
+                );
+              }
+            }
+          },
+          child: Text(l10n.save),
+        ),
+      ],
+    ),
+  );
+}
+
+void _showLoadMetricListDialog(BuildContext context, ToxicityAnalyzerController controller) async {
+  final l10n = AppLocalizations.of(context)!;
+
+  try {
+    final directory = await getApplicationDocumentsDirectory();
+    final metricListsDir = Directory('${directory.path}/metric_lists');
+    
+    if (!await metricListsDir.exists()) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.noSavedLists)),
+        );
+      }
+      return;
+    }
+
+    final files = await metricListsDir.list().toList();
+    final jsonFiles = files.whereType<File>().where((f) => f.path.endsWith('.json')).toList();
+
+    if (jsonFiles.isEmpty) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.noSavedLists)),
+        );
+      }
+      return;
+    }
+
+    final listNames = <String>[];
+    for (final file in jsonFiles) {
+      final content = await file.readAsString();
+      final data = jsonDecode(content) as Map<String, dynamic>;
+      if (data['name'] is String) {
+        listNames.add(data['name'] as String);
+      }
+    }
+
+    if (!context.mounted) return;
+
+    String? selectedList;
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.chooseSavedMetrics),
+        content: DropdownButtonFormField<String>(
+          hint: Text(l10n.chooseSavedMetrics),
+          items: listNames.map((name) {
+            return DropdownMenuItem<String>(
+              value: name,
+              child: Text(name),
+            );
+          }).toList(),
+          onChanged: (value) {
+            selectedList = value;
+          },
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(l10n.cancel),
+          ),
+          TextButton(
+            onPressed: () async {
+              if (selectedList == null) return;
+
+              try {
+                final file = File('${metricListsDir.path}/$selectedList.json');
+                final content = await file.readAsString();
+                final data = jsonDecode(content) as Map<String, dynamic>;
+                final metrics = (data['metrics'] as List<dynamic>).cast<String>();
+
+                controller.clearMetricSelection();
+                for (final metricId in metrics) {
+                  final metric = controller.availableMetrics.firstWhere(
+                    (m) => m.id == metricId,
+                    orElse: () => controller.availableMetrics.first,
+                  );
+                  controller.toggleMetricSelection(metric);
+                }
+
+                if (context.mounted) {
+                  Navigator.of(context).pop();
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      content: Text('Your custom Selections $selectedList have been retrieved and selected.'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                content: const Text('Awaiting deployment of analysis...'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.of(context).pop(),
+                                    child: const Text('OK'),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+              } catch (e) {
+                if (context.mounted) {
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Error: $e')),
+                  );
+                }
+              }
+            },
+            child: const Text('LOAD'),
+          ),
+        ],
+      ),
+    );
+  } catch (e) {
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error: $e')),
+      );
+    }
+  }
+}
+
+// _PlatformCredentialsButton - COMMENTED OUT FOR CURRENT LAUNCH
+// Will be re-enabled when Pro tiers with multi-platform support are implemented
+// class _PlatformCredentialsButton extends StatelessWidget {
+//   const _PlatformCredentialsButton();
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return ElevatedButton.icon(
+//       onPressed: () {
+//         Navigator.of(context).push(
+//           MaterialPageRoute<void>(
+//             builder: (context) => const PlatformCredentialsPage(),
+//           ),
+//         );
+//       },
+//       icon: const Icon(Icons.vpn_key),
+//       label: const Text('Platform Credentials', textAlign: TextAlign.center),
+//       style: ElevatedButton.styleFrom(minimumSize: const Size.fromHeight(50)),
+//     );
+//   }
+// }

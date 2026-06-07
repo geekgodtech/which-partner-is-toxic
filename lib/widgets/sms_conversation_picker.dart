@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:which_partner_is_toxic/controllers/toxicity_analyzer_controller.dart';
-import 'package:which_partner_is_toxic/services/android_sms_service.dart';
+import 'package:airta/controllers/toxicity_analyzer_controller.dart';
+import 'package:airta/l10n/app_localizations.dart';
+import 'package:airta/services/android_sms_service.dart';
 
 class SmsConversationPicker extends StatefulWidget {
   final ToxicityAnalyzerController controller;
@@ -19,6 +22,15 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
   bool _hasPermission = false;
   String? _errorMessage;
   String _searchQuery = '';
+  String _sortOption = 'recent'; // 'recent', 'name', 'count'
+  bool _sortAscending = false; // Track sort direction
+  bool _showOnlyNamed = false; // Filter to show only threads with contact names
+  bool _enableMessageCountFilter = false; // Enable message count filter
+  double _minMessageCount = 0; // Minimum message count filter
+  String _loadingMessage = 'Loading conversations...';
+  Timer? _loadingTimer;
+
+  AppLocalizations get l10n => AppLocalizations.of(context)!;
 
   @override
   void initState() {
@@ -35,12 +47,75 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
     }
   }
 
+  @override
+  void dispose() {
+    _loadingTimer?.cancel();
+    super.dispose();
+  }
+
+  void _startLoadingTimer() {
+    _loadingTimer?.cancel();
+    _loadingMessage = 'Loading conversations...';
+    int elapsedSeconds = 0;
+    
+    _loadingTimer = Timer.periodic(const Duration(seconds: 30), (timer) {
+      elapsedSeconds += 30;
+      
+      if (elapsedSeconds == 120) {
+        // 2-minute mark
+        setState(() {
+          _loadingMessage = 'Please be patient. Message threads with over 50,000 messages could take up to 4 minutes.';
+        });
+        // After 5 seconds, change back to loading message
+        Future.delayed(const Duration(seconds: 5), () {
+          if (mounted && _isLoading) {
+            setState(() {
+              _loadingMessage = 'Loading conversations...';
+            });
+          }
+        });
+      } else if (elapsedSeconds == 210) {
+        // 3-minute 30-second mark
+        setState(() {
+          _loadingMessage = 'Please be patient. Message threads with over 50,000 messages could take up to 4 minutes.';
+        });
+        // After 5 seconds, change back to loading message
+        Future.delayed(const Duration(seconds: 5), () {
+          if (mounted && _isLoading) {
+            setState(() {
+              _loadingMessage = 'Loading conversations...';
+            });
+          }
+        });
+      } else {
+        // Other 30-second intervals
+        setState(() {
+          _loadingMessage = 'Please be patient, we\'re still loading...';
+        });
+        // After 5 seconds, change back to loading message
+        Future.delayed(const Duration(seconds: 5), () {
+          if (mounted && _isLoading) {
+            setState(() {
+              _loadingMessage = 'Loading conversations...';
+            });
+          }
+        });
+      }
+    });
+  }
+
+  void _stopLoadingTimer() {
+    _loadingTimer?.cancel();
+    _loadingTimer = null;
+  }
+
   Future<void> _checkPermissionAndLoad() async {
     print('DEBUG: _checkPermissionAndLoad started');
     setState(() {
       _isLoading = true;
       _errorMessage = null;
     });
+    _startLoadingTimer();
 
     try {
       print('DEBUG: Checking SMS permission...');
@@ -61,6 +136,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
         _errorMessage = 'Error checking permissions: $e\n\nStack: $stackTrace';
       });
     } finally {
+      _stopLoadingTimer();
       setState(() => _isLoading = false);
     }
   }
@@ -70,6 +146,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
       _isLoading = true;
       _errorMessage = null;
     });
+    _startLoadingTimer();
 
     try {
       final granted = await _smsService.requestSmsPermission();
@@ -87,6 +164,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
         _errorMessage = 'Error requesting permission: $e';
       });
     } finally {
+      _stopLoadingTimer();
       setState(() => _isLoading = false);
     }
   }
@@ -96,6 +174,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
       _isLoading = true;
       _errorMessage = null;
     });
+    _startLoadingTimer();
 
     try {
       print('DEBUG: _loadConversations called');
@@ -103,9 +182,61 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
           ? await _smsService.fetchAllConversations()
           : await _smsService.searchConversations(_searchQuery);
 
-      print('DEBUG: Got ${conversations.length} conversations');
+      print('DEBUG: Got ${conversations.length} conversations before filtering');
+      
+      // Filter conversations based on "Named only" checkbox and message count filter
+      final filteredConversations = conversations.where((partner) {
+        // Apply "Named only" filter
+        if (_showOnlyNamed) {
+          // Only show threads with contact names (has letters)
+          if (!RegExp(r'[a-zA-Z]').hasMatch(partner.displayName)) {
+            return false;
+          }
+        } else {
+          // Show threads with contact names or 9-10 digit phone numbers
+          if (!_isValidConversation(partner.displayName)) {
+            return false;
+          }
+        }
+        
+        // Apply message count filter if enabled
+        if (_enableMessageCountFilter) {
+          return partner.messageCount >= _minMessageCount;
+        }
+        
+        return true;
+      }).toList();
+      
+      print('DEBUG: Got ${filteredConversations.length} conversations after filtering');
+      
+      // Merge threads with same contact name - keep only the one with most messages
+      final mergedConversations = <ConversationPartner>[];
+      final nameToThreads = <String, List<ConversationPartner>>{};
+      
+      for (final partner in filteredConversations) {
+        final name = partner.displayName;
+        if (!nameToThreads.containsKey(name)) {
+          nameToThreads[name] = [];
+        }
+        nameToThreads[name]!.add(partner);
+      }
+      
+      // For each contact name, keep only the thread with the most messages
+      for (final threads in nameToThreads.values) {
+        if (threads.length == 1) {
+          mergedConversations.add(threads.first);
+        } else {
+          // Sort by message count descending and take the first
+          threads.sort((a, b) => b.messageCount.compareTo(a.messageCount));
+          mergedConversations.add(threads.first);
+          print('DEBUG: Merged ${threads.length} threads for ${threads.first.displayName}, keeping thread with ${threads.first.messageCount} messages');
+        }
+      }
+      
+      print('DEBUG: Got ${mergedConversations.length} conversations after merging');
+      
       setState(() {
-        _conversations = conversations;
+        _conversations = _sortConversations(mergedConversations);
       });
     } catch (e, stackTrace) {
       print('ERROR: Exception in _loadConversations: $e');
@@ -116,7 +247,8 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('Error Loading Conversations'),
+            title:
+                Text(AppLocalizations.of(context)!.errorLoadingConversations),
             content: SingleChildScrollView(
               child: SelectableText('Error: $e\n\nStack trace:\n$stackTrace'),
             ),
@@ -133,72 +265,99 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
         _errorMessage = 'Error loading conversations: $e';
       });
     } finally {
+      _stopLoadingTimer();
       setState(() => _isLoading = false);
     }
   }
 
+  bool _isValidConversation(String displayName) {
+    // Check if it has letters (contact name)
+    final hasLetters = RegExp(r'[a-zA-Z]').hasMatch(displayName);
+    if (hasLetters) return true;
+    
+    // Check if it's exactly 9 or 10 digits (phone number)
+    final digitsOnly = displayName.replaceAll(RegExp(r'[^0-9]'), '');
+    return digitsOnly.length == 9 || digitsOnly.length == 10;
+  }
+
+  List<ConversationPartner> _sortConversations(List<ConversationPartner> conversations) {
+    switch (_sortOption) {
+      case 'name':
+        conversations.sort((a, b) => _sortAscending 
+          ? a.displayName.toLowerCase().compareTo(b.displayName.toLowerCase())
+          : b.displayName.toLowerCase().compareTo(a.displayName.toLowerCase()));
+        break;
+      case 'count':
+        conversations.sort((a, b) => _sortAscending 
+          ? a.messageCount.compareTo(b.messageCount)
+          : b.messageCount.compareTo(a.messageCount));
+        break;
+      case 'recent':
+      default:
+        conversations.sort((a, b) => _sortAscending 
+          ? a.lastMessageDate.compareTo(b.lastMessageDate)
+          : b.lastMessageDate.compareTo(a.lastMessageDate));
+        break;
+    }
+    return conversations;
+  }
+
+  Icon _getSortIcon(String option) {
+    if (option != _sortOption) {
+      // Not selected, show default icon
+      switch (option) {
+        case 'recent':
+          return const Icon(Icons.access_time, size: 16);
+        case 'name':
+          return const Icon(Icons.person, size: 16);
+        case 'count':
+          return const Icon(Icons.message, size: 16);
+        default:
+          return const Icon(Icons.access_time, size: 16);
+      }
+    }
+    // Selected, show sort direction arrow
+    return Icon(_sortAscending ? Icons.arrow_upward : Icons.arrow_downward, size: 16);
+  }
+
+  void _applySort(String newSortOption) {
+    print('DEBUG: _applySort called with newSortOption=$newSortOption, current _sortOption=$_sortOption, _sortAscending=$_sortAscending');
+    if (newSortOption == _sortOption) {
+      // Same option selected, reverse direction
+      print('DEBUG: Same option selected, reversing sort direction');
+      setState(() {
+        _sortAscending = !_sortAscending;
+        _conversations = _sortConversations(_conversations!);
+      });
+    } else {
+      // Different option selected, use it and reset to descending
+      print('DEBUG: Different option selected, resetting to descending');
+      setState(() {
+        _sortOption = newSortOption;
+        _sortAscending = false;
+        _conversations = _sortConversations(_conversations!);
+      });
+    }
+    print('DEBUG: After _applySort - _sortOption=$_sortOption, _sortAscending=$_sortAscending');
+  }
+
   Future<void> _selectConversation(ConversationPartner partner) async {
     try {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('ENTERED _selectConversation'),
-          duration: Duration(seconds: 2),
-          backgroundColor: Colors.blue,
-        ),
-      );
-
-      print('DEBUG: _selectConversation called for ${partner.displayName}');
       final controller = widget.controller;
 
       setState(() {
         _isLoading = true;
         _errorMessage = null;
       });
+      _startLoadingTimer();
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('setState done'),
-          duration: Duration(seconds: 1),
-        ),
-      );
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Step 1: Fetching thread...'),
-            duration: Duration(seconds: 1),
-          ),
-        );
-      }
-
-      print('DEBUG: Fetching conversation thread for ${partner.id}');
       // Fetch the full conversation thread
       final thread = await _smsService.fetchConversationThread(partner.id);
-      print('DEBUG: Fetched ${thread.messages.length} messages');
-
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Step 2: Got ${thread.messages.length} messages'),
-            duration: const Duration(seconds: 1),
-          ),
-        );
-      }
 
       // Load it into the controller using the proper method
-      print('DEBUG: Loading thread into controller');
       controller.loadSmsThread(thread);
 
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Step 3: Loaded into controller'),
-            duration: Duration(seconds: 1),
-          ),
-        );
-      }
-
-      if (mounted) {
-        print('DEBUG: Showing success message and closing picker');
         // Show success message
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -219,7 +378,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('ERROR: $e'),
+            content: Text('Error loading conversation: $e'),
             backgroundColor: Colors.red,
             duration: const Duration(seconds: 5),
           ),
@@ -230,6 +389,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
         _errorMessage = 'Error loading conversation: $e';
       });
     } finally {
+      _stopLoadingTimer();
       setState(() => _isLoading = false);
     }
   }
@@ -240,36 +400,294 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select SMS Conversation'),
+        title: LayoutBuilder(
+          builder: (context, constraints) {
+            final isNarrow = constraints.maxWidth < 400;
+            return Text(
+              AppLocalizations.of(context)!.selectSmsConversation,
+              style: TextStyle(
+                fontSize: isNarrow ? 18 : 20,
+                height: 1.0,
+                letterSpacing: isNarrow ? -0.5 : 0,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            );
+          },
+        ),
         backgroundColor: colorScheme.inversePrimary,
       ),
       body: Column(
         children: [
-          // Search bar
+          // Search bar and filters
           if (_hasPermission && _conversations != null)
             Padding(
               padding: const EdgeInsets.all(16),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search conversations...',
-                  prefixIcon: const Icon(Icons.search),
-                  suffixIcon: _searchQuery.isNotEmpty
-                      ? IconButton(
-                          icon: const Icon(Icons.clear),
-                          onPressed: () {
-                            setState(() => _searchQuery = '');
-                            _loadConversations();
-                          },
-                        )
-                      : null,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+              child: Column(
+                children: [
+                  // Search bar
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.searchConversations,
+                      prefixIcon: const Icon(Icons.search),
+                      suffixIcon: _searchQuery.isNotEmpty
+                          ? IconButton(
+                              icon: const Icon(Icons.clear),
+                              onPressed: () {
+                                setState(() => _searchQuery = '');
+                                _loadConversations();
+                              },
+                            )
+                          : null,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    onChanged: (value) {
+                      setState(() => _searchQuery = value);
+                    },
+                    onSubmitted: (_) => _loadConversations(),
                   ),
-                ),
-                onChanged: (value) {
-                  setState(() => _searchQuery = value);
-                },
-                onSubmitted: (_) => _loadConversations(),
+                  const SizedBox(height: 16),
+                  // Filters section
+                  Card(
+                    elevation: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              const Icon(Icons.filter_list, size: 20),
+                              const SizedBox(width: 8),
+                              Text(
+                                l10n.filters,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: colorScheme.primary,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          // Sort options
+                          LayoutBuilder(
+                            builder: (context, constraints) {
+                              final isNarrow = constraints.maxWidth < 400;
+                              
+                              if (isNarrow) {
+                                // Narrow screens: put "Sort by" on separate line above buttons
+                                return Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Icon(Icons.sort, size: 20),
+                                        const SizedBox(width: 4),
+                                        Text(l10n.sortBy, style: const TextStyle(fontWeight: FontWeight.bold)),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 8),
+                                    SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        children: [
+                                          // Recent sort button
+                                          _SortButton(
+                                            value: 'recent',
+                                            label: l10n.recent,
+                                            isSelected: _sortOption == 'recent',
+                                            isAscending: _sortAscending,
+                                            onTap: () => _applySort('recent'),
+                                          ),
+                                          const SizedBox(width: 8),
+                                          // Name sort button
+                                          _SortButton(
+                                            value: 'name',
+                                            label: l10n.name,
+                                            isSelected: _sortOption == 'name',
+                                            isAscending: _sortAscending,
+                                            onTap: () => _applySort('name'),
+                                          ),
+                                          const SizedBox(width: 8),
+                                          // Count sort button
+                                          _SortButton(
+                                            value: 'count',
+                                            label: l10n.count,
+                                            isSelected: _sortOption == 'count',
+                                            isAscending: _sortAscending,
+                                            onTap: () => _applySort('count'),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              } else {
+                                // Wide screens: use Wrap for flexible layout
+                                return Wrap(
+                                  spacing: 8,
+                                  runSpacing: 8,
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  children: [
+                                    const Icon(Icons.sort, size: 20),
+                                    Text(l10n.sortBy, style: const TextStyle(fontWeight: FontWeight.bold)),
+                                    // Recent sort button
+                                    _SortButton(
+                                      value: 'recent',
+                                      label: l10n.recent,
+                                      isSelected: _sortOption == 'recent',
+                                      isAscending: _sortAscending,
+                                      onTap: () => _applySort('recent'),
+                                    ),
+                                    // Name sort button
+                                    _SortButton(
+                                      value: 'name',
+                                      label: l10n.name,
+                                      isSelected: _sortOption == 'name',
+                                      isAscending: _sortAscending,
+                                      onTap: () => _applySort('name'),
+                                    ),
+                                    // Count sort button
+                                    _SortButton(
+                                      value: 'count',
+                                      label: l10n.count,
+                                      isSelected: _sortOption == 'count',
+                                      isAscending: _sortAscending,
+                                      onTap: () => _applySort('count'),
+                                    ),
+                                  ],
+                                );
+                              }
+                            },
+                          ),
+                          const SizedBox(height: 12),
+                          // Filter checkboxes
+                          LayoutBuilder(
+                            builder: (context, constraints) {
+                              final isNarrow = constraints.maxWidth < 400;
+                              
+                              if (isNarrow) {
+                                // Narrow screens: stack checkboxes vertically
+                                return Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    // Checkbox to filter threads without contact names
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Checkbox(
+                                          value: _showOnlyNamed,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _showOnlyNamed = value ?? false;
+                                            });
+                                            _loadConversations();
+                                          },
+                                        ),
+                                        Text(l10n.namedOnly, style: const TextStyle(fontSize: 12)),
+                                      ],
+                                    ),
+                                    // Message count filter
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Checkbox(
+                                          value: _enableMessageCountFilter,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _enableMessageCountFilter = value ?? false;
+                                            });
+                                            _loadConversations();
+                                          },
+                                        ),
+                                        Text(l10n.minMessages, style: const TextStyle(fontSize: 12)),
+                                      ],
+                                    ),
+                                  ],
+                                );
+                              } else {
+                                // Wide screens: use Wrap for flexible layout
+                                return Wrap(
+                                  spacing: 16,
+                                  runSpacing: 8,
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  children: [
+                                    // Checkbox to filter threads without contact names
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Checkbox(
+                                          value: _showOnlyNamed,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _showOnlyNamed = value ?? false;
+                                            });
+                                            _loadConversations();
+                                          },
+                                        ),
+                                        Text(l10n.namedOnly, style: const TextStyle(fontSize: 12)),
+                                      ],
+                                    ),
+                                    // Message count filter
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Checkbox(
+                                          value: _enableMessageCountFilter,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _enableMessageCountFilter = value ?? false;
+                                            });
+                                            _loadConversations();
+                                          },
+                                        ),
+                                        Text(l10n.minMessages, style: const TextStyle(fontSize: 12)),
+                                      ],
+                                    ),
+                                  ],
+                                );
+                              }
+                            },
+                          ),
+                          // Message count slider (shown when filter is enabled)
+                          if (_enableMessageCountFilter)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${l10n.minimumMessages} ${_minMessageCount.toInt()}',
+                                    style: const TextStyle(fontSize: 12),
+                                  ),
+                                  Slider(
+                                    value: _minMessageCount,
+                                    min: 0,
+                                    max: 5000,
+                                    divisions: 100,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _minMessageCount = value;
+                                      });
+                                      // Debounce the reload to avoid excessive calls
+                                      Future.delayed(const Duration(milliseconds: 300), () {
+                                        if (mounted) {
+                                          _loadConversations();
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
 
@@ -306,13 +724,13 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
 
   Widget _buildContent(ColorScheme colorScheme) {
     if (_isLoading) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(),
-            SizedBox(height: 16),
-            Text('Loading conversations...'),
+            const CircularProgressIndicator(),
+            const SizedBox(height: 16),
+            Text(_loadingMessage),
           ],
         ),
       );
@@ -362,7 +780,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
               Icon(
                 Icons.chat_bubble_outline,
                 size: 80,
-                color: colorScheme.primary.withOpacity(0.5),
+                color: colorScheme.primary.withValues(alpha: 0.5),
               ),
               const SizedBox(height: 24),
               Text(
@@ -414,25 +832,70 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
             subtitle: Text(
               '${conversation.messageCount} messages',
               style: TextStyle(
-                color: colorScheme.onSurface.withOpacity(0.7),
+                color: colorScheme.onSurface.withValues(alpha: 0.7),
               ),
             ),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-            onTap: () {
-              print(
-                'DEBUG: ListTile onTap triggered for ${conversation.displayName}',
-              );
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text('Loading: ${conversation.displayName}'),
-                  duration: const Duration(seconds: 1),
-                ),
-              );
-              _selectConversation(conversation);
-            },
+            onTap: () => _selectConversation(conversation),
           ),
         );
       },
+    );
+  }
+}
+
+class _SortButton extends StatelessWidget {
+  final String value;
+  final String label;
+  final bool isSelected;
+  final bool isAscending;
+  final VoidCallback onTap;
+
+  const _SortButton({
+    required this.value,
+    required this.label,
+    required this.isSelected,
+    required this.isAscending,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: isSelected ? colorScheme.primaryContainer : colorScheme.surface,
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: isSelected ? colorScheme.primary : colorScheme.outline,
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              label,
+              style: TextStyle(
+                color: isSelected ? colorScheme.onPrimaryContainer : colorScheme.onSurface,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+              ),
+            ),
+            if (isSelected) ...[
+              const SizedBox(width: 4),
+              Icon(
+                isAscending ? Icons.arrow_upward : Icons.arrow_downward,
+                size: 16,
+                color: colorScheme.onPrimaryContainer,
+              ),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }
