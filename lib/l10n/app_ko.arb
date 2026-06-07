@@ -731,5 +731,7 @@
   "largeThreadNoticeBody": "예외적으로 큰 텍스트 스레드를 처리할 때 이 앱의 일부 로딩 화면이 1분 반을 초과할 수 있습니다.\n\n앱이 멈춘 것이 아닙니다. 회전하는 상태 표시기가 보이면 앱이 여전히 로딩 중입니다.\n\n다른 앱과 비교하여 로딩 시간이 더 길 수 있으므로 이러한 경우에는 인내심을 가지십시오. 특히 50,000개의 메시지가 있는 스레드와 같은 대규모 데이터 세트의 경우.",
   "neverShowThisAgain": "이 메시지를 다시 표시하지 않음",
   "loadingConversationWith": "대화 로드 중\n{name}와(과)…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } }
+  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
+  "iosCaptureInstructions": "1. 메시지 앱을 열고 대화를 선택합니다\n2. 분석하려는 가장 오래된 메시지까지 스크롤합니다\n3. 아래에서 \"캡처 시작\"을 탭합니다\n4. 대화를 스크롤하면서 스크린샷을 찍습니다\n5. 완료되면 \"완료 및 처리\"를 탭합니다",
+  "howToCaptureIosMessages": "iOS 메시지 캡처 방법"
 }

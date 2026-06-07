@@ -1328,4 +1328,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String loadingConversationWith(String name) {
     return 'Загрузка беседы\nс $name…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. Откройте приложение Сообщения и выберите беседу\n2. Прокрутите до самого старого сообщения, которое хотите проанализировать\n3. Нажмите \"Начать захват\" ниже\n4. Делайте скриншоты, прокручивая беседу\n5. Когда закончите, нажмите \"Завершить и обработать\"';
+
+  @override
+  String get howToCaptureIosMessages => 'Как захватывать сообщения iOS';
 }

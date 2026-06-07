@@ -1327,4 +1327,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String loadingConversationWith(String name) {
     return 'Завантаження розмови\nз $name…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. Відкрийте програму повідомлень і виберіть розмову\n2. Прокрутіть до найстарішого повідомлення, яке хочете проаналізувати\n3. Натисніть \"Почати захоплення\" нижче\n4. Робіть знімки екрана, прокручуючи розмову\n5. Коли закінчите, натисніть \"Завершити та обробити\"';
+
+  @override
+  String get howToCaptureIosMessages => 'Як захоплювати повідомлення iOS';
 }

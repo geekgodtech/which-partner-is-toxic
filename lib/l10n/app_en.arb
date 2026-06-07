@@ -762,5 +762,7 @@
     "placeholders": {
       "name": { "type": "String" }
     }
-  }
+  },
+  "iosCaptureInstructions": "1. Open the Messages app and select the conversation\n2. Scroll to the oldest message you want to analyze\n3. Tap \"Start Capture\" below\n4. Take screenshots as you scroll through the conversation\n5. When done, tap \"Finish & Process\"",
+  "howToCaptureIosMessages": "How to Capture iOS Messages"
 }

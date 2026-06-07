@@ -399,5 +399,7 @@
   "largeThreadNoticeBody": "Przy pracy z wyjątkowo dużymi wątkami tekstowymi niektóre ekrany ładowania w tej aplikacji mogą czasem przekraczać półtorej minuty.\n\nAplikacja nie zawiesza się. Jeśli widzisz obracający się wskaźnik stanu, aplikacja nadal się ładuje.\n\nProszę o cierpliwość w tych przypadkach, ponieważ czas ładowania może być dłuższy niż zwykle w porównaniu do innych aplikacji, szczególnie przy pracy z dużym zestawem danych, takim jak wątek z 50 000 wiadomości.",
   "neverShowThisAgain": "Nie pokazuj tego komunikatu ponownie",
   "loadingConversationWith": "Ładowanie rozmowy\nz {name}…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } }
+  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
+  "iosCaptureInstructions": "1. Otwórz aplikację Wiadomości i wybierz rozmowę\n2. Przewiń do najstarszej wiadomości, którą chcesz przeanalizować\n3. Kliknij \"Rozpocznij przechwytywanie\" poniżej\n4. Rób zrzuty ekranu podczas przewijania rozmowy\n5. Po zakończeniu kliknij \"Zakończ i przetwórz\"",
+  "howToCaptureIosMessages": "Jak przechwytywać wiadomości iOS"
 }

@@ -399,5 +399,7 @@
   "largeThreadNoticeBody": "Özellikle büyük metin dizileriyle çalışırken, bu uygulamadaki bazı yükleme ekranları bazen bir buçuk dakikayı aşabilir.\n\nUygulama donmuyor. Dönen bir durum göstergesi görüyorsanız, uygulama hala yükleniyor demektir.\n\nBu durumlarda sabırlı olun, çünkü yükleme süresi diğer uygulamalara göre daha uzun olabilir, özellikle 50.000 mesaj içeren bir dizi gibi büyük bir veri setiyle çalışırken.",
   "neverShowThisAgain": "Bu mesajı tekrar gösterme",
   "loadingConversationWith": "Konuşma yükleniyor\n{name} ile…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } }
+  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
+  "iosCaptureInstructions": "1. Mesajlar uygulamasını açın ve konuşmayı seçin\n2. Analiz etmek istediğiniz en eski mesaja kadar kaydırın\n3. Aşağıdaki \"Yakalamayı Başlat\" düğmesine basın\n4. Konuşmayı kaydırırken ekran görüntüsü alın\n5. Bittiğinde \"Bitir ve İşle\" düğmesine basın",
+  "howToCaptureIosMessages": "iOS mesajları nasıl yakalanır"
 }

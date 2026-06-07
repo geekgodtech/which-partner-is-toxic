@@ -399,5 +399,7 @@
   "largeThreadNoticeBody": "Quando si gestiscono thread di testo eccezionalmente grandi, alcune schermate di caricamento in questa app potrebbero superare un minuto e mezzo.\n\nL'applicazione non si blocca. Se vedi un indicatore di stato che gira, l'app è ancora in caricamento.\n\nSii paziente in questi casi, poiché il tempo di caricamento potrebbe essere più lungo del solito rispetto ad altre applicazioni, specialmente con un grande set di dati come un thread con 50.000 messaggi.",
   "neverShowThisAgain": "Non mostrare più questo messaggio",
   "loadingConversationWith": "Caricamento conversazione\ncon {name}…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } }
+  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
+  "iosCaptureInstructions": "1. Apri l'app Messaggi e seleziona la conversazione\n2. Scorri fino al messaggio più vecchio che vuoi analizzare\n3. Tocca \"Inizia acquisizione\" qui sotto\n4. Fai screenshot scorrendo la conversazione\n5. Quando hai finito, tocca \"Fine ed elabora\"",
+  "howToCaptureIosMessages": "Come acquisire messaggi iOS"
 }

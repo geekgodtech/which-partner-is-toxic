@@ -1333,4 +1333,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String loadingConversationWith(String name) {
     return 'Gespräch wird geladen\nmit $name…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. Öffnen Sie die Nachrichten-App und wählen Sie die Unterhaltung\n2. Scrollen Sie bis zur ältesten Nachricht, die Sie analysieren möchten\n3. Tippen Sie unten auf \"Aufnahme starten\"\n4. Machen Sie Screenshots, während Sie durch die Unterhaltung scrollen\n5. Wenn Sie fertig sind, tippen Sie auf \"Fertig & Verarbeiten\"';
+
+  @override
+  String get howToCaptureIosMessages => 'So erfassen Sie iOS-Nachrichten';
 }

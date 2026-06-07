@@ -1258,4 +1258,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String loadingConversationWith(String name) {
     return '会話を読み込み中\n$name と…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. メッセージアプリを開いて会話を選択します\n2. 分析したい最も古いメッセージまでスクロールします\n3. 下の「キャプチャ開始」をタップします\n4. 会話をスクロールしながらスクリーンショットを撮ります\n5. 完了したら「完了して処理」をタップします';
+
+  @override
+  String get howToCaptureIosMessages => 'iOSメッセージのキャプチャ方法';
 }

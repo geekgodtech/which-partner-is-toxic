@@ -399,5 +399,7 @@
   "largeThreadNoticeBody": "例外的に大きなテキストスレッドを扱う場合、このアプリの一部の読み込み画面が1分半を超えることがあります。\n\nアプリはフリーズしていません。回転するステータスインジケーターが表示されている場合、アプリはまだ読み込んでいます。\n\nこれらの場合は忍耐強くお待ちください。他のアプリと比較して読み込み時間が長くなる可能性があります。特に50,000件のメッセージがあるスレッドのような大規模なデータセットの場合。",
   "neverShowThisAgain": "このメッセージを再度表示しない",
   "loadingConversationWith": "会話を読み込み中\n{name} と…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } }
+  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
+  "iosCaptureInstructions": "1. メッセージアプリを開いて会話を選択します\n2. 分析したい最も古いメッセージまでスクロールします\n3. 下の「キャプチャ開始」をタップします\n4. 会話をスクロールしながらスクリーンショットを撮ります\n5. 完了したら「完了して処理」をタップします",
+  "howToCaptureIosMessages": "iOSメッセージのキャプチャ方法"
 }

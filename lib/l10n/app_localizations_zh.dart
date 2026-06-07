@@ -1195,4 +1195,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String loadingConversationWith(String name) {
     return '正在加载对话\n与 $name…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. 打开消息应用并选择对话\n2. 滚动到要分析的最旧消息\n3. 点击下方的\"开始捕获\"\n4. 滚动对话时截取屏幕截图\n5. 完成后点击\"完成并处理\"';
+
+  @override
+  String get howToCaptureIosMessages => '如何捕获 iOS 消息';
 }

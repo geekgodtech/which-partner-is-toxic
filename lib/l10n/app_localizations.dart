@@ -2447,6 +2447,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loading conversation\nwith {name}…'**
   String loadingConversationWith(String name);
+
+  /// No description provided for @iosCaptureInstructions.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Open the Messages app and select the conversation\n2. Scroll to the oldest message you want to analyze\n3. Tap \"Start Capture\" below\n4. Take screenshots as you scroll through the conversation\n5. When done, tap \"Finish & Process\"'**
+  String get iosCaptureInstructions;
+
+  /// No description provided for @howToCaptureIosMessages.
+  ///
+  /// In en, this message translates to:
+  /// **'How to Capture iOS Messages'**
+  String get howToCaptureIosMessages;
 }
 
 class _AppLocalizationsDelegate

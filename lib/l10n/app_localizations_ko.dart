@@ -1314,4 +1314,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String loadingConversationWith(String name) {
     return '대화 로드 중\n$name와(과)…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. 메시지 앱을 열고 대화를 선택합니다\n2. 분석하려는 가장 오래된 메시지까지 스크롤합니다\n3. 아래에서 \"캡처 시작\"을 탭합니다\n4. 대화를 스크롤하면서 스크린샷을 찍습니다\n5. 완료되면 \"완료 및 처리\"를 탭합니다';
+
+  @override
+  String get howToCaptureIosMessages => 'iOS 메시지 캡처 방법';
 }

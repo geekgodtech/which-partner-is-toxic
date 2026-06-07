@@ -399,5 +399,7 @@
   "largeThreadNoticeBody": "处理异常大的文本线程时，此应用程序中的某些加载屏幕有时可能超过一分半钟。\n\n应用程序不会挂起。如果您看到旋转的状态指示器，应用程序仍在加载。\n\n请在这种情况下保持耐心，因为与其他应用程序相比，加载时间可能会更长，特别是在处理大型数据集（例如包含 50,000 条消息的线程）时。",
   "neverShowThisAgain": "不再显示此消息",
   "loadingConversationWith": "正在加载对话\n与 {name}…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } }
+  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
+  "iosCaptureInstructions": "1. 打开消息应用并选择对话\n2. 滚动到要分析的最旧消息\n3. 点击下方的\"开始捕获\"\n4. 滚动对话时截取屏幕截图\n5. 完成后点击\"完成并处理\"",
+  "howToCaptureIosMessages": "如何捕获 iOS 消息"
 }

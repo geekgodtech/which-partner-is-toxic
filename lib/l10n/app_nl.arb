@@ -399,5 +399,7 @@
   "largeThreadNoticeBody": "Bij het verwerken van uitzonderlijk grote tekstthreads kunnen sommige laadschermen in deze app soms meer dan anderhalf minuut duren.\n\nDe app hangt niet. Als u een draaiende statusindicator ziet, laadt de app nog steeds.\n\nWees geduldig in deze gevallen, aangezien de laadtijd langer dan normaal kan zijn in vergelijking met andere apps, vooral bij een grote dataset zoals een thread met 50.000 berichten.",
   "neverShowThisAgain": "Dit bericht niet meer weergeven",
   "loadingConversationWith": "Gesprek laden\nmet {name}…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } }
+  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
+  "iosCaptureInstructions": "1. Open de Berichten-app en selecteer het gesprek\n2. Scroll naar het oudste bericht dat u wilt analyseren\n3. Tik hieronder op \"Opname starten\"\n4. Maak screenshots terwijl u door het gesprek scrolt\n5. Wanneer u klaar bent, tik op \"Voltooien & Verwerken\"",
+  "howToCaptureIosMessages": "iOS-berichten vastleggen"
 }
