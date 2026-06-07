@@ -25,31 +25,21 @@ subprojects {
     val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 
-    // Force a modern AppCompat version across every module (including plugin
-    // modules like shared_preferences_android). The old appcompat 1.1.0 pulled
-    // in transitively is missing Material resources and fails
-    // verifyReleaseResources during release builds.
     configurations.all {
         resolutionStrategy {
             force("androidx.appcompat:appcompat:1.6.1")
         }
     }
 
-    // Fix for telephony plugin namespace issue
     afterEvaluate {
+        // Fix for telephony plugin namespace issue
         if (project.name == "telephony") {
             extensions.findByType<com.android.build.gradle.LibraryExtension>()?.apply {
                 namespace = "com.shounakmulay.telephony"
             }
         }
-    }
-}
-subprojects {
-    project.evaluationDependsOn(":app")
-}
 
-subprojects {
-    afterEvaluate {
+        // Force JVM 17 across all plugin modules to prevent JVM target mismatch
         val androidExtension = extensions.findByType<com.android.build.gradle.BaseExtension>()
         if (androidExtension != null) {
             androidExtension.compileOptions {
