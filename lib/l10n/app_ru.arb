@@ -401,5 +401,14 @@
   "loadingConversationWith": "Загрузка беседы\nс {name}…",
   "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
   "iosCaptureInstructions": "1. Откройте приложение Сообщения и выберите беседу\n2. Прокрутите до самого старого сообщения, которое хотите проанализировать\n3. Нажмите \"Начать захват\" ниже\n4. Делайте скриншоты, прокручивая беседу\n5. Когда закончите, нажмите \"Завершить и обработать\"",
-  "howToCaptureIosMessages": "Как захватывать сообщения iOS"
+  "howToCaptureIosMessages": "Как захватывать сообщения iOS",
+  "deepSeekApiKey": "Ключ API DeepSeek",
+  "enterYourDeepSeekApiKeyToEnableAiAnalysis": "Введите ваш ключ API DeepSeek для включения ИИ-анализа.",
+  "getYourApiKeyFrom": "Получите ваш ключ API на: https://platform.deepseek.com",
+  "apiKey": "Ключ API",
+  "skPlaceholder": "sk-...",
+  "yourApiKeyIsStoredSecurely": "Ваш ключ API безопасно хранится на вашем устройстве и никогда не передается.",
+  "pleaseEnterApiKey": "Пожалуйста, введите ключ API",
+  "apiKeySavedSuccessfully": "Ключ API успешно сохранен!",
+  "save": "Сохранить"
 }

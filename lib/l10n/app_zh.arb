@@ -401,5 +401,14 @@
   "loadingConversationWith": "正在加载对话\n与 {name}…",
   "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
   "iosCaptureInstructions": "1. 打开消息应用并选择对话\n2. 滚动到要分析的最旧消息\n3. 点击下方的\"开始捕获\"\n4. 滚动对话时截取屏幕截图\n5. 完成后点击\"完成并处理\"",
-  "howToCaptureIosMessages": "如何捕获 iOS 消息"
+  "howToCaptureIosMessages": "如何捕获 iOS 消息",
+  "deepSeekApiKey": "DeepSeek API 密钥",
+  "enterYourDeepSeekApiKeyToEnableAiAnalysis": "输入您的 DeepSeek API 密钥以启用 AI 分析。",
+  "getYourApiKeyFrom": "从以下位置获取您的 API 密钥：https://platform.deepseek.com",
+  "apiKey": "API 密钥",
+  "skPlaceholder": "sk-...",
+  "yourApiKeyIsStoredSecurely": "您的 API 密钥安全地存储在您的设备上，绝不会共享。",
+  "pleaseEnterApiKey": "请输入 API 密钥",
+  "apiKeySavedSuccessfully": "API 密钥保存成功！",
+  "save": "保存"
 }

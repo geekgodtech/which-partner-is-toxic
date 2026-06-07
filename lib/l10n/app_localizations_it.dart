@@ -1340,4 +1340,31 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get howToCaptureIosMessages => 'Come acquisire messaggi iOS';
+
+  @override
+  String get deepSeekApiKey => 'Chiave API DeepSeek';
+
+  @override
+  String get enterYourDeepSeekApiKeyToEnableAiAnalysis =>
+      'Inserisci la tua chiave API DeepSeek per abilitare l\'analisi AI.';
+
+  @override
+  String get getYourApiKeyFrom =>
+      'Ottieni la tua chiave API da: https://platform.deepseek.com';
+
+  @override
+  String get apiKey => 'Chiave API';
+
+  @override
+  String get skPlaceholder => 'sk-...';
+
+  @override
+  String get yourApiKeyIsStoredSecurely =>
+      'La tua chiave API è archiviata in modo sicuro sul tuo dispositivo e non viene mai condivisa.';
+
+  @override
+  String get pleaseEnterApiKey => 'Inserisci una chiave API';
+
+  @override
+  String get apiKeySavedSuccessfully => 'Chiave API salvata con successo!';
 }

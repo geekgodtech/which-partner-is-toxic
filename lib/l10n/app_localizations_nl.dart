@@ -1335,4 +1335,31 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get howToCaptureIosMessages => 'iOS-berichten vastleggen';
+
+  @override
+  String get deepSeekApiKey => 'DeepSeek API-sleutel';
+
+  @override
+  String get enterYourDeepSeekApiKeyToEnableAiAnalysis =>
+      'Voer uw DeepSeek API-sleutel in om AI-analyse in te schakelen.';
+
+  @override
+  String get getYourApiKeyFrom =>
+      'Haal uw API-sleutel op van: https://platform.deepseek.com';
+
+  @override
+  String get apiKey => 'API-sleutel';
+
+  @override
+  String get skPlaceholder => 'sk-...';
+
+  @override
+  String get yourApiKeyIsStoredSecurely =>
+      'Uw API-sleutel wordt veilig op uw apparaat opgeslagen en nooit gedeeld.';
+
+  @override
+  String get pleaseEnterApiKey => 'Voer een API-sleutel in';
+
+  @override
+  String get apiKeySavedSuccessfully => 'API-sleutel succesvol opgeslagen!';
 }

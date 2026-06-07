@@ -401,5 +401,14 @@
   "loadingConversationWith": "Gespräch wird geladen\nmit {name}…",
   "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
   "iosCaptureInstructions": "1. Öffnen Sie die Nachrichten-App und wählen Sie die Unterhaltung\n2. Scrollen Sie bis zur ältesten Nachricht, die Sie analysieren möchten\n3. Tippen Sie unten auf \"Aufnahme starten\"\n4. Machen Sie Screenshots, während Sie durch die Unterhaltung scrollen\n5. Wenn Sie fertig sind, tippen Sie auf \"Fertig & Verarbeiten\"",
-  "howToCaptureIosMessages": "So erfassen Sie iOS-Nachrichten"
+  "howToCaptureIosMessages": "So erfassen Sie iOS-Nachrichten",
+  "deepSeekApiKey": "DeepSeek API-Schlüssel",
+  "enterYourDeepSeekApiKeyToEnableAiAnalysis": "Geben Sie Ihren DeepSeek API-Schlüssel ein, um die KI-Analyse zu aktivieren.",
+  "getYourApiKeyFrom": "Holen Sie Ihren API-Schlüssel von: https://platform.deepseek.com",
+  "apiKey": "API-Schlüssel",
+  "skPlaceholder": "sk-...",
+  "yourApiKeyIsStoredSecurely": "Ihr API-Schlüssel wird sicher auf Ihrem Gerät gespeichert und niemals geteilt.",
+  "pleaseEnterApiKey": "Bitte geben Sie einen API-Schlüssel ein",
+  "apiKeySavedSuccessfully": "API-Schlüssel erfolgreich gespeichert!",
+  "save": "Speichern"
 }

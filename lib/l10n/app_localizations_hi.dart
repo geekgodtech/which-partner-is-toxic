@@ -1335,4 +1335,31 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get howToCaptureIosMessages => 'iOS संदेश कैसे कैप्चर करें';
+
+  @override
+  String get deepSeekApiKey => 'DeepSeek API कुंजी';
+
+  @override
+  String get enterYourDeepSeekApiKeyToEnableAiAnalysis =>
+      'AI विश्लेषण सक्षम करने के लिए अपनी DeepSeek API कुंजी दर्ज करें।';
+
+  @override
+  String get getYourApiKeyFrom =>
+      'अपनी API कुंजी प्राप्त करें: https://platform.deepseek.com';
+
+  @override
+  String get apiKey => 'API कुंजी';
+
+  @override
+  String get skPlaceholder => 'sk-...';
+
+  @override
+  String get yourApiKeyIsStoredSecurely =>
+      'आपकी API कुंजी आपके डिवाइस पर सुरक्षित रूप से संग्रहीत है और कभी साझा नहीं की जाती।';
+
+  @override
+  String get pleaseEnterApiKey => 'कृपया एक API कुंजी दर्ज करें';
+
+  @override
+  String get apiKeySavedSuccessfully => 'API कुंजी सफलतापूर्वक सहेजी गई!';
 }

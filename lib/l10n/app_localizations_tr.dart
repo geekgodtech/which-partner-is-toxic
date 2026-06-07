@@ -1330,4 +1330,31 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get howToCaptureIosMessages => 'iOS mesajları nasıl yakalanır';
+
+  @override
+  String get deepSeekApiKey => 'DeepSeek API Anahtarı';
+
+  @override
+  String get enterYourDeepSeekApiKeyToEnableAiAnalysis =>
+      'AI analizini etkinleştirmek için DeepSeek API anahtarınızı girin.';
+
+  @override
+  String get getYourApiKeyFrom =>
+      'API anahtarınızı şuradan alın: https://platform.deepseek.com';
+
+  @override
+  String get apiKey => 'API Anahtarı';
+
+  @override
+  String get skPlaceholder => 'sk-...';
+
+  @override
+  String get yourApiKeyIsStoredSecurely =>
+      'API anahtarınız cihazınızda güvenli bir şekilde saklanır ve asla paylaşılmaz.';
+
+  @override
+  String get pleaseEnterApiKey => 'Lütfen bir API anahtarı girin';
+
+  @override
+  String get apiKeySavedSuccessfully => 'API anahtarı başarıyla kaydedildi!';
 }

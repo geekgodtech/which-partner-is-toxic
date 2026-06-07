@@ -401,5 +401,14 @@
   "loadingConversationWith": "Ładowanie rozmowy\nz {name}…",
   "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
   "iosCaptureInstructions": "1. Otwórz aplikację Wiadomości i wybierz rozmowę\n2. Przewiń do najstarszej wiadomości, którą chcesz przeanalizować\n3. Kliknij \"Rozpocznij przechwytywanie\" poniżej\n4. Rób zrzuty ekranu podczas przewijania rozmowy\n5. Po zakończeniu kliknij \"Zakończ i przetwórz\"",
-  "howToCaptureIosMessages": "Jak przechwytywać wiadomości iOS"
+  "howToCaptureIosMessages": "Jak przechwytywać wiadomości iOS",
+  "deepSeekApiKey": "Klucz API DeepSeek",
+  "enterYourDeepSeekApiKeyToEnableAiAnalysis": "Wprowadź swój klucz API DeepSeek, aby włączyć analizę AI.",
+  "getYourApiKeyFrom": "Uzyskaj swój klucz API z: https://platform.deepseek.com",
+  "apiKey": "Klucz API",
+  "skPlaceholder": "sk-...",
+  "yourApiKeyIsStoredSecurely": "Twój klucz API jest bezpiecznie przechowywany na Twoim urządzeniu i nigdy nie jest udostępniany.",
+  "pleaseEnterApiKey": "Proszę wprowadzić klucz API",
+  "apiKeySavedSuccessfully": "Klucz API został pomyślnie zapisany!",
+  "save": "Zapisz"
 }

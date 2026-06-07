@@ -1265,4 +1265,29 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get howToCaptureIosMessages => 'iOSメッセージのキャプチャ方法';
+
+  @override
+  String get deepSeekApiKey => 'DeepSeek APIキー';
+
+  @override
+  String get enterYourDeepSeekApiKeyToEnableAiAnalysis =>
+      'AI分析を有効にするためにDeepSeek APIキーを入力してください。';
+
+  @override
+  String get getYourApiKeyFrom => 'APIキーを取得: https://platform.deepseek.com';
+
+  @override
+  String get apiKey => 'APIキー';
+
+  @override
+  String get skPlaceholder => 'sk-...';
+
+  @override
+  String get yourApiKeyIsStoredSecurely => 'APIキーはデバイスに安全に保存され、共有されることはありません。';
+
+  @override
+  String get pleaseEnterApiKey => 'APIキーを入力してください';
+
+  @override
+  String get apiKeySavedSuccessfully => 'APIキーが正常に保存されました！';
 }

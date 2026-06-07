@@ -401,5 +401,14 @@
   "loadingConversationWith": "Chargement de la conversation\navec {name}…",
   "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
   "iosCaptureInstructions": "1. Ouvrez l'application Messages et sélectionnez la conversation\n2. Faites défiler jusqu'au message le plus ancien que vous souhaitez analyser\n3. Appuyez sur \"Démarrer la capture\" ci-dessous\n4. Prenez des captures d'écran tout en faisant défiler la conversation\n5. Une fois terminé, appuyez sur \"Terminer et traiter\"",
-  "howToCaptureIosMessages": "Comment capturer les messages iOS"
+  "howToCaptureIosMessages": "Comment capturer les messages iOS",
+  "deepSeekApiKey": "Clé API DeepSeek",
+  "enterYourDeepSeekApiKeyToEnableAiAnalysis": "Entrez votre clé API DeepSeek pour activer l'analyse IA.",
+  "getYourApiKeyFrom": "Obtenez votre clé API sur : https://platform.deepseek.com",
+  "apiKey": "Clé API",
+  "skPlaceholder": "sk-...",
+  "yourApiKeyIsStoredSecurely": "Votre clé API est stockée en toute sécurité sur votre appareil et n'est jamais partagée.",
+  "pleaseEnterApiKey": "Veuillez entrer une clé API",
+  "apiKeySavedSuccessfully": "Clé API enregistrée avec succès !",
+  "save": "Enregistrer"
 }

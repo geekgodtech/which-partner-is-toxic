@@ -1334,4 +1334,31 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get howToCaptureIosMessages => 'Як захоплювати повідомлення iOS';
+
+  @override
+  String get deepSeekApiKey => 'Ключ API DeepSeek';
+
+  @override
+  String get enterYourDeepSeekApiKeyToEnableAiAnalysis =>
+      'Введіть свій ключ API DeepSeek, щоб увімкнути аналіз ШІ.';
+
+  @override
+  String get getYourApiKeyFrom =>
+      'Отримайте свій ключ API на: https://platform.deepseek.com';
+
+  @override
+  String get apiKey => 'Ключ API';
+
+  @override
+  String get skPlaceholder => 'sk-...';
+
+  @override
+  String get yourApiKeyIsStoredSecurely =>
+      'Ваш ключ API безпечно зберігається на вашому пристрої і ніколи не передається.';
+
+  @override
+  String get pleaseEnterApiKey => 'Будь ласка, введіть ключ API';
+
+  @override
+  String get apiKeySavedSuccessfully => 'Ключ API успішно збережено!';
 }

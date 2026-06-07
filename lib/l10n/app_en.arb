@@ -764,5 +764,14 @@
     }
   },
   "iosCaptureInstructions": "1. Open the Messages app and select the conversation\n2. Scroll to the oldest message you want to analyze\n3. Tap \"Start Capture\" below\n4. Take screenshots as you scroll through the conversation\n5. When done, tap \"Finish & Process\"",
-  "howToCaptureIosMessages": "How to Capture iOS Messages"
+  "howToCaptureIosMessages": "How to Capture iOS Messages",
+  "deepSeekApiKey": "DeepSeek API Key",
+  "enterYourDeepSeekApiKeyToEnableAiAnalysis": "Enter your DeepSeek API key to enable AI analysis.",
+  "getYourApiKeyFrom": "Get your API key from: https://platform.deepseek.com",
+  "apiKey": "API Key",
+  "skPlaceholder": "sk-...",
+  "yourApiKeyIsStoredSecurely": "Your API key is stored securely on your device and never shared.",
+  "pleaseEnterApiKey": "Please enter an API key",
+  "apiKeySavedSuccessfully": "API key saved successfully!",
+  "save": "Save"
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:airta/controllers/toxicity_analyzer_controller.dart';
+import 'package:airta/l10n/app_localizations.dart';
 
 class ApiKeySettingsDialog extends StatefulWidget {
   const ApiKeySettingsDialog({super.key});
@@ -29,31 +30,32 @@ class _ApiKeySettingsDialogState extends State<ApiKeySettingsDialog> {
   @override
   Widget build(BuildContext context) {
     final controller = context.read<ToxicityAnalyzerController>();
+    final l10n = AppLocalizations.of(context)!;
 
     return AlertDialog(
-      title: const Text('DeepSeek API Key'),
+      title: Text(l10n.deepSeekApiKey),
       content: SizedBox(
         width: 400,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Enter your DeepSeek API key to enable AI analysis.',
-              style: TextStyle(fontSize: 14),
+            Text(
+              l10n.enterYourDeepSeekApiKeyToEnableAiAnalysis,
+              style: const TextStyle(fontSize: 14),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'Get your API key from: https://platform.deepseek.com',
-              style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
+            Text(
+              l10n.getYourApiKeyFrom,
+              style: const TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
             ),
             const SizedBox(height: 16),
             TextField(
               controller: _apiKeyController,
               obscureText: _obscureText,
               decoration: InputDecoration(
-                labelText: 'API Key',
-                hintText: 'sk-...',
+                labelText: l10n.apiKey,
+                hintText: l10n.skPlaceholder,
                 border: const OutlineInputBorder(),
                 suffixIcon: IconButton(
                   icon: Icon(
@@ -75,14 +77,14 @@ class _ApiKeySettingsDialogState extends State<ApiKeySettingsDialog> {
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: Colors.blue.withOpacity(0.3)),
               ),
-              child: const Row(
+              child: Row(
                 children: [
-                  Icon(Icons.info_outline, size: 20, color: Colors.blue),
-                  SizedBox(width: 8),
+                  const Icon(Icons.info_outline, size: 20, color: Colors.blue),
+                  const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      'Your API key is stored securely on your device and never shared.',
-                      style: TextStyle(fontSize: 12),
+                      l10n.yourApiKeyIsStoredSecurely,
+                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                 ],
@@ -94,15 +96,15 @@ class _ApiKeySettingsDialogState extends State<ApiKeySettingsDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(l10n.cancel),
         ),
         FilledButton(
           onPressed: () async {
             final apiKey = _apiKeyController.text.trim();
             if (apiKey.isEmpty) {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Please enter an API key'),
+                SnackBar(
+                  content: Text(l10n.pleaseEnterApiKey),
                   backgroundColor: Colors.red,
                 ),
               );
@@ -113,15 +115,15 @@ class _ApiKeySettingsDialogState extends State<ApiKeySettingsDialog> {
 
             if (context.mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('API key saved successfully!'),
+                SnackBar(
+                  content: Text(l10n.apiKeySavedSuccessfully),
                   backgroundColor: Colors.green,
                 ),
               );
               Navigator.of(context).pop();
             }
           },
-          child: const Text('Save'),
+          child: Text(l10n.save),
         ),
       ],
     );
