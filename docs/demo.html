@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Try AIRTA Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d0d1a; color: #e8e8f0; line-height: 1.6; }
+    header { background: linear-gradient(135deg, #1a1a3e 0%, #0d0d1a 100%); padding: 50px 20px; text-align: center; border-bottom: 1px solid #2a2a5a; }
+    header a { color: #a0a0ff; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 16px; }
+    header h1 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    header p { color: #a0a0c0; font-size: 1rem; max-width: 480px; margin: 0 auto; }
+    main { max-width: 700px; margin: 0 auto; padding: 50px 20px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px; }
+    .card { background: #12122a; border: 1px solid #2a2a5a; border-radius: 18px; padding: 32px 28px; text-align: center; }
+    .card .platform-icon { font-size: 3.5rem; margin-bottom: 16px; }
+    .card h2 { font-size: 1.3rem; color: #d0d0ff; margin-bottom: 10px; }
+    .card p { font-size: 0.88rem; color: #7070a0; margin-bottom: 24px; line-height: 1.6; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 12px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; width: 100%; }
+    .btn-android { background: #3ddc84; color: #000; }
+    .btn-ios { background: #a0a0ff; color: #000; }
+    .btn:hover { opacity: 0.85; }
+    .btn-disabled { background: #2a2a4a; color: #5a5a8a; cursor: not-allowed; pointer-events: none; }
+    .note { background: #12122a; border: 1px solid #2a2a5a; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; font-size: 0.88rem; color: #8888aa; }
+    .note strong { color: #c0c0e0; }
+    .note a { color: #a0a0ff; }
+    .disclaimer { background: #1a1204; border: 1px solid #4a3a04; border-radius: 12px; padding: 16px 20px; text-align: center; color: #c0a840; font-size: 0.85rem; }
+    .disclaimer a { color: #e0c060; }
+    .steps { text-align: left; margin-top: 16px; }
+    .steps li { margin-bottom: 6px; color: #8888aa; font-size: 0.85rem; }
+    .steps li strong { color: #b0b0cc; }
+    footer { text-align: center; padding: 40px 20px; color: #4a4a6a; font-size: 0.85rem; border-top: 1px solid #1a1a3a; margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">← Back to AIRTA</a>
+  <h1>Try the AIRTA Demo</h1>
+  <p>Full Standard membership unlocked — no paywall, no signup required. For evaluation purposes only.</p>
+</header>
+
+<main>
+
+  <div class="disclaimer">
+    ⚠️ For entertainment and informational purposes only. Not a substitute for professional mental health advice.
+    <a href="disclaimer.html"> Full Disclaimer →</a>
+  </div>
+
+  <br />
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="platform-icon">🤖</div>
+      <h2>Android Demo</h2>
+      <p>Direct APK download. Requires allowing installs from unknown sources on your device.</p>
+      <a class="btn btn-android" href="releases/airta-demo.apk" download>⬇ Download APK</a>
+      <div class="steps">
+        <ol style="padding-left:18px; margin-top:14px;">
+          <li><strong>Download</strong> the APK file</li>
+          <li>Open the file — Android will ask to allow installs from this source</li>
+          <li>Tap <strong>Install</strong></li>
+          <li>Open AIRTA and accept the disclaimer</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="platform-icon">🍎</div>
+      <h2>iOS Demo</h2>
+      <p>Available via TestFlight — Apple's official beta platform. Free, no jailbreak required.</p>
+      <a class="btn btn-ios" href="#testflight-coming-soon">🧪 Join TestFlight Beta</a>
+      <div class="steps">
+        <ol style="padding-left:18px; margin-top:14px;">
+          <li>Install <strong>TestFlight</strong> from the App Store</li>
+          <li>Tap the button above to accept the invite</li>
+          <li>Install AIRTA from within TestFlight</li>
+          <li>Open AIRTA and accept the disclaimer</li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <strong>What's in the demo?</strong><br />
+    Standard membership is fully unlocked — you can analyze conversations, generate full PDF reports, and explore all features without any paywall. The demo is identical to the paid app.<br /><br />
+    <strong>Privacy:</strong> Your conversations are processed by AI and never stored on our servers. <a href="privacy.html">Privacy Policy</a>
+  </div>
+
+</main>
+
+<footer>© 2025 AIRTA Corp · <a href="index.html" style="color:#5a5a8a;">Home</a> · <a href="privacy.html" style="color:#5a5a8a;">Privacy</a> · <a href="disclaimer.html" style="color:#5a5a8a;">Disclaimer</a></footer>
+
+</body>
+</html>
