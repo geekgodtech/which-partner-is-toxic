@@ -974,8 +974,8 @@ class _MetricButtonTile extends StatelessWidget {
                               Text(
                                 l10n.getMetricDescription(metric.id),
                                 style: TextStyle(
-                                  color: foregroundColor.withValues(
-                                    alpha: isSelected ? 0.96 : 0.72,
+                                  color: foregroundColor.withOpacity(
+                                    isSelected ? 0.96 : 0.72,
                                   ),
                                   fontSize: 18,
                                   height: 1.18,
@@ -993,8 +993,8 @@ class _MetricButtonTile extends StatelessWidget {
                         isSelected
                             ? Icons.radio_button_checked
                             : Icons.radio_button_unchecked,
-                        color: foregroundColor.withValues(
-                          alpha: isSelected ? 0.95 : 0.58,
+                        color: foregroundColor.withOpacity(
+                          isSelected ? 0.95 : 0.58,
                         ),
                         size: 18,
                       ),
