@@ -396,7 +396,7 @@ class _TierCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundColor: accentColor.withAlpha( 0.16),
+                backgroundColor: accentColor.withOpacity(0.16),
                 child: Icon(icon, size: 32, color: accentColor),
               ),
               const SizedBox(height: 16),
@@ -470,7 +470,7 @@ class _ComingSoonCard extends StatelessWidget {
 
     return Card(
       elevation: 3,
-      color: colorScheme.tertiaryContainer.withAlpha( 0.45),
+      color: colorScheme.tertiaryContainer.withOpacity(0.45),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
         side: BorderSide(color: colorScheme.tertiary, width: 1.5),
@@ -586,9 +586,9 @@ class _ComingSoonTier extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface.withAlpha( 0.6),
+        color: Theme.of(context).colorScheme.surface.withOpacity(0.6),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: accentColor.withAlpha( 0.5)),
+        border: Border.all(color: accentColor.withOpacity(0.5)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

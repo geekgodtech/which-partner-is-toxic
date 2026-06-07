@@ -780,7 +780,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
               Icon(
                 Icons.chat_bubble_outline,
                 size: 80,
-                color: colorScheme.primary.withAlpha( 0.5),
+                color: colorScheme.primary.withOpacity(0.5),
               ),
               const SizedBox(height: 24),
               Text(
@@ -832,7 +832,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
             subtitle: Text(
               '${conversation.messageCount} messages',
               style: TextStyle(
-                color: colorScheme.onSurface.withAlpha( 0.7),
+                color: colorScheme.onSurface.withOpacity(0.7),
               ),
             ),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),

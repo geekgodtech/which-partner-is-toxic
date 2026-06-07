@@ -811,7 +811,7 @@ class _ObscuredReportContentState extends State<_ObscuredReportContent> {
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
                   child: Container(
-                    color: colorScheme.surface.withAlpha( 0.4),
+                    color: colorScheme.surface.withOpacity(0.4),
                     width: double.infinity,
                     height: double.infinity,
                   ),

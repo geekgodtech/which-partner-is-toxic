@@ -45,7 +45,7 @@ class _AnalyzerWorkspaceState extends State<AnalyzerWorkspace> {
             ),
             if (controller.isAnalyzing && _isAnalysisPanelOpen)
               Positioned.fill(
-                child: Container(color: Colors.black.withAlpha( 0.8)),
+                child: Container(color: Colors.black.withOpacity(0.8)),
               ),
             if (controller.isAnalyzing)
               const Positioned.fill(child: Center(child: _AnalyzingToast())),
