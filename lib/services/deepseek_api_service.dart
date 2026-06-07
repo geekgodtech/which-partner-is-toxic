@@ -52,6 +52,7 @@ class DeepSeekApiService {
         {'role': 'user', 'content': _serializeChatForPrompt(targetThread)},
       ],
       'temperature': 0.15,
+      'max_tokens': 8192,
       'response_format': {'type': 'json_object'},
     };
 
@@ -264,6 +265,7 @@ $transcript
     }
 
     final firstChoice = choices.first as Map<String, dynamic>;
+    final finishReason = firstChoice['finish_reason'] as String?;
     final message = firstChoice['message'] as Map<String, dynamic>?;
     final content = message?['content'] as String?;
 
@@ -271,10 +273,12 @@ $transcript
       throw const FormatException('AI response message content was empty.');
     }
 
-    return PsychologicalAnalysisReport.fromJson(_decodeReportJson(content));
+    return PsychologicalAnalysisReport.fromJson(
+      _decodeReportJson(content, truncated: finishReason == 'length'),
+    );
   }
 
-  Map<String, dynamic> _decodeReportJson(String content) {
+  Map<String, dynamic> _decodeReportJson(String content, {bool truncated = false}) {
     final trimmedContent = content.trim();
 
     try {
@@ -282,8 +286,42 @@ $transcript
     } on FormatException {
       final extractedJson = _extractJsonObject(trimmedContent);
       final repairedJson = _repairUnescapedQuoteListItems(extractedJson);
-      return jsonDecode(repairedJson) as Map<String, dynamic>;
+      try {
+        return jsonDecode(repairedJson) as Map<String, dynamic>;
+      } on FormatException {
+        // Last resort: close any unclosed braces/brackets so we can parse
+        // what was received (handles truncated responses from token limit)
+        final closedJson = _closeOpenJson(repairedJson);
+        return jsonDecode(closedJson) as Map<String, dynamic>;
+      }
     }
+  }
+
+  /// Closes unclosed JSON braces and brackets so a truncated response can
+  /// be decoded. Works by tracking the nesting stack.
+  String _closeOpenJson(String content) {
+    final stack = <String>[];
+    var inString = false;
+    var escape = false;
+
+    for (var i = 0; i < content.length; i++) {
+      final ch = content[i];
+      if (escape) { escape = false; continue; }
+      if (ch == r'\') { escape = true; continue; }
+      if (ch == '"') { inString = !inString; continue; }
+      if (inString) continue;
+      if (ch == '{') stack.add('}');
+      else if (ch == '[') stack.add(']');
+      else if (ch == '}' || ch == ']') {
+        if (stack.isNotEmpty) stack.removeLast();
+      }
+    }
+
+    // Strip any trailing incomplete string or comma
+    var trimmed = content.trimRight();
+    if (trimmed.endsWith(',')) trimmed = trimmed.substring(0, trimmed.length - 1);
+
+    return trimmed + stack.reversed.join();
   }
 
   String _extractJsonObject(String content) {
