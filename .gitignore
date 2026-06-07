@@ -45,3 +45,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Keystore - never commit
+*.keystore
+*.jks
+android/app/keystore-base64.txt
