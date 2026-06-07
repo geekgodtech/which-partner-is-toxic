@@ -35,24 +35,38 @@ class SubscriptionService extends ChangeNotifier {
   Future<void> initialize() async {
     if (_isInitialized) return;
 
-    final available = await _iap.isAvailable();
-    if (!available) {
-      debugPrint('In-app purchases not available on this device');
+    // Skip IAP entirely in demo mode builds
+    const isDemoMode = bool.fromEnvironment('DEMO_MODE', defaultValue: false);
+    if (isDemoMode) {
+      _activeTier = MembershipTier.standard;
+      _isInitialized = true;
+      notifyListeners();
       return;
     }
 
-    // Listen to purchase updates
-    _subscription = _iap.purchaseStream.listen(
-      _onPurchaseUpdate,
-      onDone: () => _subscription?.cancel(),
-      onError: (error) => debugPrint('Purchase stream error: $error'),
-    );
+    try {
+      final available = await _iap.isAvailable();
+      if (!available) {
+        debugPrint('In-app purchases not available on this device');
+        _isInitialized = true;
+        return;
+      }
 
-    // Load products
-    await _loadProducts();
+      // Listen to purchase updates
+      _subscription = _iap.purchaseStream.listen(
+        _onPurchaseUpdate,
+        onDone: () => _subscription?.cancel(),
+        onError: (error) => debugPrint('Purchase stream error: $error'),
+      );
 
-    // Restore previous purchases
-    await restorePurchases();
+      // Load products
+      await _loadProducts();
+
+      // Restore previous purchases
+      await restorePurchases();
+    } catch (e) {
+      debugPrint('IAP initialization error (non-fatal): $e');
+    }
 
     _isInitialized = true;
     notifyListeners();

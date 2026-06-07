@@ -11,73 +11,37 @@ class RemoteConfigService {
   Future<void> initialize() async {
     if (_initialized) return;
 
-    await _remoteConfig.setConfigSettings(RemoteConfigSettings(
-      fetchTimeout: const Duration(seconds: 10),
-      minimumFetchInterval: const Duration(hours: 1),
-    ));
-
-    await _remoteConfig.setDefaults({
-      'min_required_version': '1.0.0',
-      'force_update': false,
-      'update_message': 'A new version is available with exciting features!',
-      'android_store_url':
-          'https://play.google.com/store/apps/details?id=com.yourapp',
-      'ios_store_url': 'https://apps.apple.com/app/your-app/id1234567890',
-      'standard_tier_price': '9.99',
-      'discord_addon_price': '9.99',
-      'discord_addon_enabled': false,
-      'one_time_unlock_price': '19.99',
-      // Pro and Pro Plus tiers - COMMENTED OUT FOR FUTURE IMPLEMENTATION
-      // 'pro_tier_price': '19.99',
-      // 'pro_plus_tier_price': '24.99',
-      // 'pro_tier_enabled': false,
-      // 'pro_plus_tier_enabled': false,
-      'standard_tier_features': [
-        'Unlimited SMS analysis',
-        'Advanced AI insights',
-        'PDF report export',
-        'Priority support'
-      ],
-      'discord_addon_features': [
-        'Discord server channel analysis',
-        'Import up to 10,000 messages per channel',
-        'Full AI toxicity analysis',
-        'PDF reports for Discord conversations'
-      ],
-      'pro_tier_features': [
-        'Everything in Standard',
-        'WhatsApp analysis',
-        'Facebook Messenger analysis',
-        'Instagram DM analysis',
-        'Email analysis',
-        'LinkedIn message analysis',
-        'Telegram analysis',
-        'Twitter/X DM analysis'
-      ],
-      'pro_plus_tier_features': [
-        'Everything in Pro',
-        'Discord server analysis',
-        'Custom integrations',
-        'API access',
-        'White-label reports'
-      ],
-      'supported_platforms': [
-        'sms',
-        'whatsapp',
-        'messenger',
-        'instagram',
-        'email',
-        'linkedin',
-        'telegram',
-        'twitter',
-        'discord'
-      ],
-    });
-
     try {
+      await _remoteConfig.setConfigSettings(RemoteConfigSettings(
+        fetchTimeout: const Duration(seconds: 10),
+        minimumFetchInterval: const Duration(hours: 1),
+      ));
+
+      await _remoteConfig.setDefaults({
+        'min_required_version': '1.0.0',
+        'force_update': false,
+        'update_message': 'A new version is available with exciting features!',
+        'android_store_url':
+            'https://play.google.com/store/apps/details?id=com.airta.airelationshiptoxicityanalyzer',
+        'ios_store_url': 'https://apps.apple.com/app/airta/id1234567890',
+        'standard_tier_price': '9.99',
+        'discord_addon_price': '9.99',
+        'discord_addon_enabled': false,
+        'one_time_unlock_price': '19.99',
+        'standard_tier_features':
+            'Unlimited SMS analysis,Advanced AI insights,PDF report export,Priority support',
+        'discord_addon_features':
+            'Discord server channel analysis,Import up to 10000 messages per channel,Full AI toxicity analysis,PDF reports for Discord conversations',
+        'pro_tier_features':
+            'Everything in Standard,WhatsApp analysis,Facebook Messenger analysis,Instagram DM analysis,Email analysis',
+        'pro_plus_tier_features':
+            'Everything in Pro,Discord server analysis,Custom integrations,API access,White-label reports',
+        'supported_platforms': 'sms,whatsapp,messenger,instagram,email,linkedin,telegram,twitter,discord',
+      });
+
       await _remoteConfig.fetchAndActivate();
     } catch (e) {
-      print('Failed to fetch remote config: $e');
+      print('Remote config initialization error (non-fatal): $e');
     }
 
     _initialized = true;
