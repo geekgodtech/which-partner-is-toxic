@@ -33,7 +33,7 @@
 >
 > **Privacy first:** All analysis is processed through AI — your conversations are never stored on our servers.
 >
-> Available in 14 languages.
+> Available in 16 languages.
 
 ---
 
