@@ -11,6 +11,8 @@ import 'package:airta/services/version_check_service.dart';
 import 'package:airta/services/language_service.dart';
 import 'package:airta/l10n/app_localizations.dart';
 import 'package:airta/screens/force_update_screen.dart';
+import 'package:airta/screens/disclaimer_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,6 +47,7 @@ class _ToxicityAnalyzerAppState extends State<ToxicityAnalyzerApp> {
   bool _showPermissionDialog = true;
   bool _updateRequired = false;
   bool _checkingVersion = true;
+  bool _disclaimerAccepted = false;
 
   @override
   void initState() {
@@ -53,6 +56,18 @@ class _ToxicityAnalyzerAppState extends State<ToxicityAnalyzerApp> {
   }
 
   Future<void> _initializeApp() async {
+    // Check disclaimer acceptance first
+    final prefs = await SharedPreferences.getInstance();
+    final disclaimerAccepted = prefs.getBool('disclaimer_accepted') ?? false;
+    if (!disclaimerAccepted) {
+      setState(() {
+        _disclaimerAccepted = false;
+        _checkingVersion = false;
+      });
+      return;
+    }
+    setState(() => _disclaimerAccepted = true);
+
     try {
       // Check if update is required with timeout
       final versionService = VersionCheckService();
@@ -79,6 +94,11 @@ class _ToxicityAnalyzerAppState extends State<ToxicityAnalyzerApp> {
       _checkingVersion = false;
     });
     _checkPermissions();
+  }
+
+  void _onDisclaimerAccepted() {
+    setState(() => _disclaimerAccepted = true);
+    _initializeApp();
   }
 
   Future<void> _checkPermissions() async {
@@ -132,12 +152,14 @@ class _ToxicityAnalyzerAppState extends State<ToxicityAnalyzerApp> {
                       child: CircularProgressIndicator(),
                     ),
                   )
-                : _updateRequired
-                    ? ForceUpdateScreen()
-                    : _showPermissionDialog
-                        ? _PermissionRequestScreen(
-                            onAccept: _requestPermissions)
-                        : MultiProvider(
+                : !_disclaimerAccepted
+                    ? DisclaimerScreen(onAccepted: _onDisclaimerAccepted)
+                    : _updateRequired
+                        ? ForceUpdateScreen()
+                        : _showPermissionDialog
+                            ? _PermissionRequestScreen(
+                                onAccept: _requestPermissions)
+                            : MultiProvider(
                             providers: [
                               ChangeNotifierProvider(
                                 create: (_) => ToxicityAnalyzerController()
@@ -148,8 +170,8 @@ class _ToxicityAnalyzerAppState extends State<ToxicityAnalyzerApp> {
                                 value: SubscriptionService(),
                               ),
                             ],
-                            child: const ToxicityAnalyzerMasterView(),
-                          ),
+                              child: const ToxicityAnalyzerMasterView(),
+                            ),
           );
         },
       ),
