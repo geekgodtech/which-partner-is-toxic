@@ -1334,4 +1334,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String loadingConversationWith(String name) {
     return 'Carregando conversação\ncom $name…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. Abra o aplicativo Mensagens e selecione a conversa\n2. Role até a mensagem mais antiga que deseja analisar\n3. Toque em \"Iniciar Captura\" abaixo\n4. Tire capturas de tela enquanto rola pela conversa\n5. Quando terminar, toque em \"Concluir e Processar\"';
+
+  @override
+  String get howToCaptureIosMessages => 'Como capturar mensagens do iOS';
 }

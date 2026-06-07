@@ -1328,4 +1328,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String loadingConversationWith(String name) {
     return 'Gesprek laden\nmet $name…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. Open de Berichten-app en selecteer het gesprek\n2. Scroll naar het oudste bericht dat u wilt analyseren\n3. Tik hieronder op \"Opname starten\"\n4. Maak screenshots terwijl u door het gesprek scrolt\n5. Wanneer u klaar bent, tik op \"Voltooien & Verwerken\"';
+
+  @override
+  String get howToCaptureIosMessages => 'iOS-berichten vastleggen';
 }

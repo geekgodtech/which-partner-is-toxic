@@ -1318,4 +1318,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String loadingConversationWith(String name) {
     return 'تحميل المحادثة\nمع $name…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. افتح تطبيق الرسائل وحدد المحادثة\n2. انتقل إلى أقدم رسالة تريد تحليلها\n3. اضغط على \"بدء الالتقاط\" أدناه\n4. التقط لقطات الشاشة أثناء التمرير عبر المحادثة\n5. عند الانتهاء، اضغط على \"إنهاء ومعالجة\"';
+
+  @override
+  String get howToCaptureIosMessages => 'كيفية التقاط رسائل iOS';
 }

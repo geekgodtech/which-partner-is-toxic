@@ -399,5 +399,7 @@
   "largeThreadNoticeBody": "Bei sehr großen Textthreads können einige Ladebildschirme in dieser App manchmal über eine Minute und eine halbe dauern.\n\nDie Anwendung hängt sich nicht auf. Wenn Sie einen sich drehenden Statusindikator sehen, lädt die App noch.\n\nBitte haben Sie in diesen Fällen Geduld, da die Ladezeit im Vergleich zu anderen Anwendungen länger als üblich sein kann, besonders bei einem großen Datensatz wie einem Thread mit 50.000 Nachrichten.",
   "neverShowThisAgain": "Diese Meldung nicht mehr anzeigen",
   "loadingConversationWith": "Gespräch wird geladen\nmit {name}…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } }
+  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
+  "iosCaptureInstructions": "1. Öffnen Sie die Nachrichten-App und wählen Sie die Unterhaltung\n2. Scrollen Sie bis zur ältesten Nachricht, die Sie analysieren möchten\n3. Tippen Sie unten auf \"Aufnahme starten\"\n4. Machen Sie Screenshots, während Sie durch die Unterhaltung scrollen\n5. Wenn Sie fertig sind, tippen Sie auf \"Fertig & Verarbeiten\"",
+  "howToCaptureIosMessages": "So erfassen Sie iOS-Nachrichten"
 }

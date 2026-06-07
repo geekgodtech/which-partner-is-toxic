@@ -1328,4 +1328,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String loadingConversationWith(String name) {
     return 'बातचीत लोड हो रही है\n$name के साथ…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. संदेश ऐप खोलें और बातचीत चुनें\n2. उस सबसे पुराने संदेश तक स्क्रॉल करें जिसे आप विश्लेषण करना चाहते हैं\n3. नीचे \"कैप्चर शुरू करें\" दबाएं\n4. बातचीत स्क्रॉल करते समय स्क्रीनशॉट लें\n5. हो जाने पर \"समाप्त और प्रसंस्करण\" दबाएं';
+
+  @override
+  String get howToCaptureIosMessages => 'iOS संदेश कैसे कैप्चर करें';
 }

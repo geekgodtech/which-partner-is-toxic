@@ -1323,4 +1323,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String loadingConversationWith(String name) {
     return 'Ładowanie rozmowy\nz $name…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. Otwórz aplikację Wiadomości i wybierz rozmowę\n2. Przewiń do najstarszej wiadomości, którą chcesz przeanalizować\n3. Kliknij \"Rozpocznij przechwytywanie\" poniżej\n4. Rób zrzuty ekranu podczas przewijania rozmowy\n5. Po zakończeniu kliknij \"Zakończ i przetwórz\"';
+
+  @override
+  String get howToCaptureIosMessages => 'Jak przechwytywać wiadomości iOS';
 }

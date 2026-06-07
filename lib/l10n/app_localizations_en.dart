@@ -1319,4 +1319,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String loadingConversationWith(String name) {
     return 'Loading conversation\nwith $name…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. Open the Messages app and select the conversation\n2. Scroll to the oldest message you want to analyze\n3. Tap \"Start Capture\" below\n4. Take screenshots as you scroll through the conversation\n5. When done, tap \"Finish & Process\"';
+
+  @override
+  String get howToCaptureIosMessages => 'How to Capture iOS Messages';
 }

@@ -399,5 +399,7 @@
   "largeThreadNoticeBody": "Al tratar con hilos de texto excepcionalmente grandes, algunas pantallas de carga en esta aplicación podrían superar un minuto y medio a veces.\n\nLa aplicación no se bloquea. Si ve un indicador de estado girando, la aplicación todavía está cargando.\n\nPor favor, sea paciente en esos casos, ya que el tiempo de carga podría ser más largo de lo habitual en comparación con otras aplicaciones, especialmente cuando se trata de un conjunto de datos grande como un hilo con 50,000 mensajes.",
   "neverShowThisAgain": "No volver a mostrar este mensaje",
   "loadingConversationWith": "Cargando conversación\ncon {name}…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } }
+  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
+  "iosCaptureInstructions": "1. Abra la aplicación de Mensajes y seleccione la conversación\n2. Desplácese hasta el mensaje más antiguo que desee analizar\n3. Toque \"Iniciar captura\" a continuación\n4. Tome capturas de pantalla mientras se desplaza por la conversación\n5. Cuando termine, toque \"Finalizar y procesar\"",
+  "howToCaptureIosMessages": "Cómo capturar mensajes de iOS"
 }

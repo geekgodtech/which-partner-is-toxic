@@ -1323,4 +1323,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String loadingConversationWith(String name) {
     return 'Konuşma yükleniyor\n$name ile…';
   }
+
+  @override
+  String get iosCaptureInstructions =>
+      '1. Mesajlar uygulamasını açın ve konuşmayı seçin\n2. Analiz etmek istediğiniz en eski mesaja kadar kaydırın\n3. Aşağıdaki \"Yakalamayı Başlat\" düğmesine basın\n4. Konuşmayı kaydırırken ekran görüntüsü alın\n5. Bittiğinde \"Bitir ve İşle\" düğmesine basın';
+
+  @override
+  String get howToCaptureIosMessages => 'iOS mesajları nasıl yakalanır';
 }

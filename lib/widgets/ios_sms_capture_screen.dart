@@ -80,7 +80,7 @@ class _IosSmsCaptureScreenState extends State<IosSmssCaptureScreen> {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'How to Capture iOS Messages',
+                  AppLocalizations.of(context)!.howToCaptureIosMessages,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -88,13 +88,9 @@ class _IosSmsCaptureScreenState extends State<IosSmssCaptureScreen> {
               ],
             ),
             const SizedBox(height: 12),
-            const Text(
-              '1. Open the Messages app and select the conversation\n'
-              '2. Scroll to the oldest message you want to analyze\n'
-              '3. Tap "Start Capture" below\n'
-              '4. Take screenshots as you scroll through the conversation\n'
-              '5. When done, tap "Finish & Process"',
-              style: TextStyle(height: 1.5),
+            Text(
+              AppLocalizations.of(context)!.iosCaptureInstructions,
+              style: const TextStyle(height: 1.5),
             ),
             const SizedBox(height: 12),
             Container(
