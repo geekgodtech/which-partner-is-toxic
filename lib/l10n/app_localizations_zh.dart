@@ -1242,4 +1242,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String continuingToLoadMassiveThread(String name) {
     return '继续加载与 $name 的巨大线程…';
   }
+
+  @override
+  String get noMessagesInDateRange =>
+      'No messages found in the selected date range. Please select different dates or clear the date filter.';
 }

@@ -152,6 +152,11 @@ class ToxicityAnalyzerController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void clearError() {
+    errorMessage = null;
+    notifyListeners();
+  }
+
   bool get hasDateRange => dateRangeStart != null && dateRangeEnd != null;
 
   void setRandomMetricsCount(int count) {
@@ -164,6 +169,11 @@ class ToxicityAnalyzerController extends ChangeNotifier {
 
     int messagesWithTimestamp = 0;
     int messagesInRange = 0;
+
+    debugPrint('=== DATE RANGE FILTER DEBUG ===');
+    debugPrint('Date range start: $dateRangeStart');
+    debugPrint('Date range end: $dateRangeEnd');
+    debugPrint('Total messages to filter: ${messages.length}');
 
     final filtered = messages.where((message) {
       final messageDate = message.timestamp;
@@ -184,6 +194,10 @@ class ToxicityAnalyzerController extends ChangeNotifier {
       
       return isInRange;
     }).toList();
+
+    debugPrint('Messages with timestamp: $messagesWithTimestamp');
+    debugPrint('Messages in date range: $messagesInRange');
+    debugPrint('=== END DATE RANGE FILTER DEBUG ===');
 
     _filteredMessageCount = messagesInRange;
     _totalMessagesWithTimestamp = messagesWithTimestamp;
@@ -479,34 +493,50 @@ class ToxicityAnalyzerController extends ChangeNotifier {
   }
 
   Future<void> executeAnalysis() async {
+    debugPrint('=== EXECUTE ANALYSIS START ===');
     final thread = activeThread;
+    debugPrint('Active thread: ${thread != null}');
+    debugPrint('Thread message count: ${thread?.messages.length ?? 0}');
+    
     if (thread == null) {
       errorMessage = 'Load a conversation before executing analysis.';
+      debugPrint('ERROR: No active thread');
       notifyListeners();
       return;
     }
 
+    debugPrint('Has selected metrics: $hasSelectedMetricCount');
+    debugPrint('Selected metric count: ${_selectedMetricIds.length}');
+    
     if (!hasSelectedMetricCount) {
       errorMessage =
           'Select at least 1 and up to $requiredMetricSelectionCount metrics before executing analysis.';
+      debugPrint('ERROR: No metrics selected');
       notifyListeners();
       return;
     }
 
+    debugPrint('Has API key: $hasApiKey');
+    
     if (!hasApiKey) {
       errorMessage =
           'AI API key is missing. Please enter your DeepSeek API key in Settings.';
+      debugPrint('ERROR: No API key');
       notifyListeners();
       return;
     }
 
+    debugPrint('Has reached daily limit: $hasReachedStandardDailyReportLimit');
+    
     if (hasReachedStandardDailyReportLimit) {
       errorMessage =
           'Standard membership includes $standardReportsPerDayLimit reports per 24 hours. Upgrade to Pro for unlimited reports.';
+      debugPrint('ERROR: Daily limit reached');
       notifyListeners();
       return;
     }
 
+    debugPrint('All checks passed, starting analysis...');
     isAnalyzing = true;
     activeReport = null;
     activePdfBytes = null;
@@ -520,19 +550,27 @@ class ToxicityAnalyzerController extends ChangeNotifier {
     try {
       // Apply date range filtering if set
       ConversationThread analysisThread = thread;
+      debugPrint('Has date range: $hasDateRange');
+      debugPrint('Date range start: $dateRangeStart');
+      debugPrint('Date range end: $dateRangeEnd');
+      
       if (hasDateRange && dateRangeStart != null && dateRangeEnd != null) {
+        debugPrint('Applying date range filter...');
         var filteredMessages = filterMessagesByDateRange(thread.messages);
         
         // Ensure we have messages after filtering
         if (filteredMessages.isEmpty) {
-          errorMessage = 'NO_MESSAGES_IN_DATE_RANGE';
+          errorMessage = 'No messages found in the selected date range. The conversation may not have messages within these dates, or RCS messages may have timestamp issues.';
           isAnalyzing = false;
+          debugPrint('ERROR: No messages in date range');
           notifyListeners();
           return;
         } else {
+          debugPrint('Messages after filtering: ${filteredMessages.length}');
           // Apply token limit sampling if needed (DeepSeek token limit ~128k)
           const int maxTokens = 128000;
           filteredMessages = sampleMessagesForTokenLimit(filteredMessages, maxTokens);
+          debugPrint('Messages after token limit sampling: ${filteredMessages.length}');
           
           // Create a new thread with filtered messages
           analysisThread = ConversationThread(
@@ -542,6 +580,8 @@ class ToxicityAnalyzerController extends ChangeNotifier {
             fileSource: thread.fileSource,
           );
         }
+      } else {
+        debugPrint('No date range, using all messages');
       }
       
       final report = await _deepSeekApiService.executeForensicAnalysis(

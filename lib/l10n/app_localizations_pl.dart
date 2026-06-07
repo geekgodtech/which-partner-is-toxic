@@ -1373,4 +1373,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String continuingToLoadMassiveThread(String name) {
     return 'Kontynuuję ładowanie masywnego wątku z $name…';
   }
+
+  @override
+  String get noMessagesInDateRange =>
+      'No messages found in the selected date range. Please select different dates or clear the date filter.';
 }
