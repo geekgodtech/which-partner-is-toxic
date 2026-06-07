@@ -401,5 +401,14 @@
   "loadingConversationWith": "Gesprek laden\nmet {name}…",
   "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
   "iosCaptureInstructions": "1. Open de Berichten-app en selecteer het gesprek\n2. Scroll naar het oudste bericht dat u wilt analyseren\n3. Tik hieronder op \"Opname starten\"\n4. Maak screenshots terwijl u door het gesprek scrolt\n5. Wanneer u klaar bent, tik op \"Voltooien & Verwerken\"",
-  "howToCaptureIosMessages": "iOS-berichten vastleggen"
+  "howToCaptureIosMessages": "iOS-berichten vastleggen",
+  "deepSeekApiKey": "DeepSeek API-sleutel",
+  "enterYourDeepSeekApiKeyToEnableAiAnalysis": "Voer uw DeepSeek API-sleutel in om AI-analyse in te schakelen.",
+  "getYourApiKeyFrom": "Haal uw API-sleutel op van: https://platform.deepseek.com",
+  "apiKey": "API-sleutel",
+  "skPlaceholder": "sk-...",
+  "yourApiKeyIsStoredSecurely": "Uw API-sleutel wordt veilig op uw apparaat opgeslagen en nooit gedeeld.",
+  "pleaseEnterApiKey": "Voer een API-sleutel in",
+  "apiKeySavedSuccessfully": "API-sleutel succesvol opgeslagen!",
+  "save": "Opslaan"
 }

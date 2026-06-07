@@ -1202,4 +1202,30 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get howToCaptureIosMessages => '如何捕获 iOS 消息';
+
+  @override
+  String get deepSeekApiKey => 'DeepSeek API 密钥';
+
+  @override
+  String get enterYourDeepSeekApiKeyToEnableAiAnalysis =>
+      '输入您的 DeepSeek API 密钥以启用 AI 分析。';
+
+  @override
+  String get getYourApiKeyFrom =>
+      '从以下位置获取您的 API 密钥：https://platform.deepseek.com';
+
+  @override
+  String get apiKey => 'API 密钥';
+
+  @override
+  String get skPlaceholder => 'sk-...';
+
+  @override
+  String get yourApiKeyIsStoredSecurely => '您的 API 密钥安全地存储在您的设备上，绝不会共享。';
+
+  @override
+  String get pleaseEnterApiKey => '请输入 API 密钥';
+
+  @override
+  String get apiKeySavedSuccessfully => 'API 密钥保存成功！';
 }

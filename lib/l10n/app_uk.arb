@@ -401,5 +401,14 @@
   "loadingConversationWith": "Завантаження розмови\nз {name}…",
   "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
   "iosCaptureInstructions": "1. Відкрийте програму повідомлень і виберіть розмову\n2. Прокрутіть до найстарішого повідомлення, яке хочете проаналізувати\n3. Натисніть \"Почати захоплення\" нижче\n4. Робіть знімки екрана, прокручуючи розмову\n5. Коли закінчите, натисніть \"Завершити та обробити\"",
-  "howToCaptureIosMessages": "Як захоплювати повідомлення iOS"
+  "howToCaptureIosMessages": "Як захоплювати повідомлення iOS",
+  "deepSeekApiKey": "Ключ API DeepSeek",
+  "enterYourDeepSeekApiKeyToEnableAiAnalysis": "Введіть свій ключ API DeepSeek, щоб увімкнути аналіз ШІ.",
+  "getYourApiKeyFrom": "Отримайте свій ключ API на: https://platform.deepseek.com",
+  "apiKey": "Ключ API",
+  "skPlaceholder": "sk-...",
+  "yourApiKeyIsStoredSecurely": "Ваш ключ API безпечно зберігається на вашому пристрої і ніколи не передається.",
+  "pleaseEnterApiKey": "Будь ласка, введіть ключ API",
+  "apiKeySavedSuccessfully": "Ключ API успішно збережено!",
+  "save": "Зберегти"
 }

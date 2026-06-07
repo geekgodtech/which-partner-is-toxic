@@ -401,5 +401,14 @@
   "loadingConversationWith": "Konuşma yükleniyor\n{name} ile…",
   "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
   "iosCaptureInstructions": "1. Mesajlar uygulamasını açın ve konuşmayı seçin\n2. Analiz etmek istediğiniz en eski mesaja kadar kaydırın\n3. Aşağıdaki \"Yakalamayı Başlat\" düğmesine basın\n4. Konuşmayı kaydırırken ekran görüntüsü alın\n5. Bittiğinde \"Bitir ve İşle\" düğmesine basın",
-  "howToCaptureIosMessages": "iOS mesajları nasıl yakalanır"
+  "howToCaptureIosMessages": "iOS mesajları nasıl yakalanır",
+  "deepSeekApiKey": "DeepSeek API Anahtarı",
+  "enterYourDeepSeekApiKeyToEnableAiAnalysis": "AI analizini etkinleştirmek için DeepSeek API anahtarınızı girin.",
+  "getYourApiKeyFrom": "API anahtarınızı şuradan alın: https://platform.deepseek.com",
+  "apiKey": "API Anahtarı",
+  "skPlaceholder": "sk-...",
+  "yourApiKeyIsStoredSecurely": "API anahtarınız cihazınızda güvenli bir şekilde saklanır ve asla paylaşılmaz.",
+  "pleaseEnterApiKey": "Lütfen bir API anahtarı girin",
+  "apiKeySavedSuccessfully": "API anahtarı başarıyla kaydedildi!",
+  "save": "Kaydet"
 }

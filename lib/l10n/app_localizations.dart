@@ -2459,6 +2459,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'How to Capture iOS Messages'**
   String get howToCaptureIosMessages;
+
+  /// No description provided for @deepSeekApiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'DeepSeek API Key'**
+  String get deepSeekApiKey;
+
+  /// No description provided for @enterYourDeepSeekApiKeyToEnableAiAnalysis.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your DeepSeek API key to enable AI analysis.'**
+  String get enterYourDeepSeekApiKeyToEnableAiAnalysis;
+
+  /// No description provided for @getYourApiKeyFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'Get your API key from: https://platform.deepseek.com'**
+  String get getYourApiKeyFrom;
+
+  /// No description provided for @apiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'API Key'**
+  String get apiKey;
+
+  /// No description provided for @skPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'sk-...'**
+  String get skPlaceholder;
+
+  /// No description provided for @yourApiKeyIsStoredSecurely.
+  ///
+  /// In en, this message translates to:
+  /// **'Your API key is stored securely on your device and never shared.'**
+  String get yourApiKeyIsStoredSecurely;
+
+  /// No description provided for @pleaseEnterApiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter an API key'**
+  String get pleaseEnterApiKey;
+
+  /// No description provided for @apiKeySavedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'API key saved successfully!'**
+  String get apiKeySavedSuccessfully;
 }
 
 class _AppLocalizationsDelegate

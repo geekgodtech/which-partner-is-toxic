@@ -401,5 +401,14 @@
   "loadingConversationWith": "تحميل المحادثة\nمع {name}…",
   "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
   "iosCaptureInstructions": "1. افتح تطبيق الرسائل وحدد المحادثة\n2. انتقل إلى أقدم رسالة تريد تحليلها\n3. اضغط على \"بدء الالتقاط\" أدناه\n4. التقط لقطات الشاشة أثناء التمرير عبر المحادثة\n5. عند الانتهاء، اضغط على \"إنهاء ومعالجة\"",
-  "howToCaptureIosMessages": "كيفية التقاط رسائل iOS"
+  "howToCaptureIosMessages": "كيفية التقاط رسائل iOS",
+  "deepSeekApiKey": "مفتاح API DeepSeek",
+  "enterYourDeepSeekApiKeyToEnableAiAnalysis": "أدخل مفتاح API DeepSeek الخاص بك لتمكين تحليل الذكاء الاصطناعي.",
+  "getYourApiKeyFrom": "احصل على مفتاح API من: https://platform.deepseek.com",
+  "apiKey": "مفتاح API",
+  "skPlaceholder": "sk-...",
+  "yourApiKeyIsStoredSecurely": "يتم تخزين مفتاح API الخاص بك بشكل آمن على جهازك ولا يتم مشاركته أبدًا.",
+  "pleaseEnterApiKey": "الرجاء إدخال مفتاح API",
+  "apiKeySavedSuccessfully": "تم حفظ مفتاح API بنجاح!",
+  "save": "حفظ"
 }

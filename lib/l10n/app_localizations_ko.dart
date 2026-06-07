@@ -99,7 +99,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get print => 'Print';
 
   @override
-  String get save => 'Save';
+  String get save => '저장';
 
   @override
   String get cancel => 'Cancel';
@@ -1321,4 +1321,29 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get howToCaptureIosMessages => 'iOS 메시지 캡처 방법';
+
+  @override
+  String get deepSeekApiKey => 'DeepSeek API 키';
+
+  @override
+  String get enterYourDeepSeekApiKeyToEnableAiAnalysis =>
+      'AI 분석을 활성화하려면 DeepSeek API 키를 입력하세요.';
+
+  @override
+  String get getYourApiKeyFrom => 'API 키 가져오기: https://platform.deepseek.com';
+
+  @override
+  String get apiKey => 'API 키';
+
+  @override
+  String get skPlaceholder => 'sk-...';
+
+  @override
+  String get yourApiKeyIsStoredSecurely => 'API 키는 기기에 안전하게 저장되며 절대 공유되지 않습니다.';
+
+  @override
+  String get pleaseEnterApiKey => 'API 키를 입력하세요';
+
+  @override
+  String get apiKeySavedSuccessfully => 'API 키가 성공적으로 저장되었습니다!';
 }

@@ -1325,4 +1325,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get howToCaptureIosMessages => 'كيفية التقاط رسائل iOS';
+
+  @override
+  String get deepSeekApiKey => 'مفتاح API DeepSeek';
+
+  @override
+  String get enterYourDeepSeekApiKeyToEnableAiAnalysis =>
+      'أدخل مفتاح API DeepSeek الخاص بك لتمكين تحليل الذكاء الاصطناعي.';
+
+  @override
+  String get getYourApiKeyFrom =>
+      'احصل على مفتاح API من: https://platform.deepseek.com';
+
+  @override
+  String get apiKey => 'مفتاح API';
+
+  @override
+  String get skPlaceholder => 'sk-...';
+
+  @override
+  String get yourApiKeyIsStoredSecurely =>
+      'يتم تخزين مفتاح API الخاص بك بشكل آمن على جهازك ولا يتم مشاركته أبدًا.';
+
+  @override
+  String get pleaseEnterApiKey => 'الرجاء إدخال مفتاح API';
+
+  @override
+  String get apiKeySavedSuccessfully => 'تم حفظ مفتاح API بنجاح!';
 }
