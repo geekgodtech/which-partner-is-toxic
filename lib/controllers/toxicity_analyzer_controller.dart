@@ -57,7 +57,7 @@ class ToxicityAnalyzerController extends ChangeNotifier {
   bool isIngesting = false;
   bool isAnalyzing = false;
   bool isRandomizingMetrics = false;
-  bool isPremiumUnlocked = false;
+  bool isPremiumUnlocked = const bool.fromEnvironment('DEMO_MODE', defaultValue: false);
   bool isCurrentReportUnlocked = false;
   bool isConnectedAccountsUnlocked = false;
   bool isDiscordAddonUnlocked = false;

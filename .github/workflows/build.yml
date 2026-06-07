@@ -65,6 +65,81 @@ jobs:
           path: build/app/outputs/bundle/release/app-release.aab
           retention-days: 30
 
+  build-android-demo:
+    name: Build Android Demo APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.5'
+          channel: 'stable'
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Decode keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > android/app/airta-release.keystore
+
+      - name: Build Demo APK
+        env:
+          KEYSTORE_PATH: airta-release.keystore
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: flutter build apk --release --dart-define=DEEPSEEK_API_KEY=${{ secrets.DEEPSEEK_API_KEY }} --dart-define=DEMO_MODE=true
+
+      - name: Upload Demo APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-demo-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 30
+
+  build-ios-demo:
+    name: Build iOS Demo IPA
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.5'
+          channel: 'stable'
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Build iOS Demo (no codesign)
+        run: flutter build ios --release --no-codesign --dart-define=DEEPSEEK_API_KEY=${{ secrets.DEEPSEEK_API_KEY }} --dart-define=DEMO_MODE=true
+
+      - name: Create Demo IPA
+        run: |
+          mkdir -p Payload
+          cp -r build/ios/iphoneos/Runner.app Payload/
+          zip -r app-demo.ipa Payload
+
+      - name: Upload Demo IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-demo-ipa
+          path: app-demo.ipa
+          retention-days: 30
+
   build-ios:
     name: Build iOS IPA
     runs-on: macos-latest
