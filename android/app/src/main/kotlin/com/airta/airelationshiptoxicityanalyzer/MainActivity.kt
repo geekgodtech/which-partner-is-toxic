@@ -404,8 +404,11 @@ class MainActivity : FlutterActivity() {
             mmsCursor?.use { cursor ->
                 while (cursor.moveToNext()) {
                     val mmsId = cursor.getLong(cursor.getColumnIndexOrThrow(Telephony.Mms._ID))
-                    val date = cursor.getLong(cursor.getColumnIndexOrThrow(Telephony.Mms.DATE))
+                    val dateRaw = cursor.getLong(cursor.getColumnIndexOrThrow(Telephony.Mms.DATE))
                     val msgBox = cursor.getInt(cursor.getColumnIndexOrThrow("msg_box"))
+                    
+                    // MMS DATE is stored in seconds, convert to milliseconds
+                    val date = if (dateRaw < 10000000000L) dateRaw * 1000 else dateRaw
                     
                     // Get text from MMS parts
                     val text = getMmsText(mmsId)
@@ -542,7 +545,9 @@ class MainActivity : FlutterActivity() {
             mmsCursor?.use {
                 while (it.moveToNext()) {
                     val mmsId = it.getLong(it.getColumnIndexOrThrow(Telephony.Mms._ID))
-                    val date = it.getLong(it.getColumnIndexOrThrow(Telephony.Mms.DATE))
+                    val dateRaw = it.getLong(it.getColumnIndexOrThrow(Telephony.Mms.DATE))
+                    // MMS DATE is stored in seconds, convert to milliseconds
+                    val date = if (dateRaw < 10000000000L) dateRaw * 1000 else dateRaw
                     val text = getMmsText(mmsId)
                     val addr = getMmsAddress(mmsId, mmsUri)
                     
