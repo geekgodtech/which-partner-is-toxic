@@ -244,7 +244,7 @@ class _RandomAnalysisSection extends StatelessWidget {
                     BoxShadow(
                       color: Theme.of(
                         context,
-                      ).colorScheme.primary.withValues(alpha: 0.35),
+                      ).colorScheme.primary.withAlpha( 0.35),
                       blurRadius: 18,
                       spreadRadius: 2,
                     ),
@@ -924,7 +924,7 @@ class _MetricButtonTile extends StatelessWidget {
     final backgroundColor = isSelected
             ? color
             : Color.alphaBlend(
-                Theme.of(context).colorScheme.surface.withValues(alpha: 0.62),
+                Theme.of(context).colorScheme.surface.withAlpha( 0.62),
                 color,
               ),
         foregroundColor =
@@ -938,7 +938,7 @@ class _MetricButtonTile extends StatelessWidget {
       scale: isSelected ? 0.98 : 0.94,
       duration: const Duration(milliseconds: 160),
       child: Material(
-        color: backgroundColor.withValues(alpha: isSelected ? 1 : 0.58),
+        color: backgroundColor.withAlpha( isSelected ? 1 : 0.58),
         borderRadius: BorderRadius.circular(14),
         elevation: isSelected ? 5 : 1,
         child: InkWell(
