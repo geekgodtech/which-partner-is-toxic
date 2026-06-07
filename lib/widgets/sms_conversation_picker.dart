@@ -728,7 +728,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
                                   Slider(
                                     value: _minMessageCount,
                                     min: 0,
-                                    max: 5000,
+                                    max: 3000,
                                     divisions: 100,
                                     onChanged: (value) {
                                       setState(() {

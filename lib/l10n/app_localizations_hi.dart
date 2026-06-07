@@ -1378,4 +1378,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String continuingToLoadMassiveThread(String name) {
     return 'विशाल थ्रेड को $name के साथ लोड करना जारी है…';
   }
+
+  @override
+  String get noMessagesInDateRange =>
+      'No messages found in the selected date range. Please select different dates or clear the date filter.';
 }

@@ -265,17 +265,28 @@ class AndroidSmsService {
   /// Fetch MMS messages (including RCS stored as MMS) from content provider
   Future<List<MmsMessageWrapper>> _fetchMmsMessages(String address) async {
     try {
-      print('DEBUG: Fetching MMS messages for $address');
+      print('=== RCS/MMS FETCH DEBUG ===');
+      print('Fetching MMS messages for address: $address');
+      print('Platform method: getMmsMessages');
+      
       final String mmsJson = await platform.invokeMethod(
         'getMmsMessages',
         {'address': address},
       );
       
+      print('Raw MMS JSON length: ${mmsJson.length}');
+      
       final List<dynamic> mmsData = jsonDecode(mmsJson) as List<dynamic>;
-      print('DEBUG: Fetched ${mmsData.length} MMS messages');
+      print('Fetched ${mmsData.length} MMS/RCS messages');
+      
+      // Log first few messages for debugging
+      if (mmsData.isNotEmpty) {
+        print('First message data: ${mmsData[0]}');
+      }
       
       // Update count for debug info
       _lastFetchMmsCount = mmsData.length;
+      print('=== END RCS/MMS FETCH DEBUG ===');
       
       return mmsData.map((data) {
         final Map<String, dynamic> msg = data as Map<String, dynamic>;
@@ -288,6 +299,7 @@ class AndroidSmsService {
       }).toList();
     } catch (e) {
       print('ERROR: Failed to fetch MMS messages: $e');
+      print('Stack trace: ${StackTrace.current}');
       return [];
     }
   }

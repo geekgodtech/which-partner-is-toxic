@@ -1362,4 +1362,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String continuingToLoadMassiveThread(String name) {
     return '$name와(과) 함께 거대한 스레드를 계속 로드 중…';
   }
+
+  @override
+  String get noMessagesInDateRange =>
+      'No messages found in the selected date range. Please select different dates or clear the date filter.';
 }

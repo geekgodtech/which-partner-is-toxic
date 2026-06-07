@@ -2531,6 +2531,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continuing to load the massive thread with {name}…'**
   String continuingToLoadMassiveThread(String name);
+
+  /// No description provided for @noMessagesInDateRange.
+  ///
+  /// In en, this message translates to:
+  /// **'No messages found in the selected date range. Please select different dates or clear the date filter.'**
+  String get noMessagesInDateRange;
 }
 
 class _AppLocalizationsDelegate

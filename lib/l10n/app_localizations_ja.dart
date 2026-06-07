@@ -1306,4 +1306,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String continuingToLoadMassiveThread(String name) {
     return '巨大なスレッドを $name と共に読み込み中…';
   }
+
+  @override
+  String get noMessagesInDateRange =>
+      'No messages found in the selected date range. Please select different dates or clear the date filter.';
 }

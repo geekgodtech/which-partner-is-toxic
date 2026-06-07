@@ -35,12 +35,40 @@ class _DashboardControlPaneState extends State<DashboardControlPane> {
   void initState() {
     super.initState();
     _scrollController.addListener(_onScroll);
+    
+    // Listen for error messages and show them as SnackBars
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final controller = context.read<ToxicityAnalyzerController>();
+      controller.addListener(_onControllerChanged);
+    });
+  }
+  
+  void _onControllerChanged() {
+    final controller = context.read<ToxicityAnalyzerController>();
+    if (controller.errorMessage != null && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(controller.errorMessage!),
+          backgroundColor: Theme.of(context).colorScheme.error,
+          duration: const Duration(seconds: 5),
+          action: SnackBarAction(
+            label: 'Clear Date Range',
+            onPressed: () => controller.clearDateRange(),
+          ),
+        ),
+      );
+      // Clear the error so it doesn't show again
+      controller.clearError();
+    }
   }
 
   @override
   void dispose() {
     _scrollController.removeListener(_onScroll);
     _scrollController.dispose();
+    // Remove controller listener
+    final controller = context.read<ToxicityAnalyzerController>();
+    controller.removeListener(_onControllerChanged);
     super.dispose();
   }
 
