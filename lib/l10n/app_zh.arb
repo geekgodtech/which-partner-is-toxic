@@ -417,5 +417,6 @@
   "almostThereBigOne": "即将完成，哇，这个一定很大",
   "pleaseBePatientLargeDatasets": "请耐心等待，大型数据集可能导致加载时间超过一分半钟",
   "continuingToLoadMassiveThread": "继续加载与 {name} 的巨大线程…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "在所选日期范围内未找到消息。请选择其他日期或清除日期筛选器。"
 }

@@ -417,5 +417,6 @@
   "almostThereBigOne": "Casi terminado, Wow, este debe haber sido grande",
   "pleaseBePatientLargeDatasets": "Por favor, sea paciente, los conjuntos de datos grandes podrían resultar en tiempos de carga mayores a un minuto y medio",
   "continuingToLoadMassiveThread": "Continuando cargando el hilo masivo con {name}…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "No se encontraron mensajes en el rango de fechas seleccionado. Por favor, seleccione fechas diferentes o borre el filtro de fecha."
 }

@@ -417,5 +417,6 @@
   "almostThereBigOne": "Bijna klaar, Wow, dit moet groot zijn geweest",
   "pleaseBePatientLargeDatasets": "Wees geduldig, grote datasets kunnen leiden tot laadtijden van meer dan anderhalve minuut",
   "continuingToLoadMassiveThread": "Doorgaan met laden van de massieve thread met {name}…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "Geen berichten gevonden in het geselecteerde datumbereik. Selecteer andere datums of wis het datumfilter."
 }

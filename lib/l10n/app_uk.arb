@@ -417,5 +417,6 @@
   "almostThereBigOne": "Майже готово, Вау, це мало бути великим",
   "pleaseBePatientLargeDatasets": "Будь ласка, будьте терплячими, великі набори даних можуть призвести до часу завантаження понад півтори хвилини",
   "continuingToLoadMassiveThread": "Продовжую завантажувати масивний потік з {name}…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "Повідомлень не знайдено у вибраному діапазоні дат. Виберіть інші дати або очистіть фільтр дати."
 }

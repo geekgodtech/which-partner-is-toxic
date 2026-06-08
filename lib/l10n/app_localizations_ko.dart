@@ -1365,5 +1365,5 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noMessagesInDateRange =>
-      'No messages found in the selected date range. Please select different dates or clear the date filter.';
+      '선택된 날짜 범위에서 메시지를 찾을 수 없습니다. 다른 날짜를 선택하거나 날짜 필터를 지우세요.';
 }

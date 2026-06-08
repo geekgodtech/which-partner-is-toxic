@@ -417,5 +417,6 @@
   "almostThereBigOne": "Presque terminé, Wow, celui-ci doit avoir été grand",
   "pleaseBePatientLargeDatasets": "Soyez patient, les grands ensembles de données pourraient entraîner des temps de charge supérieurs à une minute et demie",
   "continuingToLoadMassiveThread": "Continuant à charger le fil massif avec {name}…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "Aucun message trouvé dans la plage de dates sélectionnée. Veuillez sélectionner des dates différentes ou effacer le filtre de date."
 }

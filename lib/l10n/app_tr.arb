@@ -417,5 +417,6 @@
   "almostThereBigOne": "Neredeyse bitti, Vay canına, bu büyük olmalı",
   "pleaseBePatientLargeDatasets": "Lütfen sabırlı olun, büyük veri kümeleri bir buçuk dakikadan fazla yükleme sürelerine neden olabilir",
   "continuingToLoadMassiveThread": "Devam ediyor, {name} ile devasa diziyi yükleniyor…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "Seçilen tarih aralığında mesaj bulunamadı. Lütfen farklı tarihler seçin veya tarih filtresini temizleyin."
 }

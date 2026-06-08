@@ -1244,6 +1244,5 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get noMessagesInDateRange =>
-      'No messages found in the selected date range. Please select different dates or clear the date filter.';
+  String get noMessagesInDateRange => '在所选日期范围内未找到消息。请选择其他日期或清除日期筛选器。';
 }
