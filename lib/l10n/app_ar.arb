@@ -463,5 +463,14 @@
   "purchaseCustomMetricCommit": "الالتزام بالمقياس المخصص",
   "purchaseCustomMetricSuccess": "✓ تمت إضافة \"{name}\" إلى مقاييسك! يمكنك الآن اختياره للتحليل.",
   "purchaseCustomMetricProcessingTitle": "جاري معالجة الشراء...",
-  "purchaseCustomMetricProcessingBody": "في انتظار تأكيد المتجر.\nيرجى عدم إغلاق التطبيق."
+  "purchaseCustomMetricProcessingBody": "في انتظار تأكيد المتجر.\nيرجى عدم إغلاق التطبيق.",
+
+  "packMainLabel": "الرئيسي",
+  "packGoodLabel": "الجيد",
+  "packBadLabel": "السيء",
+  "packUglyLabel": "القبيح",
+  "packGoodDescription": "100 نمط علاقة إيجابي وصحي — ما يبدو عليه الخير.",
+  "packBadDescription": "100 علامة تحذير ونمط ضار — أشياء تضر العلاقات.",
+  "packUglyDescription": "100 علامة خطر شديد ومؤشرات إساءة — أنماط على مستوى الأزمة.",
+  "selectAllPack": "تحديد الكل 100"
 }

@@ -1532,4 +1532,31 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get cancelNotReady => 'Скасувати — Я не готовий';
+
+  @override
+  String get packMainLabel => 'Основна';
+
+  @override
+  String get packGoodLabel => 'Добрий';
+
+  @override
+  String get packBadLabel => 'Злий';
+
+  @override
+  String get packUglyLabel => 'Потворний';
+
+  @override
+  String get packGoodDescription =>
+      '100 позитивних, здорових моделей стосунків — як виглядає добро.';
+
+  @override
+  String get packBadDescription =>
+      '100 попереджувальних знаків і шкідливих патернів — те, що руйнує стосунки.';
+
+  @override
+  String get packUglyDescription =>
+      '100 тривожних сигналів і індикаторів насильства — кризові патерни.';
+
+  @override
+  String get selectAllPack => 'Вибрати всі 100';
 }

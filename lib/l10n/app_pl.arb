@@ -463,5 +463,14 @@
   "purchaseCustomMetricCommit": "Zatwierdź Metrykę Własną",
   "purchaseCustomMetricSuccess": "✓ \"{name}\" dodano do Twoich metryk! Możesz teraz wybrać ją do analizy.",
   "purchaseCustomMetricProcessingTitle": "Przetwarzanie Zakupu...",
-  "purchaseCustomMetricProcessingBody": "Oczekiwanie na potwierdzenie ze sklepu.\nProszę nie zamykać aplikacji."
+  "purchaseCustomMetricProcessingBody": "Oczekiwanie na potwierdzenie ze sklepu.\nProszę nie zamykać aplikacji.",
+
+  "packMainLabel": "Główna",
+  "packGoodLabel": "Dobry",
+  "packBadLabel": "Zły",
+  "packUglyLabel": "Brzydki",
+  "packGoodDescription": "100 pozytywnych, zdrowych wzorców relacji — jak wygląda dobro.",
+  "packBadDescription": "100 ostrzeżeń i szkodliwych wzorców — rzeczy niszczące relacje.",
+  "packUglyDescription": "100 poważnych czerwonych flag i wskaźników przemocy — wzorce kryzysowe.",
+  "selectAllPack": "Zaznacz wszystkie 100"
 }

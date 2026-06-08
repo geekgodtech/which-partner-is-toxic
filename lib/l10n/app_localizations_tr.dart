@@ -1527,4 +1527,31 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get cancelNotReady => 'İptal — Hazır Değildim';
+
+  @override
+  String get packMainLabel => 'Ana';
+
+  @override
+  String get packGoodLabel => 'İyi';
+
+  @override
+  String get packBadLabel => 'Kötü';
+
+  @override
+  String get packUglyLabel => 'Çirkin';
+
+  @override
+  String get packGoodDescription =>
+      '100 olumlu, sağlıklı ilişki modeli — iyinin nasıl göründüğü.';
+
+  @override
+  String get packBadDescription =>
+      '100 uyarı işareti ve zararlı model — ilişkilere zarar veren şeyler.';
+
+  @override
+  String get packUglyDescription =>
+      '100 ciddi kırmızı bayrak ve istismar göstergesi — kriz seviyesi modeller.';
+
+  @override
+  String get selectAllPack => 'Tüm 100\'ü seç';
 }

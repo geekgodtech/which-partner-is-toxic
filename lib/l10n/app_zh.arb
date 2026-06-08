@@ -463,5 +463,14 @@
   "purchaseCustomMetricCommit": "确认自定义指标",
   "purchaseCustomMetricSuccess": "✓ \"{name}\" 已添加到您的指标！现在您可以选择它进行分析。",
   "purchaseCustomMetricProcessingTitle": "正在处理购买...",
-  "purchaseCustomMetricProcessingBody": "等待商店确认。\n请不要关闭应用。"
+  "purchaseCustomMetricProcessingBody": "等待商店确认。\n请不要关闭应用。",
+
+  "packMainLabel": "主要",
+  "packGoodLabel": "善",
+  "packBadLabel": "恶",
+  "packUglyLabel": "丑",
+  "packGoodDescription": "100个积极、健康的关系模式 — 善的样子。",
+  "packBadDescription": "100个警告信号和有害模式 — 损害关系的事情。",
+  "packUglyDescription": "100个严重危险信号和虐待指标 — 危机级模式。",
+  "selectAllPack": "选择全部100个"
 }

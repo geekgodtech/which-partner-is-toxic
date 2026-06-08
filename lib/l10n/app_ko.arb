@@ -1,17 +1,14 @@
 {
   "@@locale": "ko",
   "@@author": "App Developer",
-  
   "appTitle": "AI ?? ?? ???",
   "@appTitle": {
     "description": "The app title displayed in the app bar"
   },
-
   "psychologicalMetrics": "?? ??",
   "@psychologicalMetrics": {
     "description": "Title for the metrics selection section"
   },
-
   "metricsDescription": "Fewer selected metrics produce a deeper, more concentrated analysis of those behaviors. More selected metrics produce a broader report with less detail per metric.",
   "selectDiscordChannel": "Discord 채널 선택",
   "lightMode": "라이트",
@@ -32,377 +29,302 @@
   "@metricsDescription": {
     "description": "Explanation of how metric selection affects analysis"
   },
-  
   "selectSMS": "SMS / RCS ?? ??",
   "@selectSMS": {
     "description": "Button to select SMS messages"
   },
-  
   "selectFile": "Select file",
   "@selectFile": {
     "description": "Button to select a file"
   },
-  
   "analyzeSelectedMetrics": "Analyze Selected metrics",
   "@analyzeSelectedMetrics": {
     "description": "Button to analyze selected metrics"
   },
-  
   "analyze20RandomMetrics": "Analyze 20 Random metrics",
   "@analyze20RandomMetrics": {
     "description": "Button to analyze 20 random metrics"
   },
-  
   "membershipOptions": "Membership Options",
   "@membershipOptions": {
     "description": "Title for membership landing page"
   },
-  
   "free": "Free",
   "@free": {
     "description": "Free tier label"
   },
-  
   "oneTimeUnlock": "One-Time Report Unlock",
   "@oneTimeUnlock": {
     "description": "One-time unlock tier label"
   },
-  
   "standard": "Standard",
   "@standard": {
     "description": "Standard tier label"
   },
-  
   "discordAddon": "Discord Addon",
   "@discordAddon": {
     "description": "Discord addon label"
   },
-  
   "analyze": "Analyze",
   "@analyze": {
     "description": "Analyze button/action"
   },
-  
   "report": "Report",
   "@report": {
     "description": "Report label"
   },
-  
   "pdfReport": "PDF Report",
   "@pdfReport": {
     "description": "PDF report label"
   },
-
   "openPdf": "Open PDF",
   "@openPdf": {
     "description": "Button to open PDF"
   },
-
   "sharePdf": "Share PDF",
   "@sharePdf": {
     "description": "Button to share PDF"
   },
-
   "printPdf": "Print PDF",
   "@printPdf": {
     "description": "Button to print PDF"
   },
-
   "closePdfPreview": "Close PDF Preview Window",
   "@closePdfPreview": {
     "description": "Button to close PDF preview"
   },
-
   "openPdfPreview": "Open PDF Preview Window",
   "@openPdfPreview": {
     "description": "Button to open PDF preview"
   },
-
   "pdfPreviewDescription": "The embedded PDF window starts closed to keep the report compact.",
   "@pdfPreviewDescription": {
     "description": "Explanation of PDF preview window"
   },
-
   "notNow": "Not now",
   "@notNow": {
     "description": "Button to dismiss dialog"
   },
-
   "unlockThisReport": "Unlock This Report - $20",
   "@unlockThisReport": {
     "description": "Button to unlock single report"
   },
-
   "joinStandard": "Join Standard - $9.99/mo",
   "@joinStandard": {
     "description": "Button to join Standard membership"
   },
-
   "instantUnlockTitle": "Instant Report Unlock - $20",
   "@instantUnlockTitle": {
     "description": "Title for instant unlock dialog"
   },
-
   "instantUnlockDescription": "This is a one-time purchase to unlock the current report only. No subscription required. Future reports will require separate unlocks or a membership.\n\nProceed with payment?",
   "@instantUnlockDescription": {
     "description": "Description for instant unlock purchase"
   },
-
   "purchaseFor20": "Purchase for $20",
   "@purchaseFor20": {
     "description": "Button to purchase for $20"
   },
-  
   "share": "Share",
   "@share": {
     "description": "Share action"
   },
-  
   "print": "Print",
   "@print": {
     "description": "Print action"
   },
-  
-  "save": "Save",
+  "save": "저장",
   "@save": {
     "description": "Save action"
   },
-  
   "cancel": "Cancel",
   "@cancel": {
     "description": "Cancel action"
   },
-  
   "ok": "OK",
   "@ok": {
     "description": "OK button"
   },
-  
   "loading": "Loading...",
   "@loading": {
     "description": "Loading indicator text"
   },
-  
   "error": "Error",
   "@error": {
     "description": "Error label"
   },
-  
   "success": "Success",
   "@success": {
     "description": "Success label"
   },
-  
   "conversations": "Conversations",
   "@conversations": {
     "description": "Conversations label"
   },
-  
   "messages": "Messages",
   "@messages": {
     "description": "Messages label"
   },
-  
   "selectConversation": "Select Conversation",
   "@selectConversation": {
     "description": "Select conversation prompt"
   },
-
   "selectSmsConversation": "SMS / RCS 채팅 선택",
   "@selectSmsConversation": {
     "description": "Title for SMS conversation picker screen"
   },
-
   "searchConversations": "Search conversations...",
   "@searchConversations": {
     "description": "Hint text for conversation search field"
   },
-
   "loadingConversations": "Loading conversations...",
   "@loadingConversations": {
     "description": "Loading indicator text for conversations"
   },
-
   "errorLoadingConversations": "Error Loading Conversations",
   "@errorLoadingConversations": {
     "description": "Error dialog title for conversation loading failure"
   },
-
-  "selectConversationToAnalyze": "Select Conversation to Analyze",
+  "selectConversationToAnalyze": "Select conversation to analyze",
   "@selectConversationToAnalyze": {
     "description": "Dashboard title prompt"
   },
-
   "analyzeWithSelectedMetrics": "Analyze with the selected metrics",
   "@analyzeWithSelectedMetrics": {
     "description": "Button to analyze with selected metrics"
   },
-
   "loadConversationAndSelectMetric": "Load a conversation and select at least one metric",
   "@loadConversationAndSelectMetric": {
     "description": "Hint to load conversation first"
   },
-
   "selectAtLeastOneMetric": "At least one metric needs to be selected to run the report.",
   "@selectAtLeastOneMetric": {
     "description": "Error message when no metrics selected"
   },
-
   "spinningMetricWheel": "Spinning the metric wheel...",
   "@spinningMetricWheel": {
     "description": "Text shown while randomizing metrics"
   },
-
   "loadConversationToAnalyze": "Load a conversation to analyze",
   "@loadConversationToAnalyze": {
     "description": "Hint to load conversation for random analysis"
   },
-  
   "noConversationsFound": "No conversations found",
   "@noConversationsFound": {
     "description": "Message when no conversations exist"
   },
-  
   "permissionsRequired": "Permissions Required",
   "@permissionsRequired": {
     "description": "Permissions dialog title"
   },
-  
   "smsPermission": "Text Messages",
   "@smsPermission": {
     "description": "SMS permission label"
   },
-  
   "contactsPermission": "Contacts",
   "@contactsPermission": {
     "description": "Contacts permission label"
   },
-  
   "smsPermissionDescription": "To analyze your SMS conversations for relationship patterns",
   "@smsPermissionDescription": {
     "description": "SMS permission description"
   },
-  
   "contactsPermissionDescription": "To display contact names instead of phone numbers",
   "@contactsPermissionDescription": {
     "description": "Contacts permission description"
   },
-  
   "analyzingMessage": "Stand by while your psychological analysis is generated by AI...",
   "@analyzingMessage": {
     "description": "Message shown while AI is analyzing"
   },
-
   "analyzingStatus": "Analyzing conversation...",
   "@analyzingStatus": {
     "description": "Short status message shown during analysis"
   },
-  
   "analyzingSubMessage": "Please be patient, this process could take up to a minute depending on your connection speed and the quantity of selected metrics",
   "@analyzingSubMessage": {
     "description": "Sub-message shown while AI is analyzing"
   },
-  
   "unlockFullReport": "Unlock and show this entire report",
   "@unlockFullReport": {
     "description": "Button to unlock full report"
   },
-  
   "fullReportLocked": "Full Report Locked",
   "@fullReportLocked": {
     "description": "Title when report is locked"
   },
-  
   "upgradeToUnlock": "Upgrade your membership to unlock the full psychological analysis report with all metrics and detailed insights.",
   "@upgradeToUnlock": {
     "description": "Message explaining why report is locked"
   },
-  
   "language": "Language",
   "@language": {
     "description": "Language selector label"
   },
-  
   "english": "English",
   "@english": {
     "description": "English language name"
   },
-  
   "spanish": "Spanish",
   "@spanish": {
     "description": "Spanish language name"
   },
-  
   "french": "French",
   "@french": {
     "description": "French language name"
   },
-  
   "german": "German",
   "@german": {
     "description": "German language name"
   },
-  
   "italian": "Italian",
   "@italian": {
     "description": "Italian language name"
   },
-  
   "portuguese": "Portuguese",
   "@portuguese": {
     "description": "Portuguese language name"
   },
-  
   "dutch": "Dutch",
   "@dutch": {
     "description": "Dutch language name"
   },
-  
   "russian": "Russian",
   "@russian": {
     "description": "Russian language name"
   },
-  
   "chinese": "Chinese",
   "@chinese": {
     "description": "Chinese language name"
   },
-  
   "japanese": "Japanese",
   "@japanese": {
     "description": "Japanese language name"
   },
-  
   "korean": "Korean",
   "@korean": {
     "description": "Korean language name"
   },
-  
   "arabic": "Arabic",
   "@arabic": {
     "description": "Arabic language name"
   },
-  
   "hindi": "Hindi",
   "@hindi": {
     "description": "Hindi language name"
   },
-  
   "turkish": "Turkish",
   "@turkish": {
     "description": "Turkish language name"
   },
-  
   "polish": "Polish",
   "@polish": {
     "description": "Polish language name"
   },
-  
   "ukrainian": "Ukrainian",
   "@ukrainian": {
     "description": "Ukrainian language name"
   },
-
   "runAnotherAnalysis": "Run another analysis?",
   "becomeMemberTitle": "Become a member to get the full analysis report",
   "becomeMemberSubtitle": "Choose the access level that matches the conversations and reports you need to analyze.",
@@ -447,15 +369,12 @@
   "clear": "Clear",
   "dateRangeRequiresMembership": "Requires Standard Membership or higher",
   "selectUpToCount": "Select up to {max}. Current: {current}",
-  "selectConversationToAnalyze": "Select conversation to analyze",
   "clearSelections": "Clear Selections",
   "analyzeRandomMetrics": "Analyze {count} random metrics",
   "saveSelections": "Save Selections",
   "loadSelections": "Load Selections",
   "saveMetricListName": "Save Metric List",
   "enterListName": "Enter a name for this metric list:",
-  "save": "Save",
-  "cancel": "Cancel",
   "chooseSavedMetrics": "Choose saved metrics list:",
   "noSavedLists": "No saved metric lists to load at this time.",
   "metricListSaved": "Metric list saved successfully.",
@@ -499,7 +418,6 @@
   "analysisOfSender": "Analysis of {sender} (Sender)",
   "analysisOfReceiver": "Analysis of {receiver} (Receiver)",
   "finalConclusion": "?? ??",
-
   "metric_1_name": "Contempt",
   "metric_1_description": "Looks for superiority, disgust, mockery, eye-rolling language, or insults that place one partner beneath the other.",
   "metric_2_name": "Defensiveness",
@@ -713,29 +631,70 @@
   "tryDifferentSearch": "다른 검색어를 시도해 보세요",
   "clearSearch": "검색 지우기",
   "selectedFile": "선택됨: {filename}",
-  "@selectedFile": { "placeholders": { "filename": { "type": "String" } } },
+  "@selectedFile": {
+    "placeholders": {
+      "filename": {
+        "type": "String"
+      }
+    }
+  },
   "invalidFile": "잘못된 파일",
   "fileImport": "파일 가져오기",
   "fileImportNotImplemented": "이 파일 유형에 대한 파일 분석이 아직 구현되지 않았습니다.",
   "errorPickingFile": "파일을 열 수 없습니다. 다시 시도해 주세요.",
   "readyToCapture": "캡처 준비 완료",
   "readyToCaptureBody": "지금 메시지 앱으로 이동하여 스크린샷을 찍기 시작하세요.\n\n완료되면 이 앱으로 돌아와 \"완료 및 처리\"를 탭하세요.",
-  "gotIt": "알겠습니다",
   "noScreenshotsToProcess": "처리할 스크린샷이 없습니다.",
   "processingScreenshot": "스크린샷 {current} / {total} 처리 중...",
-  "@processingScreenshot": { "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },
+  "@processingScreenshot": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "noMessagesFound": "메시지를 찾을 수 없습니다",
   "noMessagesFoundBody": "스크린샷에서 메시지를 추출할 수 없습니다.\n\n스크린샷이 대화를 명확하게 보여주는지 확인하세요.",
   "loadedMessages": "스크린샷에서 {count}개의 메시지를 로드했습니다",
-  "@loadedMessages": { "placeholders": { "count": { "type": "int" } } },
+  "@loadedMessages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "processingError": "처리 오류",
   "processingErrorBody": "스크린샷 처리 중 오류가 발생했습니다. 다시 시도해 주세요.",
   "metricListSavedAs": "선택 항목이 \"{name}\"로 저장되었습니다.",
-  "@metricListSavedAs": { "placeholders": { "name": { "type": "String" } } },
+  "@metricListSavedAs": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "metricListLoadedName": "선택 항목 \"{name}\"이(가) 검색되어 적용되었습니다.",
-  "@metricListLoadedName": { "placeholders": { "name": { "type": "String" } } },
+  "@metricListLoadedName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "conversationLoaded": "{name}에서 {count}개의 메시지를 로드했습니다",
-  "@conversationLoaded": { "placeholders": { "count": { "type": "int" }, "name": { "type": "String" } } },
+  "@conversationLoaded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "loadButton": "로드",
   "photoPermissionRequired": "스크린샷을 감지하려면 사진 라이브러리 권한이 필요합니다.",
   "initializingConnection": "보안 연결 초기화 중...",
@@ -747,7 +706,13 @@
   "largeThreadNoticeBody": "예외적으로 큰 텍스트 스레드를 처리할 때 이 앱의 일부 로딩 화면이 1분 반을 초과할 수 있습니다.\n\n앱이 멈춘 것이 아닙니다. 회전하는 상태 표시기가 보이면 앱이 여전히 로딩 중입니다.\n\n다른 앱과 비교하여 로딩 시간이 더 길 수 있으므로 이러한 경우에는 인내심을 가지십시오. 특히 50,000개의 메시지가 있는 스레드와 같은 대규모 데이터 세트의 경우.",
   "neverShowThisAgain": "이 메시지를 다시 표시하지 않음",
   "loadingConversationWith": "대화 로드 중\n{name}와(과)…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
+  "@loadingConversationWith": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "iosCaptureInstructions": "1. 메시지 앱을 열고 대화를 선택합니다\n2. 분석하려는 가장 오래된 메시지까지 스크롤합니다\n3. 아래에서 \"캡처 시작\"을 탭합니다\n4. 대화를 스크롤하면서 스크린샷을 찍습니다\n5. 완료되면 \"완료 및 처리\"를 탭합니다",
   "howToCaptureIosMessages": "iOS 메시지 캡처 방법",
   "deepSeekApiKey": "DeepSeek API 키",
@@ -758,16 +723,18 @@
   "yourApiKeyIsStoredSecurely": "API 키는 기기에 안전하게 저장되며 절대 공유되지 않습니다.",
   "pleaseEnterApiKey": "API 키를 입력하세요",
   "apiKeySavedSuccessfully": "API 키가 성공적으로 저장되었습니다!",
-  "save": "저장",
-  "loadingConversationWith": "대화 로드 중\n{name}와(과)…",
-  "@loadingConversationWith": { "placeholders": { "name": { "type": "String" } } },
   "pleaseBePatientLongerTextThreads": "인내심을 가지십시오, 더 긴 텍스트 스레드 데이터 세트는 로드하는 데 상당한 시간이 걸립니다",
   "almostThereBigOne": "거의 완료, 와, 이건 컸던 것 같네요",
   "pleaseBePatientLargeDatasets": "인내심을 가지십시오, 큰 데이터 세트는 로드 시간이 1분 반 이상 걸릴 수 있습니다",
   "continuingToLoadMassiveThread": "{name}와(과) 함께 거대한 스레드를 계속 로드 중…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "@continuingToLoadMassiveThread": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "noMessagesInDateRange": "선택된 날짜 범위에서 메시지를 찾을 수 없습니다. 다른 날짜를 선택하거나 날짜 필터를 지우세요.",
-
   "next": "다음",
   "cancelNotReady": "취소 — 준비되지 않았습니다",
   "purchaseCustomMetricTileTitle": "커스텀 지표 구매",
@@ -795,5 +762,13 @@
   "purchaseCustomMetricCommit": "커스텀 지표 확정",
   "purchaseCustomMetricSuccess": "✓ 「{name}」이(가) 지표에 추가되었습니다! 이제 분석에 선택할 수 있습니다.",
   "purchaseCustomMetricProcessingTitle": "구매 처리 중...",
-  "purchaseCustomMetricProcessingBody": "스토어 확인을 기다리는 중입니다.\n앱을 닫지 마세요."
+  "purchaseCustomMetricProcessingBody": "스토어 확인을 기다리는 중입니다.\n앱을 닫지 마세요.",
+  "packMainLabel": "메인",
+  "packGoodLabel": "착한",
+  "packBadLabel": "나쁜",
+  "packUglyLabel": "못생긴",
+  "packGoodDescription": "100가지 긍정적이고 건강한 관계 패턴 — 좋은 모습입니다.",
+  "packBadDescription": "100가지 경고 신호와 해로운 패턴 — 관계를 손상시키는 것들.",
+  "packUglyDescription": "100가지 심각한 레드플래그와 학대 징후 — 위기 수준 패턴.",
+  "selectAllPack": "100개 모두 선택"
 }

@@ -1550,4 +1550,31 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get cancelNotReady => 'Annuler — Je n\'étais pas prêt(e)';
+
+  @override
+  String get packMainLabel => 'Principal';
+
+  @override
+  String get packGoodLabel => 'Le Bon';
+
+  @override
+  String get packBadLabel => 'La Brute';
+
+  @override
+  String get packUglyLabel => 'Le Truand';
+
+  @override
+  String get packGoodDescription =>
+      '100 modèles de relation positifs et sains — à quoi ressemble le bien.';
+
+  @override
+  String get packBadDescription =>
+      '100 signaux d\'alerte et schémas nuisibles — ce qui endommage les relations.';
+
+  @override
+  String get packUglyDescription =>
+      '100 indicateurs graves d\'abus et d\'alerte — modèles de crise.';
+
+  @override
+  String get selectAllPack => 'Sélectionner les 100';
 }

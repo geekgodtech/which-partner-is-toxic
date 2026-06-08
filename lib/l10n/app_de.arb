@@ -463,5 +463,14 @@
   "purchaseCustomMetricCommit": "Benutzerdefinierte Metrik festlegen",
   "purchaseCustomMetricSuccess": "✓ \"{name}\" zu Ihren Metriken hinzugefügt! Sie können sie jetzt für die Analyse auswählen.",
   "purchaseCustomMetricProcessingTitle": "Kauf wird verarbeitet...",
-  "purchaseCustomMetricProcessingBody": "Warte auf Bestätigung vom Store.\nBitte schließen Sie die App nicht."
+  "purchaseCustomMetricProcessingBody": "Warte auf Bestätigung vom Store.\nBitte schließen Sie die App nicht.",
+
+  "packMainLabel": "Haupt",
+  "packGoodLabel": "Gut",
+  "packBadLabel": "Böse",
+  "packUglyLabel": "Hässlich",
+  "packGoodDescription": "100 positive, gesunde Beziehungsmuster — wie Gut aussieht.",
+  "packBadDescription": "100 Warnsignale und schädliche Muster — Dinge, die Beziehungen schädigen.",
+  "packUglyDescription": "100 schwere Red Flags und Missbrauchsindikatoren — Krisen-Level-Muster.",
+  "selectAllPack": "Alle 100 auswählen"
 }

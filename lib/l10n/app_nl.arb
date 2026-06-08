@@ -463,5 +463,14 @@
   "purchaseCustomMetricCommit": "Toewijden aan Aangepaste Meting",
   "purchaseCustomMetricSuccess": "✓ 「{name}」is toegevoegd aan uw metingen! U kunt het nu selecteren voor analyse.",
   "purchaseCustomMetricProcessingTitle": "Aankoop Verwerken...",
-  "purchaseCustomMetricProcessingBody": "Wachten op winkelbevestiging.\nSluit de app alstublieft niet af."
+  "purchaseCustomMetricProcessingBody": "Wachten op winkelbevestiging.\nSluit de app alstublieft niet af.",
+
+  "packMainLabel": "Hoofd",
+  "packGoodLabel": "De Goede",
+  "packBadLabel": "De Slechte",
+  "packUglyLabel": "De Lelijke",
+  "packGoodDescription": "100 positieve, gezonde relatiepatronen — hoe goed eruitziet.",
+  "packBadDescription": "100 waarschuwingssignalen en schadelijke patronen — dingen die relaties beschadigen.",
+  "packUglyDescription": "100 ernstige rode vlaggen en misbruikindicatoren — crisistype patronen.",
+  "selectAllPack": "Alle 100 selecteren"
 }

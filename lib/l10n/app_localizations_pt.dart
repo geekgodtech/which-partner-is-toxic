@@ -1541,4 +1541,31 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get cancelNotReady => 'Cancelar — Não Estava Pronto(a)';
+
+  @override
+  String get packMainLabel => 'Principal';
+
+  @override
+  String get packGoodLabel => 'O Bom';
+
+  @override
+  String get packBadLabel => 'O Mau';
+
+  @override
+  String get packUglyLabel => 'O Feio';
+
+  @override
+  String get packGoodDescription =>
+      '100 padrões de relacionamento positivos e saudáveis — como é o bom.';
+
+  @override
+  String get packBadDescription =>
+      '100 sinais de alerta e padrões prejudiciais — coisas que danificam relacionamentos.';
+
+  @override
+  String get packUglyDescription =>
+      '100 bandeiras vermelhas graves e indicadores de abuso — padrões de nível crise.';
+
+  @override
+  String get selectAllPack => 'Selecionar todos 100';
 }

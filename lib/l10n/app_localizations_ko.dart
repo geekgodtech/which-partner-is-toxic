@@ -1513,4 +1513,28 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get cancelNotReady => '취소 — 준비되지 않았습니다';
+
+  @override
+  String get packMainLabel => '메인';
+
+  @override
+  String get packGoodLabel => '착한';
+
+  @override
+  String get packBadLabel => '나쁜';
+
+  @override
+  String get packUglyLabel => '못생긴';
+
+  @override
+  String get packGoodDescription => '100가지 긍정적이고 건강한 관계 패턴 — 좋은 모습입니다.';
+
+  @override
+  String get packBadDescription => '100가지 경고 신호와 해로운 패턴 — 관계를 손상시키는 것들.';
+
+  @override
+  String get packUglyDescription => '100가지 심각한 레드플래그와 학대 징후 — 위기 수준 패턴.';
+
+  @override
+  String get selectAllPack => '100개 모두 선택';
 }
