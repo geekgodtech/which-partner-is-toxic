@@ -417,5 +417,6 @@
   "almostThereBigOne": "Почти готово, Wow, это должно было быть большим",
   "pleaseBePatientLargeDatasets": "Пожалуйста, будьте терпеливы, большие наборы данных могут привести к времени загрузки более полутора минут",
   "continuingToLoadMassiveThread": "Продолжаю загружать массивный поток с {name}…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "Сообщения не найдены в выбранном диапазоне дат. Выберите другие даты или очистите фильтр даты."
 }

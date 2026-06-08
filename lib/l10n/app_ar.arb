@@ -417,5 +417,6 @@
   "almostThereBigOne": "قريبًا، واو، يجب أن يكون هذا كبيرًا",
   "pleaseBePatientLargeDatasets": "يرجى الصبر، مجموعات البيانات الكبيرة قد تؤدي إلى أوقات تحميل تزيد عن دقيقة ونصف",
   "continuingToLoadMassiveThread": "متابعة تحميل المسار الضخم مع {name}…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "لم يتم العثور على رسائل في نطاق التاريخ المحدد. يرجى تحديد تواريخ مختلفة أو مسح مرشح التاريخ."
 }

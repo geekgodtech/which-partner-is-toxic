@@ -417,5 +417,6 @@
   "almostThereBigOne": "लगभग हो गया, वाह, यह बड़ा होना चाहिए था",
   "pleaseBePatientLargeDatasets": "कृपया धैर्य रखें, बड़े डेटासेट के कारण लोडिंग समय डेढ़ मिनट से अधिक हो सकता है",
   "continuingToLoadMassiveThread": "विशाल थ्रेड को {name} के साथ लोड करना जारी है…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "चयनित दिनांक सीमा में कोई संदेश नहीं मिला। कृपया अलग-अलग तारीख चुनें या दिनांक फ़िल्टर साफ़ करें।"
 }

@@ -1309,5 +1309,5 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noMessagesInDateRange =>
-      'No messages found in the selected date range. Please select different dates or clear the date filter.';
+      '選択された日付範囲内にメッセージが見つかりませんでした。別の日付を選択するか、日付フィルターをクリアしてください。';
 }

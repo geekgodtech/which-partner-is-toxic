@@ -417,5 +417,6 @@
   "almostThereBigOne": "もうすぐ完了、わあ、これは大きかったですね",
   "pleaseBePatientLargeDatasets": "忍耐強くお待ちください、大きなデータセットでは読み込み時間が1分半を超える可能性があります",
   "continuingToLoadMassiveThread": "巨大なスレッドを {name} と共に読み込み中…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "選択された日付範囲内にメッセージが見つかりませんでした。別の日付を選択するか、日付フィルターをクリアしてください。"
 }

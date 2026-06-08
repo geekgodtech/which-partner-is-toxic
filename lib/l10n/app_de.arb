@@ -417,5 +417,6 @@
   "almostThereBigOne": "Fast fertig, Wow, das muss ein großer gewesen sein",
   "pleaseBePatientLargeDatasets": "Bitte haben Sie Geduld, große Datensätze könnten zu Ladezeiten von mehr als eineinhalb Minuten führen",
   "continuingToLoadMassiveThread": "Lade weiterhin den massiven Thread mit {name}…",
-  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } }
+  "@continuingToLoadMassiveThread": { "placeholders": { "name": { "type": "String" } } },
+  "noMessagesInDateRange": "Keine Nachrichten im ausgewählten Datumsbereich gefunden. Bitte wählen Sie andere Daten oder löschen Sie den Datumsfilter."
 }
