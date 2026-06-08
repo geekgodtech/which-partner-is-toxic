@@ -465,12 +465,7 @@
   "purchaseCustomMetricProcessingTitle": "購入処理中...",
   "purchaseCustomMetricProcessingBody": "ストア確認を待っています。\nアプリを閉じないでください。",
 
-  "packMainLabel": "メイン",
   "packGoodLabel": "善",
   "packBadLabel": "悪",
-  "packUglyLabel": "醜",
-  "packGoodDescription": "100のポジティブで健康的な関係パターン — 善の姿。",
-  "packBadDescription": "100の警告サインと有害なパターン — 関係を損なうもの。",
-  "packUglyDescription": "100の深刻なレッドフラッグと虐待指標 — 危機レベルのパターン。",
-  "selectAllPack": "100件すべて選択"
+  "packUglyLabel": "醜"
 }

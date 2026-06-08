@@ -1018,11 +1018,6 @@
     "description": "Cancel button used across custom metric dialogs when the user wasn't ready to proceed"
   },
 
-    "packMainLabel": "Main",
-  "@packMainLabel": {
-    "description": "Tab label for the main (all) metrics catalog"
-  },
-
   "packGoodLabel": "The Good",
   "@packGoodLabel": {
     "description": "Tab label for The Good pack \u2014 100 positive, healthy relationship pattern metrics"
@@ -1036,25 +1031,5 @@
   "packUglyLabel": "The Ugly",
   "@packUglyLabel": {
     "description": "Tab label for The Ugly pack \u2014 100 severe red-flag / abuse-indicator metrics"
-  },
-
-  "packGoodDescription": "100 positive, healthy relationship patterns \u2014 what good looks like.",
-  "@packGoodDescription": {
-    "description": "Short description shown under the The Good pack tab"
-  },
-
-  "packBadDescription": "100 warning signs and harmful patterns \u2014 things that damage relationships.",
-  "@packBadDescription": {
-    "description": "Short description shown under the The Bad pack tab"
-  },
-
-  "packUglyDescription": "100 severe red flags and abuse indicators \u2014 crisis-level patterns.",
-  "@packUglyDescription": {
-    "description": "Short description shown under the The Ugly pack tab"
-  },
-
-  "selectAllPack": "Select All 100",
-  "@selectAllPack": {
-    "description": "Button to select all 100 metrics visible in the current pack"
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,6 +21,9 @@ class SubscriptionService extends ChangeNotifier {
   static const String oneTimeUnlockId = 'one_time_unlock';
   static const String discordAddonMonthlyId = 'discord_addon_monthly';
   static const String customMetricOneTimeId = 'custom_metric_4_99';
+  static const String packGoodOneTimeId = 'metrics_pack_good_9_99';
+  static const String packBadOneTimeId = 'metrics_pack_bad_9_99';
+  static const String packUglyOneTimeId = 'metrics_pack_ugly_9_99';
 
   // Available products
   List<ProductDetails> _products = [];
@@ -39,6 +43,18 @@ class SubscriptionService extends ChangeNotifier {
   // Custom metric purchase flag - set true when store confirms payment
   bool _pendingCustomMetricPurchase = false;
   bool get pendingCustomMetricPurchase => _pendingCustomMetricPurchase;
+
+  // Metric expansion pack purchase flags
+  bool _pendingPackGoodPurchase = false;
+  bool get pendingPackGoodPurchase => _pendingPackGoodPurchase;
+  bool _pendingPackBadPurchase = false;
+  bool get pendingPackBadPurchase => _pendingPackBadPurchase;
+  bool _pendingPackUglyPurchase = false;
+  bool get pendingPackUglyPurchase => _pendingPackUglyPurchase;
+
+  void clearPendingPackGoodPurchase() { _pendingPackGoodPurchase = false; notifyListeners(); }
+  void clearPendingPackBadPurchase() { _pendingPackBadPurchase = false; notifyListeners(); }
+  void clearPendingPackUglyPurchase() { _pendingPackUglyPurchase = false; notifyListeners(); }
 
   /// Clear the pending custom metric flag once the UI has handled it.
   void clearPendingCustomMetricPurchase() {
@@ -244,6 +260,42 @@ class SubscriptionService extends ChangeNotifier {
     }
   }
 
+  /// Purchase a metrics expansion pack (consumable one-time purchase).
+  Future<bool> purchasePack(String packProductId) async {
+    const isDemoMode = bool.fromEnvironment('DEMO_MODE', defaultValue: false);
+    if (isDemoMode) {
+      switch (packProductId) {
+        case packGoodOneTimeId: _pendingPackGoodPurchase = true; break;
+        case packBadOneTimeId:  _pendingPackBadPurchase = true;  break;
+        case packUglyOneTimeId: _pendingPackUglyPurchase = true; break;
+      }
+      notifyListeners();
+      return true;
+    }
+    try {
+      final product = _products.firstWhere(
+        (p) => p.id == packProductId,
+        orElse: () => throw Exception('$packProductId not found in store'),
+      );
+      final success = await _iap.buyNonConsumable(purchaseParam: PurchaseParam(productDetails: product));
+      return success;
+    } catch (e) {
+      debugPrint('purchasePack error: $e');
+      return false;
+    }
+  }
+
+  Future<void> _savePackPurchase(String packKey) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(packKey, true);
+  }
+
+  /// Check if a pack was previously purchased (survives app restarts).
+  Future<bool> isPackPurchased(String packKey) async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(packKey) ?? false;
+  }
+
   /// Restore previous purchases
   Future<void> restorePurchases() async {
     try {
@@ -252,6 +304,11 @@ class SubscriptionService extends ChangeNotifier {
       // Load saved tier from local storage
       final prefs = await SharedPreferences.getInstance();
       final savedTier = prefs.getString('membership_tier');
+
+    // Restore pack purchases
+    if (prefs.getBool('pack_good') == true) { _pendingPackGoodPurchase = true; }
+    if (prefs.getBool('pack_bad') == true)  { _pendingPackBadPurchase  = true; }
+    if (prefs.getBool('pack_ugly') == true) { _pendingPackUglyPurchase = true; }
 
       if (savedTier != null) {
         _activeTier = MembershipTier.values.firstWhere(
@@ -281,6 +338,47 @@ class SubscriptionService extends ChangeNotifier {
       return _products.firstWhere((p) => p.id == productId);
     } catch (e) {
       return null;
+    }
+  }
+
+  // ── Purchase Source Attribution ──────────────────────────────────────────
+
+  static const String _sourcesKey = 'purchase_sources';
+
+  /// Record where a purchase was initiated.
+  /// [productId] — the IAP product ID
+  /// [source] — 'dashboard' or 'landing_page'
+  Future<void> recordPurchaseSource(String productId, String source) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final raw = prefs.getString(_sourcesKey) ?? '{}';
+      final Map<String, dynamic> map = Map<String, dynamic>.from(
+        jsonDecode(raw) as Map,
+      );
+      // Each entry: { source, timestamp }
+      map[productId] = {
+        'source': source,
+        'timestamp': DateTime.now().toIso8601String(),
+      };
+      await prefs.setString(_sourcesKey, jsonEncode(map));
+      debugPrint('Purchase source recorded: $productId -> $source');
+    } catch (e) {
+      debugPrint('recordPurchaseSource error: $e');
+    }
+  }
+
+  /// Returns a map of { productId: { source, timestamp } } for all purchases.
+  Future<Map<String, Map<String, String>>> getPurchaseSources() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final raw = prefs.getString(_sourcesKey) ?? '{}';
+      final decoded = jsonDecode(raw) as Map<String, dynamic>;
+      return decoded.map(
+        (k, v) => MapEntry(k, Map<String, String>.from(v as Map)),
+      );
+    } catch (e) {
+      debugPrint('getPurchaseSources error: $e');
+      return {};
     }
   }
 

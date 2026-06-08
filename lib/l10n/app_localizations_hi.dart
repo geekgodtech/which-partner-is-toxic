@@ -1534,9 +1534,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get cancelNotReady => 'रद्द करें — मैं तैयार नहीं था';
 
   @override
-  String get packMainLabel => 'मुख्य';
-
-  @override
   String get packGoodLabel => 'अच्छा';
 
   @override
@@ -1544,19 +1541,4 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get packUglyLabel => 'बदसूरत';
-
-  @override
-  String get packGoodDescription =>
-      '100 सकारात्मक, स्वस्थ संबंध पैटर्न — अच्छा कैसा दिखता है।';
-
-  @override
-  String get packBadDescription =>
-      '100 चेतावनी संकेत और हानिकारक पैटर्न — चीजें जो संबंधों को नुकसान पहुंचाती हैं।';
-
-  @override
-  String get packUglyDescription =>
-      '100 गंभीर रेड फ्लैग और दुर्व्यवहार संकेतक — संकट-स्तर के पैटर्न।';
-
-  @override
-  String get selectAllPack => 'सभी 100 चुनें';
 }

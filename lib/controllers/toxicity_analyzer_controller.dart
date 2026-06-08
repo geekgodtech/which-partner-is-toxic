@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
@@ -34,8 +34,18 @@ class ToxicityAnalyzerController extends ChangeNotifier {
   static const String _deepSeekApiKeyPreferenceKey = 'deepseek_api_key';
   static const int requiredReferralDownloads = 5;
 
-  final List<PsychologicalMetric> availableMetrics = _buildMetricCatalog()
-      ..addAll(CustomMetricService().customMetrics);
+  List<PsychologicalMetric> get availableMetrics {
+    final metrics = <PsychologicalMetric>[];
+    // 1. Initial 100 core metrics
+    metrics.addAll(_buildMetricCatalog());
+    // 2. Purchased expansion pack metrics (in purchase order)
+    if (isPackGoodUnlocked) metrics.addAll(packGoodMetrics);
+    if (isPackBadUnlocked)  metrics.addAll(packBadMetrics);
+    if (isPackUglyUnlocked) metrics.addAll(packUglyMetrics);
+    // 3. User-created custom metrics
+    metrics.addAll(CustomMetricService().customMetrics);
+    return metrics;
+  }
   final List<PsychologicalMetric> packGoodMetrics = _buildPackGoodCatalog();
   final List<PsychologicalMetric> packBadMetrics = _buildPackBadCatalog();
   final List<PsychologicalMetric> packUglyMetrics = _buildPackUglyCatalog();
@@ -69,6 +79,11 @@ class ToxicityAnalyzerController extends ChangeNotifier {
   bool isAnalyzing = false;
   bool isRandomizingMetrics = false;
   bool isPremiumUnlocked = const bool.fromEnvironment('DEMO_MODE', defaultValue: false);
+  // Packs start locked so the demo user can experience the purchase flow.
+  // Tapping a pack sales tile calls unlockPackGood/Bad/Ugly to simulate buying.
+  bool isPackGoodUnlocked = false;
+  bool isPackBadUnlocked  = false;
+  bool isPackUglyUnlocked = false;
   bool isCurrentReportUnlocked = false;
   bool isConnectedAccountsUnlocked = false;
   bool isDiscordAddonUnlocked = false;
@@ -82,7 +97,7 @@ class ToxicityAnalyzerController extends ChangeNotifier {
   DateTime? dateRangeStart;
   DateTime? dateRangeEnd;
   int randomMetricsCount = 20;
-  // ── Metric Pack View ──────────────────────────────────────────────────────
+  // -- Metric Pack View ------------------------------------------------------
   /// Which catalog the metrics grid is currently displaying.
   MetricPackView activePackView = MetricPackView.main;
 
@@ -177,6 +192,27 @@ class ToxicityAnalyzerController extends ChangeNotifier {
 
   void unlockDiscordAddon() {
     isDiscordAddonUnlocked = true;
+    notifyListeners();
+  }
+
+  /// Unlock The Good metrics expansion pack and inject all 100 metrics into the main catalog.
+  void unlockPackGood() {
+    if (isPackGoodUnlocked) return;
+    isPackGoodUnlocked = true;
+    notifyListeners();
+  }
+
+  /// Unlock The Bad metrics expansion pack and inject all 100 metrics into the main catalog.
+  void unlockPackBad() {
+    if (isPackBadUnlocked) return;
+    isPackBadUnlocked = true;
+    notifyListeners();
+  }
+
+  /// Unlock The Ugly metrics expansion pack and inject all 100 metrics into the main catalog.
+  void unlockPackUgly() {
+    if (isPackUglyUnlocked) return;
+    isPackUglyUnlocked = true;
     notifyListeners();
   }
 
@@ -362,6 +398,14 @@ class ToxicityAnalyzerController extends ChangeNotifier {
         preferences.getInt(_referralDownloadCountPreferenceKey) ?? 0;
     hasCompletedFirstReport =
         preferences.getBool(_hasCompletedFirstReportPreferenceKey) ?? false;
+
+    // Restore purchased expansion packs
+    const _isDemoMode = bool.fromEnvironment('DEMO_MODE', defaultValue: false);
+    // In demo mode packs are intentionally NOT auto-unlocked on startup.
+    // The user must tap the sales tile to simulate the purchase experience.
+    if (!_isDemoMode && preferences.getBool('pack_good') == true) unlockPackGood();
+    if (!_isDemoMode && preferences.getBool('pack_bad')  == true) unlockPackBad();
+    if (!_isDemoMode && preferences.getBool('pack_ugly') == true) unlockPackUgly();
 
     // Load API key
     _runtimeApiKey = preferences.getString(_deepSeekApiKeyPreferenceKey);
@@ -870,7 +914,7 @@ List<PsychologicalMetric> _buildMetricCatalog() {
     (
       name: 'Defensiveness',
       description:
-          'Tracks reflexive self-protection, counterattacks, excuses, and refusal to consider the other person’s complaint.',
+          'Tracks reflexive self-protection, counterattacks, excuses, and refusal to consider the other person�s complaint.',
     ),
     (
       name: 'Stonewalling',
@@ -930,12 +974,12 @@ List<PsychologicalMetric> _buildMetricCatalog() {
     (
       name: 'Invalidation',
       description:
-          'Measures denial, ridicule, or correction of another person’s emotions instead of acknowledging them.',
+          'Measures denial, ridicule, or correction of another person�s emotions instead of acknowledging them.',
     ),
     (
       name: 'Empathy Expression',
       description:
-          'Looks for perspective-taking, care, emotional recognition, and concern for the other person’s experience.',
+          'Looks for perspective-taking, care, emotional recognition, and concern for the other person�s experience.',
     ),
     (
       name: 'Reciprocity',
@@ -1000,7 +1044,7 @@ List<PsychologicalMetric> _buildMetricCatalog() {
     (
       name: 'Projection',
       description:
-          'Looks for accusations that mirror the speaker’s own behavior, motives, or unresolved feelings.',
+          'Looks for accusations that mirror the speaker�s own behavior, motives, or unresolved feelings.',
     ),
     (
       name: 'Interruption Pattern',
@@ -1030,7 +1074,7 @@ List<PsychologicalMetric> _buildMetricCatalog() {
     (
       name: 'Fear Response Cues',
       description:
-          'Looks for appeasing, careful wording, dread, safety concerns, or fear of the partner’s reaction.',
+          'Looks for appeasing, careful wording, dread, safety concerns, or fear of the partner�s reaction.',
     ),
     (
       name: 'Consistency of Claims',
@@ -1185,7 +1229,7 @@ List<PsychologicalMetric> _buildMetricCatalog() {
     (
       name: 'Validating Conflict Style',
       description:
-          'Measures whether partners acknowledge each other’s perspective while disagreeing.',
+          'Measures whether partners acknowledge each other�s perspective while disagreeing.',
     ),
     (
       name: 'Hostile Conflict Style',
@@ -1205,7 +1249,7 @@ List<PsychologicalMetric> _buildMetricCatalog() {
     (
       name: 'Influence Acceptance',
       description:
-          'Measures openness to being affected by the partner’s feelings, needs, or perspective.',
+          'Measures openness to being affected by the partner�s feelings, needs, or perspective.',
     ),
     (
       name: 'Gridlocked Conflict Signals',
@@ -1225,7 +1269,7 @@ List<PsychologicalMetric> _buildMetricCatalog() {
     (
       name: 'Love Map Awareness',
       description:
-          'Assesses knowledge of the partner’s inner world, stressors, preferences, fears, and daily life.',
+          'Assesses knowledge of the partner�s inner world, stressors, preferences, fears, and daily life.',
     ),
     (
       name: 'Fondness and Admiration',

@@ -1528,9 +1528,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get cancelNotReady => 'Anuluj — Nie byłem/am gotowy/a';
 
   @override
-  String get packMainLabel => 'Główna';
-
-  @override
   String get packGoodLabel => 'Dobry';
 
   @override
@@ -1538,19 +1535,4 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get packUglyLabel => 'Brzydki';
-
-  @override
-  String get packGoodDescription =>
-      '100 pozytywnych, zdrowych wzorców relacji — jak wygląda dobro.';
-
-  @override
-  String get packBadDescription =>
-      '100 ostrzeżeń i szkodliwych wzorców — rzeczy niszczące relacje.';
-
-  @override
-  String get packUglyDescription =>
-      '100 poważnych czerwonych flag i wskaźników przemocy — wzorce kryzysowe.';
-
-  @override
-  String get selectAllPack => 'Zaznacz wszystkie 100';
 }

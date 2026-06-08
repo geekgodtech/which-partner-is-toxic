@@ -465,12 +465,7 @@
   "purchaseCustomMetricProcessingTitle": "Traitement de l'achat...",
   "purchaseCustomMetricProcessingBody": "En attente de confirmation du magasin.\nVeuillez ne pas fermer l'application.",
 
-  "packMainLabel": "Principal",
   "packGoodLabel": "Le Bon",
   "packBadLabel": "La Brute",
-  "packUglyLabel": "Le Truand",
-  "packGoodDescription": "100 modèles de relation positifs et sains — à quoi ressemble le bien.",
-  "packBadDescription": "100 signaux d'alerte et schémas nuisibles — ce qui endommage les relations.",
-  "packUglyDescription": "100 indicateurs graves d'abus et d'alerte — modèles de crise.",
-  "selectAllPack": "Sélectionner les 100"
+  "packUglyLabel": "Le Truand"
 }

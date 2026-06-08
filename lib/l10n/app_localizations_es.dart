@@ -1544,9 +1544,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get cancelNotReady => 'Cancelar — No estaba listo';
 
   @override
-  String get packMainLabel => 'Principal';
-
-  @override
   String get packGoodLabel => 'El Bueno';
 
   @override
@@ -1554,19 +1551,4 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get packUglyLabel => 'El Malo';
-
-  @override
-  String get packGoodDescription =>
-      '100 patrones de relación positivos y saludables — cómo se ve lo bueno.';
-
-  @override
-  String get packBadDescription =>
-      '100 señales de alerta y patrones dañinos — cosas que dañan las relaciones.';
-
-  @override
-  String get packUglyDescription =>
-      '100 banderas rojas severas e indicadores de abuso — patrones de nivel de crisis.';
-
-  @override
-  String get selectAllPack => 'Seleccionar todos 100';
 }

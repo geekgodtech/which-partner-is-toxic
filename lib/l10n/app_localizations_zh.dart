@@ -1390,9 +1390,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cancelNotReady => '取消 — 我还没准备好';
 
   @override
-  String get packMainLabel => '主要';
-
-  @override
   String get packGoodLabel => '善';
 
   @override
@@ -1400,16 +1397,4 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get packUglyLabel => '丑';
-
-  @override
-  String get packGoodDescription => '100个积极、健康的关系模式 — 善的样子。';
-
-  @override
-  String get packBadDescription => '100个警告信号和有害模式 — 损害关系的事情。';
-
-  @override
-  String get packUglyDescription => '100个严重危险信号和虐待指标 — 危机级模式。';
-
-  @override
-  String get selectAllPack => '选择全部100个';
 }
