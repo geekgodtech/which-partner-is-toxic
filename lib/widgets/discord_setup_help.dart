@@ -15,78 +15,80 @@ class DiscordSetupHelp extends StatelessWidget {
         constraints: const BoxConstraints(maxWidth: 600),
         child: Padding(
           padding: EdgeInsets.all(isSmallScreen ? 16 : 24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Icon(Icons.discord, color: const Color(0xFF5865F2), size: isSmallScreen ? 24 : 32),
-                  SizedBox(width: isSmallScreen ? 8 : 12),
-                  Expanded(
-                    child: Text(
-                      l10n.discordSetupTitle,
-                      style: isSmallScreen
-                          ? Theme.of(context).textTheme.titleLarge
-                          : Theme.of(context).textTheme.headlineSmall,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.discord, color: const Color(0xFF5865F2), size: isSmallScreen ? 24 : 32),
+                    SizedBox(width: isSmallScreen ? 8 : 12),
+                    Expanded(
+                      child: Text(
+                        l10n.discordSetupTitle,
+                        style: isSmallScreen
+                            ? Theme.of(context).textTheme.titleLarge
+                            : Theme.of(context).textTheme.headlineSmall,
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(Icons.close),
-                  ),
-                ],
-              ),
-              SizedBox(height: isSmallScreen ? 12 : 16),
-              Text(
-                l10n.discordSetupDescription,
-                style: isSmallScreen
-                    ? Theme.of(context).textTheme.bodySmall
-                    : Theme.of(context).textTheme.bodyMedium,
-              ),
-              SizedBox(height: isSmallScreen ? 16 : 24),
-              _StepNumber(
-                number: 1,
-                title: l10n.discordStep1Title,
-                description: l10n.discordStep1Description,
-                isSmallScreen: isSmallScreen,
-              ),
-              SizedBox(height: isSmallScreen ? 12 : 16),
-              _StepNumber(
-                number: 2,
-                title: l10n.discordStep2Title,
-                description: l10n.discordStep2Description,
-                isSmallScreen: isSmallScreen,
-              ),
-              SizedBox(height: isSmallScreen ? 12 : 16),
-              _StepNumber(
-                number: 3,
-                title: l10n.discordStep3Title,
-                description: l10n.discordStep3Description,
-                isSmallScreen: isSmallScreen,
-              ),
-              SizedBox(height: isSmallScreen ? 12 : 16),
-              _StepNumber(
-                number: 4,
-                title: l10n.discordStep4Title,
-                description: l10n.discordStep4Description,
-                isSmallScreen: isSmallScreen,
-              ),
-              SizedBox(height: isSmallScreen ? 12 : 16),
-              _StepNumber(
-                number: 5,
-                title: l10n.discordStep5Title,
-                description: l10n.discordStep5Description,
-                isSmallScreen: isSmallScreen,
-              ),
-              SizedBox(height: isSmallScreen ? 16 : 24),
-              Center(
-                child: FilledButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Text(l10n.gotIt),
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.close),
+                    ),
+                  ],
                 ),
-              ),
-            ],
+                SizedBox(height: isSmallScreen ? 12 : 16),
+                Text(
+                  l10n.discordSetupDescription,
+                  style: isSmallScreen
+                      ? Theme.of(context).textTheme.bodySmall
+                      : Theme.of(context).textTheme.bodyMedium,
+                ),
+                SizedBox(height: isSmallScreen ? 16 : 24),
+                _StepNumber(
+                  number: 1,
+                  title: l10n.discordStep1Title,
+                  description: l10n.discordStep1Description,
+                  isSmallScreen: isSmallScreen,
+                ),
+                SizedBox(height: isSmallScreen ? 12 : 16),
+                _StepNumber(
+                  number: 2,
+                  title: l10n.discordStep2Title,
+                  description: l10n.discordStep2Description,
+                  isSmallScreen: isSmallScreen,
+                ),
+                SizedBox(height: isSmallScreen ? 12 : 16),
+                _StepNumber(
+                  number: 3,
+                  title: l10n.discordStep3Title,
+                  description: l10n.discordStep3Description,
+                  isSmallScreen: isSmallScreen,
+                ),
+                SizedBox(height: isSmallScreen ? 12 : 16),
+                _StepNumber(
+                  number: 4,
+                  title: l10n.discordStep4Title,
+                  description: l10n.discordStep4Description,
+                  isSmallScreen: isSmallScreen,
+                ),
+                SizedBox(height: isSmallScreen ? 12 : 16),
+                _StepNumber(
+                  number: 5,
+                  title: l10n.discordStep5Title,
+                  description: l10n.discordStep5Description,
+                  isSmallScreen: isSmallScreen,
+                ),
+                SizedBox(height: isSmallScreen ? 16 : 24),
+                Center(
+                  child: FilledButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text(l10n.gotIt),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
