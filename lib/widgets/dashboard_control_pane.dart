@@ -15,6 +15,7 @@ import 'package:airta/widgets/membership_landing_page.dart';
 import 'package:airta/widgets/sms_conversation_picker.dart';
 import 'package:airta/widgets/ios_sms_capture_screen.dart';
 import 'package:airta/widgets/discord_server_picker.dart';
+import 'package:airta/widgets/dark_mode_switch.dart';
 import 'package:airta/services/remote_config_service.dart';
 // UNIPILE INTEGRATION - COMMENTED OUT PENDING BUSINESS NEGOTIATION
 // Uncomment these imports if Unipile deal is finalized:
@@ -121,6 +122,14 @@ class _DashboardControlPaneState extends State<DashboardControlPane> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
+                          // Dark mode toggle in header
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              const DarkModeSwitch(),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
                           LayoutBuilder(
                             builder: (context, constraints) {
                               // Use smaller font on narrow screens
