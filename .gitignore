@@ -59,3 +59,5 @@ job-logs.txt
 
 # Generated screenshots for store submission
 Screenshots/
+
+deploy.ps1
