@@ -465,12 +465,7 @@
   "purchaseCustomMetricProcessingTitle": "Satın Alma İşleniyor...",
   "purchaseCustomMetricProcessingBody": "Mağaza onayı bekleniyor.\nLütfen uygulamayı kapatmayın.",
 
-  "packMainLabel": "Ana",
   "packGoodLabel": "İyi",
   "packBadLabel": "Kötü",
-  "packUglyLabel": "Çirkin",
-  "packGoodDescription": "100 olumlu, sağlıklı ilişki modeli — iyinin nasıl göründüğü.",
-  "packBadDescription": "100 uyarı işareti ve zararlı model — ilişkilere zarar veren şeyler.",
-  "packUglyDescription": "100 ciddi kırmızı bayrak ve istismar göstergesi — kriz seviyesi modeller.",
-  "selectAllPack": "Tüm 100'ü seç"
+  "packUglyLabel": "Çirkin"
 }

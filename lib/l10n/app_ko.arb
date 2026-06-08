@@ -763,12 +763,7 @@
   "purchaseCustomMetricSuccess": "✓ 「{name}」이(가) 지표에 추가되었습니다! 이제 분석에 선택할 수 있습니다.",
   "purchaseCustomMetricProcessingTitle": "구매 처리 중...",
   "purchaseCustomMetricProcessingBody": "스토어 확인을 기다리는 중입니다.\n앱을 닫지 마세요.",
-  "packMainLabel": "메인",
   "packGoodLabel": "착한",
   "packBadLabel": "나쁜",
-  "packUglyLabel": "못생긴",
-  "packGoodDescription": "100가지 긍정적이고 건강한 관계 패턴 — 좋은 모습입니다.",
-  "packBadDescription": "100가지 경고 신호와 해로운 패턴 — 관계를 손상시키는 것들.",
-  "packUglyDescription": "100가지 심각한 레드플래그와 학대 징후 — 위기 수준 패턴.",
-  "selectAllPack": "100개 모두 선택"
+  "packUglyLabel": "못생긴"
 }

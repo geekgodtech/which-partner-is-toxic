@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -148,7 +148,7 @@ class _DashboardControlPaneState extends State<DashboardControlPane> {
           if (_showScrollToTop)
             Positioned(
               right: 16,
-              bottom: 16,
+              bottom: 80,
               child: FloatingActionButton(
                 onPressed: _scrollToTop,
                 tooltip: 'Scroll to top',
@@ -850,58 +850,38 @@ class _FromFileButton extends StatelessWidget {
 //   }
 // }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ---------------------------------------------------------------------------
 // METRIC SELECTOR SECTION
-// ═══════════════════════════════════════════════════════════════════════════
+// ---------------------------------------------------------------------------
 
-class _MetricSelectorSection extends StatefulWidget {
+class _MetricSelectorSection extends StatelessWidget {
   final ToxicityAnalyzerController controller;
+
   const _MetricSelectorSection({required this.controller});
-  @override
-  State<_MetricSelectorSection> createState() => _MetricSelectorSectionState();
-}
-
-class _MetricSelectorSectionState extends State<_MetricSelectorSection>
-    with SingleTickerProviderStateMixin {
-  late final TabController _tabController;
-
-  static const _packColors = [
-    Color(0xFF546E7A), // main – blue-grey
-    Color(0xFF2E7D32), // good – green
-    Color(0xFFE65100), // bad  – deep orange
-    Color(0xFFB71C1C), // ugly – red
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 4, vsync: this);
-    _tabController.addListener(() {
-      if (!_tabController.indexIsChanging) {
-        final view = MetricPackView.values[_tabController.index];
-        widget.controller.setPackView(view);
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final controller = widget.controller;
     final mq = MediaQuery.of(context);
     final ssWidth = ScreenshotAutomation.instance.windowSize.value.width;
     final screenWidth = (kScreenshotMode && ssWidth > 0) ? ssWidth : mq.size.width;
     final columnCount = _metricColumnCount(screenWidth);
-    final activeView = controller.activePackView;
-    final isPackView = activeView != MetricPackView.main;
-    final visibleMetrics = controller.visibleMetrics;
-    final packColor = _packColors[activeView.index];
+    // Ordered tiles: controller.availableMetrics returns
+    // [initial 100] -> [purchased pack metrics] -> [custom metrics]
+    final allMetricTiles = controller.availableMetrics;
+    final goodUnlocked = controller.isPackGoodUnlocked;
+    final badUnlocked  = controller.isPackBadUnlocked;
+    final uglyUnlocked = controller.isPackUglyUnlocked;
+
+    // Sales tiles appear after all metric tiles.
+    // Custom-purchase tile is always visible.
+    // Each pack sales tile disappears once that pack is purchased.
+    final salesTiles = <Widget>[
+      _PurchaseCustomMetricTile(controller: controller),
+      if (!goodUnlocked) _MetricPackTile.good(controller: controller),
+      if (!badUnlocked)  _MetricPackTile.bad(controller: controller),
+      if (!uglyUnlocked) _MetricPackTile.ugly(controller: controller),
+    ];
 
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -913,53 +893,6 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection>
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 8),
-
-          // ── Pack Tab Bar ────────────────────────────────────────────────
-          Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surfaceContainerHighest,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: TabBar(
-              controller: _tabController,
-              isScrollable: false,
-              dividerColor: Colors.transparent,
-              indicator: BoxDecoration(
-                color: packColor,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              indicatorSize: TabBarIndicatorSize.tab,
-              labelColor: Colors.white,
-              unselectedLabelColor:
-                  Theme.of(context).colorScheme.onSurfaceVariant,
-              labelStyle: const TextStyle(
-                  fontWeight: FontWeight.w700, fontSize: 12),
-              unselectedLabelStyle: const TextStyle(
-                  fontWeight: FontWeight.w500, fontSize: 12),
-              tabs: [
-                Tab(icon: const Icon(Icons.grid_view, size: 14), text: l10n.packMainLabel),
-                Tab(icon: const Icon(Icons.sentiment_satisfied_alt, size: 14), text: l10n.packGoodLabel),
-                Tab(icon: const Icon(Icons.warning_amber_rounded, size: 14), text: l10n.packBadLabel),
-                Tab(icon: const Icon(Icons.dangerous_outlined, size: 14), text: l10n.packUglyLabel),
-              ],
-            ),
-          ),
-          const SizedBox(height: 8),
-
-          // ── Pack description ────────────────────────────────────────────
-          if (isPackView)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 4),
-              child: Text(
-                _packDescription(l10n, activeView),
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: packColor,
-                      fontWeight: FontWeight.w600,
-                    ),
-              ),
-            ),
-
-          // ── Count + toolbar ─────────────────────────────────────────────
           Text(l10n.selectUpToCount(
               ToxicityAnalyzerController.requiredMetricSelectionCount,
               controller.selectedMetricCount)),
@@ -968,17 +901,6 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection>
             spacing: 0,
             runSpacing: 0,
             children: [
-              if (isPackView)
-                TextButton.icon(
-                  onPressed: controller.selectAllVisiblePackMetrics,
-                  icon: const Icon(Icons.select_all, size: 16),
-                  label: Text(l10n.selectAllPack),
-                  style: TextButton.styleFrom(
-                    foregroundColor: packColor,
-                    visualDensity: VisualDensity.compact,
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                  ),
-                ),
               TextButton.icon(
                 onPressed: controller.selectedMetricCount > 0
                     ? () => _showSaveMetricListDialog(context, controller)
@@ -1016,8 +938,6 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection>
           const SizedBox(height: 6),
           Text(l10n.metricsDescription),
           const SizedBox(height: 12),
-
-          // ── Metrics Grid ────────────────────────────────────────────────
           GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -1025,43 +945,25 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection>
               crossAxisCount: columnCount,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
-              childAspectRatio: 1,
+              childAspectRatio: 0.85,
             ),
-            // Main view: +1 for Purchase Custom Metric tile
-            itemCount: isPackView
-                ? visibleMetrics.length
-                : visibleMetrics.length + 1,
+            itemCount: allMetricTiles.length + salesTiles.length,
             itemBuilder: (context, index) {
-              if (!isPackView && index == visibleMetrics.length) {
-                return _PurchaseCustomMetricTile(controller: controller);
+              if (index < allMetricTiles.length) {
+                final metric = allMetricTiles[index];
+                return _MetricButtonTile(
+                  metric: metric,
+                  isSelected: controller.isMetricSelected(metric),
+                  color: _metricTileColor(index),
+                  onPressed: () => controller.toggleMetricSelection(metric),
+                );
               }
-              final metric = visibleMetrics[index];
-              return _MetricButtonTile(
-                metric: metric,
-                isSelected: controller.isMetricSelected(metric),
-                color: isPackView
-                    ? packColor.withValues(alpha: 0.85)
-                    : _metricTileColor(index),
-                onPressed: () => controller.toggleMetricSelection(metric),
-              );
+              return salesTiles[index - allMetricTiles.length];
             },
           ),
         ],
       ),
     );
-  }
-
-  String _packDescription(AppLocalizations l10n, MetricPackView view) {
-    switch (view) {
-      case MetricPackView.good:
-        return l10n.packGoodDescription;
-      case MetricPackView.bad:
-        return l10n.packBadDescription;
-      case MetricPackView.ugly:
-        return l10n.packUglyDescription;
-      case MetricPackView.main:
-        return '';
-    }
   }
 }
 Color _metricTileColor(int index) {
@@ -1115,38 +1017,37 @@ class _MetricButtonTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: OverflowBox(
-                        alignment: Alignment.topLeft,
-                        maxWidth: double.infinity,
-                        maxHeight: double.infinity,
-                        child: SizedBox(
-                          width: constraints.maxWidth,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                l10n.getMetricName(metric.id, fallbackName: metric.name),
-                                style: TextStyle(
-                                  color: foregroundColor,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: (constraints.maxWidth * 0.165).clamp(12.0, 28.0),
-                                  height: 1.12,
-                                ),
+                      child: ClipRect(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              l10n.getMetricName(metric.id, fallbackName: metric.name),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: foregroundColor,
+                                fontWeight: FontWeight.w700,
+                                fontSize: (constraints.maxWidth * 0.165).clamp(12.0, 26.0),
+                                height: 1.12,
                               ),
-                              SizedBox(height: constraints.maxWidth * 0.03),
-                              Text(
+                            ),
+                            SizedBox(height: constraints.maxWidth * 0.03),
+                            Flexible(
+                              child: Text(
                                 l10n.getMetricDescription(metric.id, fallbackDescription: metric.description),
+                                overflow: TextOverflow.fade,
                                 style: TextStyle(
                                   color: foregroundColor.withOpacity(
                                     isSelected ? 0.96 : 0.72,
                                   ),
-                                  fontSize: (constraints.maxWidth * 0.125).clamp(10.0, 20.0),
+                                  fontSize: (constraints.maxWidth * 0.115).clamp(9.5, 17.0),
                                   height: 1.18,
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -1174,9 +1075,9 @@ class _MetricButtonTile extends StatelessWidget {
   }
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ---------------------------------------------------------------------------
 // PURCHASE CUSTOM METRIC TILE + FULL DIALOG FLOW
-// ═══════════════════════════════════════════════════════════════════════════
+// ---------------------------------------------------------------------------
 
 class _PurchaseCustomMetricTile extends StatelessWidget {
   final ToxicityAnalyzerController controller;
@@ -1205,53 +1106,49 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: OverflowBox(
-                        alignment: Alignment.topLeft,
-                        maxWidth: double.infinity,
-                        maxHeight: double.infinity,
-                        child: SizedBox(
-                          width: constraints.maxWidth,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(top: 3),
-                                    child: Icon(Icons.add_circle_outline,
-                                        color: colorScheme.secondary,
-                                        size: (constraints.maxWidth * 0.165).clamp(14.0, 28.0)),
-                                  ),
-                                  const SizedBox(width: 5),
-                                  Expanded(
-                                    child: Text(
-                                      l10n.purchaseCustomMetricTileTitle,
-                                      style: TextStyle(
-                                        color: colorScheme.onSecondaryContainer,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: (constraints.maxWidth * 0.165).clamp(12.0, 28.0),
-                                        height: 1.12,
-                                      ),
-                                      softWrap: true,
+                      child: ClipRect(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 3),
+                                  child: Icon(Icons.add_circle_outline,
+                                      color: colorScheme.secondary,
+                                      size: (constraints.maxWidth * 0.165).clamp(14.0, 26.0)),
+                                ),
+                                const SizedBox(width: 5),
+                                Expanded(
+                                  child: Text(
+                                    l10n.purchaseCustomMetricTileTitle,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: colorScheme.onSecondaryContainer,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: (constraints.maxWidth * 0.165).clamp(12.0, 26.0),
+                                      height: 1.12,
                                     ),
                                   ),
-                                ],
-                              ),
-                              SizedBox(height: constraints.maxWidth * 0.03),
-                              Text(
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: constraints.maxWidth * 0.03),
+                            Flexible(
+                              child: Text(
                                 l10n.purchaseCustomMetricTileDescription,
+                                overflow: TextOverflow.fade,
                                 style: TextStyle(
-                                  color: colorScheme.onSecondaryContainer
-                                      .withOpacity(0.78),
-                                  fontSize: (constraints.maxWidth * 0.125).clamp(10.0, 20.0),
+                                  color: colorScheme.onSecondaryContainer.withOpacity(0.78),
+                                  fontSize: (constraints.maxWidth * 0.115).clamp(9.5, 17.0),
                                   height: 1.18,
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -1316,6 +1213,9 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
 
       // Trigger real store purchase
       final subService = context.read<SubscriptionService>();
+      // Track purchase attribution — initiated from metrics dashboard
+      await subService.recordPurchaseSource(
+          SubscriptionService.customMetricOneTimeId, 'dashboard');
       final success = await subService.purchaseCustomMetric();
       if (!success || !context.mounted) return;
 
@@ -1331,7 +1231,7 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
         if (!context.mounted) return;
       }
 
-      // Clear the flag — we're handling it now
+      // Clear the flag � we're handling it now
       subService.clearPendingCustomMetricPurchase();
     }
 
@@ -1610,6 +1510,295 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
 }
 
 /// Shown while waiting for the store to confirm a custom metric purchase.
+// ---------------------------------------------------------------------------
+// METRIC EXPANSION PACK TILES  (Good / Bad / Ugly)
+// ---------------------------------------------------------------------------
+
+enum _PackId { good, bad, ugly }
+
+class _MetricPackTile extends StatelessWidget {
+  final _PackId packId;
+  final ToxicityAnalyzerController controller;
+
+  const _MetricPackTile._({required this.packId, required this.controller});
+  factory _MetricPackTile.good({required ToxicityAnalyzerController controller}) =>
+      _MetricPackTile._(packId: _PackId.good, controller: controller);
+  factory _MetricPackTile.bad({required ToxicityAnalyzerController controller}) =>
+      _MetricPackTile._(packId: _PackId.bad, controller: controller);
+  factory _MetricPackTile.ugly({required ToxicityAnalyzerController controller}) =>
+      _MetricPackTile._(packId: _PackId.ugly, controller: controller);
+
+  // -- Tile data -------------------------------------------------------------
+
+  static const _data = {
+    _PackId.good: (
+      title: 'The Good',
+      subtitle: 'Metrics Expansion Pack',
+      body:
+          '100 new psychological metrics that detect healthy, positive relationship '
+          'patterns � active listening, genuine empathy, secure attachment, mutual '
+          'admiration, emotional availability, and more. Perfect for identifying what '
+          'good looks like and measuring growth toward healthier dynamics.',
+      price: r'$9.99',
+      icon: Icons.sentiment_satisfied_alt,
+      color: Color(0xFF1B5E20),
+      bgColor: Color(0xFFE8F5E9),
+      darkColor: Color(0xFF2E7D32),
+    ),
+    _PackId.bad: (
+      title: 'The Bad',
+      subtitle: 'Metrics Expansion Pack',
+      body:
+          '100 new metrics that surface mid-severity warning patterns � passive '
+          'aggression, guilt weaponization, emotional blackmail, double standards, '
+          'veiled criticism, conditional care, and 94 more. Designed to catch the slow '
+          'erosion of trust before it becomes crisis-level.',
+      price: r'$9.99',
+      icon: Icons.warning_amber_rounded,
+      color: Color(0xFF7B2D00),
+      bgColor: Color(0xFFFFF3E0),
+      darkColor: Color(0xFFE65100),
+    ),
+    _PackId.ugly: (
+      title: 'The Ugly',
+      subtitle: 'Metrics Expansion Pack',
+      body:
+          '100 new metrics that identify severe abuse indicators and crisis-level red '
+          'flags � physical violence threats, stalking obsession, reproductive coercion, '
+          'identity erasure, lethality risk patterns, and more. The most important pack '
+          'for safety-critical analysis.',
+      price: r'$9.99',
+      icon: Icons.dangerous_outlined,
+      color: Color(0xFF7F0000),
+      bgColor: Color(0xFFFFEBEE),
+      darkColor: Color(0xFFB71C1C),
+    ),
+  };
+
+  // -- Product IDs ------------------------------------------------------------
+
+  String get _productId {
+    switch (packId) {
+      case _PackId.good: return SubscriptionService.packGoodOneTimeId;
+      case _PackId.bad:  return SubscriptionService.packBadOneTimeId;
+      case _PackId.ugly: return SubscriptionService.packUglyOneTimeId;
+    }
+  }
+
+  // -- Build ------------------------------------------------------------------
+
+  @override
+  Widget build(BuildContext context) {
+    final d = _data[packId]!;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final tileColor = isDark ? d.darkColor : d.bgColor;
+    final textColor = isDark ? Colors.white : d.color;
+
+    return AnimatedScale(
+      scale: 0.94,
+      duration: const Duration(milliseconds: 160),
+      child: Material(
+        color: tileColor.withOpacity(isDark ? 0.85 : 1.0),
+        borderRadius: BorderRadius.circular(14),
+        elevation: 2,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(14),
+          onTap: () => _startPackPurchaseFlow(context),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final titleSize = (constraints.maxWidth * 0.165).clamp(12.0, 28.0);
+                final bodySize  = (constraints.maxWidth * 0.118).clamp(9.0, 17.0);
+                final iconSize  = (constraints.maxWidth * 0.165).clamp(14.0, 28.0);
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ClipRect(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 2),
+                                  child: Icon(d.icon, color: textColor, size: iconSize),
+                                ),
+                                const SizedBox(width: 4),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        d.title,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: textColor,
+                                          fontWeight: FontWeight.w900,
+                                          fontSize: titleSize,
+                                          height: 1.1,
+                                        ),
+                                      ),
+                                      Text(
+                                        d.subtitle,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: textColor.withOpacity(0.72),
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: titleSize * 0.65,
+                                          height: 1.15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: constraints.maxWidth * 0.02),
+                            Flexible(
+                              child: Text(
+                                d.body,
+                                overflow: TextOverflow.fade,
+                                style: TextStyle(
+                                  color: textColor.withOpacity(0.82),
+                                  fontSize: bodySize,
+                                  height: 1.18,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: isDark ? d.darkColor : d.color,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          d.price,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                            fontSize: (constraints.maxWidth * 0.11).clamp(10.0, 16.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // -- Purchase flow ----------------------------------------------------------
+
+  Future<void> _startPackPurchaseFlow(BuildContext context) async {
+    const isDemoMode = bool.fromEnvironment('DEMO_MODE', defaultValue: false);
+    final d = _data[packId]!;
+
+    if (!isDemoMode) {
+      final confirmed = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text('Purchase ${d.title}'),
+          content: Text(
+            'Add 100 new "${d.title}" psychological metrics to your analyzer for a '
+            'one-time fee of ${d.price}. These metrics will be permanently added '
+            'to your metric grid alongside your existing metrics.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text('Not now'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: Text('Buy for ${d.price}'),
+            ),
+          ],
+        ),
+      );
+      if (confirmed != true || !context.mounted) return;
+
+      final subService = context.read<SubscriptionService>();
+      // Track purchase attribution — initiated from metrics dashboard
+      await subService.recordPurchaseSource(_productId, 'dashboard');
+      final success = await subService.purchasePack(_productId);
+      if (!success || !context.mounted) return;
+
+      // Wait for store confirmation if needed
+      final pending = switch (packId) {
+        _PackId.good => subService.pendingPackGoodPurchase,
+        _PackId.bad  => subService.pendingPackBadPurchase,
+        _PackId.ugly => subService.pendingPackUglyPurchase,
+      };
+      if (!pending) {
+        if (!context.mounted) return;
+        // Wait for IAP callback (handled by listener in subscription_service)
+        await showDialog<void>(
+          context: context,
+          barrierDismissible: false,
+          builder: (ctx) => AlertDialog(
+            title: const Text('Processing Purchase...'),
+            content: const Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircularProgressIndicator(),
+                SizedBox(height: 16),
+                Text('Waiting for store confirmation...'),
+              ],
+            ),
+          ),
+        );
+        if (!context.mounted) return;
+      }
+
+      // Clear the pending flag
+      switch (packId) {
+        case _PackId.good: subService.clearPendingPackGoodPurchase(); break;
+        case _PackId.bad:  subService.clearPendingPackBadPurchase();  break;
+        case _PackId.ugly: subService.clearPendingPackUglyPurchase(); break;
+      }
+    }
+
+    if (!context.mounted) return;
+
+    // Unlock the pack � injects metrics into main catalog and hides this tile
+    switch (packId) {
+      case _PackId.good: controller.unlockPackGood(); break;
+      case _PackId.bad:  controller.unlockPackBad();  break;
+      case _PackId.ugly: controller.unlockPackUgly(); break;
+    }
+
+    if (!context.mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          '${d.title} pack unlocked! 100 new metrics added to your grid.',
+        ),
+        duration: const Duration(seconds: 4),
+        backgroundColor: Theme.of(context).brightness == Brightness.dark
+                ? d.darkColor
+                : d.color,
+      ),
+    );
+  }
+}
 class _PurchasePendingDialog extends StatefulWidget {
   final SubscriptionService subService;
 
@@ -1905,7 +2094,7 @@ class _DateRangeFilterSectionState extends State<_DateRangeFilterSection> {
                 ],
               ),
             ),
-            // Date pickers — only shown when enabled
+            // Date pickers � only shown when enabled
             if (_dateRangeEnabled) ...[
               const SizedBox(height: 12),
               Row(

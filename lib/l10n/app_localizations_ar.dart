@@ -1521,9 +1521,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cancelNotReady => 'إلغاء — لم أكن مستعدًا';
 
   @override
-  String get packMainLabel => 'الرئيسي';
-
-  @override
   String get packGoodLabel => 'الجيد';
 
   @override
@@ -1531,19 +1528,4 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get packUglyLabel => 'القبيح';
-
-  @override
-  String get packGoodDescription =>
-      '100 نمط علاقة إيجابي وصحي — ما يبدو عليه الخير.';
-
-  @override
-  String get packBadDescription =>
-      '100 علامة تحذير ونمط ضار — أشياء تضر العلاقات.';
-
-  @override
-  String get packUglyDescription =>
-      '100 علامة خطر شديد ومؤشرات إساءة — أنماط على مستوى الأزمة.';
-
-  @override
-  String get selectAllPack => 'تحديد الكل 100';
 }

@@ -465,12 +465,7 @@
   "purchaseCustomMetricProcessingTitle": "Elaborazione acquisto...",
   "purchaseCustomMetricProcessingBody": "In attesa di conferma dallo store.\nSi prega di non chiudere l'app.",
 
-  "packMainLabel": "Principale",
   "packGoodLabel": "Il Buono",
   "packBadLabel": "Il Brutto",
-  "packUglyLabel": "Il Cattivo",
-  "packGoodDescription": "100 modelli di relazione positivi e sani — com'è fatto il bene.",
-  "packBadDescription": "100 segnali di allarme e modelli dannosi — cose che danneggiano le relazioni.",
-  "packUglyDescription": "100 gravi red flag e indicatori di abuso — modelli di livello crisi.",
-  "selectAllPack": "Seleziona tutti 100"
+  "packUglyLabel": "Il Cattivo"
 }

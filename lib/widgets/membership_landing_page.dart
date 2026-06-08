@@ -54,6 +54,13 @@ class MembershipLandingPage extends StatelessWidget {
                 isStandardMember,
                 cardWidth,
               );
+              final controller = context.read<ToxicityAnalyzerController>();
+              final packCards = _buildPackCards(
+                context,
+                colorScheme,
+                controller,
+                cardWidth,
+              );
 
               return SingleChildScrollView(
                 padding: const EdgeInsets.all(20),
@@ -62,6 +69,7 @@ class MembershipLandingPage extends StatelessWidget {
                   children: [
                     _MembershipHero(isWide: isWide),
                     const SizedBox(height: 24),
+                    // Membership tier cards
                     if (isWide)
                       IntrinsicHeight(
                         child: Row(
@@ -83,6 +91,33 @@ class MembershipLandingPage extends StatelessWidget {
                           ],
                         ],
                       ),
+                    // Metric expansion packs
+                    if (packCards.isNotEmpty) ...[
+                      const SizedBox(height: 32),
+                      const _PackSectionHeader(),
+                      const SizedBox(height: 16),
+                      if (isWide)
+                        IntrinsicHeight(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              for (var i = 0; i < packCards.length; i++) ...[
+                                if (i > 0) const SizedBox(width: 16),
+                                Expanded(child: packCards[i]),
+                              ],
+                            ],
+                          ),
+                        )
+                      else
+                        Column(
+                          children: [
+                            for (var i = 0; i < packCards.length; i++) ...[
+                              if (i > 0) const SizedBox(height: 16),
+                              packCards[i],
+                            ],
+                          ],
+                        ),
+                    ],
                     const SizedBox(height: 24),
                     const _ComingSoonCard(),
                   ],
@@ -171,7 +206,94 @@ class MembershipLandingPage extends StatelessWidget {
     ];
   }
 
+  List<Widget> _buildPackCards(
+    BuildContext context,
+    ColorScheme colorScheme,
+    ToxicityAnalyzerController controller,
+    double cardWidth,
+  ) {
+    final cards = <Widget>[];
+
+    if (!controller.isPackGoodUnlocked) {
+      cards.add(_TierCard(
+        width: cardWidth,
+        icon: Icons.thumb_up_alt_outlined,
+        title: 'The Good Pack',
+        price: r'$9.99',
+        accentColor: Colors.green,
+        benefits: [
+          '100 healthy relationship metrics',
+          'Positive communication patterns',
+          'Appreciation, empathy & trust signals',
+          'One-time purchase — yours forever',
+          'Unlocks instantly after purchase',
+        ],
+        buttonLabel: 'Unlock The Good Pack',
+        onPressed: () => _purchaseMembership(
+          context,
+          SubscriptionService.packGoodOneTimeId,
+          'The Good Pack',
+          () => controller.unlockPackGood(),
+          source: 'landing_page',
+        ),
+      ));
+    }
+
+    if (!controller.isPackBadUnlocked) {
+      cards.add(_TierCard(
+        width: cardWidth,
+        icon: Icons.warning_amber_outlined,
+        title: 'The Bad Pack',
+        price: r'$9.99',
+        accentColor: Colors.orange,
+        benefits: [
+          '100 warning-sign relationship metrics',
+          'Spot manipulation & dismissal patterns',
+          'Guilt-tripping, stonewalling & more',
+          'One-time purchase — yours forever',
+          'Unlocks instantly after purchase',
+        ],
+        buttonLabel: 'Unlock The Bad Pack',
+        onPressed: () => _purchaseMembership(
+          context,
+          SubscriptionService.packBadOneTimeId,
+          'The Bad Pack',
+          () => controller.unlockPackBad(),
+          source: 'landing_page',
+        ),
+      ));
+    }
+
+    if (!controller.isPackUglyUnlocked) {
+      cards.add(_TierCard(
+        width: cardWidth,
+        icon: Icons.dangerous_outlined,
+        title: 'The Ugly Pack',
+        price: r'$9.99',
+        accentColor: Colors.red,
+        benefits: [
+          '100 severe red-flag abuse metrics',
+          'Identify coercion, threats & control',
+          'Trauma bonding & isolation indicators',
+          'One-time purchase — yours forever',
+          'Unlocks instantly after purchase',
+        ],
+        buttonLabel: 'Unlock The Ugly Pack',
+        onPressed: () => _purchaseMembership(
+          context,
+          SubscriptionService.packUglyOneTimeId,
+          'The Ugly Pack',
+          () => controller.unlockPackUgly(),
+          source: 'landing_page',
+        ),
+      ));
+    }
+
+    return cards;
+  }
+
   Future<void> _completeOneTimeUnlock(BuildContext context) async {
+
     final subscriptionService = SubscriptionService();
 
     // Show loading
@@ -182,6 +304,8 @@ class MembershipLandingPage extends StatelessWidget {
     );
 
     try {
+      await subscriptionService.recordPurchaseSource(
+        SubscriptionService.oneTimeUnlockId, 'landing_page');
       final success = await subscriptionService.purchaseSubscription(
         SubscriptionService.oneTimeUnlockId,
       );
@@ -262,9 +386,12 @@ class MembershipLandingPage extends StatelessWidget {
     BuildContext context,
     String productId,
     String tierName,
-    VoidCallback onSuccess,
-  ) async {
+    VoidCallback onSuccess, {
+    String source = 'landing_page',
+  }) async {
     final subscriptionService = SubscriptionService();
+    // Record attribution before initiating the purchase flow
+    await subscriptionService.recordPurchaseSource(productId, source);
 
     // Show loading
     showDialog(
@@ -455,6 +582,40 @@ class _TierCard extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _PackSectionHeader extends StatelessWidget {
+  const _PackSectionHeader();
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Row(
+      children: [
+        Icon(Icons.extension_outlined, color: colorScheme.primary, size: 22),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Metric Expansion Packs',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              Text(
+                'One-time purchases — 100 additional metrics each',
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

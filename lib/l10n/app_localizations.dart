@@ -2796,12 +2796,6 @@ abstract class AppLocalizations {
   /// **'Cancel — I Wasn\'t Ready'**
   String get cancelNotReady;
 
-  /// Tab label for the main (all) metrics catalog
-  ///
-  /// In en, this message translates to:
-  /// **'Main'**
-  String get packMainLabel;
-
   /// Tab label for The Good pack — 100 positive, healthy relationship pattern metrics
   ///
   /// In en, this message translates to:
@@ -2819,30 +2813,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The Ugly'**
   String get packUglyLabel;
-
-  /// Short description shown under the The Good pack tab
-  ///
-  /// In en, this message translates to:
-  /// **'100 positive, healthy relationship patterns — what good looks like.'**
-  String get packGoodDescription;
-
-  /// Short description shown under the The Bad pack tab
-  ///
-  /// In en, this message translates to:
-  /// **'100 warning signs and harmful patterns — things that damage relationships.'**
-  String get packBadDescription;
-
-  /// Short description shown under the The Ugly pack tab
-  ///
-  /// In en, this message translates to:
-  /// **'100 severe red flags and abuse indicators — crisis-level patterns.'**
-  String get packUglyDescription;
-
-  /// Button to select all 100 metrics visible in the current pack
-  ///
-  /// In en, this message translates to:
-  /// **'Select All 100'**
-  String get selectAllPack;
 }
 
 class _AppLocalizationsDelegate

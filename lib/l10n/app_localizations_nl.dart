@@ -1536,9 +1536,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get cancelNotReady => 'Annuleren — Ik Was Niet Klaar';
 
   @override
-  String get packMainLabel => 'Hoofd';
-
-  @override
   String get packGoodLabel => 'De Goede';
 
   @override
@@ -1546,19 +1543,4 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get packUglyLabel => 'De Lelijke';
-
-  @override
-  String get packGoodDescription =>
-      '100 positieve, gezonde relatiepatronen — hoe goed eruitziet.';
-
-  @override
-  String get packBadDescription =>
-      '100 waarschuwingssignalen en schadelijke patronen — dingen die relaties beschadigen.';
-
-  @override
-  String get packUglyDescription =>
-      '100 ernstige rode vlaggen en misbruikindicatoren — crisistype patronen.';
-
-  @override
-  String get selectAllPack => 'Alle 100 selecteren';
 }

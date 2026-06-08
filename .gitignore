@@ -61,3 +61,7 @@ job-logs.txt
 Screenshots/
 
 deploy.ps1
+
+# Social monitor — secrets and local DB
+social_monitor/.env
+social_monitor/data/

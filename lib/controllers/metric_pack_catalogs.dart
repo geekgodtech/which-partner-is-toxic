@@ -106,6 +106,8 @@ List<PsychologicalMetric> _buildPackGoodCatalog() {
     (name: 'Genuine Care Language', description: 'Tracks authentic expressions of concern, care, and investment in the partner\'s wellbeing.'),
     (name: 'Relationship Commitment', description: 'Measures expressing dedication to the partnership and willingness to work through challenges.'),
     (name: 'Authentic Love Expression', description: 'Looks for genuine consistent expressions of love that feel real and unconditional.'),
+    (name: 'Mutual Goal Setting', description: 'Identifies partners collaboratively defining shared dreams, priorities, and direction for their future together.'),
+    (name: 'Repair Attempt Recognition', description: 'Detects noticing and positively responding to the partner\'s bids to de-escalate conflict and restore connection.'),
   ];
   return List<PsychologicalMetric>.generate(
     defs.length,
@@ -224,6 +226,8 @@ List<PsychologicalMetric> _buildPackBadCatalog() {
     (name: 'Gaslighting-Adjacent Tactics', description: 'Identifies subtle reality-distorting tactics that create self-doubt without full gaslighting.'),
     (name: 'Passive Stonewalling', description: 'Flags subtle disengagement, monosyllabic responses, or checked-out presence as avoidance.'),
     (name: 'Narrative Control', description: 'Detects insisting on being the sole authority on what happened, how it felt, or what was meant.'),
+    (name: 'Responsibility Deflection', description: 'Tracks consistently redirecting accountability onto external factors, third parties, or the partner\'s behavior.'),
+    (name: 'Emotional Unavailability', description: 'Flags chronic withdrawal from emotional intimacy, vulnerability, or meaningful connection when the partner needs closeness.'),
   ];
   return List<PsychologicalMetric>.generate(
     defs.length,
@@ -341,6 +345,9 @@ List<PsychologicalMetric> _buildPackUglyCatalog() {
     (name: 'Cognitive Distortion Implanting', description: 'Detects deliberate installation of false beliefs about self, reality, or the partner\'s own sanity.'),
     (name: 'Medical Care Obstruction', description: 'Detects preventing access to medication, doctors, hospitals, or health treatment.'),
     (name: 'Extremist Threat Language', description: 'Flags language borrowed from extremist or violent ideological frameworks applied toward the partner.'),
+    (name: 'Post-Separation Stalking Signals', description: 'Detects threats, surveillance language, or intimidation tactics following or anticipating a breakup.'),
+    (name: 'Child Weaponization', description: 'Identifies using children as pawns, threats regarding custody, or leveraging parental bonds as control mechanisms.'),
+    (name: 'Systematic Dehumanization', description: 'Detects sustained language that strips the partner of personhood, dignity, or their right to basic humanity.'),
   ];
   return List<PsychologicalMetric>.generate(
     defs.length,

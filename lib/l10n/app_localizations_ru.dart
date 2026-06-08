@@ -1539,9 +1539,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get cancelNotReady => 'Отмена — Я не был(а) готов(а)';
 
   @override
-  String get packMainLabel => 'Основной';
-
-  @override
   String get packGoodLabel => 'Хороший';
 
   @override
@@ -1549,19 +1546,4 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get packUglyLabel => 'Злой';
-
-  @override
-  String get packGoodDescription =>
-      '100 позитивных, здоровых моделей отношений — как выглядит добро.';
-
-  @override
-  String get packBadDescription =>
-      '100 предупреждающих знаков и вредных паттернов — то, что разрушает отношения.';
-
-  @override
-  String get packUglyDescription =>
-      '100 тревожных сигналов и индикаторов насилия — кризисные паттерны.';
-
-  @override
-  String get selectAllPack => 'Выбрать все 100';
 }
