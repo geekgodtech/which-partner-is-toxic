@@ -1115,9 +1115,10 @@ class _MetricButtonTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
+                      child: OverflowBox(
                         alignment: Alignment.topLeft,
+                        maxWidth: double.infinity,
+                        maxHeight: double.infinity,
                         child: SizedBox(
                           width: constraints.maxWidth,
                           child: Column(
@@ -1129,18 +1130,18 @@ class _MetricButtonTile extends StatelessWidget {
                                 style: TextStyle(
                                   color: foregroundColor,
                                   fontWeight: FontWeight.w700,
-                                  fontSize: 24,
+                                  fontSize: (constraints.maxWidth * 0.165).clamp(12.0, 28.0),
                                   height: 1.12,
                                 ),
                               ),
-                              const SizedBox(height: 8),
+                              SizedBox(height: constraints.maxWidth * 0.03),
                               Text(
                                 l10n.getMetricDescription(metric.id, fallbackDescription: metric.description),
                                 style: TextStyle(
                                   color: foregroundColor.withOpacity(
                                     isSelected ? 0.96 : 0.72,
                                   ),
-                                  fontSize: 18,
+                                  fontSize: (constraints.maxWidth * 0.125).clamp(10.0, 20.0),
                                   height: 1.18,
                                 ),
                               ),
@@ -1204,20 +1205,16 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      // FittedBox scales all content down uniformly when the tile
-                      // is small, and lets it expand to fill when the tile is large —
-                      // matching the behaviour of the regular metric tiles exactly.
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
+                      child: OverflowBox(
                         alignment: Alignment.topLeft,
+                        maxWidth: double.infinity,
+                        maxHeight: double.infinity,
                         child: SizedBox(
                           width: constraints.maxWidth,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              // Row is bounded by the SizedBox width so the title
-                              // text wraps rather than overflowing on small tiles.
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -1225,7 +1222,8 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
                                   Padding(
                                     padding: EdgeInsets.only(top: 3),
                                     child: Icon(Icons.add_circle_outline,
-                                        color: colorScheme.secondary, size: 20),
+                                        color: colorScheme.secondary,
+                                        size: (constraints.maxWidth * 0.165).clamp(14.0, 28.0)),
                                   ),
                                   const SizedBox(width: 5),
                                   Expanded(
@@ -1234,9 +1232,7 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
                                       style: TextStyle(
                                         color: colorScheme.onSecondaryContainer,
                                         fontWeight: FontWeight.w700,
-                                        // Same baseline size as the metric name text;
-                                        // FittedBox will scale this down on small tiles.
-                                        fontSize: 24,
+                                        fontSize: (constraints.maxWidth * 0.165).clamp(12.0, 28.0),
                                         height: 1.12,
                                       ),
                                       softWrap: true,
@@ -1244,15 +1240,13 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 8),
+                              SizedBox(height: constraints.maxWidth * 0.03),
                               Text(
                                 l10n.purchaseCustomMetricTileDescription,
                                 style: TextStyle(
                                   color: colorScheme.onSecondaryContainer
                                       .withOpacity(0.78),
-                                  // Same baseline as the metric description text so
-                                  // both text blocks scale proportionally together.
-                                  fontSize: 18,
+                                  fontSize: (constraints.maxWidth * 0.125).clamp(10.0, 20.0),
                                   height: 1.18,
                                 ),
                               ),
