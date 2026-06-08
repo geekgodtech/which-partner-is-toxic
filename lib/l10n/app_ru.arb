@@ -463,5 +463,14 @@
   "purchaseCustomMetricCommit": "Подтвердить Пользовательскую Метрику",
   "purchaseCustomMetricSuccess": "✓ \"{name}\" добавлено в ваши метрики! Теперь вы можете выбрать её для анализа.",
   "purchaseCustomMetricProcessingTitle": "Обработка Покупки...",
-  "purchaseCustomMetricProcessingBody": "Ожидание подтверждения от магазина.\nПожалуйста, не закрывайте приложение."
+  "purchaseCustomMetricProcessingBody": "Ожидание подтверждения от магазина.\nПожалуйста, не закрывайте приложение.",
+
+  "packMainLabel": "Основной",
+  "packGoodLabel": "Хороший",
+  "packBadLabel": "Плохой",
+  "packUglyLabel": "Злой",
+  "packGoodDescription": "100 позитивных, здоровых моделей отношений — как выглядит добро.",
+  "packBadDescription": "100 предупреждающих знаков и вредных паттернов — то, что разрушает отношения.",
+  "packUglyDescription": "100 тревожных сигналов и индикаторов насилия — кризисные паттерны.",
+  "selectAllPack": "Выбрать все 100"
 }

@@ -1523,4 +1523,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cancelNotReady => 'Cancel — I Wasn\'t Ready';
+
+  @override
+  String get packMainLabel => 'Main';
+
+  @override
+  String get packGoodLabel => 'The Good';
+
+  @override
+  String get packBadLabel => 'The Bad';
+
+  @override
+  String get packUglyLabel => 'The Ugly';
+
+  @override
+  String get packGoodDescription =>
+      '100 positive, healthy relationship patterns — what good looks like.';
+
+  @override
+  String get packBadDescription =>
+      '100 warning signs and harmful patterns — things that damage relationships.';
+
+  @override
+  String get packUglyDescription =>
+      '100 severe red flags and abuse indicators — crisis-level patterns.';
+
+  @override
+  String get selectAllPack => 'Select All 100';
 }

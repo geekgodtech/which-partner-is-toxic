@@ -1,4 +1,4 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -850,19 +850,58 @@ class _FromFileButton extends StatelessWidget {
 //   }
 // }
 
-class _MetricSelectorSection extends StatelessWidget {
-  final ToxicityAnalyzerController controller;
+// ═══════════════════════════════════════════════════════════════════════════
+// METRIC SELECTOR SECTION
+// ═══════════════════════════════════════════════════════════════════════════
 
+class _MetricSelectorSection extends StatefulWidget {
+  final ToxicityAnalyzerController controller;
   const _MetricSelectorSection({required this.controller});
+  @override
+  State<_MetricSelectorSection> createState() => _MetricSelectorSectionState();
+}
+
+class _MetricSelectorSectionState extends State<_MetricSelectorSection>
+    with SingleTickerProviderStateMixin {
+  late final TabController _tabController;
+
+  static const _packColors = [
+    Color(0xFF546E7A), // main – blue-grey
+    Color(0xFF2E7D32), // good – green
+    Color(0xFFE65100), // bad  – deep orange
+    Color(0xFFB71C1C), // ugly – red
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+    _tabController.addListener(() {
+      if (!_tabController.indexIsChanging) {
+        final view = MetricPackView.values[_tabController.index];
+        widget.controller.setPackView(view);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final controller = widget.controller;
     final mq = MediaQuery.of(context);
-    // In screenshot mode, use the automation's windowSize if set; otherwise use MediaQuery
     final ssWidth = ScreenshotAutomation.instance.windowSize.value.width;
     final screenWidth = (kScreenshotMode && ssWidth > 0) ? ssWidth : mq.size.width;
     final columnCount = _metricColumnCount(screenWidth);
+    final activeView = controller.activePackView;
+    final isPackView = activeView != MetricPackView.main;
+    final visibleMetrics = controller.visibleMetrics;
+    final packColor = _packColors[activeView.index];
 
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -874,88 +913,157 @@ class _MetricSelectorSection extends StatelessWidget {
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 8),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+
+          // ── Pack Tab Bar ────────────────────────────────────────────────
+          Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: TabBar(
+              controller: _tabController,
+              isScrollable: false,
+              dividerColor: Colors.transparent,
+              indicator: BoxDecoration(
+                color: packColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              indicatorSize: TabBarIndicatorSize.tab,
+              labelColor: Colors.white,
+              unselectedLabelColor:
+                  Theme.of(context).colorScheme.onSurfaceVariant,
+              labelStyle: const TextStyle(
+                  fontWeight: FontWeight.w700, fontSize: 12),
+              unselectedLabelStyle: const TextStyle(
+                  fontWeight: FontWeight.w500, fontSize: 12),
+              tabs: [
+                Tab(icon: const Icon(Icons.grid_view, size: 14), text: l10n.packMainLabel),
+                Tab(icon: const Icon(Icons.sentiment_satisfied_alt, size: 14), text: l10n.packGoodLabel),
+                Tab(icon: const Icon(Icons.warning_amber_rounded, size: 14), text: l10n.packBadLabel),
+                Tab(icon: const Icon(Icons.dangerous_outlined, size: 14), text: l10n.packUglyLabel),
+              ],
+            ),
+          ),
+          const SizedBox(height: 8),
+
+          // ── Pack description ────────────────────────────────────────────
+          if (isPackView)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Text(
+                _packDescription(l10n, activeView),
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: packColor,
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
+            ),
+
+          // ── Count + toolbar ─────────────────────────────────────────────
+          Text(l10n.selectUpToCount(
+              ToxicityAnalyzerController.requiredMetricSelectionCount,
+              controller.selectedMetricCount)),
+          const SizedBox(height: 2),
+          Wrap(
+            spacing: 0,
+            runSpacing: 0,
             children: [
-              Text(
-                l10n.selectUpToCount(ToxicityAnalyzerController.requiredMetricSelectionCount, controller.selectedMetricCount),
-              ),
-              const SizedBox(height: 4),
-              Wrap(
-                spacing: 0,
-                runSpacing: 0,
-                children: [
-                  TextButton.icon(
-                    onPressed: controller.selectedMetricCount > 0
-                        ? () => _showSaveMetricListDialog(context, controller)
-                        : null,
-                    icon: const Icon(Icons.save, size: 16),
-                    label: Text(l10n.saveSelections),
-                    style: TextButton.styleFrom(
-                      visualDensity: VisualDensity.compact,
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                    ),
+              if (isPackView)
+                TextButton.icon(
+                  onPressed: controller.selectAllVisiblePackMetrics,
+                  icon: const Icon(Icons.select_all, size: 16),
+                  label: Text(l10n.selectAllPack),
+                  style: TextButton.styleFrom(
+                    foregroundColor: packColor,
+                    visualDensity: VisualDensity.compact,
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
                   ),
-                  TextButton.icon(
-                    onPressed: () => _showLoadMetricListDialog(context, controller),
-                    icon: const Icon(Icons.folder_open, size: 16),
-                    label: Text(l10n.loadSelections),
-                    style: TextButton.styleFrom(
-                      visualDensity: VisualDensity.compact,
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                    ),
-                  ),
-                  TextButton.icon(
-                    onPressed: controller.selectedMetricCount > 0
-                        ? controller.clearMetricSelection
-                        : null,
-                    icon: const Icon(Icons.clear_all, size: 16),
-                    label: Text(l10n.clearSelections),
-                    style: TextButton.styleFrom(
-                      visualDensity: VisualDensity.compact,
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 6),
-              Text(
-                l10n.metricsDescription,
-              ),
-              const SizedBox(height: 12),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: columnCount,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                  childAspectRatio: 1,
                 ),
-                // +1 for the always-visible Purchase Custom Metric tile
-                itemCount: controller.availableMetrics.length + 1,
-                itemBuilder: (context, index) {
-                  // Last tile is always the Purchase Custom Metric CTA
-                  if (index == controller.availableMetrics.length) {
-                    return _PurchaseCustomMetricTile(controller: controller);
-                  }
-                  final metric = controller.availableMetrics[index];
-                  return _MetricButtonTile(
-                    metric: metric,
-                    isSelected: controller.isMetricSelected(metric),
-                    color: _metricTileColor(index),
-                    onPressed: () => controller.toggleMetricSelection(metric),
-                  );
-                },
+              TextButton.icon(
+                onPressed: controller.selectedMetricCount > 0
+                    ? () => _showSaveMetricListDialog(context, controller)
+                    : null,
+                icon: const Icon(Icons.save, size: 16),
+                label: Text(l10n.saveSelections),
+                style: TextButton.styleFrom(
+                  visualDensity: VisualDensity.compact,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                ),
+              ),
+              TextButton.icon(
+                onPressed: () =>
+                    _showLoadMetricListDialog(context, controller),
+                icon: const Icon(Icons.folder_open, size: 16),
+                label: Text(l10n.loadSelections),
+                style: TextButton.styleFrom(
+                  visualDensity: VisualDensity.compact,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                ),
+              ),
+              TextButton.icon(
+                onPressed: controller.selectedMetricCount > 0
+                    ? controller.clearMetricSelection
+                    : null,
+                icon: const Icon(Icons.clear_all, size: 16),
+                label: Text(l10n.clearSelections),
+                style: TextButton.styleFrom(
+                  visualDensity: VisualDensity.compact,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                ),
               ),
             ],
+          ),
+          const SizedBox(height: 6),
+          Text(l10n.metricsDescription),
+          const SizedBox(height: 12),
+
+          // ── Metrics Grid ────────────────────────────────────────────────
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: columnCount,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+              childAspectRatio: 1,
+            ),
+            // Main view: +1 for Purchase Custom Metric tile
+            itemCount: isPackView
+                ? visibleMetrics.length
+                : visibleMetrics.length + 1,
+            itemBuilder: (context, index) {
+              if (!isPackView && index == visibleMetrics.length) {
+                return _PurchaseCustomMetricTile(controller: controller);
+              }
+              final metric = visibleMetrics[index];
+              return _MetricButtonTile(
+                metric: metric,
+                isSelected: controller.isMetricSelected(metric),
+                color: isPackView
+                    ? packColor.withValues(alpha: 0.85)
+                    : _metricTileColor(index),
+                onPressed: () => controller.toggleMetricSelection(metric),
+              );
+            },
           ),
         ],
       ),
     );
   }
-}
 
+  String _packDescription(AppLocalizations l10n, MetricPackView view) {
+    switch (view) {
+      case MetricPackView.good:
+        return l10n.packGoodDescription;
+      case MetricPackView.bad:
+        return l10n.packBadDescription;
+      case MetricPackView.ugly:
+        return l10n.packUglyDescription;
+      case MetricPackView.main:
+        return '';
+    }
+  }
+}
 Color _metricTileColor(int index) {
   final hue = (index * 137.508) % 360;
   return HSLColor.fromAHSL(1, hue, 0.72, 0.48).toColor();

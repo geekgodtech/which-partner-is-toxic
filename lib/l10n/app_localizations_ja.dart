@@ -1457,4 +1457,28 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get cancelNotReady => 'キャンセル — 準備ができていませんでした';
+
+  @override
+  String get packMainLabel => 'メイン';
+
+  @override
+  String get packGoodLabel => '善';
+
+  @override
+  String get packBadLabel => '悪';
+
+  @override
+  String get packUglyLabel => '醜';
+
+  @override
+  String get packGoodDescription => '100のポジティブで健康的な関係パターン — 善の姿。';
+
+  @override
+  String get packBadDescription => '100の警告サインと有害なパターン — 関係を損なうもの。';
+
+  @override
+  String get packUglyDescription => '100の深刻なレッドフラッグと虐待指標 — 危機レベルのパターン。';
+
+  @override
+  String get selectAllPack => '100件すべて選択';
 }

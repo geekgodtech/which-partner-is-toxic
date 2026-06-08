@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
@@ -16,6 +16,10 @@ import 'package:airta/services/unipile_integration_service.dart';
 import 'package:airta/services/android_sms_service.dart' if (dart.library.io) 'package:airta/services/android_sms_service.dart';
 import 'package:airta/services/custom_metric_service.dart';
 
+part 'metric_pack_catalogs.dart';
+
+/// Which catalog the metrics grid is currently displaying.
+enum MetricPackView { main, good, bad, ugly }
 class ToxicityAnalyzerController extends ChangeNotifier {
   static const int requiredMetricSelectionCount =
       SelectedMetrics.requiredMetricCount;
@@ -32,6 +36,9 @@ class ToxicityAnalyzerController extends ChangeNotifier {
 
   final List<PsychologicalMetric> availableMetrics = _buildMetricCatalog()
       ..addAll(CustomMetricService().customMetrics);
+  final List<PsychologicalMetric> packGoodMetrics = _buildPackGoodCatalog();
+  final List<PsychologicalMetric> packBadMetrics = _buildPackBadCatalog();
+  final List<PsychologicalMetric> packUglyMetrics = _buildPackUglyCatalog();
   DeepSeekApiService _deepSeekApiService = DeepSeekApiService(
     apiKey: AppSecrets.deepSeekApiKey.isNotEmpty
         ? AppSecrets.deepSeekApiKey
@@ -75,6 +82,40 @@ class ToxicityAnalyzerController extends ChangeNotifier {
   DateTime? dateRangeStart;
   DateTime? dateRangeEnd;
   int randomMetricsCount = 20;
+  // ── Metric Pack View ──────────────────────────────────────────────────────
+  /// Which catalog the metrics grid is currently displaying.
+  MetricPackView activePackView = MetricPackView.main;
+
+  /// The metric catalog visible in the grid based on [activePackView].
+  List<PsychologicalMetric> get visibleMetrics {
+    switch (activePackView) {
+      case MetricPackView.good:
+        return packGoodMetrics;
+      case MetricPackView.bad:
+        return packBadMetrics;
+      case MetricPackView.ugly:
+        return packUglyMetrics;
+      case MetricPackView.main:
+        return availableMetrics;
+    }
+  }
+
+  /// Switch to a different pack view without changing the current selection.
+  void setPackView(MetricPackView view) {
+    activePackView = view;
+    notifyListeners();
+  }
+
+  /// Select all metrics from the currently visible pack (up to the allowed max).
+  void selectAllVisiblePackMetrics() {
+    _selectedMetricIds.clear();
+    for (final m in visibleMetrics) {
+      if (_selectedMetricIds.length >= requiredMetricSelectionCount) break;
+      _selectedMetricIds.add(m.id);
+    }
+    statusMessage = null;
+    notifyListeners();
+  }
 
   List<PsychologicalMetric> get selectedMetrics {
     return availableMetrics
