@@ -25,7 +25,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
   String _searchQuery = '';
   String _sortOption = 'recent'; // 'recent', 'name', 'count'
   bool _sortAscending = false; // Track sort direction
-  bool _showOnlyNamed = false; // Filter to show only threads with contact names
+  bool _showOnlyNamed = true; // Filter to show only threads with contact names
   bool _enableMessageCountFilter = false; // Enable message count filter
   double _minMessageCount = 0; // Minimum message count filter
   String _loadingMessage = 'Loading conversations...';
