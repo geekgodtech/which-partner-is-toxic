@@ -1,0 +1,24 @@
+{
+  "SessionStart": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "powershell -ExecutionPolicy Bypass -File \"C:\\My Projects\\AIRTA\\.devin\\scripts\\session_start.ps1\"",
+          "timeout": 15
+        }
+      ]
+    }
+  ],
+  "Stop": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "powershell -ExecutionPolicy Bypass -File \"C:\\My Projects\\AIRTA\\.devin\\scripts\\session_end.ps1\"",
+          "timeout": 10
+        }
+      ]
+    }
+  ]
+}
