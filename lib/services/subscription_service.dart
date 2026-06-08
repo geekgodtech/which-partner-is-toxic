@@ -43,6 +43,7 @@ class SubscriptionService extends ChangeNotifier {
     const isDemoMode = bool.fromEnvironment('DEMO_MODE', defaultValue: false);
     if (isDemoMode) {
       _activeTier = MembershipTier.standard;
+      _hasDiscordAddon = true; // Enable Discord add-on in demo mode
       _isInitialized = true;
       notifyListeners();
       return;
