@@ -9,6 +9,7 @@ import 'package:airta/services/subscription_service.dart';
 import 'package:airta/services/remote_config_service.dart';
 import 'package:airta/services/version_check_service.dart';
 import 'package:airta/services/language_service.dart';
+import 'package:airta/services/theme_service.dart';
 import 'package:airta/l10n/app_localizations.dart';
 import 'package:airta/screens/force_update_screen.dart';
 import 'package:airta/screens/disclaimer_screen.dart';
@@ -31,6 +32,9 @@ void main() async {
 
   // Initialize language service
   await LanguageService().initialize();
+
+  // Initialize theme service
+  await ThemeService().initialize();
 
   runApp(const ToxicityAnalyzerApp());
 }
@@ -129,52 +133,74 @@ class _ToxicityAnalyzerAppState extends State<ToxicityAnalyzerApp> {
       value: LanguageService(),
       child: Consumer<LanguageService>(
         builder: (context, languageService, child) {
-          return MaterialApp(
-            title: 'Which partner is at fault?',
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
-              useMaterial3: true,
+          return ChangeNotifierProvider.value(
+            value: ThemeService(),
+            child: Consumer<ThemeService>(
+              builder: (context, themeService, child) {
+                return MaterialApp(
+                  title: 'Which partner is at fault?',
+                  theme: _lightTheme,
+                  darkTheme: _darkTheme,
+                  themeMode: themeService.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+                  locale: languageService.currentLocale,
+                  supportedLocales: LanguageService.supportedLocales,
+                  localizationsDelegates: const [
+                    AppLocalizations.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                  ],
+                  localeResolutionCallback: LanguageService.localeResolutionCallback,
+                  home: _checkingVersion
+                      ? const Scaffold(
+                          body: Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        )
+                      : !_disclaimerAccepted
+                          ? DisclaimerScreen(onAccepted: _onDisclaimerAccepted)
+                          : _updateRequired
+                              ? ForceUpdateScreen()
+                              : _showPermissionDialog
+                                  ? _PermissionRequestScreen(
+                                      onAccept: _requestPermissions)
+                                  : MultiProvider(
+                                  providers: [
+                                    ChangeNotifierProvider(
+                                      create: (_) => ToxicityAnalyzerController()
+                                        ..loadPersistentFreeTierState()
+                                        ..initializeIosShareIntentListener(),
+                                    ),
+                                    ChangeNotifierProvider.value(
+                                      value: SubscriptionService(),
+                                    ),
+                                  ],
+                                    child: const ToxicityAnalyzerMasterView(),
+                                  ),
+                );
+              },
             ),
-            locale: languageService.currentLocale,
-            supportedLocales: LanguageService.supportedLocales,
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            localeResolutionCallback: LanguageService.localeResolutionCallback,
-            home: _checkingVersion
-                ? const Scaffold(
-                    body: Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                  )
-                : !_disclaimerAccepted
-                    ? DisclaimerScreen(onAccepted: _onDisclaimerAccepted)
-                    : _updateRequired
-                        ? ForceUpdateScreen()
-                        : _showPermissionDialog
-                            ? _PermissionRequestScreen(
-                                onAccept: _requestPermissions)
-                            : MultiProvider(
-                            providers: [
-                              ChangeNotifierProvider(
-                                create: (_) => ToxicityAnalyzerController()
-                                  ..loadPersistentFreeTierState()
-                                  ..initializeIosShareIntentListener(),
-                              ),
-                              ChangeNotifierProvider.value(
-                                value: SubscriptionService(),
-                              ),
-                            ],
-                              child: const ToxicityAnalyzerMasterView(),
-                            ),
           );
         },
       ),
     );
   }
+
+  static final ThemeData _lightTheme = ThemeData(
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: Colors.blueGrey,
+      brightness: Brightness.light,
+    ),
+    useMaterial3: true,
+  );
+
+  static final ThemeData _darkTheme = ThemeData(
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: Colors.blueGrey,
+      brightness: Brightness.dark,
+    ),
+    useMaterial3: true,
+  );
 }
 
 class _PermissionRequestScreen extends StatelessWidget {
