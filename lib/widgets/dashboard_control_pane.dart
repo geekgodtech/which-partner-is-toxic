@@ -1090,66 +1090,83 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
           onTap: () => _startPurchaseFlow(context),
           child: Padding(
             padding: const EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.add_circle_outline,
-                              color: colorScheme.secondary, size: 18),
-                          const SizedBox(width: 4),
-                          Flexible(
-                            child: Text(
-                              l10n.purchaseCustomMetricTileTitle,
-                              style: TextStyle(
-                                color: colorScheme.onSecondaryContainer,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 14,
-                                height: 1.12,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      // FittedBox scales all content down uniformly when the tile
+                      // is small, and lets it expand to fill when the tile is large —
+                      // matching the behaviour of the regular metric tiles exactly.
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.topLeft,
+                        child: SizedBox(
+                          width: constraints.maxWidth,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(Icons.add_circle_outline,
+                                      color: colorScheme.secondary, size: 20),
+                                  const SizedBox(width: 5),
+                                  Text(
+                                    l10n.purchaseCustomMetricTileTitle,
+                                    style: TextStyle(
+                                      color: colorScheme.onSecondaryContainer,
+                                      fontWeight: FontWeight.w700,
+                                      // Same baseline size as the metric name text;
+                                      // FittedBox will scale this down on small tiles.
+                                      fontSize: 24,
+                                      height: 1.12,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                              const SizedBox(height: 8),
+                              Text(
+                                l10n.purchaseCustomMetricTileDescription,
+                                style: TextStyle(
+                                  color: colorScheme.onSecondaryContainer
+                                      .withOpacity(0.78),
+                                  // Same baseline as the metric description text so
+                                  // both text blocks scale proportionally together.
+                                  fontSize: 18,
+                                  height: 1.18,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        l10n.purchaseCustomMetricTileDescription,
-                        style: TextStyle(
-                          color: colorScheme.onSecondaryContainer.withOpacity(0.78),
-                          fontSize: 11,
-                          height: 1.3,
                         ),
-                        maxLines: 6,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                    decoration: BoxDecoration(
-                      color: colorScheme.secondary,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      r'$4.99',
-                      style: TextStyle(
-                        color: colorScheme.onSecondary,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 12,
                       ),
                     ),
-                  ),
-                ),
-              ],
+                    const SizedBox(height: 4),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          r'$4.99',
+                          style: TextStyle(
+                            color: colorScheme.onSecondary,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ),
