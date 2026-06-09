@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:airta/l10n/app_localizations.dart';
+import 'discord_settings_page.dart';
 
 class DiscordSetupHelp extends StatelessWidget {
   const DiscordSetupHelp({super.key});
@@ -79,6 +80,55 @@ class DiscordSetupHelp extends StatelessWidget {
                   title: l10n.discordStep5Title,
                   description: l10n.discordStep5Description,
                   isSmallScreen: isSmallScreen,
+                ),
+                SizedBox(height: isSmallScreen ? 16 : 24),
+                // Link to bot configuration at the bottom
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF5865F2).withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.settings, color: const Color(0xFF5865F2), size: 20),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              'Ready to configure your bot?',
+                              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        "Once you've created your Discord bot following the steps above, enter your bot token in the settings to start analyzing.",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      const SizedBox(height: 12),
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const DiscordSettingsPage(),
+                            ),
+                          );
+                        },
+                        icon: const Icon(Icons.arrow_forward),
+                        label: Text(l10n.discordBotConfiguration),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF5865F2),
+                          foregroundColor: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: isSmallScreen ? 16 : 24),
                 Center(

@@ -4,7 +4,7 @@
   "psychologicalMetrics": "心理的指標",
   "metricsDescription": "選択する指標が少ないほど、それらの行動についてより深く集中的な分析が得られます。選択する指標が多いほど、指標ごとの詳細は少なくなりますが、より広範なレポートが得られます。",
   "selectSMS": "SMS / RCSチャットを選択",
-  "selectDiscordChannel": "Discordチャンネルを選択",
+  "selectDiscordChannel": "チャンネルを選択",
   "lightMode": "ライト",
   "darkMode": "ダーク",
   "discordSetupTitle": "Discordの設定方法",
@@ -19,6 +19,7 @@
   "discordStep4Description": "アプリ設定にボットトークンを入力します（ヘルプが必要な場合はサポートにお問い合わせください）。",
   "discordStep5Title": "チャンネルを選択",
   "discordStep5Description": "「Discordチャンネルを選択」をタップし、サーバーを選択してから、分析するチャンネルを選択します。",
+  "discordBotConfiguration": "ボット設定",
   "gotIt": "了解",
   "selectFile": "ファイルを選択",
   "analyzeSelectedMetrics": "選択した指標を分析",
@@ -1312,4 +1313,62 @@
   "metric_serial_killer_50_description": "標的の終了、殺害、または永久的な沈黙への言及を認識します。",
   "packNarcissistLabel": "ナルシシスト",
   "packSerialKillerLabel": "シリアルキラー"
+,
+  "expansionPacksPurchased": "購入した拡張パック:",
+  "expansionPacksStillAvailable": "まだ利用可能な拡張パック",
+  "metricsOwned": "所有している指標",
+  "metricsStillAvailable": "まだ利用可能な指標",
+  "getMore": "さらに取得!",
+  "allPacksOwned": "すべての拡張パックを所有しています!",
+  "standardPackTitle": "スタンダードパック",
+  "goodPackTitle": "グッドパック",
+  "badPackTitle": "バッドパック",
+  "uglyPackTitle": "アグリーパック",
+  "narcissistPackTitle": "ナルシストパック",
+  "serialKillerPackTitle": "シリアルキラーパック",
+  "customMetricsTitle": "カスタム指標",
+  "@metricsCountSubtitle": {
+    "description": "metricsCountSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsCountSubtitle": "{count}指標",
+  "@metricsAddonSubtitle": {
+    "description": "metricsAddonSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsAddonSubtitle": "{count}指標アドオン",
+  "@metricSingular": {
+    "description": "metricSingular",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricSingular": "{count}指標",
+  "@metricPlural": {
+    "description": "metricPlural",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricPlural": "{count}指標"
+,
+  "restorePurchases": "購入を復元",
+  "restorePurchasesButton": "以前の購入を復元",
+  "restorePurchasesSuccess": "購入が正常に復元されました！",
+  "restorePurchasesError": "購入を復元できませんでした。もう一度お試しください。",
+  "restorePurchasesNoneFound": "以前の購入が見つかりませんでした。"
+,
+  "discordAddonPopupTitle": "Discord機能",
+  "discordAddonPopupMessage": "この機能はアドオンとしてご利用いただけます。"
+,
+  "discordAccordionTitle": "Discord統合",
+  "discordAccordionSubtitle": "Discordサーバーに接続"
+,
+  "selectDiscord": "Discordを選択"
+,
+  "enableDiscord": "Discordを有効にする"
 }

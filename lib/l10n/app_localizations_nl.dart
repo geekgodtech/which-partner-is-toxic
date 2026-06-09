@@ -22,7 +22,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get selectSMS => 'SMS / RCS Chat selecteren';
 
   @override
-  String get selectDiscordChannel => 'Discord-kanaal selecteren';
+  String get selectDiscordChannel => 'Selecteer kanaal';
 
   @override
   String get lightMode => 'Licht';
@@ -71,6 +71,9 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get discordStep5Description =>
       'Tik op \'Discord-kanaal Selecteren\', kies uw server en selecteer vervolgens het kanaal om te analyseren.';
+
+  @override
+  String get discordBotConfiguration => 'Bot Configuratie';
 
   @override
   String get gotIt => 'Begrepen';
@@ -4353,4 +4356,199 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get packSerialKillerLabel => 'De Seriemoordenaar';
+
+  @override
+  String get expansionPacksPurchased => 'Uitbreidingspakketten Gekocht:';
+
+  @override
+  String get expansionPacksStillAvailable =>
+      'Uitbreidingspakketten Nog Beschikbaar';
+
+  @override
+  String get metricsOwned => 'Metingen in bezit';
+
+  @override
+  String get metricsStillAvailable => 'Metingen Nog Beschikbaar';
+
+  @override
+  String get getMore => 'Meer krijgen!';
+
+  @override
+  String get standardPackTitle => 'Standaard Pakket';
+
+  @override
+  String get goodPackTitle => 'Het Goede Pakket';
+
+  @override
+  String get badPackTitle => 'Het Slechte Pakket';
+
+  @override
+  String get uglyPackTitle => 'Het Lelijke Pakket';
+
+  @override
+  String get narcissistPackTitle => 'Narcist Pakket';
+
+  @override
+  String get serialKillerPackTitle => 'Seriemoordenaar Pakket';
+
+  @override
+  String get customMetricsTitle => 'Aangepaste Metingen';
+
+  @override
+  String metricsCountSubtitle(Object count) {
+    return '$count Metingen';
+  }
+
+  @override
+  String metricsAddonSubtitle(Object count) {
+    return '$count Metingen Add-on';
+  }
+
+  @override
+  String metricSingular(Object count) {
+    return '$count Meting';
+  }
+
+  @override
+  String metricPlural(Object count) {
+    return '$count Metingen';
+  }
+
+  @override
+  String get viewMembershipOptions => 'View Membership Options';
+
+  @override
+  String get metricExpansionPacksTitle => 'Metric Expansion Packs';
+
+  @override
+  String get oneTimePurchasesSubtitle =>
+      'One-time purchases — additional metrics forever';
+
+  @override
+  String get unlockGoodPackButton => 'Unlock The Good Pack';
+
+  @override
+  String get unlockBadPackButton => 'Unlock The Bad Pack';
+
+  @override
+  String get unlockUglyPackButton => 'Unlock The Ugly Pack';
+
+  @override
+  String get unlockNarcissistPackButton => 'Unlock Narcissist Pack';
+
+  @override
+  String get unlockSerialKillerPackButton => 'Unlock Serial Killer Pack';
+
+  @override
+  String get goodPackBenefit1 => '100 healthy relationship metrics';
+
+  @override
+  String get goodPackBenefit2 => 'Positive communication patterns';
+
+  @override
+  String get goodPackBenefit3 => 'Appreciation, empathy & trust signals';
+
+  @override
+  String get goodPackBenefit4 => 'One-time purchase — yours forever';
+
+  @override
+  String get goodPackBenefit5 => 'Unlocks instantly after purchase';
+
+  @override
+  String get badPackBenefit1 => '100 warning-sign relationship metrics';
+
+  @override
+  String get badPackBenefit2 => 'Spot manipulation & dismissal patterns';
+
+  @override
+  String get badPackBenefit3 => 'Guilt-tripping, stonewalling & more';
+
+  @override
+  String get badPackBenefit4 => 'One-time purchase — yours forever';
+
+  @override
+  String get badPackBenefit5 => 'Unlocks instantly after purchase';
+
+  @override
+  String get uglyPackBenefit1 => '100 severe red-flag abuse metrics';
+
+  @override
+  String get uglyPackBenefit2 => 'Identify coercion, threats & control';
+
+  @override
+  String get uglyPackBenefit3 => 'Trauma bonding & isolation indicators';
+
+  @override
+  String get uglyPackBenefit4 => 'One-time purchase — yours forever';
+
+  @override
+  String get uglyPackBenefit5 => 'Unlocks instantly after purchase';
+
+  @override
+  String get narcissistPackBenefit1 => '50 narcissistic behavior metrics';
+
+  @override
+  String get narcissistPackBenefit2 => 'Detect gaslighting & love-bombing';
+
+  @override
+  String get narcissistPackBenefit3 => 'Hoovering & devaluation patterns';
+
+  @override
+  String get narcissistPackBenefit4 => 'One-time purchase — yours forever';
+
+  @override
+  String get narcissistPackBenefit5 => 'Unlocks instantly after purchase';
+
+  @override
+  String get serialKillerPackBenefit1 => '50 extreme danger indicators';
+
+  @override
+  String get serialKillerPackBenefit2 => 'Detect predatory & violent language';
+
+  @override
+  String get serialKillerPackBenefit3 => 'Psychopathy & sadism markers';
+
+  @override
+  String get serialKillerPackBenefit4 => 'One-time purchase — yours forever';
+
+  @override
+  String get serialKillerPackBenefit5 => 'Unlocks instantly after purchase';
+
+  @override
+  String get allPacksOwned => 'Alle uitbreidingspakketten in bezit!';
+
+  @override
+  String get restorePurchases => 'Aankopen Herstellen';
+
+  @override
+  String get restorePurchasesButton => 'Eerdere Aankopen Herstellen';
+
+  @override
+  String get restorePurchasesSuccess => 'Aankopen succesvol hersteld!';
+
+  @override
+  String get restorePurchasesError =>
+      'Kon aankopen niet herstellen. Probeer het opnieuw.';
+
+  @override
+  String get restorePurchasesNoneFound => 'Geen eerdere aankopen gevonden.';
+
+  @override
+  String get discordAddonPopupTitle => 'Discord-functie';
+
+  @override
+  String get discordAddonPopupMessage =>
+      'Deze functie is beschikbaar als een add-on.';
+
+  @override
+  String get discordAccordionTitle => 'Discord-integratie';
+
+  @override
+  String get discordAccordionSubtitle => 'Verbind Discord-servers';
+
+  @override
+  String get selectDiscord => 'Selecteer Discord';
+
+  @override
+  String get enableDiscord => 'Discord inschakelen';
 }

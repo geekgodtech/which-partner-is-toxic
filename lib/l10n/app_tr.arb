@@ -4,7 +4,7 @@
   "psychologicalMetrics": "Psikolojik Metrikler",
   "metricsDescription": "Daha az seçilen metrik, bu davranışların daha derin ve yoğun bir analizini sağlar. Daha fazla seçilen metrik, metrik başına daha az ayrıntıyla daha geniş bir rapor sağlar.",
   "selectSMS": "SMS / RCS Sohbet Seç",
-  "selectDiscordChannel": "Discord Kanalı Seç",
+  "selectDiscordChannel": "Kanal seç",
   "lightMode": "Açık",
   "darkMode": "Koyu",
   "discordSetupTitle": "Discord Nasıl Ayarlanır",
@@ -19,6 +19,7 @@
   "discordStep4Description": "Bot token'ınızı uygulama ayarlarına girin (yardıma ihtiyacınız varsa desteğe başvurun).",
   "discordStep5Title": "Kanal Seç",
   "discordStep5Description": "'Discord Kanalı Seç'e dokunun, sunucunuzu seçin, ardından analiz edilecek kanalı seçin.",
+  "discordBotConfiguration": "Bot Yapılandırması",
   "gotIt": "Anladım",
   "selectFile": "Dosya Seç",
   "analyzeSelectedMetrics": "Seçili metrikleri analiz et",
@@ -1312,4 +1313,62 @@
   "metric_serial_killer_50_description": "Hedeflerin sonlandırılması, öldürülmesi veya kalıcı olarak sessizleştirilmesine yapılan atıfları tanır.",
   "packNarcissistLabel": "Narsist",
   "packSerialKillerLabel": "Seri Katil"
+,
+  "expansionPacksPurchased": "Satın Alınan Genişletme Paketleri:",
+  "expansionPacksStillAvailable": "Hala Mevcut Genişletme Paketleri",
+  "metricsOwned": "Sahip Olunan Metrikler",
+  "metricsStillAvailable": "Hala Mevcut Metrikler",
+  "getMore": "Daha fazla al!",
+  "allPacksOwned": "Tüm genişletme paketlerine sahipsiniz!",
+  "standardPackTitle": "Standart Paket",
+  "goodPackTitle": "İyi Paket",
+  "badPackTitle": "Kötü Paket",
+  "uglyPackTitle": "Çirkin Paket",
+  "narcissistPackTitle": "Narsist Paket",
+  "serialKillerPackTitle": "Seri Katil Paket",
+  "customMetricsTitle": "Özel Metrikler",
+  "@metricsCountSubtitle": {
+    "description": "metricsCountSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsCountSubtitle": "{count} Metrik",
+  "@metricsAddonSubtitle": {
+    "description": "metricsAddonSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsAddonSubtitle": "{count} Metrik Eklenti",
+  "@metricSingular": {
+    "description": "metricSingular",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricSingular": "{count} Metrik",
+  "@metricPlural": {
+    "description": "metricPlural",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricPlural": "{count} Metrik"
+,
+  "restorePurchases": "Satın Alımları Geri Yükle",
+  "restorePurchasesButton": "Önceki Satın Alımları Geri Yükle",
+  "restorePurchasesSuccess": "Satın alımlar başarıyla geri yüklendi!",
+  "restorePurchasesError": "Satın alımlar geri yüklenemedi. Lütfen tekrar deneyin.",
+  "restorePurchasesNoneFound": "Önceki satın alıma bulunamadı."
+,
+  "discordAddonPopupTitle": "Discord Özelliği",
+  "discordAddonPopupMessage": "Bu özellik bir eklenti olarak mevcuttur."
+,
+  "discordAccordionTitle": "Discord Entegrasyonu",
+  "discordAccordionSubtitle": "Discord sunucularını bağla"
+,
+  "selectDiscord": "Discord Seç"
+,
+  "enableDiscord": "Discord'u Etkinleştir"
 }

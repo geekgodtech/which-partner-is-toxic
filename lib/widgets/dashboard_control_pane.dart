@@ -412,52 +412,165 @@ class _DiscordButtonState extends State<_DiscordButton> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final canUse = _discordEnabled;
+    final subscriptionService = context.watch<SubscriptionService>();
+    final hasDiscordAddon = subscriptionService.hasDiscordAddon;
+    final canUse = _discordEnabled && hasDiscordAddon;
+    final theme = Theme.of(context);
 
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Checkbox(
-          value: _discordEnabled,
-          onChanged: (val) {
-            setState(() {
-              _discordEnabled = val ?? false;
-            });
-          },
-        ),
-        const SizedBox(width: 8),
-        Flexible(
-          child: ElevatedButton.icon(
-            onPressed: controller.isIngesting || !canUse
-                ? null
-                : () => _openDiscordPicker(context),
-            icon: controller.isIngesting
-                ? const SizedBox.square(
-                    dimension: 18,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
-                : const Icon(Icons.discord, color: Color(0xFF5865F2)),
-            label: Text(AppLocalizations.of(context)!.selectDiscordChannel,
-                textAlign: TextAlign.center),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF5865F2),
-              foregroundColor: Colors.white,
-              minimumSize: const Size.fromHeight(56),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+        // Enable toggle row with help
+        Row(
+          children: [
+            Icon(Icons.discord, color: const Color(0xFF5865F2), size: 20),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                l10n.enableDiscord,
+                style: theme.textTheme.bodyMedium,
               ),
             ),
-          ),
+            // Toggle switch instead of checkbox
+            Switch(
+              value: _discordEnabled,
+              onChanged: (val) {
+                if (val && !hasDiscordAddon) {
+                  _showDiscordAddonPopup(context);
+                } else {
+                  setState(() {
+                    _discordEnabled = val;
+                  });
+                }
+              },
+              activeColor: const Color(0xFF5865F2),
+            ),
+            const SizedBox(width: 8),
+            // Maroon shadow area containing white circle with "i" and white "!"
+            InkWell(
+              onTap: () => _showDiscordHelp(context),
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF800000), // Maroon background
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF800000).withOpacity(0.4),
+                      blurRadius: 6, // 25% smaller shadow
+                      offset: const Offset(2, 2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // White circle with "i" inside - original size
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Center(
+                        child: Icon(
+                          Icons.info_outline,
+                          color: Color(0xFF800000), // Maroon icon
+                          size: 24,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    // White exclamation mark inside maroon area - same height as circle (40px)
+                    Transform.rotate(
+                      angle: 0.35, // ~20 degrees slant
+                      child: const Text(
+                        '!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40, // Same height as white circle
+                          fontWeight: FontWeight.w900, // Extra bold / wide fat
+                          fontFamily: 'Roboto',
+                          height: 1.0,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
-        const SizedBox(width: 8),
-        IconButton(
-          onPressed: () => _showDiscordHelp(context),
-          icon: const Icon(Icons.help_outline),
-          tooltip: 'Setup Help',
-          style: IconButton.styleFrom(
-            backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+        const SizedBox(height: 12),
+        // Main action button - full width, cleaner text
+        ElevatedButton(
+          onPressed: controller.isIngesting || !canUse
+              ? (!hasDiscordAddon && _discordEnabled)
+                  ? () => _showDiscordAddonPopup(context)
+                  : null
+              : () => _openDiscordPicker(context),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF5865F2),
+            foregroundColor: Colors.white,
+            minimumSize: const Size(double.infinity, 48),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
+          child: controller.isIngesting
+              ? const SizedBox.square(
+                  dimension: 20,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.white,
+                  ),
+                )
+              : Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.discord, size: 20),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: Text(
+                        l10n.selectDiscordChannel,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
         ),
       ],
+    );
+  }
+
+  void _showDiscordAddonPopup(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.discordAddonPopupTitle),
+        content: Text(l10n.discordAddonPopupMessage),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              // Navigate to landing page to purchase addon
+              final controller = context.read<ToxicityAnalyzerController>();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => Provider.value(
+                    value: controller,
+                    child: const MembershipLandingPage(),
+                  ),
+                ),
+              );
+            },
+            child: Text(l10n.ok),
+          ),
+        ],
+      ),
     );
   }
 
@@ -486,6 +599,91 @@ class _DiscordButtonState extends State<_DiscordButton> {
     showDialog(
       context: context,
       builder: (context) => const DiscordSetupHelp(),
+    );
+  }
+}
+
+// Discord Accordion Section - wraps the Discord button in a collapsible panel
+class _DiscordAccordion extends StatefulWidget {
+  final ToxicityAnalyzerController controller;
+
+  const _DiscordAccordion({required this.controller});
+
+  @override
+  State<_DiscordAccordion> createState() => _DiscordAccordionState();
+}
+
+class _DiscordAccordionState extends State<_DiscordAccordion> {
+  bool _isExpanded = false; // Default to closed
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Accordion header
+        InkWell(
+          onTap: () {
+            setState(() {
+              _isExpanded = !_isExpanded;
+            });
+          },
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            decoration: BoxDecoration(
+              color: isDark
+                  ? theme.colorScheme.surfaceContainerHighest.withOpacity(0.55)
+                  : theme.colorScheme.surfaceContainerHighest.withOpacity(0.45),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.discord, size: 20, color: const Color(0xFF5865F2)),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        l10n.discordAccordionTitle,
+                        style: theme.textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Text(
+                        l10n.discordAccordionSubtitle,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurface.withOpacity(0.6),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Icon(
+                  _isExpanded ? Icons.expand_less : Icons.expand_more,
+                  color: theme.colorScheme.onSurface.withOpacity(0.6),
+                ),
+              ],
+            ),
+          ),
+        ),
+        // Collapsible content
+        AnimatedCrossFade(
+          duration: const Duration(milliseconds: 220),
+          crossFadeState: _isExpanded ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+          firstChild: Padding(
+            padding: const EdgeInsets.only(top: 10, bottom: 4),
+            child: _DiscordButton(controller: widget.controller),
+          ),
+          secondChild: const SizedBox.shrink(),
+        ),
+      ],
     );
   }
 }
@@ -866,13 +1064,14 @@ class _MetricSelectorSection extends StatefulWidget {
 
 class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
   // Track which accordion sections are expanded
+  // Start with only Standard pack open, others closed
   bool _standardExpanded   = true;
-  bool _goodExpanded       = true;
-  bool _badExpanded        = true;
-  bool _uglyExpanded       = true;
-  bool _narcissistExpanded = true;
-  bool _serialKillerExpanded = true;
-  bool _customExpanded     = true;
+  bool _goodExpanded       = false;
+  bool _badExpanded        = false;
+  bool _uglyExpanded       = false;
+  bool _narcissistExpanded = false;
+  bool _serialKillerExpanded = false;
+  bool _customExpanded     = false;
 
   @override
   Widget build(BuildContext context) {
@@ -956,10 +1155,14 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
           Text(l10n.metricsDescription),
           const SizedBox(height: 12),
 
+          // Pack & Metrics Stats
+          _buildPackStatsRow(context, controller, l10n),
+          const SizedBox(height: 12),
+
           // ── Accordion Sections ───────────────────────────────────────────
           _MetricAccordionSection(
-            title: 'Standard Pack',
-            subtitle: '100 Metrics',
+            title: l10n.standardPackTitle,
+            subtitle: l10n.metricsCountSubtitle(100),
             icon: Icons.psychology,
             isExpanded: _standardExpanded,
             onToggle: () => setState(() => _standardExpanded = !_standardExpanded),
@@ -970,8 +1173,8 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
           ),
           if (goodUnlocked)
             _MetricAccordionSection(
-              title: 'The Good Pack',
-              subtitle: '100 Metrics Addon',
+              title: l10n.goodPackTitle,
+              subtitle: l10n.metricsAddonSubtitle(100),
               icon: Icons.sentiment_satisfied_alt,
               isExpanded: _goodExpanded,
               onToggle: () => setState(() => _goodExpanded = !_goodExpanded),
@@ -982,8 +1185,8 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
             ),
           if (badUnlocked)
             _MetricAccordionSection(
-              title: 'The Bad Pack',
-              subtitle: '100 Metrics Addon',
+              title: l10n.badPackTitle,
+              subtitle: l10n.metricsAddonSubtitle(100),
               icon: Icons.warning_amber_rounded,
               isExpanded: _badExpanded,
               onToggle: () => setState(() => _badExpanded = !_badExpanded),
@@ -994,8 +1197,8 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
             ),
           if (uglyUnlocked)
             _MetricAccordionSection(
-              title: 'The Ugly Pack',
-              subtitle: '100 Metrics Addon',
+              title: l10n.uglyPackTitle,
+              subtitle: l10n.metricsAddonSubtitle(100),
               icon: Icons.dangerous_outlined,
               isExpanded: _uglyExpanded,
               onToggle: () => setState(() => _uglyExpanded = !_uglyExpanded),
@@ -1006,8 +1209,8 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
             ),
           if (narcissistUnlocked)
             _MetricAccordionSection(
-              title: 'Narcissist Pack',
-              subtitle: '50 Metrics Addon',
+              title: l10n.narcissistPackTitle,
+              subtitle: l10n.metricsAddonSubtitle(50),
               icon: Icons.face_retouching_natural,
               isExpanded: _narcissistExpanded,
               onToggle: () => setState(() => _narcissistExpanded = !_narcissistExpanded),
@@ -1018,9 +1221,9 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
             ),
           if (serialKillerUnlocked)
             _MetricAccordionSection(
-              title: 'Serial Killer Pack',
-              subtitle: '50 Metrics Addon',
-              icon: Icons.coronavirus_outlined,
+              title: l10n.serialKillerPackTitle,
+              subtitle: l10n.metricsAddonSubtitle(50),
+              icon: Icons.dangerous,
               isExpanded: _serialKillerExpanded,
               onToggle: () => setState(() => _serialKillerExpanded = !_serialKillerExpanded),
               metrics: controller.packSerialKillerMetrics,
@@ -1030,8 +1233,10 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
             ),
           if (customMetrics.isNotEmpty)
             _MetricAccordionSection(
-              title: 'Custom Metrics',
-              subtitle: '\${customMetrics.length} Metric\${customMetrics.length == 1 ? "" : "s"}',
+              title: l10n.customMetricsTitle,
+              subtitle: customMetrics.length == 1 
+                  ? l10n.metricSingular(customMetrics.length)
+                  : l10n.metricPlural(customMetrics.length),
               icon: Icons.add_circle_outline,
               isExpanded: _customExpanded,
               onToggle: () => setState(() => _customExpanded = !_customExpanded),
@@ -1071,6 +1276,154 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
           ],
         ],
       ),
+    );
+  }
+
+  // Build pack stats row showing purchased/available counts
+  Widget _buildPackStatsRow(BuildContext context, ToxicityAnalyzerController controller, AppLocalizations l10n) {
+    final goodUnlocked = controller.isPackGoodUnlocked;
+    final badUnlocked = controller.isPackBadUnlocked;
+    final uglyUnlocked = controller.isPackUglyUnlocked;
+    final narcissistUnlocked = controller.isPackNarcissistUnlocked;
+    final serialKillerUnlocked = controller.isPackSerialKillerUnlocked;
+
+    // Count purchased packs (excluding Standard which is always available)
+    final purchasedPacks = [goodUnlocked, badUnlocked, uglyUnlocked, narcissistUnlocked, serialKillerUnlocked]
+        .where((unlocked) => unlocked)
+        .length;
+    const totalPacks = 5; // Good, Bad, Ugly, Narcissist, Serial Killer
+    final packsStillAvailable = totalPacks - purchasedPacks;
+
+    // Count metrics
+    final ownedMetrics = controller.standardMetrics.length +
+        (goodUnlocked ? controller.packGoodMetrics.length : 0) +
+        (badUnlocked ? controller.packBadMetrics.length : 0) +
+        (uglyUnlocked ? controller.packUglyMetrics.length : 0) +
+        (narcissistUnlocked ? controller.packNarcissistMetrics.length : 0) +
+        (serialKillerUnlocked ? controller.packSerialKillerMetrics.length : 0) +
+        controller.customMetrics.length;
+
+    final totalAvailableMetrics = controller.standardMetrics.length +
+        controller.packGoodMetrics.length +
+        controller.packBadMetrics.length +
+        controller.packUglyMetrics.length +
+        controller.packNarcissistMetrics.length +
+        controller.packSerialKillerMetrics.length;
+    final metricsStillAvailable = totalAvailableMetrics - ownedMetrics;
+
+    // Determine if we should use horizontal or vertical layout based on screen width
+    final screenWidth = MediaQuery.of(context).size.width;
+    final useHorizontalLayout = screenWidth >= 400; // Switch to vertical below 400dp
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surfaceContainerHighest.withOpacity(0.5),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.outline.withOpacity(0.3),
+        ),
+      ),
+      child: useHorizontalLayout
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Horizontal layout: Packs on one row
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        '${l10n.expansionPacksPurchased} $purchasedPacks | ${l10n.expansionPacksStillAvailable} $packsStillAvailable',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                // Horizontal layout: Metrics on one row
+                // Metrics stats on one line
+                Text(
+                  '${l10n.metricsOwned} $ownedMetrics | ${l10n.metricsStillAvailable} $metricsStillAvailable',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                const SizedBox(height: 4),
+                // Get More link on its own line
+                GestureDetector(
+                  onTap: () {
+                    final controller = context.read<ToxicityAnalyzerController>();
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => Provider.value(
+                          value: controller,
+                          child: const MembershipLandingPage(),
+                        ),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    l10n.getMore,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Vertical layout: Each stat on its own line
+                Text(
+                  '${l10n.expansionPacksPurchased} $purchasedPacks',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  '${l10n.expansionPacksStillAvailable} $packsStillAvailable',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  '${l10n.metricsOwned} $ownedMetrics',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  '${l10n.metricsStillAvailable} $metricsStillAvailable',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                const SizedBox(height: 4),
+                GestureDetector(
+                  onTap: () {
+                    final controller = context.read<ToxicityAnalyzerController>();
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => Provider.value(
+                          value: controller,
+                          child: const MembershipLandingPage(),
+                        ),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    l10n.getMore,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ],
+            ),
     );
   }
 }
@@ -1836,7 +2189,7 @@ class _MetricPackTile extends StatelessWidget {
           'victim-selection patterns, compartmentalization, and more. Designed for '
           'identifying extreme-risk psychological profiles.',
       price: r'$4.99',
-      icon: Icons.coronavirus_outlined,
+      icon: Icons.dangerous,
       color: Color(0xFF1A237E),
       bgColor: Color(0xFFE8EAF6),
       darkColor: Color(0xFF283593),
@@ -2224,7 +2577,7 @@ class _ConversationSelectionSection extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  _DiscordButton(controller: controller),
+                  _DiscordAccordion(controller: controller),
                   const SizedBox(height: 12),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -2254,7 +2607,7 @@ class _ConversationSelectionSection extends StatelessWidget {
                   const SizedBox(height: 12),
                   _FromFileButton(controller: controller),
                   const SizedBox(height: 12),
-                  _DiscordButton(controller: controller),
+                  _DiscordAccordion(controller: controller),
                   const SizedBox(height: 12),
                   _AnalysisActionSection(controller: controller),
                   const SizedBox(height: 12),

@@ -4,7 +4,7 @@
   "psychologicalMetrics": "Métricas Psicológicas",
   "metricsDescription": "Menos métricas selecionadas produzem uma análise mais profunda e concentrada desses comportamentos. Mais métricas selecionadas produzem um relatório mais amplo com menos detalhes por métrica.",
   "selectSMS": "Selecionar SMS / RCS Chat",
-  "selectDiscordChannel": "Selecionar Canal Discord",
+  "selectDiscordChannel": "Selecionar canal",
   "lightMode": "Claro",
   "darkMode": "Escuro",
   "discordSetupTitle": "Como Configurar Discord",
@@ -19,6 +19,7 @@
   "discordStep4Description": "Insira seu token do bot nas configurações do aplicativo (contate o suporte se precisar de ajuda).",
   "discordStep5Title": "Selecionar Canal",
   "discordStep5Description": "Toque em 'Selecionar Canal Discord', escolha seu servidor, então selecione o canal para analisar.",
+  "discordBotConfiguration": "Configuração do Bot",
   "gotIt": "Entendi",
   "selectFile": "Selecionar arquivo",
   "analyzeSelectedMetrics": "Analisar métricas selecionadas",
@@ -1312,4 +1313,62 @@
   "metric_serial_killer_50_description": "Reconhece referências a acabar, matar ou silenciar permanentemente alvos.",
   "packNarcissistLabel": "O Narcisista",
   "packSerialKillerLabel": "O Assassino em Série"
+,
+  "expansionPacksPurchased": "Pacotes de Expansão Comprados:",
+  "expansionPacksStillAvailable": "Pacotes de Expansão Ainda Disponíveis",
+  "metricsOwned": "Métricas Possuídas",
+  "metricsStillAvailable": "Métricas Ainda Disponíveis",
+  "getMore": "Obter mais!",
+  "allPacksOwned": "Todos os pacotes de expansão são possuídos!",
+  "standardPackTitle": "Pacote Padrão",
+  "goodPackTitle": "O Pacote Bom",
+  "badPackTitle": "O Pacote Mau",
+  "uglyPackTitle": "O Pacote Feio",
+  "narcissistPackTitle": "Pacote Narcisista",
+  "serialKillerPackTitle": "Pacote Assassino em Série",
+  "customMetricsTitle": "Métricas Personalizadas",
+  "@metricsCountSubtitle": {
+    "description": "metricsCountSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsCountSubtitle": "{count} Métricas",
+  "@metricsAddonSubtitle": {
+    "description": "metricsAddonSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsAddonSubtitle": "{count} Métricas Add-on",
+  "@metricSingular": {
+    "description": "metricSingular",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricSingular": "{count} Métrica",
+  "@metricPlural": {
+    "description": "metricPlural",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricPlural": "{count} Métricas"
+,
+  "restorePurchases": "Restaurar Compras",
+  "restorePurchasesButton": "Restaurar Compras Anteriores",
+  "restorePurchasesSuccess": "Compras restauradas com sucesso!",
+  "restorePurchasesError": "Não foi possível restaurar as compras. Tente novamente.",
+  "restorePurchasesNoneFound": "Nenhuma compra anterior encontrada."
+,
+  "discordAddonPopupTitle": "Recurso Discord",
+  "discordAddonPopupMessage": "Este recurso está disponível como complemento."
+,
+  "discordAccordionTitle": "Integração Discord",
+  "discordAccordionSubtitle": "Conectar servidores Discord"
+,
+  "selectDiscord": "Selecionar Discord"
+,
+  "enableDiscord": "Ativar Discord"
 }

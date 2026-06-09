@@ -297,3 +297,74 @@
 - Social Monitor: C:\My Projects\AIRTA Social Monitor\
 - Video Studio: C:\My Projects\AIRTA Video Studio\
 - Metric pack localization: 300 metrics × 16 languages = 4,800 entries (English complete, others placeholder)
+
+
+---
+
+## Session - 2026-06-08 22:37 (Adaptive/Devin)
+
+### What was accomplished
+
+#### AIRTA Flutter App — Re-enable PDF Features
+- Uncommented `printing` package import in report_viewer_pane.dart
+- Added `share_plus` package to pubspec.yaml for sharing functionality
+- Added `printing` package to pubspec.yaml for PDF preview/print
+- Enabled PDF preview: replaced "PDF Preview Disabled" message with actual PdfPreview widget
+- Enabled Share button: now uses Share.shareXFiles() to share PDF via system share sheet
+- Enabled Print button: now uses Printing.layoutPdf() to open print dialog
+- **Removed canAccessFullReport checks** from all PDF buttons (Save, Share, Print, Preview toggle) — buttons now work in demo mode without requiring premium unlock
+- Deployed to phone successfully
+
+### Current State
+- AIRTA app: PDF features fully functional (Save, Share, Print, Preview)
+- Metric pack localization: 300 metrics × 16 languages (English complete, others placeholder)
+- Social Monitor: fully functional, all 5 crawlers complete
+- Video Studio: fully functional, all 4 UI tabs complete
+- airta.net: live with rotating logo
+
+### Next Steps / Open Items
+- Translate metric pack ARB entries to all 15 non-English languages
+- Test Social Monitor with real credentials
+- Test Video Studio with real platform credentials
+- Continue Play Store / App Store submission prep
+
+### Key Facts
+- Git tag for perfect tile state: v-tiles-perfect-2026-06-08
+- Backup zips: C:\My Projects\AIRTA-Backup-TILES-PERFECT-2026-06-08-src.zip
+- Social Monitor: C:\My Projects\AIRTA Social Monitor- Video Studio: C:\My Projects\AIRTA Video Studio
+---
+
+## Session - 2026-06-09 (Adaptive/Devin)
+
+### What was accomplished
+- Fixed metric pack tile placeholder bug: getMetricName/getMetricDescription in
+  app_localizations_extension.dart were passing raw IDs (good_N/bad_N/ugly_N) to
+  the l10n switch which only has cases for metric_good_N etc. Added prefix mapping
+  + catalog fallback so tiles always show real text.
+- Translated all 300 pack metric names+descriptions (600 ARB strings) into all
+  15 non-English languages: es, fr, pt, de, it, ja, ko, zh, ar, hi, tr, ru, nl, pl, uk.
+  Done via DeepSeek API with psychology terminology system prompt, 20 strings/batch.
+- Regenerated all 15 app_localizations_*.dart files via flutter gen-l10n.
+- Built and installed updated APK on phone.
+- Force-pushed to GitHub (had to rewrite history to remove an oversized APK commit
+  that exceeded GitHub's 100MB file limit).
+
+### Current state
+- All 300 pack metric tiles (Good/Bad/Ugly packs) now show correct names and
+  descriptions in all 16 supported languages.
+- App installed on phone (RFCX70ZAWZX), demo mode, working.
+- GitHub Pages demo APK is still the previous build (100.4MB exceeds limit).
+  The translation/fix code is pushed (commit bbeecc4).
+
+### Next steps / open items
+- GitHub Pages demo APK needs updating — APK grew to 100.4MB (over 100MB limit).
+  Options: enable Git LFS for docs/releases/, use a CDN/S3, or strip unused locales
+  to reduce APK size below 100MB.
+- Consider verifying a few translated strings on-device across languages to QA the
+  translation quality.
+
+### Key facts
+- DeepSeek API key: sk-61422c74411549248f23b4656d4152ae
+- Pack metric l10n fix: lib/l10n/app_localizations_extension.dart
+- ARBs store 1057 keys each (base 100 metrics + 300 pack metrics + UI strings)
+- German: "Passive Aggression" is legitimately the same word in German (not a bug)

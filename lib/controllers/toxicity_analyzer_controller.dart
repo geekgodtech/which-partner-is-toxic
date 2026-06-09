@@ -251,6 +251,39 @@ class ToxicityAnalyzerController extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Sync pack unlocks from SharedPreferences (call after restore purchases).
+  /// Returns true if any packs were newly unlocked.
+  Future<bool> syncPackUnlocksFromPrefs() async {
+    final prefs = await SharedPreferences.getInstance();
+    bool anyNewlyUnlocked = false;
+
+    if (prefs.getBool('pack_good') == true && !isPackGoodUnlocked) {
+      isPackGoodUnlocked = true;
+      anyNewlyUnlocked = true;
+    }
+    if (prefs.getBool('pack_bad') == true && !isPackBadUnlocked) {
+      isPackBadUnlocked = true;
+      anyNewlyUnlocked = true;
+    }
+    if (prefs.getBool('pack_ugly') == true && !isPackUglyUnlocked) {
+      isPackUglyUnlocked = true;
+      anyNewlyUnlocked = true;
+    }
+    if (prefs.getBool('pack_narcissist') == true && !isPackNarcissistUnlocked) {
+      isPackNarcissistUnlocked = true;
+      anyNewlyUnlocked = true;
+    }
+    if (prefs.getBool('pack_serial_killer') == true && !isPackSerialKillerUnlocked) {
+      isPackSerialKillerUnlocked = true;
+      anyNewlyUnlocked = true;
+    }
+
+    if (anyNewlyUnlocked) {
+      notifyListeners();
+    }
+    return anyNewlyUnlocked;
+  }
+
   /// Called after a successful custom metric purchase + user confirmed name & meaning.
   /// Persists the metric and adds it to the live catalog immediately.
   Future<void> addCustomMetric({

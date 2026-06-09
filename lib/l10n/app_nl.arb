@@ -4,7 +4,7 @@
   "psychologicalMetrics": "Psychologische Metingen",
   "metricsDescription": "Minder geselecteerde metingen leveren een diepere, meer geconcentreerde analyse van dat gedrag op. Meer geselecteerde metingen leveren een breder rapport op met minder detail per meting.",
   "selectSMS": "SMS / RCS Chat selecteren",
-  "selectDiscordChannel": "Discord-kanaal selecteren",
+  "selectDiscordChannel": "Selecteer kanaal",
   "lightMode": "Licht",
   "darkMode": "Donker",
   "discordSetupTitle": "Discord Instellen",
@@ -19,6 +19,7 @@
   "discordStep4Description": "Voer uw bot-token in de app-instellingen in (neem contact op met support als u hulp nodig heeft).",
   "discordStep5Title": "Kanaal Selecteren",
   "discordStep5Description": "Tik op 'Discord-kanaal Selecteren', kies uw server en selecteer vervolgens het kanaal om te analyseren.",
+  "discordBotConfiguration": "Bot Configuratie",
   "gotIt": "Begrepen",
   "selectFile": "Bestand selecteren",
   "analyzeSelectedMetrics": "Geselecteerde metingen analyseren",
@@ -1312,4 +1313,62 @@
   "metric_serial_killer_50_description": "Herken verwijzingen naar het beëindigen, doden of permanent tot zwijgen brengen van doelwitten.",
   "packNarcissistLabel": "De Narcist",
   "packSerialKillerLabel": "De Seriemoordenaar"
+,
+  "expansionPacksPurchased": "Uitbreidingspakketten Gekocht:",
+  "expansionPacksStillAvailable": "Uitbreidingspakketten Nog Beschikbaar",
+  "metricsOwned": "Metingen in bezit",
+  "metricsStillAvailable": "Metingen Nog Beschikbaar",
+  "getMore": "Meer krijgen!",
+  "standardPackTitle": "Standaard Pakket",
+  "goodPackTitle": "Het Goede Pakket",
+  "badPackTitle": "Het Slechte Pakket",
+  "uglyPackTitle": "Het Lelijke Pakket",
+  "narcissistPackTitle": "Narcist Pakket",
+  "serialKillerPackTitle": "Seriemoordenaar Pakket",
+  "customMetricsTitle": "Aangepaste Metingen",
+  "@metricsCountSubtitle": {
+    "description": "Subtitle met het aantal metingen",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsCountSubtitle": "{count} Metingen",
+  "@metricsAddonSubtitle": {
+    "description": "Subtitle voor add-on metingen",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsAddonSubtitle": "{count} Metingen Add-on",
+  "@metricSingular": {
+    "description": "Enkelvoudig aantal metingen",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricSingular": "{count} Meting",
+  "@metricPlural": {
+    "description": "Meervoudig aantal metingen",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricPlural": "{count} Metingen",
+  "allPacksOwned": "Alle uitbreidingspakketten in bezit!"
+,
+  "restorePurchases": "Aankopen Herstellen",
+  "restorePurchasesButton": "Eerdere Aankopen Herstellen",
+  "restorePurchasesSuccess": "Aankopen succesvol hersteld!",
+  "restorePurchasesError": "Kon aankopen niet herstellen. Probeer het opnieuw.",
+  "restorePurchasesNoneFound": "Geen eerdere aankopen gevonden."
+,
+  "discordAddonPopupTitle": "Discord-functie",
+  "discordAddonPopupMessage": "Deze functie is beschikbaar als een add-on."
+,
+  "discordAccordionTitle": "Discord-integratie",
+  "discordAccordionSubtitle": "Verbind Discord-servers"
+,
+  "selectDiscord": "Selecteer Discord"
+,
+  "enableDiscord": "Discord inschakelen"
 }

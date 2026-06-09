@@ -17,7 +17,7 @@
   "@selectSMS": {
     "description": "Button to select SMS messages"
   },
-  "selectDiscordChannel": "Select Discord Channel",
+  "selectDiscordChannel": "Select Channel",
   "@selectDiscordChannel": {
     "description": "Button to select Discord channel"
   },
@@ -76,6 +76,10 @@
   "discordStep5Description": "Tap 'Select Discord Channel', choose your server, then select the channel to analyze.",
   "@discordStep5Description": {
     "description": "Step 5 description for Discord setup"
+  },
+  "discordBotConfiguration": "Bot Configuration",
+  "@discordBotConfiguration": {
+    "description": "Button to go to bot configuration page"
   },
   "gotIt": "Got it",
   "@gotIt": {
@@ -1723,5 +1727,98 @@
   "metric_serial_killer_50_name": "Finality Language",
   "metric_serial_killer_50_description": "Recognizes references to ending, killing, or permanent silencing of targets.",
   "packNarcissistLabel": "The Narcissist",
-  "packSerialKillerLabel": "The Serial Killer"
+  "packSerialKillerLabel": "The Serial Killer",
+  "expansionPacksPurchased": "Expansion Packs Purchased:",
+  "expansionPacksStillAvailable": "Expansion Packs Still Available",
+  "metricsOwned": "Metrics owned",
+  "metricsStillAvailable": "Metrics Still Available",
+  "getMore": "Get more!"
+,
+  "standardPackTitle": "Standard Pack",
+  "goodPackTitle": "The Good Pack",
+  "badPackTitle": "The Bad Pack",
+  "uglyPackTitle": "The Ugly Pack",
+  "narcissistPackTitle": "Narcissist Pack",
+  "serialKillerPackTitle": "Serial Killer Pack",
+  "customMetricsTitle": "Custom Metrics",
+  "@metricsCountSubtitle": {
+    "description": "Subtitle showing metric count",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsCountSubtitle": "{count} Metrics",
+  "@metricsAddonSubtitle": {
+    "description": "Subtitle showing metric count as addon",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsAddonSubtitle": "{count} Metrics Addon",
+  "@metricSingular": {
+    "description": "Singular metric count",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricSingular": "{count} Metric",
+  "@metricPlural": {
+    "description": "Plural metric count",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricPlural": "{count} Metrics"
+,
+  "getMore": "Get more!",
+  "viewMembershipOptions": "View Membership Options",
+  "metricExpansionPacksTitle": "Metric Expansion Packs",
+  "oneTimePurchasesSubtitle": "One-time purchases — additional metrics forever",
+  "unlockGoodPackButton": "Unlock The Good Pack",
+  "unlockBadPackButton": "Unlock The Bad Pack",
+  "unlockUglyPackButton": "Unlock The Ugly Pack",
+  "unlockNarcissistPackButton": "Unlock Narcissist Pack",
+  "unlockSerialKillerPackButton": "Unlock Serial Killer Pack",
+  "goodPackBenefit1": "100 healthy relationship metrics",
+  "goodPackBenefit2": "Positive communication patterns",
+  "goodPackBenefit3": "Appreciation, empathy & trust signals",
+  "goodPackBenefit4": "One-time purchase — yours forever",
+  "goodPackBenefit5": "Unlocks instantly after purchase",
+  "badPackBenefit1": "100 warning-sign relationship metrics",
+  "badPackBenefit2": "Spot manipulation & dismissal patterns",
+  "badPackBenefit3": "Guilt-tripping, stonewalling & more",
+  "badPackBenefit4": "One-time purchase — yours forever",
+  "badPackBenefit5": "Unlocks instantly after purchase",
+  "uglyPackBenefit1": "100 severe red-flag abuse metrics",
+  "uglyPackBenefit2": "Identify coercion, threats & control",
+  "uglyPackBenefit3": "Trauma bonding & isolation indicators",
+  "uglyPackBenefit4": "One-time purchase — yours forever",
+  "uglyPackBenefit5": "Unlocks instantly after purchase",
+  "narcissistPackBenefit1": "50 narcissistic behavior metrics",
+  "narcissistPackBenefit2": "Detect gaslighting & love-bombing",
+  "narcissistPackBenefit3": "Hoovering & devaluation patterns",
+  "narcissistPackBenefit4": "One-time purchase — yours forever",
+  "narcissistPackBenefit5": "Unlocks instantly after purchase",
+  "serialKillerPackBenefit1": "50 extreme danger indicators",
+  "serialKillerPackBenefit2": "Detect predatory & violent language",
+  "serialKillerPackBenefit3": "Psychopathy & sadism markers",
+  "serialKillerPackBenefit4": "One-time purchase — yours forever",
+  "serialKillerPackBenefit5": "Unlocks instantly after purchase",
+  "allPacksOwned": "All expansion packs owned!"
+,
+  "restorePurchases": "Restore Purchases",
+  "restorePurchasesButton": "Restore Previous Purchases",
+  "restorePurchasesSuccess": "Purchases restored successfully!",
+  "restorePurchasesError": "Could not restore purchases. Please try again.",
+  "restorePurchasesNoneFound": "No previous purchases found."
+,
+  "discordAddonPopupTitle": "Discord Feature",
+  "discordAddonPopupMessage": "This feature is available as an add-on."
+,
+  "discordAccordionTitle": "Discord Integration",
+  "discordAccordionSubtitle": "Connect Discord servers"
+,
+  "selectDiscord": "Select Discord"
+,
+  "enableDiscord": "Enable Discord"
 }

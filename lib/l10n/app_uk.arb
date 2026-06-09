@@ -4,7 +4,7 @@
   "psychologicalMetrics": "Психологічні метрики",
   "metricsDescription": "Менша кількість вибраних метрик забезпечує глибший, більш сконцентрований аналіз цієї поведінки. Більша кількість вибраних метрик забезпечує ширший звіт з меншою деталізацією по кожній метриці.",
   "selectSMS": "Вибрати SMS / RCS Чат",
-  "selectDiscordChannel": "Вибрати канал Discord",
+  "selectDiscordChannel": "Вибрати канал",
   "lightMode": "Світла",
   "darkMode": "Темна",
   "discordSetupTitle": "Як Налаштувати Discord",
@@ -19,6 +19,7 @@
   "discordStep4Description": "Введіть свій токен бота в налаштуваннях додатку (зв'яжіться з підтримкою, якщо потрібна допомога).",
   "discordStep5Title": "Вибрати Канал",
   "discordStep5Description": "Натисніть 'Вибрати Канал Discord', виберіть свій сервер, потім виберіть канал для аналізу.",
+  "discordBotConfiguration": "Конфігурація Бота",
   "gotIt": "Зрозумів",
   "selectFile": "Вибрати файл",
   "analyzeSelectedMetrics": "Аналізувати вибрані метрики",
@@ -1312,4 +1313,62 @@
   "metric_serial_killer_50_description": "Розпізнає посилання на завершення, вбивство або постійне замовчування цілей.",
   "packNarcissistLabel": "Нарцис",
   "packSerialKillerLabel": "Серійний вбивця"
+,
+  "expansionPacksPurchased": "Придбані пакети розширення:",
+  "expansionPacksStillAvailable": "Пакети розширення ще доступні",
+  "metricsOwned": "Метрики у власності",
+  "metricsStillAvailable": "Метрики ще доступні",
+  "getMore": "Отримати більше!",
+  "allPacksOwned": "Всі пакети розширення у власності!",
+  "standardPackTitle": "Стандартний пакет",
+  "goodPackTitle": "Добрий пакет",
+  "badPackTitle": "Поганий пакет",
+  "uglyPackTitle": "Жахливий пакет",
+  "narcissistPackTitle": "Пакет Нарцис",
+  "serialKillerPackTitle": "Пакет Маніяк",
+  "customMetricsTitle": "Користувацькі метрики",
+  "@metricsCountSubtitle": {
+    "description": "metricsCountSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsCountSubtitle": "{count} метрик",
+  "@metricsAddonSubtitle": {
+    "description": "metricsAddonSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsAddonSubtitle": "{count} метрик додаток",
+  "@metricSingular": {
+    "description": "metricSingular",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricSingular": "{count} метрика",
+  "@metricPlural": {
+    "description": "metricPlural",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricPlural": "{count} метрик"
+,
+  "restorePurchases": "Відновити Покупки",
+  "restorePurchasesButton": "Відновити Попередні Покупки",
+  "restorePurchasesSuccess": "Покупки успішно відновлено!",
+  "restorePurchasesError": "Не вдалося відновити покупки. Будь ласка, спробуйте ще раз.",
+  "restorePurchasesNoneFound": "Попередні покупки не знайдено."
+,
+  "discordAddonPopupTitle": "Функція Discord",
+  "discordAddonPopupMessage": "Ця функція доступна як додаток."
+,
+  "discordAccordionTitle": "Інтеграція Discord",
+  "discordAccordionSubtitle": "Підключити сервери Discord"
+,
+  "selectDiscord": "Вибрати Discord"
+,
+  "enableDiscord": "Увімкнути Discord"
 }

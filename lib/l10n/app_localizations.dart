@@ -153,7 +153,7 @@ abstract class AppLocalizations {
   /// Button to select Discord channel
   ///
   /// In en, this message translates to:
-  /// **'Select Discord Channel'**
+  /// **'Select Channel'**
   String get selectDiscordChannel;
 
   /// Light mode label
@@ -239,6 +239,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tap \'Select Discord Channel\', choose your server, then select the channel to analyze.'**
   String get discordStep5Description;
+
+  /// Button to go to bot configuration page
+  ///
+  /// In en, this message translates to:
+  /// **'Bot Configuration'**
+  String get discordBotConfiguration;
 
   /// Button to dismiss help dialog
   ///
@@ -7625,6 +7631,372 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The Serial Killer'**
   String get packSerialKillerLabel;
+
+  /// No description provided for @expansionPacksPurchased.
+  ///
+  /// In en, this message translates to:
+  /// **'Expansion Packs Purchased:'**
+  String get expansionPacksPurchased;
+
+  /// No description provided for @expansionPacksStillAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Expansion Packs Still Available'**
+  String get expansionPacksStillAvailable;
+
+  /// No description provided for @metricsOwned.
+  ///
+  /// In en, this message translates to:
+  /// **'Metrics owned'**
+  String get metricsOwned;
+
+  /// No description provided for @metricsStillAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Metrics Still Available'**
+  String get metricsStillAvailable;
+
+  /// No description provided for @getMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Get more!'**
+  String get getMore;
+
+  /// No description provided for @standardPackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Standard Pack'**
+  String get standardPackTitle;
+
+  /// No description provided for @goodPackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The Good Pack'**
+  String get goodPackTitle;
+
+  /// No description provided for @badPackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The Bad Pack'**
+  String get badPackTitle;
+
+  /// No description provided for @uglyPackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The Ugly Pack'**
+  String get uglyPackTitle;
+
+  /// No description provided for @narcissistPackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Narcissist Pack'**
+  String get narcissistPackTitle;
+
+  /// No description provided for @serialKillerPackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Serial Killer Pack'**
+  String get serialKillerPackTitle;
+
+  /// No description provided for @customMetricsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom Metrics'**
+  String get customMetricsTitle;
+
+  /// Subtitle showing metric count
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Metrics'**
+  String metricsCountSubtitle(Object count);
+
+  /// Subtitle showing metric count as addon
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Metrics Addon'**
+  String metricsAddonSubtitle(Object count);
+
+  /// Singular metric count
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Metric'**
+  String metricSingular(Object count);
+
+  /// Plural metric count
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Metrics'**
+  String metricPlural(Object count);
+
+  /// No description provided for @viewMembershipOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'View Membership Options'**
+  String get viewMembershipOptions;
+
+  /// No description provided for @metricExpansionPacksTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Metric Expansion Packs'**
+  String get metricExpansionPacksTitle;
+
+  /// No description provided for @oneTimePurchasesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'One-time purchases — additional metrics forever'**
+  String get oneTimePurchasesSubtitle;
+
+  /// No description provided for @unlockGoodPackButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock The Good Pack'**
+  String get unlockGoodPackButton;
+
+  /// No description provided for @unlockBadPackButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock The Bad Pack'**
+  String get unlockBadPackButton;
+
+  /// No description provided for @unlockUglyPackButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock The Ugly Pack'**
+  String get unlockUglyPackButton;
+
+  /// No description provided for @unlockNarcissistPackButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Narcissist Pack'**
+  String get unlockNarcissistPackButton;
+
+  /// No description provided for @unlockSerialKillerPackButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Serial Killer Pack'**
+  String get unlockSerialKillerPackButton;
+
+  /// No description provided for @goodPackBenefit1.
+  ///
+  /// In en, this message translates to:
+  /// **'100 healthy relationship metrics'**
+  String get goodPackBenefit1;
+
+  /// No description provided for @goodPackBenefit2.
+  ///
+  /// In en, this message translates to:
+  /// **'Positive communication patterns'**
+  String get goodPackBenefit2;
+
+  /// No description provided for @goodPackBenefit3.
+  ///
+  /// In en, this message translates to:
+  /// **'Appreciation, empathy & trust signals'**
+  String get goodPackBenefit3;
+
+  /// No description provided for @goodPackBenefit4.
+  ///
+  /// In en, this message translates to:
+  /// **'One-time purchase — yours forever'**
+  String get goodPackBenefit4;
+
+  /// No description provided for @goodPackBenefit5.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocks instantly after purchase'**
+  String get goodPackBenefit5;
+
+  /// No description provided for @badPackBenefit1.
+  ///
+  /// In en, this message translates to:
+  /// **'100 warning-sign relationship metrics'**
+  String get badPackBenefit1;
+
+  /// No description provided for @badPackBenefit2.
+  ///
+  /// In en, this message translates to:
+  /// **'Spot manipulation & dismissal patterns'**
+  String get badPackBenefit2;
+
+  /// No description provided for @badPackBenefit3.
+  ///
+  /// In en, this message translates to:
+  /// **'Guilt-tripping, stonewalling & more'**
+  String get badPackBenefit3;
+
+  /// No description provided for @badPackBenefit4.
+  ///
+  /// In en, this message translates to:
+  /// **'One-time purchase — yours forever'**
+  String get badPackBenefit4;
+
+  /// No description provided for @badPackBenefit5.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocks instantly after purchase'**
+  String get badPackBenefit5;
+
+  /// No description provided for @uglyPackBenefit1.
+  ///
+  /// In en, this message translates to:
+  /// **'100 severe red-flag abuse metrics'**
+  String get uglyPackBenefit1;
+
+  /// No description provided for @uglyPackBenefit2.
+  ///
+  /// In en, this message translates to:
+  /// **'Identify coercion, threats & control'**
+  String get uglyPackBenefit2;
+
+  /// No description provided for @uglyPackBenefit3.
+  ///
+  /// In en, this message translates to:
+  /// **'Trauma bonding & isolation indicators'**
+  String get uglyPackBenefit3;
+
+  /// No description provided for @uglyPackBenefit4.
+  ///
+  /// In en, this message translates to:
+  /// **'One-time purchase — yours forever'**
+  String get uglyPackBenefit4;
+
+  /// No description provided for @uglyPackBenefit5.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocks instantly after purchase'**
+  String get uglyPackBenefit5;
+
+  /// No description provided for @narcissistPackBenefit1.
+  ///
+  /// In en, this message translates to:
+  /// **'50 narcissistic behavior metrics'**
+  String get narcissistPackBenefit1;
+
+  /// No description provided for @narcissistPackBenefit2.
+  ///
+  /// In en, this message translates to:
+  /// **'Detect gaslighting & love-bombing'**
+  String get narcissistPackBenefit2;
+
+  /// No description provided for @narcissistPackBenefit3.
+  ///
+  /// In en, this message translates to:
+  /// **'Hoovering & devaluation patterns'**
+  String get narcissistPackBenefit3;
+
+  /// No description provided for @narcissistPackBenefit4.
+  ///
+  /// In en, this message translates to:
+  /// **'One-time purchase — yours forever'**
+  String get narcissistPackBenefit4;
+
+  /// No description provided for @narcissistPackBenefit5.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocks instantly after purchase'**
+  String get narcissistPackBenefit5;
+
+  /// No description provided for @serialKillerPackBenefit1.
+  ///
+  /// In en, this message translates to:
+  /// **'50 extreme danger indicators'**
+  String get serialKillerPackBenefit1;
+
+  /// No description provided for @serialKillerPackBenefit2.
+  ///
+  /// In en, this message translates to:
+  /// **'Detect predatory & violent language'**
+  String get serialKillerPackBenefit2;
+
+  /// No description provided for @serialKillerPackBenefit3.
+  ///
+  /// In en, this message translates to:
+  /// **'Psychopathy & sadism markers'**
+  String get serialKillerPackBenefit3;
+
+  /// No description provided for @serialKillerPackBenefit4.
+  ///
+  /// In en, this message translates to:
+  /// **'One-time purchase — yours forever'**
+  String get serialKillerPackBenefit4;
+
+  /// No description provided for @serialKillerPackBenefit5.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocks instantly after purchase'**
+  String get serialKillerPackBenefit5;
+
+  /// No description provided for @allPacksOwned.
+  ///
+  /// In en, this message translates to:
+  /// **'All expansion packs owned!'**
+  String get allPacksOwned;
+
+  /// No description provided for @restorePurchases.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore Purchases'**
+  String get restorePurchases;
+
+  /// No description provided for @restorePurchasesButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore Previous Purchases'**
+  String get restorePurchasesButton;
+
+  /// No description provided for @restorePurchasesSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchases restored successfully!'**
+  String get restorePurchasesSuccess;
+
+  /// No description provided for @restorePurchasesError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not restore purchases. Please try again.'**
+  String get restorePurchasesError;
+
+  /// No description provided for @restorePurchasesNoneFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No previous purchases found.'**
+  String get restorePurchasesNoneFound;
+
+  /// No description provided for @discordAddonPopupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Discord Feature'**
+  String get discordAddonPopupTitle;
+
+  /// No description provided for @discordAddonPopupMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This feature is available as an add-on.'**
+  String get discordAddonPopupMessage;
+
+  /// No description provided for @discordAccordionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Discord Integration'**
+  String get discordAccordionTitle;
+
+  /// No description provided for @discordAccordionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect Discord servers'**
+  String get discordAccordionSubtitle;
+
+  /// No description provided for @selectDiscord.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Discord'**
+  String get selectDiscord;
+
+  /// No description provided for @enableDiscord.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Discord'**
+  String get enableDiscord;
 }
 
 class _AppLocalizationsDelegate

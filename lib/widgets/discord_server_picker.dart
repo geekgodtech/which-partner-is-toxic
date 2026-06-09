@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../services/discord_api_service.dart';
-import '../services/remote_config_service.dart';
 import '../controllers/toxicity_analyzer_controller.dart';
 import 'discord_channel_picker.dart';
+import 'discord_settings_page.dart';
 
 class DiscordServerPicker extends StatefulWidget {
   final ToxicityAnalyzerController controller;
@@ -18,7 +19,6 @@ class DiscordServerPicker extends StatefulWidget {
 
 class _DiscordServerPickerState extends State<DiscordServerPicker> {
   late DiscordApiService _discordService;
-  final RemoteConfigService _remoteConfig = RemoteConfigService();
 
   List<DiscordGuild>? _guilds;
   bool _loading = true;
@@ -27,8 +27,23 @@ class _DiscordServerPickerState extends State<DiscordServerPicker> {
   @override
   void initState() {
     super.initState();
+    _loadTokenAndInit();
+  }
+
+  Future<void> _loadTokenAndInit() async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('discord_bot_token');
+    
+    if (token == null || token.isEmpty) {
+      setState(() {
+        _error = 'No bot token found. Please configure your Discord bot in settings.';
+        _loading = false;
+      });
+      return;
+    }
+    
     _discordService = DiscordApiService(
-      botToken: _remoteConfig.discordBotToken,
+      botToken: token,
     );
     _loadGuilds();
   }
@@ -109,16 +124,34 @@ class _DiscordServerPickerState extends State<DiscordServerPicker> {
                           style: const TextStyle(color: Colors.grey),
                         ),
                         const SizedBox(height: 24),
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              _loading = true;
-                              _error = null;
-                            });
-                            _loadGuilds();
-                          },
-                          child: const Text('Retry'),
-                        ),
+                        // Show Configure Bot button if token is missing
+                        if (_error!.contains('No bot token'))
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const DiscordSettingsPage(),
+                                ),
+                              );
+                            },
+                            icon: const Icon(Icons.settings),
+                            label: const Text('Configure Bot Token'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF5865F2),
+                              foregroundColor: Colors.white,
+                            ),
+                          )
+                        else
+                          ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                _loading = true;
+                                _error = null;
+                              });
+                              _loadGuilds();
+                            },
+                            child: const Text('Retry'),
+                          ),
                       ],
                     ),
                   ),

@@ -198,6 +198,36 @@ class SubscriptionService extends ChangeNotifier {
         notifyListeners();
         debugPrint('Custom metric purchase confirmed');
         return;
+      case packGoodOneTimeId:
+        await _savePackPurchase('pack_good');
+        _pendingPackGoodPurchase = true;
+        notifyListeners();
+        debugPrint('Activated Good Pack');
+        return;
+      case packBadOneTimeId:
+        await _savePackPurchase('pack_bad');
+        _pendingPackBadPurchase = true;
+        notifyListeners();
+        debugPrint('Activated Bad Pack');
+        return;
+      case packUglyOneTimeId:
+        await _savePackPurchase('pack_ugly');
+        _pendingPackUglyPurchase = true;
+        notifyListeners();
+        debugPrint('Activated Ugly Pack');
+        return;
+      case packNarcissistOneTimeId:
+        await _savePackPurchase('pack_narcissist');
+        _pendingPackNarcissistPurchase = true;
+        notifyListeners();
+        debugPrint('Activated Narcissist Pack');
+        return;
+      case packSerialKillerOneTimeId:
+        await _savePackPurchase('pack_serial_killer');
+        _pendingPackSerialKillerPurchase = true;
+        notifyListeners();
+        debugPrint('Activated Serial Killer Pack');
+        return;
     }
 
     await _activateTier(tier);

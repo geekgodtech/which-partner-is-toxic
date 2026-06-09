@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'discord_setup_help.dart';
 import 'package:provider/provider.dart';
 import 'package:airta/controllers/toxicity_analyzer_controller.dart';
 import 'package:airta/l10n/app_localizations.dart';
@@ -91,11 +92,11 @@ class MembershipLandingPage extends StatelessWidget {
                           ],
                         ],
                       ),
-                    // Metric expansion packs
-                    if (packCards.isNotEmpty) ...[
-                      const SizedBox(height: 32),
-                      const _PackSectionHeader(),
-                      const SizedBox(height: 16),
+                    // Metric expansion packs - always show section even if all unlocked
+                    const SizedBox(height: 32),
+                    const _PackSectionHeader(),
+                    const SizedBox(height: 16),
+                    if (packCards.isNotEmpty)
                       if (isWide)
                         IntrinsicHeight(
                           child: Row(
@@ -116,10 +117,44 @@ class MembershipLandingPage extends StatelessWidget {
                               packCards[i],
                             ],
                           ],
+                        )
+                    else
+                      // All packs unlocked - show "All packs owned" message
+                      Card(
+                        elevation: 2,
+                        color: colorScheme.primaryContainer.withOpacity(0.5),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.check_circle,
+                                color: colorScheme.primary,
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  l10n.allPacksOwned,
+                                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                    ],
+                      ),
+                    // Custom Metric Purchase Section
+                    const SizedBox(height: 32),
+                    _CustomMetricCard(
+                      width: cardWidth,
+                      colorScheme: colorScheme,
+                    ),
                     const SizedBox(height: 24),
                     const _ComingSoonCard(),
+                    // Restore Purchases Section
+                    const SizedBox(height: 32),
+                    _RestorePurchasesButton(),
                   ],
                 ),
               );
@@ -184,24 +219,93 @@ class MembershipLandingPage extends StatelessWidget {
         buttonLabel: l10n.signUpStandard,
         onPressed: () => _completeStandardSignup(context),
       ),
-      _TierCard(
-        width: cardWidth,
-        icon: Icons.chat_bubble_outline,
-        title: l10n.discordAddon,
-        price: '\$9.99/mo',
-        accentColor: colorScheme.tertiary,
-        benefits: [
-          l10n.benefitAddToStandard,
-          l10n.benefitAnalyzeDiscord,
-          l10n.benefitRequiresBot,
-          l10n.benefitBestGamers,
+      // Discord Addon with Technical Warning
+      Column(
+        children: [
+          _TierCard(
+            width: cardWidth,
+            icon: Icons.chat_bubble_outline,
+            title: l10n.discordAddon,
+            price: '\$9.99/mo',
+            accentColor: colorScheme.tertiary,
+            benefits: [
+              l10n.benefitAddToStandard,
+              l10n.benefitAnalyzeDiscord,
+              l10n.benefitRequiresBot,
+              l10n.benefitBestGamers,
+            ],
+            buttonLabel: isStandardMember
+                ? l10n.addDiscordAnalysis
+                : l10n.requiresStandardMembership,
+            onPressed: isStandardMember
+                ? () => _completeDiscordAddonSignup(context)
+                : null,
+          ),
+          // Technical warning card
+          if (isStandardMember)
+            Container(
+              width: cardWidth,
+              margin: const EdgeInsets.only(top: 12),
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.orange.withOpacity(0.1),
+                border: Border.all(color: Colors.orange.withOpacity(0.3)),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 20),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Technical Setup Required',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.orange.shade800,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'This feature requires you to create a Discord bot and configure it yourself. Please review the setup instructions before purchasing to ensure you are comfortable with the technical steps involved.',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.orange.shade900,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  InkWell(
+                    onTap: () => _showDiscordSetupInstructions(context),
+                    borderRadius: BorderRadius.circular(8),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF5865F2),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.menu_book, color: Colors.white, size: 18),
+                          const SizedBox(width: 8),
+                          Text(
+                            'View Setup Instructions',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
         ],
-        buttonLabel: isStandardMember
-            ? l10n.addDiscordAnalysis
-            : l10n.requiresStandardMembership,
-        onPressed: isStandardMember
-            ? () => _completeDiscordAddonSignup(context)
-            : null,
       ),
     ];
   }
@@ -212,27 +316,28 @@ class MembershipLandingPage extends StatelessWidget {
     ToxicityAnalyzerController controller,
     double cardWidth,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     final cards = <Widget>[];
 
     if (!controller.isPackGoodUnlocked) {
       cards.add(_TierCard(
         width: cardWidth,
         icon: Icons.thumb_up_alt_outlined,
-        title: 'The Good Pack',
+        title: l10n.goodPackTitle,
         price: r'$9.99',
         accentColor: Colors.green,
         benefits: [
-          '100 healthy relationship metrics',
-          'Positive communication patterns',
-          'Appreciation, empathy & trust signals',
-          'One-time purchase — yours forever',
-          'Unlocks instantly after purchase',
+          l10n.goodPackBenefit1,
+          l10n.goodPackBenefit2,
+          l10n.goodPackBenefit3,
+          l10n.goodPackBenefit4,
+          l10n.goodPackBenefit5,
         ],
-        buttonLabel: 'Unlock The Good Pack',
+        buttonLabel: l10n.unlockGoodPackButton,
         onPressed: () => _purchaseMembership(
           context,
           SubscriptionService.packGoodOneTimeId,
-          'The Good Pack',
+          l10n.goodPackTitle,
           () => controller.unlockPackGood(),
           source: 'landing_page',
         ),
@@ -243,21 +348,21 @@ class MembershipLandingPage extends StatelessWidget {
       cards.add(_TierCard(
         width: cardWidth,
         icon: Icons.warning_amber_outlined,
-        title: 'The Bad Pack',
+        title: l10n.badPackTitle,
         price: r'$9.99',
         accentColor: Colors.orange,
         benefits: [
-          '100 warning-sign relationship metrics',
-          'Spot manipulation & dismissal patterns',
-          'Guilt-tripping, stonewalling & more',
-          'One-time purchase — yours forever',
-          'Unlocks instantly after purchase',
+          l10n.badPackBenefit1,
+          l10n.badPackBenefit2,
+          l10n.badPackBenefit3,
+          l10n.badPackBenefit4,
+          l10n.badPackBenefit5,
         ],
-        buttonLabel: 'Unlock The Bad Pack',
+        buttonLabel: l10n.unlockBadPackButton,
         onPressed: () => _purchaseMembership(
           context,
           SubscriptionService.packBadOneTimeId,
-          'The Bad Pack',
+          l10n.badPackTitle,
           () => controller.unlockPackBad(),
           source: 'landing_page',
         ),
@@ -268,22 +373,72 @@ class MembershipLandingPage extends StatelessWidget {
       cards.add(_TierCard(
         width: cardWidth,
         icon: Icons.dangerous_outlined,
-        title: 'The Ugly Pack',
+        title: l10n.uglyPackTitle,
         price: r'$9.99',
         accentColor: Colors.red,
         benefits: [
-          '100 severe red-flag abuse metrics',
-          'Identify coercion, threats & control',
-          'Trauma bonding & isolation indicators',
-          'One-time purchase — yours forever',
-          'Unlocks instantly after purchase',
+          l10n.uglyPackBenefit1,
+          l10n.uglyPackBenefit2,
+          l10n.uglyPackBenefit3,
+          l10n.uglyPackBenefit4,
+          l10n.uglyPackBenefit5,
         ],
-        buttonLabel: 'Unlock The Ugly Pack',
+        buttonLabel: l10n.unlockUglyPackButton,
         onPressed: () => _purchaseMembership(
           context,
           SubscriptionService.packUglyOneTimeId,
-          'The Ugly Pack',
+          l10n.uglyPackTitle,
           () => controller.unlockPackUgly(),
+          source: 'landing_page',
+        ),
+      ));
+    }
+
+    if (!controller.isPackNarcissistUnlocked) {
+      cards.add(_TierCard(
+        width: cardWidth,
+        icon: Icons.face_retouching_natural,
+        title: l10n.narcissistPackTitle,
+        price: r'$9.99',
+        accentColor: Colors.purple,
+        benefits: [
+          l10n.narcissistPackBenefit1,
+          l10n.narcissistPackBenefit2,
+          l10n.narcissistPackBenefit3,
+          l10n.narcissistPackBenefit4,
+          l10n.narcissistPackBenefit5,
+        ],
+        buttonLabel: l10n.unlockNarcissistPackButton,
+        onPressed: () => _purchaseMembership(
+          context,
+          SubscriptionService.packNarcissistOneTimeId,
+          l10n.narcissistPackTitle,
+          () => controller.unlockPackNarcissist(),
+          source: 'landing_page',
+        ),
+      ));
+    }
+
+    if (!controller.isPackSerialKillerUnlocked) {
+      cards.add(_TierCard(
+        width: cardWidth,
+        icon: Icons.coronavirus_outlined,
+        title: l10n.serialKillerPackTitle,
+        price: r'$9.99',
+        accentColor: Colors.black87,
+        benefits: [
+          l10n.serialKillerPackBenefit1,
+          l10n.serialKillerPackBenefit2,
+          l10n.serialKillerPackBenefit3,
+          l10n.serialKillerPackBenefit4,
+          l10n.serialKillerPackBenefit5,
+        ],
+        buttonLabel: l10n.unlockSerialKillerPackButton,
+        onPressed: () => _purchaseMembership(
+          context,
+          SubscriptionService.packSerialKillerOneTimeId,
+          l10n.serialKillerPackTitle,
+          () => controller.unlockPackSerialKiller(),
           source: 'landing_page',
         ),
       ));
@@ -371,6 +526,14 @@ class MembershipLandingPage extends StatelessWidget {
   //         context.read<ToxicityAnalyzerController>().unlockConnectedAccounts(),
   //   );
   // }
+
+  // Show Discord setup instructions dialog
+  void _showDiscordSetupInstructions(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => DiscordSetupHelp(),
+    );
+  }
 
   // DISCORD ADDON FOR STANDARD MEMBERSHIP
   Future<void> _completeDiscordAddonSignup(BuildContext context) async {
@@ -591,6 +754,7 @@ class _PackSectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final colorScheme = Theme.of(context).colorScheme;
     return Row(
       children: [
@@ -601,13 +765,13 @@ class _PackSectionHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Metric Expansion Packs',
+                l10n.metricExpansionPacksTitle,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
               ),
               Text(
-                'One-time purchases — 100 additional metrics each',
+                l10n.oneTimePurchasesSubtitle,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: colorScheme.onSurfaceVariant,
                     ),
@@ -774,5 +938,184 @@ class _ComingSoonTier extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class _CustomMetricCard extends StatelessWidget {
+  final double width;
+  final ColorScheme colorScheme;
+
+  const _CustomMetricCard({
+    required this.width,
+    required this.colorScheme,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    return SizedBox(
+      width: width,
+      child: Card(
+        elevation: 3,
+        color: colorScheme.secondaryContainer.withOpacity(0.6),
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundColor: colorScheme.secondary.withOpacity(0.16),
+                    child: Icon(Icons.add_circle_outline, size: 32, color: colorScheme.secondary),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          l10n.customMetricsTitle,
+                          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          r'$4.99',
+                          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                            color: colorScheme.secondary,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Text(
+                l10n.purchaseCustomMetricTileDescription,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 16),
+              FilledButton.icon(
+                onPressed: () => _showCustomMetricPurchase(context),
+                icon: const Icon(Icons.shopping_cart),
+                label: Text(l10n.purchaseCustomMetricConfirmButton),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showCustomMetricPurchase(BuildContext context) {
+    // Show the custom metric purchase flow
+    // This would integrate with your existing CustomMetricService
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context)!.purchaseCustomMetricConfirmTitle),
+        content: Text(AppLocalizations.of(context)!.purchaseCustomMetricConfirmBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)!.cancel),
+          ),
+          FilledButton(
+            onPressed: () {
+              Navigator.pop(context);
+              // TODO: Implement actual purchase flow
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Custom metric purchase would start here'),
+                  backgroundColor: Colors.green,
+                ),
+              );
+            },
+            child: Text(AppLocalizations.of(context)!.purchaseCustomMetricConfirmButton),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _RestorePurchasesButton extends StatelessWidget {
+  const _RestorePurchasesButton();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Center(
+      child: OutlinedButton.icon(
+        onPressed: () => _restorePurchases(context),
+        icon: Icon(Icons.restore, color: colorScheme.primary),
+        label: Text(l10n.restorePurchasesButton),
+        style: OutlinedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          side: BorderSide(color: colorScheme.primary.withOpacity(0.5)),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _restorePurchases(BuildContext context) async {
+    final l10n = AppLocalizations.of(context)!;
+    final subscriptionService = context.read<SubscriptionService>();
+    final controller = context.read<ToxicityAnalyzerController>();
+
+    // Show loading indicator
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+
+    try {
+      // Call restore purchases
+      await subscriptionService.restorePurchases();
+
+      // Sync pack unlocks with the controller
+      final newlyUnlocked = await controller.syncPackUnlocksFromPrefs();
+
+      // Close loading dialog
+      Navigator.of(context).pop();
+
+      // Show result
+      if (newlyUnlocked) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(l10n.restorePurchasesSuccess),
+            backgroundColor: Colors.green,
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(l10n.restorePurchasesNoneFound),
+            backgroundColor: Colors.orange,
+          ),
+        );
+      }
+    } catch (e) {
+      // Close loading dialog
+      Navigator.of(context).pop();
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l10n.restorePurchasesError),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 }

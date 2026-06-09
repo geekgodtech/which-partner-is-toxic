@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Bot Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .status-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .status-card {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #3a3a3a;
+        }
+        
+        .status-card h3 {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .status-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .controls {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 1px solid #3a3a3a;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .btn.active {
+            background: #e74c3c;
+        }
+        
+        .btn.active:hover {
+            background: #c0392b;
+        }
+        
+        .threads-container {
+            background: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #3a3a3a;
+        }
+        
+        .threads-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .thread-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .thread-item {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #3a3a3a;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .thread-item:hover {
+            transform: translateY(-2px);
+            border-color: #667eea;
+        }
+        
+        .thread-item.followup {
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .thread-item.responded {
+            border-left: 4px solid #27ae60;
+        }
+        
+        .thread-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .thread-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .thread-title a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .thread-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .thread-meta {
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .thread-stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .engagement-score {
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .priority-score {
+            background: #f39c12;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .keyword {
+            background: #3a3a3a;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            color: #aaa;
+        }
+        
+        .refresh-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        
+        .refresh-btn:hover {
+            background: #229954;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Reddit Engagement Bot</h1>
+            <p>Monitor relationship advice threads and manage responses</p>
+        </div>
+        
+        <div class="status-cards" id="statusCards">
+            <div class="status-card">
+                <h3>Total Threads</h3>
+                <div class="value" id="totalThreads">-</div>
+            </div>
+            <div class="status-card">
+                <h3>Follow-ups</h3>
+                <div class="value" id="followupThreads">-</div>
+            </div>
+            <div class="status-card">
+                <h3>Responded</h3>
+                <div class="value" id="respondedThreads">-</div>
+            </div>
+            <div class="status-card">
+                <h3>PR-Time Mode</h3>
+                <div class="value" id="prTimeStatus">OFF</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn" id="prTimeBtn" onclick="togglePrTime()">Enable PR-Time Mode</button>
+            <button class="refresh-btn" onclick="loadData()">Refresh Data</button>
+        </div>
+        
+        <div class="threads-container">
+            <div class="threads-header">
+                <h2>Priority Threads</h2>
+                <span id="threadCount">Loading...</span>
+            </div>
+            <div class="thread-list" id="threadList">
+                <div class="loading">Loading threads...</div>
+            </div>
+        </div>
+        
+        <div class="last-updated" id="lastUpdated">
+            Last updated: Never
+        </div>
+    </div>
+    
+    <script>
+        let prTimeMode = false;
+        
+        async function loadData() {
+            try {
+                // Load status
+                const statusResponse = await fetch('/api/status');
+                const status = await statusResponse.json();
+                
+                document.getElementById('totalThreads').textContent = status.total_threads || 0;
+                document.getElementById('followupThreads').textContent = status.followup_threads || 0;
+                document.getElementById('respondedThreads').textContent = status.responded_threads || 0;
+                document.getElementById('prTimeStatus').textContent = status.pr_time_mode ? 'ON' : 'OFF';
+                
+                prTimeMode = status.pr_time_mode;
+                updatePrTimeButton();
+                
+                // Load threads
+                const threadsResponse = await fetch('/api/threads');
+                const threads = await threadsResponse.json();
+                
+                displayThreads(threads);
+                
+                // Update last updated
+                document.getElementById('lastUpdated').textContent = 
+                    `Last updated: ${new Date().toLocaleTimeString()}`;
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('threadList').innerHTML = 
+                    '<div class="loading">Error loading data</div>';
+            }
+        }
+        
+        function displayThreads(threads) {
+            const threadList = document.getElementById('threadList');
+            document.getElementById('threadCount').textContent = `${threads.length} threads`;
+            
+            if (threads.length === 0) {
+                threadList.innerHTML = '<div class="loading">No threads found</div>';
+                return;
+            }
+            
+            threadList.innerHTML = threads.map(thread => `
+                <div class="thread-item ${thread.has_followups ? 'followup' : ''} ${thread.my_responses > 0 ? 'responded' : ''}">
+                    <div class="thread-header">
+                        <div>
+                            <div class="thread-title">
+                                <a href="${thread.url}" target="_blank">${thread.title}</a>
+                            </div>
+                            <div class="thread-meta">
+                                r/${thread.subreddit} • by ${thread.author} • ${thread.created_utc}
+                            </div>
+                        </div>
+                        <div>
+                            <span class="engagement-score">E: ${thread.engagement_score}</span>
+                            <span class="priority-score">P: ${thread.priority_score.toFixed(1)}</span>
+                        </div>
+                    </div>
+                    <div class="thread-stats">
+                        <span class="stat">👍 ${thread.upvotes}</span>
+                        <span class="stat">💬 ${thread.comment_count}</span>
+                        <span class="stat">📝 ${thread.my_responses} responses</span>
+                        <span class="stat">🕐 ${thread.last_message_utc}</span>
+                    </div>
+                    ${thread.keywords_found.length > 0 ? `
+                        <div class="keywords">
+                            ${thread.keywords_found.map(keyword => 
+                                `<span class="keyword">${keyword}</span>`
+                            ).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+        
+        async function togglePrTime() {
+            try {
+                const response = await fetch('/api/toggle_pr_time', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'}
+                });
+                const result = await response.json();
+                
+                prTimeMode = result.pr_time_mode;
+                updatePrTimeButton();
+                loadData(); // Reload status
+                
+            } catch (error) {
+                console.error('Error toggling PR-Time mode:', error);
+            }
+        }
+        
+        function updatePrTimeButton() {
+            const btn = document.getElementById('prTimeBtn');
+            if (prTimeMode) {
+                btn.textContent = 'Disable PR-Time Mode';
+                btn.classList.add('active');
+            } else {
+                btn.textContent = 'Enable PR-Time Mode';
+                btn.classList.remove('active');
+            }
+        }
+        
+        // Load data on page load
+        loadData();
+        
+        // Auto-refresh every 30 seconds
+        setInterval(loadData, 30000);
+    </script>
+</body>
+</html>

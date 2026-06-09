@@ -10,7 +10,7 @@
     "description": "Title for the metrics selection section"
   },
   "metricsDescription": "Fewer selected metrics produce a deeper, more concentrated analysis of those behaviors. More selected metrics produce a broader report with less detail per metric.",
-  "selectDiscordChannel": "Discord 채널 선택",
+  "selectDiscordChannel": "채널 선택",
   "lightMode": "라이트",
   "darkMode": "다크",
   "discordSetupTitle": "Discord 설정 방법",
@@ -25,6 +25,7 @@
   "discordStep4Description": "앱 설정에 봇 토큰을 입력합니다 (도움이 필요하면 지원팀에 문의하세요).",
   "discordStep5Title": "채널 선택",
   "discordStep5Description": "'Discord 채널 선택'을 탭하고 서버를 선택한 다음 분석할 채널을 선택합니다.",
+  "discordBotConfiguration": "봇 구성",
   "gotIt": "알겠습니다",
   "@metricsDescription": {
     "description": "Explanation of how metric selection affects analysis"
@@ -1568,4 +1569,62 @@
   "metric_serial_killer_50_description": "대상을 끝내거나, 죽이거나, 영구히 침묵시키는 것에 대한 언급을 인식합니다.",
   "packNarcissistLabel": "자기애적 성격",
   "packSerialKillerLabel": "연쇄 살인범"
+,
+  "expansionPacksPurchased": "구매한 확장팩:",
+  "expansionPacksStillAvailable": "구매 가능한 확장팩",
+  "metricsOwned": "보유한 메트릭",
+  "metricsStillAvailable": "구매 가능한 메트릭",
+  "getMore": "더 가져오기!",
+  "allPacksOwned": "모든 확장팩을 보유하고 있습니다!",
+  "standardPackTitle": "스탠다드 팩",
+  "goodPackTitle": "굿 팩",
+  "badPackTitle": "배드 팩",
+  "uglyPackTitle": "어글리 팩",
+  "narcissistPackTitle": "나르시스트 팩",
+  "serialKillerPackTitle": "연쇄살인마 팩",
+  "customMetricsTitle": "커스텀 메트릭",
+  "@metricsCountSubtitle": {
+    "description": "metricsCountSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsCountSubtitle": "{count}개 메트릭",
+  "@metricsAddonSubtitle": {
+    "description": "metricsAddonSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsAddonSubtitle": "{count}개 메트릭 애드온",
+  "@metricSingular": {
+    "description": "metricSingular",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricSingular": "{count}개 메트릭",
+  "@metricPlural": {
+    "description": "metricPlural",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricPlural": "{count}개 메트릭"
+,
+  "restorePurchases": "구매 복원",
+  "restorePurchasesButton": "이전 구매 복원",
+  "restorePurchasesSuccess": "구매가 성공적으로 복원되었습니다!",
+  "restorePurchasesError": "구매를 복원할 수 없습니다. 다시 시도해 주세요.",
+  "restorePurchasesNoneFound": "이전 구매를 찾을 수 없습니다."
+,
+  "discordAddonPopupTitle": "Discord 기능",
+  "discordAddonPopupMessage": "이 기능은 애드온으로 사용할 수 있습니다."
+,
+  "discordAccordionTitle": "Discord 통합",
+  "discordAccordionSubtitle": "Discord 서버 연결"
+,
+  "selectDiscord": "Discord 선택"
+,
+  "enableDiscord": "Discord 활성화"
 }

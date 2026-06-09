@@ -4,7 +4,7 @@
   "psychologicalMetrics": "心理指标",
   "metricsDescription": "选择较少的指标会对这些行为产生更深入、更集中的分析。选择较多的指标会生成更广泛的报告，但每个指标的细节较少。",
   "selectSMS": "选择短信 / RCS 聊天",
-  "selectDiscordChannel": "选择 Discord 频道",
+  "selectDiscordChannel": "选择频道",
   "lightMode": "浅色",
   "darkMode": "深色",
   "discordSetupTitle": "如何设置 Discord",
@@ -19,6 +19,7 @@
   "discordStep4Description": "在应用设置中输入您的机器人令牌（如需帮助请联系支持）。",
   "discordStep5Title": "选择频道",
   "discordStep5Description": "点击 '选择 Discord 频道'，选择您的服务器，然后选择要分析的频道。",
+  "discordBotConfiguration": "机器人配置",
   "gotIt": "明白了",
   "selectFile": "选择文件",
   "analyzeSelectedMetrics": "分析所选指标",
@@ -1312,4 +1313,62 @@
   "metric_serial_killer_50_description": "识别涉及结束、杀害或永久沉默目标的表述。",
   "packNarcissistLabel": "自恋者",
   "packSerialKillerLabel": "连环杀手"
+,
+  "expansionPacksPurchased": "已购买的扩展包:",
+  "expansionPacksStillAvailable": "仍可购买的扩展包",
+  "metricsOwned": "已拥有的指标",
+  "metricsStillAvailable": "仍可购买的指标",
+  "getMore": "获取更多!",
+  "allPacksOwned": "已拥有所有扩展包!",
+  "standardPackTitle": "标准包",
+  "goodPackTitle": "好包",
+  "badPackTitle": "坏包",
+  "uglyPackTitle": "丑包",
+  "narcissistPackTitle": "自恋者包",
+  "serialKillerPackTitle": "连环杀手包",
+  "customMetricsTitle": "自定义指标",
+  "@metricsCountSubtitle": {
+    "description": "metricsCountSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsCountSubtitle": "{count}个指标",
+  "@metricsAddonSubtitle": {
+    "description": "metricsAddonSubtitle",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricsAddonSubtitle": "{count}个指标附加包",
+  "@metricSingular": {
+    "description": "metricSingular",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricSingular": "{count}个指标",
+  "@metricPlural": {
+    "description": "metricPlural",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "metricPlural": "{count}个指标"
+,
+  "restorePurchases": "恢复购买",
+  "restorePurchasesButton": "恢复之前的购买",
+  "restorePurchasesSuccess": "购买已成功恢复！",
+  "restorePurchasesError": "无法恢复购买。请重试。",
+  "restorePurchasesNoneFound": "未找到之前的购买。"
+,
+  "discordAddonPopupTitle": "Discord功能",
+  "discordAddonPopupMessage": "此功能可作为附加组件使用。"
+,
+  "discordAccordionTitle": "Discord集成",
+  "discordAccordionSubtitle": "连接Discord服务器"
+,
+  "selectDiscord": "选择 Discord"
+,
+  "enableDiscord": "启用 Discord"
 }
