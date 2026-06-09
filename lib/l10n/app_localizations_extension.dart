@@ -6,8 +6,14 @@ extension AppLocalizationsExtension on AppLocalizations {
   /// Metric IDs are in the format "metric_1", "metric_2", etc.
   String getMetricName(String metricId, {String? fallbackName}) {
     if (metricId.startsWith('custom_metric_')) return fallbackName ?? metricId;
-    final key = '${metricId}_name';
-    return _getStringByKey(key);
+    final bool isPack = metricId.startsWith('good_') ||
+        metricId.startsWith('bad_') ||
+        metricId.startsWith('ugly_');
+    final String lookupId = isPack ? 'metric_$metricId' : metricId;
+    final key = '${lookupId}_name';
+    final looked = _getStringByKey(key);
+    if (looked == key) return fallbackName ?? metricId;
+    return looked;
   }
 
   /// Returns the localized description for a metric by its ID.
@@ -15,8 +21,14 @@ extension AppLocalizationsExtension on AppLocalizations {
   /// Pack metrics (good_*, bad_*, ugly_*) use their catalog descriptions directly.
   String getMetricDescription(String metricId, {String? fallbackDescription}) {
     if (metricId.startsWith('custom_metric_')) return fallbackDescription ?? '';
-    final key = '${metricId}_description';
-    return _getStringByKey(key);
+    final bool isPack = metricId.startsWith('good_') ||
+        metricId.startsWith('bad_') ||
+        metricId.startsWith('ugly_');
+    final String lookupId = isPack ? 'metric_$metricId' : metricId;
+    final key = '${lookupId}_description';
+    final looked = _getStringByKey(key);
+    if (looked == key) return fallbackDescription ?? '';
+    return looked;
   }
 
   /// Helper method to get a string by key using a switch statement.

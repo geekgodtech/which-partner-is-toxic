@@ -1399,2102 +1399,1803 @@ class AppLocalizationsZh extends AppLocalizations {
   String get packUglyLabel => '丑';
 
   @override
-  String get metric_good_1_name => 'Active Listening Cues';
+  String get metric_good_1_name => '积极倾听线索';
 
   @override
-  String get metric_good_1_description =>
-      'Detects paraphrasing, clarifying questions, and demonstrated understanding of the partner\'s perspective in text.';
+  String get metric_good_1_description => '检测文本中的释义、澄清性问题以及对伴侣观点的理解表现。';
 
   @override
-  String get metric_good_2_name => 'Appreciation Expression';
+  String get metric_good_2_name => '赞赏表达';
 
   @override
-  String get metric_good_2_description =>
-      'Identifies specific gratitude, recognition of effort, and acknowledgment of partner\'s positive qualities or actions.';
+  String get metric_good_2_description => '识别具体的感激之情、对努力的认可，以及对伴侣积极品质或行为的肯定。';
 
   @override
-  String get metric_good_3_name => 'Affirmation Language';
+  String get metric_good_3_name => '肯定语言';
 
   @override
-  String get metric_good_3_description =>
-      'Looks for statements that validate the partner\'s feelings, experiences, worth, or right to have needs.';
+  String get metric_good_3_description => '寻找认可伴侣感受、经历、价值或需求权利的陈述。';
 
   @override
-  String get metric_good_4_name => 'Collaborative Tone';
+  String get metric_good_4_name => '协作语气';
 
   @override
-  String get metric_good_4_description =>
-      'Measures use of \"we,\" joint problem-solving language, and framing issues as shared challenges to address together.';
+  String get metric_good_4_description => '衡量使用“我们”、共同解决问题的语言，并将问题视为共同挑战来应对。';
 
   @override
-  String get metric_good_5_name => 'Curiosity About Partner';
+  String get metric_good_5_name => '对伴侣的好奇';
 
   @override
-  String get metric_good_5_description =>
-      'Tracks asking questions about the partner\'s thoughts, feelings, day, preferences, or inner experience.';
+  String get metric_good_5_description => '追踪询问伴侣想法、感受、日常、偏好或内心体验的问题。';
 
   @override
-  String get metric_good_6_name => 'Vulnerability Expression';
+  String get metric_good_6_name => '脆弱表达';
 
   @override
-  String get metric_good_6_description =>
-      'Identifies sharing fears, insecurities, needs, or emotional truths without defensiveness or blame.';
+  String get metric_good_6_description => '识别无防御或指责地分享恐惧、不安、需求或情感真相。';
 
   @override
-  String get metric_good_7_name => 'Humor as Connection';
+  String get metric_good_7_name => '幽默联结';
 
   @override
-  String get metric_good_7_description =>
-      'Detects playful shared laughter that brings partners together rather than mocking or belittling.';
+  String get metric_good_7_description => '检测带来伴侣间联结的嬉戏共享笑声，而非嘲笑或贬低。';
 
   @override
-  String get metric_good_8_name => 'Reassurance Offering';
+  String get metric_good_8_name => '提供安抚';
 
   @override
-  String get metric_good_8_description =>
-      'Looks for proactive statements that provide comfort, security, or confidence to the anxious partner.';
+  String get metric_good_8_description => '寻找为焦虑型伴侣提供安慰、安全感或信心的主动表述。';
 
   @override
-  String get metric_good_9_name => 'Compliment Frequency';
+  String get metric_good_9_name => '赞美频率';
 
   @override
-  String get metric_good_9_description =>
-      'Measures genuine specific praise about appearance, character, abilities, or positive actions.';
+  String get metric_good_9_description => '衡量关于外貌、性格、能力或积极行为的具体真诚赞美。';
 
   @override
-  String get metric_good_10_name => 'Emotional Availability';
+  String get metric_good_10_name => '情感可得性';
 
   @override
-  String get metric_good_10_description =>
-      'Assesses responsiveness to the partner\'s emotional needs, presence during distress, and willingness to engage.';
+  String get metric_good_10_description => '评估对伴侣情感需求的回应、在对方痛苦时的在场程度以及参与意愿。';
 
   @override
-  String get metric_good_11_name => 'Gratitude Habit';
+  String get metric_good_11_name => '感恩习惯';
 
   @override
-  String get metric_good_11_description =>
-      'Identifies regular expressions of thanks for small things, effort, presence, or support.';
+  String get metric_good_11_description => '识别对小事、付出、陪伴或支持的定期感谢表达。';
 
   @override
-  String get metric_good_12_name => 'Supportive Language';
+  String get metric_good_12_name => '支持性语言';
 
   @override
-  String get metric_good_12_description =>
-      'Tracks statements offering help, encouragement, belief in the partner\'s abilities, or standing beside them.';
+  String get metric_good_12_description => '追踪提供帮助、鼓励、相信伴侣能力或并肩支持的言语。';
 
   @override
-  String get metric_good_13_name => 'Gentle Disagreement';
+  String get metric_good_13_name => '温和分歧';
 
   @override
-  String get metric_good_13_description =>
-      'Measures ability to express different views while preserving respect, curiosity, and the relationship.';
+  String get metric_good_13_description => '衡量在表达不同观点时保持尊重、好奇心和关系的能力。';
 
   @override
-  String get metric_good_14_name => 'Apology Sincerity';
+  String get metric_good_14_name => '道歉真诚度';
 
   @override
-  String get metric_good_14_description =>
-      'Detects genuine remorse, understanding of impact, and commitment to change without excuses.';
+  String get metric_good_14_description => '检测真诚的悔意、对影响的认知以及无借口改变的承诺。';
 
   @override
-  String get metric_good_15_name => 'Forgiveness Acceptance';
+  String get metric_good_15_name => '宽恕接纳';
 
   @override
-  String get metric_good_15_description =>
-      'Looks for willingness to let go of past harm, move forward, and rebuild trust after repair.';
+  String get metric_good_15_description => '观察放下过往伤害、向前迈进并在修复后重建信任的意愿。';
 
   @override
-  String get metric_good_16_name => 'Quality Time Initiation';
+  String get metric_good_16_name => '优质时间发起';
 
   @override
-  String get metric_good_16_description =>
-      'Identifies offers to spend focused time together, plan activities, or create connection moments.';
+  String get metric_good_16_description => '识别提出共度专注时光、计划活动或创造联结时刻的提议。';
 
   @override
-  String get metric_good_17_name => 'Physical Affection Cues';
+  String get metric_good_17_name => '身体亲密信号';
 
   @override
-  String get metric_good_17_description =>
-      'Tracks mentions of touch, hugs, kisses, or physical closeness as expressions of care and intimacy.';
+  String get metric_good_17_description => '追踪提及拥抱、亲吻或身体亲近作为关爱与亲密表达的行为。';
 
   @override
-  String get metric_good_18_name => 'Shared Joy Recognition';
+  String get metric_good_18_name => '共享喜悦识别';
 
   @override
-  String get metric_good_18_description =>
-      'Measures celebrating partner\'s wins, achievements, happiness, or good news with genuine enthusiasm.';
+  String get metric_good_18_description => '衡量以真诚热情庆祝伴侣的胜利、成就、幸福或好消息。';
 
   @override
-  String get metric_good_19_name => 'Conflict Resolution Effort';
+  String get metric_good_19_name => '冲突解决努力';
 
   @override
-  String get metric_good_19_description =>
-      'Identifies attempts to find solutions, compromise, or restore peace after disagreement.';
+  String get metric_good_19_description => '识别在分歧后寻求解决方案、妥协或恢复和平的尝试。';
 
   @override
-  String get metric_good_20_name => 'Patience Demonstration';
+  String get metric_good_20_name => '耐心表现';
 
   @override
-  String get metric_good_20_description =>
-      'Detects tolerance for partner\'s pace, struggles, learning curve, or emotional processing needs.';
+  String get metric_good_20_description => '检测对伴侣节奏、困难、学习曲线或情感处理需求的容忍度。';
 
   @override
-  String get metric_good_21_name => 'Perspective-Taking Language';
+  String get metric_good_21_name => '换位思考语言';
 
   @override
-  String get metric_good_21_description =>
-      'Looks for statements showing understanding of the partner\'s viewpoint, context, or emotional reality.';
+  String get metric_good_21_description => '寻找显示理解伴侣观点、背景或情感现实的陈述。';
 
   @override
-  String get metric_good_22_name => 'Reliability Signals';
+  String get metric_good_22_name => '可靠性信号';
 
   @override
-  String get metric_good_22_description =>
-      'Tracks following through on promises, showing up consistently, and being dependable.';
+  String get metric_good_22_description => '追踪履行承诺、持续出现和可靠性的表现。';
 
   @override
-  String get metric_good_23_name => 'Respect for Differences';
+  String get metric_good_23_name => '尊重差异';
 
   @override
-  String get metric_good_23_description =>
-      'Measures acceptance of partner\'s unique traits, preferences, opinions, and ways of being.';
+  String get metric_good_23_description => '衡量对伴侣独特特质、偏好、意见和存在方式的接受程度。';
 
   @override
-  String get metric_good_24_name => 'Openness to Feedback';
+  String get metric_good_24_name => '反馈开放性';
 
   @override
-  String get metric_good_24_description =>
-      'Identifies receptiveness to partner\'s concerns, willingness to hear criticism, and desire to improve.';
+  String get metric_good_24_description => '识别对伴侣关切的接纳、愿意听取批评以及改进的意愿。';
 
   @override
-  String get metric_good_25_name => 'Validation of Emotions';
+  String get metric_good_25_name => '情感验证';
 
   @override
-  String get metric_good_25_description =>
-      'Detects acknowledgment that the partner\'s feelings are real, understandable, and worthy of attention.';
+  String get metric_good_25_description => '检测承认伴侣的感受是真实、可理解且值得关注的表述。';
 
   @override
-  String get metric_good_26_name => 'Encouragement Language';
+  String get metric_good_26_name => '鼓励语言';
 
   @override
-  String get metric_good_26_description =>
-      'Looks for statements that inspire confidence, motivate action, or support the partner\'s goals.';
+  String get metric_good_26_description => '寻找激发信心、促进行动或支持伴侣目标的陈述。';
 
   @override
-  String get metric_good_27_name => 'Intimate Disclosure';
+  String get metric_good_27_name => '亲密自我表露';
 
   @override
-  String get metric_good_27_description =>
-      'Identifies sharing personal thoughts, dreams, fears, or secrets that deepen emotional connection.';
+  String get metric_good_27_description => '识别分享个人想法、梦想、恐惧或秘密以加深情感联系的行为。';
 
   @override
-  String get metric_good_28_name => 'Attunement Signals';
+  String get metric_good_28_name => '情感调谐信号';
 
   @override
-  String get metric_good_28_description =>
-      'Measures noticing the partner\'s mood, needs, or distress without being told explicitly.';
+  String get metric_good_28_description => '衡量在未被明确告知的情况下注意到伴侣的情绪、需求或困扰的能力。';
 
   @override
-  String get metric_good_29_name => 'Positive Reframing';
+  String get metric_good_29_name => '积极重构';
 
   @override
-  String get metric_good_29_description =>
-      'Detects finding silver linings, growth opportunities, or constructive angles in difficult situations.';
+  String get metric_good_29_description => '检测在困难情境中发现积极面、成长机会或建设性角度的能力。';
 
   @override
-  String get metric_good_30_name => 'Commitment Language';
+  String get metric_good_30_name => '承诺语言';
 
   @override
-  String get metric_good_30_description =>
-      'Tracks expressions of dedication, long-term thinking, and investment in the relationship\'s future.';
+  String get metric_good_30_description => '追踪对关系的承诺、长远思考及未来投入的表达。';
 
   @override
-  String get metric_good_31_name => 'Flexibility Demonstration';
+  String get metric_good_31_name => '灵活性展示';
 
   @override
-  String get metric_good_31_description =>
-      'Identifies willingness to adapt plans, adjust expectations, or meet the partner halfway.';
+  String get metric_good_31_description => '识别调整计划、改变期望或与伴侣妥协的意愿。';
 
   @override
-  String get metric_good_32_name => 'Protective Language';
+  String get metric_good_32_name => '保护性语言';
 
   @override
-  String get metric_good_32_description =>
-      'Looks for statements showing the partner\'s safety, wellbeing, and interests matter deeply.';
+  String get metric_good_32_description => '寻找表明伴侣的安全、福祉和利益至关重要的陈述。';
 
   @override
-  String get metric_good_33_name => 'Celebration of Milestones';
+  String get metric_good_33_name => '里程碑庆祝';
 
   @override
-  String get metric_good_33_description =>
-      'Measures acknowledging anniversaries, achievements, or meaningful moments together.';
+  String get metric_good_33_description => '衡量对纪念日、成就或共同重要时刻的认可。';
 
   @override
-  String get metric_good_34_name => 'Constructive Feedback';
+  String get metric_good_34_name => '建设性反馈';
 
   @override
-  String get metric_good_34_description =>
-      'Detects offering suggestions for improvement that are kind, specific, and growth-focused.';
+  String get metric_good_34_description => '检测提供友善、具体且以成长为导向的改进建议。';
 
   @override
-  String get metric_good_35_name => 'Presence During Hardship';
+  String get metric_good_35_name => '困境陪伴';
 
   @override
-  String get metric_good_35_description =>
-      'Identifies staying engaged when the partner is struggling, grieving, or facing challenges.';
+  String get metric_good_35_description => '识别在伴侣挣扎、悲伤或面临挑战时保持参与的行为。';
 
   @override
-  String get metric_good_36_name => 'Admiration Expression';
+  String get metric_good_36_name => '钦佩表达';
 
   @override
-  String get metric_good_36_description =>
-      'Tracks genuine respect for the partner\'s character, strength, intelligence, or resilience.';
+  String get metric_good_36_description => '追踪对伴侣品格、力量、智慧或韧性的真诚尊重。';
 
   @override
-  String get metric_good_37_name => 'Playfulness Indicators';
+  String get metric_good_37_name => '嬉戏指标';
 
   @override
-  String get metric_good_37_description =>
-      'Looks for lighthearted teasing, inside jokes, or fun interactions that strengthen bonding.';
+  String get metric_good_37_description => '寻找轻松玩笑、内部笑话或有趣的互动，以加强情感纽带。';
 
   @override
-  String get metric_good_38_name => 'Empathic Mirroring';
+  String get metric_good_38_name => '共情镜像';
 
   @override
-  String get metric_good_38_description =>
-      'Measures reflecting back the partner\'s emotions to show understanding and validation.';
+  String get metric_good_38_description => '衡量对伴侣情绪的反馈，以展示理解和认可。';
 
   @override
-  String get metric_good_39_name => 'Acceptance Language';
+  String get metric_good_39_name => '接纳语言';
 
   @override
-  String get metric_good_39_description =>
-      'Detects embracing the partner as they are, including flaws, without demanding change.';
+  String get metric_good_39_description => '检测接纳伴侣本来的样子，包括缺点，而不要求改变。';
 
   @override
-  String get metric_good_40_name => 'Supportive Presence';
+  String get metric_good_40_name => '支持性存在';
 
   @override
-  String get metric_good_40_description =>
-      'Identifies being there without fixing, offering comfort through listening and companionship.';
+  String get metric_good_40_description => '识别在伴侣身边而不试图解决问题，通过倾听和陪伴提供安慰。';
 
   @override
-  String get metric_good_41_name => 'Genuine Interest';
+  String get metric_good_41_name => '真诚兴趣';
 
   @override
-  String get metric_good_41_description =>
-      'Tracks asking follow-up questions and remembering details about the partner\'s life and concerns.';
+  String get metric_good_41_description => '追踪提出后续问题并记住伴侣生活和关切的细节。';
 
   @override
-  String get metric_good_42_name => 'Reciprocal Effort';
+  String get metric_good_42_name => '互惠努力';
 
   @override
-  String get metric_good_42_description =>
-      'Measures both partners contributing equally to emotional work, planning, and relationship maintenance.';
+  String get metric_good_42_description => '衡量双方在情感工作、规划和关系维护上的平等贡献。';
 
   @override
-  String get metric_good_43_name => 'Forgiveness Language';
+  String get metric_good_43_name => '宽恕语言';
 
   @override
-  String get metric_good_43_description =>
-      'Looks for releasing grudges, offering second chances, and choosing to move past hurt.';
+  String get metric_good_43_description => '寻找放下怨恨、给予第二次机会并选择超越伤害的行为。';
 
   @override
-  String get metric_good_44_name => 'Mutual Respect Signals';
+  String get metric_good_44_name => '相互尊重信号';
 
   @override
-  String get metric_good_44_description =>
-      'Detects treating the partner as an equal, honoring their opinions, and valuing their input.';
+  String get metric_good_44_description => '检测将伴侣视为平等、尊重其意见并重视其贡献。';
 
   @override
-  String get metric_good_45_name => 'Emotional Honesty';
+  String get metric_good_45_name => '情感诚实';
 
   @override
-  String get metric_good_45_description =>
-      'Identifies truthful expression of feelings without manipulation, exaggeration, or strategic withholding.';
+  String get metric_good_45_description => '识别真实表达感受，不操纵、不夸大、不策略性隐瞒。';
 
   @override
-  String get metric_good_46_name => 'Supportive Listening';
+  String get metric_good_46_name => '支持性倾听';
 
   @override
-  String get metric_good_46_description =>
-      'Measures allowing the partner to fully express without interrupting, judging, or immediately problem-solving.';
+  String get metric_good_46_description => '衡量允许伴侣充分表达而不打断、评判或立即解决问题的行为。';
 
   @override
-  String get metric_good_47_name => 'Affectionate Nicknames';
+  String get metric_good_47_name => '爱称使用';
 
   @override
-  String get metric_good_47_description =>
-      'Tracks use of loving terms of endearment that convey warmth and intimate connection.';
+  String get metric_good_47_description => '追踪使用表达温暖和亲密连接的爱称。';
 
   @override
-  String get metric_good_48_name => 'Shared Laughter';
+  String get metric_good_48_name => '共享欢笑';
 
   @override
-  String get metric_good_48_description =>
-      'Identifies moments of mutual humor and joy that create positive bonding experiences.';
+  String get metric_good_48_description => '识别创造积极联结体验的相互幽默和欢乐时刻。';
 
   @override
-  String get metric_good_49_name => 'Thoughtful Gestures';
+  String get metric_good_49_name => '体贴举动';
 
   @override
-  String get metric_good_49_description =>
-      'Looks for small acts of kindness, remembering preferences, or doing things to make partner happy.';
+  String get metric_good_49_description => '关注小善举、记住偏好或为让伴侣开心而做的事情。';
 
   @override
-  String get metric_good_50_name => 'Confidence in Partner';
+  String get metric_good_50_name => '对伴侣的信心';
 
   @override
-  String get metric_good_50_description =>
-      'Detects belief in the partner\'s abilities, potential, and capacity to handle challenges.';
+  String get metric_good_50_description => '检测对伴侣能力、潜力和应对挑战能力的信任。';
 
   @override
-  String get metric_good_51_name => 'Healthy Interdependence';
+  String get metric_good_51_name => '健康相互依赖';
 
   @override
-  String get metric_good_51_description =>
-      'Measures balance between togetherness and independence, supporting each other\'s autonomy.';
+  String get metric_good_51_description => '衡量亲密与独立之间的平衡，支持彼此的自主性。';
 
   @override
-  String get metric_good_52_name => 'Conflict De-escalation';
+  String get metric_good_52_name => '冲突降级';
 
   @override
-  String get metric_good_52_description =>
-      'Identifies soft language, breaks, or solution-offering to calm heated discussions.';
+  String get metric_good_52_description => '识别缓和激烈讨论的柔和语言、暂停或提供解决方案。';
 
   @override
-  String get metric_good_53_name => 'Genuine Apology';
+  String get metric_good_53_name => '真诚道歉';
 
   @override
-  String get metric_good_53_description =>
-      'Tracks full acknowledgment of wrongdoing without minimizing, defending, or shifting blame.';
+  String get metric_good_53_description => '追踪对错误的完全承认，不轻描淡写、不辩护、不推卸责任。';
 
   @override
-  String get metric_good_54_name => 'Emotional Support Offers';
+  String get metric_good_54_name => '情感支持提供';
 
   @override
-  String get metric_good_54_description =>
-      'Looks for proactive check-ins, asking how the partner is doing, and offering help.';
+  String get metric_good_54_description => '关注主动关心、询问伴侣状况并提供帮助。';
 
   @override
-  String get metric_good_55_name => 'Respectful Boundaries';
+  String get metric_good_55_name => '尊重边界';
 
   @override
-  String get metric_good_55_description =>
-      'Measures honoring the partner\'s stated limits while maintaining own healthy boundaries.';
+  String get metric_good_55_description => '衡量尊重伴侣明确设定的界限，同时保持自身健康边界的行为。';
 
   @override
-  String get metric_good_56_name => 'Positive Anticipation';
+  String get metric_good_56_name => '积极期待';
 
   @override
-  String get metric_good_56_description =>
-      'Detects excitement about the future together, planning ahead, and looking forward to shared experiences.';
+  String get metric_good_56_description => '检测对共同未来的兴奋感、提前规划以及期待共享体验的积极情绪。';
 
   @override
-  String get metric_good_57_name => 'Attentiveness Signals';
+  String get metric_good_57_name => '关注信号';
 
   @override
-  String get metric_good_57_description =>
-      'Identifies remembering important dates, preferences, and details that show the partner matters.';
+  String get metric_good_57_description => '识别记住重要日期、偏好和细节的行为，这些表明伴侣的重要性。';
 
   @override
-  String get metric_good_58_name => 'Encouraging Growth';
+  String get metric_good_58_name => '鼓励成长';
 
   @override
-  String get metric_good_58_description =>
-      'Tracks supporting the partner\'s personal development, learning, and pursuit of goals.';
+  String get metric_good_58_description => '追踪支持伴侣个人发展、学习和追求目标的行为。';
 
   @override
-  String get metric_good_59_name => 'Tender Language';
+  String get metric_good_59_name => '温柔语言';
 
   @override
-  String get metric_good_59_description =>
-      'Looks for soft, caring word choices that convey gentleness and emotional warmth.';
+  String get metric_good_59_description => '寻找柔和、关切的措辞，传达温柔和情感温暖。';
 
   @override
-  String get metric_good_60_name => 'Mutual Accountability';
+  String get metric_good_60_name => '共同责任';
 
   @override
-  String get metric_good_60_description =>
-      'Measures both partners taking responsibility for their actions and their impact.';
+  String get metric_good_60_description => '衡量双方为自己的行为及其影响承担责任的程度。';
 
   @override
-  String get metric_good_61_name => 'Celebration of Partner';
+  String get metric_good_61_name => '赞美伴侣';
 
   @override
-  String get metric_good_61_description =>
-      'Detects publicly or privately expressing pride, joy, or admiration for the partner.';
+  String get metric_good_61_description => '检测公开或私下表达对伴侣的自豪、喜悦或钦佩。';
 
   @override
-  String get metric_good_62_name => 'Consistent Affection';
+  String get metric_good_62_name => '持续关爱';
 
   @override
-  String get metric_good_62_description =>
-      'Identifies regular expressions of love that do not fluctuate based on performance or compliance.';
+  String get metric_good_62_description => '识别不因表现或顺从波动的稳定爱意表达。';
 
   @override
-  String get metric_good_63_name => 'Emotional Attunement';
+  String get metric_good_63_name => '情感共鸣';
 
   @override
-  String get metric_good_63_description =>
-      'Tracks sensing and responding to subtle shifts in the partner\'s emotional state.';
+  String get metric_good_63_description => '追踪感知并回应伴侣情绪状态微妙变化的能力。';
 
   @override
-  String get metric_good_64_name => 'Collaborative Decision-Making';
+  String get metric_good_64_name => '协作决策';
 
   @override
-  String get metric_good_64_description =>
-      'Measures discussing options together and making choices that consider both partners\' needs.';
+  String get metric_good_64_description => '衡量共同讨论选项并做出考虑双方需求的选择。';
 
   @override
-  String get metric_good_65_name => 'Reassurance Without Demand';
+  String get metric_good_65_name => '无条件安抚';
 
   @override
-  String get metric_good_65_description =>
-      'Looks for offering comfort and security without requiring the partner to earn it.';
+  String get metric_good_65_description => '寻找无需伴侣争取即可提供安慰和安全感的行为。';
 
   @override
-  String get metric_good_66_name => 'Authentic Connection';
+  String get metric_good_66_name => '真诚连接';
 
   @override
-  String get metric_good_66_description =>
-      'Detects genuine presence, real sharing, and dropping pretense in interactions.';
+  String get metric_good_66_description => '检测互动中真实的存在、真诚分享和摒弃伪装。';
 
   @override
-  String get metric_good_67_name => 'Mutual Encouragement';
+  String get metric_good_67_name => '相互鼓励';
 
   @override
-  String get metric_good_67_description =>
-      'Identifies both partners cheering each other on and celebrating efforts not just outcomes.';
+  String get metric_good_67_description => '识别双方互相鼓励，庆祝努力而非仅关注结果。';
 
   @override
-  String get metric_good_68_name => 'Respectful Questioning';
+  String get metric_good_68_name => '尊重性提问';
 
   @override
-  String get metric_good_68_description =>
-      'Tracks asking about the partner\'s perspective with genuine curiosity rather than interrogation.';
+  String get metric_good_68_description => '追踪以真诚好奇而非审问的方式询问伴侣的观点。';
 
   @override
-  String get metric_good_69_name => 'Loving Consistency';
+  String get metric_good_69_name => '爱的恒常';
 
   @override
-  String get metric_good_69_description =>
-      'Measures showing up the same way in good times and hard times, reliable in affection.';
+  String get metric_good_69_description => '衡量在顺境和逆境中保持一致，情感可靠。';
 
   @override
-  String get metric_good_70_name => 'Emotional Reciprocity';
+  String get metric_good_70_name => '情感互惠';
 
   @override
-  String get metric_good_70_description =>
-      'Looks for both partners sharing feelings, needs, and vulnerabilities in balanced ways.';
+  String get metric_good_70_description => '寻找双方以平衡方式分享感受、需求和脆弱之处。';
 
   @override
-  String get metric_good_71_name => 'Joyful Presence';
+  String get metric_good_71_name => '愉悦相伴';
 
   @override
-  String get metric_good_71_description =>
-      'Detects genuine happiness in the partner\'s company and enthusiasm for time together.';
+  String get metric_good_71_description => '检测与伴侣相处时的真实快乐和对共度时光的热情。';
 
   @override
-  String get metric_good_72_name => 'Constructive Dialogue';
+  String get metric_good_72_name => '建设性对话';
 
   @override
-  String get metric_good_72_description =>
-      'Identifies conversations that move toward understanding rather than winning or proving right.';
+  String get metric_good_72_description => '识别趋向理解而非争胜或证明正确的对话。';
 
   @override
-  String get metric_good_73_name => 'Protective Advocacy';
+  String get metric_good_73_name => '保护性支持';
 
   @override
-  String get metric_good_73_description =>
-      'Tracks standing up for the partner, defending them, and prioritizing their wellbeing.';
+  String get metric_good_73_description => '追踪为伴侣挺身而出、维护伴侣并优先考虑其福祉的行为。';
 
   @override
-  String get metric_good_74_name => 'Mindful Communication';
+  String get metric_good_74_name => '正念沟通';
 
   @override
-  String get metric_good_74_description =>
-      'Measures thoughtful word choice, considering impact before speaking, and intentional messaging.';
+  String get metric_good_74_description => '衡量深思熟虑的措辞、在说话前考虑影响以及有意图的沟通。';
 
   @override
-  String get metric_good_75_name => 'Relationship Investment';
+  String get metric_good_75_name => '关系投入';
 
   @override
-  String get metric_good_75_description =>
-      'Looks for time, energy, and resources devoted to nurturing the partnership.';
+  String get metric_good_75_description => '观察投入于滋养伴侣关系的时间、精力和资源。';
 
   @override
-  String get metric_good_76_name => 'Secure Base Language';
+  String get metric_good_76_name => '安全基地语言';
 
   @override
-  String get metric_good_76_description =>
-      'Detects offering stability, safety, and a foundation from which the partner can explore.';
+  String get metric_good_76_description => '检测提供稳定性、安全感以及让伴侣能够探索的基础。';
 
   @override
-  String get metric_good_77_name => 'Mutual Admiration';
+  String get metric_good_77_name => '相互欣赏';
 
   @override
-  String get metric_good_77_description =>
-      'Identifies both partners expressing respect and appreciation for each other\'s qualities.';
+  String get metric_good_77_description => '识别双方对彼此品质表达尊重和欣赏。';
 
   @override
-  String get metric_good_78_name => 'Tender Moments';
+  String get metric_good_78_name => '温馨时刻';
 
   @override
-  String get metric_good_78_description =>
-      'Tracks creating or recognizing intimate quiet moments of connection and closeness.';
+  String get metric_good_78_description => '追踪创造或识别亲密安静的连接与亲近时刻。';
 
   @override
-  String get metric_good_79_name => 'Genuine Curiosity';
+  String get metric_good_79_name => '真诚好奇';
 
   @override
-  String get metric_good_79_description =>
-      'Looks for authentic interest in understanding the partner\'s thoughts, feelings, and experiences.';
+  String get metric_good_79_description => '观察对理解伴侣想法、感受和经历的真实兴趣。';
 
   @override
-  String get metric_good_80_name => 'Loving Acceptance';
+  String get metric_good_80_name => '爱的接纳';
 
   @override
-  String get metric_good_80_description =>
-      'Detects embracing the partner\'s whole self, including imperfections and past.';
+  String get metric_good_80_description => '检测接纳伴侣的全部自我，包括不完美和过去。';
 
   @override
-  String get metric_good_81_name => 'Mutual Growth Support';
+  String get metric_good_81_name => '共同成长支持';
 
   @override
-  String get metric_good_81_description =>
-      'Identifies both partners encouraging each other\'s development and celebrating progress.';
+  String get metric_good_81_description => '识别双方鼓励彼此发展并庆祝进步。';
 
   @override
-  String get metric_good_82_name => 'Warm Tone Indicators';
+  String get metric_good_82_name => '温暖语气指标';
 
   @override
-  String get metric_good_82_description =>
-      'Tracks use of affectionate language, kind phrasing, and gentle communication style.';
+  String get metric_good_82_description => '追踪使用亲昵语言、温和措辞和温柔沟通方式的情况。';
 
   @override
-  String get metric_good_83_name => 'Responsive Engagement';
+  String get metric_good_83_name => '回应性投入';
 
   @override
-  String get metric_good_83_description =>
-      'Measures quick, engaged responses to the partner\'s messages and emotional bids.';
+  String get metric_good_83_description => '衡量对伴侣信息和情感诉求的快速、积极回应。';
 
   @override
-  String get metric_good_84_name => 'Shared Values Alignment';
+  String get metric_good_84_name => '共同价值观契合';
 
   @override
-  String get metric_good_84_description =>
-      'Looks for references to common beliefs, goals, or life philosophies that unite the couple.';
+  String get metric_good_84_description => '寻找提及共同信念、目标或人生哲学以联结伴侣的表述。';
 
   @override
-  String get metric_good_85_name => 'Unconditional Support';
+  String get metric_good_85_name => '无条件支持';
 
   @override
-  String get metric_good_85_description =>
-      'Detects standing by the partner through difficulties without making support conditional.';
+  String get metric_good_85_description => '检测在困难中无条件支持伴侣的行为。';
 
   @override
-  String get metric_good_86_name => 'Intimate Vulnerability';
+  String get metric_good_86_name => '亲密脆弱性';
 
   @override
-  String get metric_good_86_description =>
-      'Identifies sharing deep fears, dreams, or insecurities that deepen emotional bonds.';
+  String get metric_good_86_description => '识别分享深层恐惧、梦想或不安全感以加深情感纽带的行为。';
 
   @override
-  String get metric_good_87_name => 'Mutual Respect Language';
+  String get metric_good_87_name => '相互尊重语言';
 
   @override
-  String get metric_good_87_description =>
-      'Tracks honoring each other\'s perspectives, choices, and autonomy in communication.';
+  String get metric_good_87_description => '追踪在沟通中尊重对方观点、选择和自主性的表现。';
 
   @override
-  String get metric_good_88_name => 'Positive Framing';
+  String get metric_good_88_name => '积极框架';
 
   @override
-  String get metric_good_88_description =>
-      'Measures seeing the best in situations and the partner, focusing on strengths.';
+  String get metric_good_88_description => '衡量对情境和伴侣持积极看法、关注优势的程度。';
 
   @override
-  String get metric_good_89_name => 'Collaborative Problem Solving';
+  String get metric_good_89_name => '协作问题解决';
 
   @override
-  String get metric_good_89_description =>
-      'Looks for working together toward solutions that benefit both partners equally.';
+  String get metric_good_89_description => '寻找共同致力于使双方平等受益的解决方案的行为。';
 
   @override
-  String get metric_good_90_name => 'Emotional Validation';
+  String get metric_good_90_name => '情感验证';
 
   @override
-  String get metric_good_90_description =>
-      'Detects confirming that the partner\'s feelings make sense and are acceptable.';
+  String get metric_good_90_description => '检测确认伴侣感受合理且可接受的行为。';
 
   @override
-  String get metric_good_91_name => 'Consistent Kindness';
+  String get metric_good_91_name => '持续善意';
 
   @override
-  String get metric_good_91_description =>
-      'Identifies regular small acts of care that show the partner is thought of and valued.';
+  String get metric_good_91_description => '识别出经常性的小关怀行为，表明伴侣被惦记和重视。';
 
   @override
-  String get metric_good_92_name => 'Mutual Celebration';
+  String get metric_good_92_name => '共同庆祝';
 
   @override
-  String get metric_good_92_description =>
-      'Tracks both partners genuinely happy about each other\'s successes and joys.';
+  String get metric_good_92_description => '追踪双方对彼此的成功和喜悦真心感到高兴的程度。';
 
   @override
-  String get metric_good_93_name => 'Secure Attachment Language';
+  String get metric_good_93_name => '安全依恋语言';
 
   @override
-  String get metric_good_93_description =>
-      'Measures expressing trust, comfort with intimacy, and confidence in the relationship.';
+  String get metric_good_93_description => '衡量表达信任、亲密舒适感以及对关系的信心。';
 
   @override
-  String get metric_good_94_name => 'Thoughtful Consideration';
+  String get metric_good_94_name => '体贴考量';
 
   @override
-  String get metric_good_94_description =>
-      'Looks for making decisions with the partner\'s needs and feelings in mind.';
+  String get metric_good_94_description => '寻找在决策时考虑伴侣需求和感受的表现。';
 
   @override
-  String get metric_good_95_name => 'Loving Presence';
+  String get metric_good_95_name => '爱的在场';
 
   @override
-  String get metric_good_95_description =>
-      'Detects being fully present and engaged, showing the partner they matter most.';
+  String get metric_good_95_description => '检测完全投入当下的状态，表明伴侣是最重要的。';
 
   @override
-  String get metric_good_96_name => 'Genuine Care Language';
+  String get metric_good_96_name => '真诚关怀语言';
 
   @override
-  String get metric_good_96_description =>
-      'Tracks authentic expressions of concern, care, and investment in the partner\'s wellbeing.';
+  String get metric_good_96_description => '追踪对伴侣福祉真诚的关心、关怀和投入的表达。';
 
   @override
-  String get metric_good_97_name => 'Relationship Commitment';
+  String get metric_good_97_name => '关系承诺';
 
   @override
-  String get metric_good_97_description =>
-      'Measures expressing dedication to the partnership and willingness to work through challenges.';
+  String get metric_good_97_description => '衡量对关系的投入以及共同面对挑战的意愿。';
 
   @override
-  String get metric_good_98_name => 'Authentic Love Expression';
+  String get metric_good_98_name => '真诚爱意表达';
 
   @override
-  String get metric_good_98_description =>
-      'Looks for genuine consistent expressions of love that feel real and unconditional.';
+  String get metric_good_98_description => '寻找真实且持续的爱意表达，让人感到真实和无条件。';
 
   @override
-  String get metric_good_99_name => 'Mutual Goal Setting';
+  String get metric_good_99_name => '共同目标设定';
 
   @override
-  String get metric_good_99_description =>
-      'Identifies partners collaboratively defining shared dreams, priorities, and direction for their future together.';
+  String get metric_good_99_description => '识别伴侣共同定义未来梦想、优先事项和方向。';
 
   @override
-  String get metric_good_100_name => 'Repair Attempt Recognition';
+  String get metric_good_100_name => '修复尝试识别';
 
   @override
-  String get metric_good_100_description =>
-      'Detects noticing and positively responding to the partner\'s bids to de-escalate conflict and restore connection.';
+  String get metric_good_100_description => '识别并积极回应伴侣为缓和冲突、重建联结而发出的修复信号。';
 
   @override
-  String get metric_bad_1_name => 'Passive Aggression';
+  String get metric_bad_1_name => '被动攻击';
 
   @override
-  String get metric_bad_1_description =>
-      'Detects indirect hostility through procrastination, forgetfulness, sarcasm, or subtle sabotage instead of direct expression.';
+  String get metric_bad_1_description => '通过拖延、遗忘、讽刺或隐性破坏间接表达敌意，而非直接沟通。';
 
   @override
-  String get metric_bad_2_name => 'Guilt Weaponization';
+  String get metric_bad_2_name => '内疚武器化';
 
   @override
-  String get metric_bad_2_description =>
-      'Identifies using guilt, shame, or obligation language to manipulate decisions or prevent boundary-setting.';
+  String get metric_bad_2_description => '识别利用内疚、羞耻或义务性语言来操纵决定或阻止设定边界的行为。';
 
   @override
-  String get metric_bad_3_name => 'Emotional Blackmail';
+  String get metric_bad_3_name => '情感勒索';
 
   @override
-  String get metric_bad_3_description =>
-      'Flags threats of self-harm, abandonment, or withdrawal of love to control behavior or prevent discussion.';
+  String get metric_bad_3_description => '标记以自残、抛弃或撤回爱作为威胁，以控制行为或阻止讨论。';
 
   @override
-  String get metric_bad_4_name => 'Chronic Complaining';
+  String get metric_bad_4_name => '习惯性抱怨';
 
   @override
-  String get metric_bad_4_description =>
-      'Tracks persistent negativity, rumination, or complaint without seeking solutions or collaborative change.';
+  String get metric_bad_4_description => '追踪持续的消极、反刍或抱怨，而不寻求解决方案或共同改变。';
 
   @override
-  String get metric_bad_5_name => 'Comparison Shaming';
+  String get metric_bad_5_name => '比较羞辱';
 
   @override
-  String get metric_bad_5_description =>
-      'Identifies unfavorable comparisons to exes, friends, or family to shame or coerce behavior change.';
+  String get metric_bad_5_description => '识别通过与前任、朋友或家人进行不利比较来羞辱或强迫改变行为的情况。';
 
   @override
-  String get metric_bad_6_name => 'Conditional Listening';
+  String get metric_bad_6_name => '条件性倾听';
 
   @override
-  String get metric_bad_6_description =>
-      'Detects listening only when it benefits the listener or serves their agenda rather than genuine understanding.';
+  String get metric_bad_6_description => '检测仅在对自己有利或服务于自身目的时才倾听，而非真正理解。';
 
   @override
-  String get metric_bad_7_name => 'Selective Memory';
+  String get metric_bad_7_name => '选择性记忆';
 
   @override
-  String get metric_bad_7_description =>
-      'Tracks convenient forgetting of promises, agreements, or past harmful behavior to avoid accountability.';
+  String get metric_bad_7_description => '追踪选择性遗忘承诺、协议或过去有害行为以逃避责任。';
 
   @override
-  String get metric_bad_8_name => 'Attention Seeking Through Crisis';
+  String get metric_bad_8_name => '危机式寻求关注';
 
   @override
-  String get metric_bad_8_description =>
-      'Identifies dramatic escalation, crisis creation, or exaggeration to gain focus or sympathy.';
+  String get metric_bad_8_description => '识别为获取关注或同情而进行的戏剧性升级、制造危机或夸大行为。';
 
   @override
-  String get metric_bad_9_name => 'Boundary Testing';
+  String get metric_bad_9_name => '界限试探';
 
   @override
-  String get metric_bad_9_description =>
-      'Detects repeated probing or pushing of stated limits to determine if they will be enforced.';
+  String get metric_bad_9_description => '检测反复试探或推动已设定的界限以确认是否会被执行。';
 
   @override
-  String get metric_bad_10_name => 'Withholding Information';
+  String get metric_bad_10_name => '信息隐瞒';
 
   @override
-  String get metric_bad_10_description =>
-      'Identifies deliberate omission of relevant facts, context, or transparency to maintain control.';
+  String get metric_bad_10_description => '识别故意隐瞒相关事实、背景或透明度以维持控制的行为。';
 
   @override
-  String get metric_bad_11_name => 'Disproportionate Anger';
+  String get metric_bad_11_name => '过度愤怒';
 
   @override
-  String get metric_bad_11_description =>
-      'Tracks anger responses that are significantly larger than the triggering incident warrants.';
+  String get metric_bad_11_description => '追踪远超出触发事件合理范围的愤怒反应。';
 
   @override
-  String get metric_bad_12_name => 'Reassurance Addiction';
+  String get metric_bad_12_name => '安慰成瘾';
 
   @override
-  String get metric_bad_12_description =>
-      'Flags constant need for validation, repeated questions about commitment, or endless proof of love.';
+  String get metric_bad_12_description => '标记持续需要认可、反复询问承诺或无尽证明爱的行为。';
 
   @override
-  String get metric_bad_13_name => 'Conversation Avoidance';
+  String get metric_bad_13_name => '对话回避';
 
   @override
-  String get metric_bad_13_description =>
-      'Detects refusal to engage with concerns, avoidance phrases, or shutting down important discussions.';
+  String get metric_bad_13_description => '检测拒绝处理关切、使用回避性语言或终止重要讨论的行为。';
 
   @override
-  String get metric_bad_14_name => 'Contradiction Pattern';
+  String get metric_bad_14_name => '矛盾模式';
 
   @override
-  String get metric_bad_14_description =>
-      'Identifies contradictory statements, promises, or positions that create confusion or destabilization.';
+  String get metric_bad_14_description => '识别造成混乱或不稳定的矛盾陈述、承诺或立场。';
 
   @override
-  String get metric_bad_15_name => 'Dismissal Through Labeling';
+  String get metric_bad_15_name => '标签否定';
 
   @override
   String get metric_bad_15_description =>
-      'Flags labeling concerns as \"crazy,\" \"dramatic,\" \"paranoid,\" or \"overreacting\" to invalidate them.';
+      '标记将关切标签为“疯狂”、“戏剧化”、“偏执”或“反应过度”以否定其有效性。';
 
   @override
-  String get metric_bad_16_name => 'Selective Empathy';
+  String get metric_bad_16_name => '选择性共情';
 
   @override
-  String get metric_bad_16_description =>
-      'Detects empathy offered only when convenient or when it serves the speaker\'s interests.';
+  String get metric_bad_16_description => '检测仅在方便或符合说话者利益时提供的共情。';
 
   @override
-  String get metric_bad_17_name => 'Transactional Framing';
+  String get metric_bad_17_name => '交易性框架';
 
   @override
-  String get metric_bad_17_description =>
-      'Identifies \"you owe me,\" \"after all I\'ve done,\" or viewing relationship acts as creating debt.';
+  String get metric_bad_17_description => '识别“你欠我的”、“我为你做了这么多”或将关系行为视为创造债务的表述。';
 
   @override
-  String get metric_bad_18_name => 'Grievance Recycling';
+  String get metric_bad_18_name => '旧怨重提';
 
   @override
-  String get metric_bad_18_description =>
-      'Tracks bringing up old grievances repeatedly or using past harm as ammunition in current conflicts.';
+  String get metric_bad_18_description => '追踪反复提起旧怨或在当前冲突中利用过去伤害作为武器。';
 
   @override
-  String get metric_bad_19_name => 'Demand Language';
+  String get metric_bad_19_name => '命令式语言';
 
   @override
-  String get metric_bad_19_description =>
-      'Flags imperatives, commands, or ultimatums rather than requests or collaborative problem-solving.';
+  String get metric_bad_19_description => '标记命令、指令或最后通牒，而非请求或协作解决问题。';
 
   @override
-  String get metric_bad_20_name => 'Emotional Unavailability';
+  String get metric_bad_20_name => '情感疏离';
 
   @override
-  String get metric_bad_20_description =>
-      'Detects consistent refusal to engage emotionally, share feelings, or provide comfort.';
+  String get metric_bad_20_description => '检测持续拒绝情感投入、分享感受或提供安慰的行为。';
 
   @override
-  String get metric_bad_21_name => 'Hostile Interpretation';
+  String get metric_bad_21_name => '敌意解读';
 
   @override
-  String get metric_bad_21_description =>
-      'Identifies taking neutral statements as attacks or interpreting ambiguous messages as hostile.';
+  String get metric_bad_21_description => '识别将中性陈述视为攻击，或误解模糊信息为敌意的倾向。';
 
   @override
-  String get metric_bad_22_name => 'Entitlement Framing';
+  String get metric_bad_22_name => '特权框架';
 
   @override
-  String get metric_bad_22_description =>
-      'Flags language suggesting the speaker deserves special treatment, exceptions, or priority.';
+  String get metric_bad_22_description => '标记暗示说话者应获得特殊待遇、例外或优先权的语言。';
 
   @override
-  String get metric_bad_23_name => 'Criticism Disguised as Help';
+  String get metric_bad_23_name => '伪装成帮助的批评';
 
   @override
-  String get metric_bad_23_description =>
-      'Detects criticism wrapped in \"I\'m just trying to help\" or \"for your own good\" language.';
+  String get metric_bad_23_description => '检测以“我只是想帮忙”或“为你好”为包装的批评。';
 
   @override
-  String get metric_bad_24_name => 'Neglect Patterns';
+  String get metric_bad_24_name => '忽视模式';
 
   @override
-  String get metric_bad_24_description =>
-      'Identifies consistent failure to meet emotional, physical, or relational needs.';
+  String get metric_bad_24_description => '识别持续未能满足情感、身体或关系需求的行为模式。';
 
   @override
-  String get metric_bad_25_name => 'Conflict Rumination';
+  String get metric_bad_25_name => '冲突反刍';
 
   @override
-  String get metric_bad_25_description =>
-      'Tracks obsessive rehashing of conflicts without moving toward resolution or closure.';
+  String get metric_bad_25_description => '追踪反复纠结冲突而不寻求解决或了结的倾向。';
 
   @override
-  String get metric_bad_26_name => 'Sensitivity Dismissal';
+  String get metric_bad_26_name => '敏感否定';
 
   @override
-  String get metric_bad_26_description =>
-      'Flags statements like \"you\'re too sensitive\" or \"you\'re overreacting\" to dismiss feelings.';
+  String get metric_bad_26_description => '标记“你太敏感了”或“你反应过度”等否定感受的表述。';
 
   @override
-  String get metric_bad_27_name => 'Competitive Framing';
+  String get metric_bad_27_name => '竞争框架';
 
   @override
-  String get metric_bad_27_description =>
-      'Detects framing relationship as a competition where one partner must win or dominate.';
+  String get metric_bad_27_description => '检测将关系视为一方必须赢或主导的竞争框架。';
 
   @override
-  String get metric_bad_28_name => 'Double Standards';
+  String get metric_bad_28_name => '双重标准';
 
   @override
-  String get metric_bad_28_description =>
-      'Identifies applying different rules to self versus partner or changing expectations arbitrarily.';
+  String get metric_bad_28_description => '识别对自己和伴侣采用不同标准或随意改变期望的行为。';
 
   @override
-  String get metric_bad_29_name => 'Affection as Punishment';
+  String get metric_bad_29_name => '情感惩罚';
 
   @override
-  String get metric_bad_29_description =>
-      'Flags removing affection, attention, or communication as retaliation for perceived wrongs.';
+  String get metric_bad_29_description => '标记以收回关爱、关注或沟通作为对感知到的错误进行报复的行为。';
 
   @override
-  String get metric_bad_30_name => 'Blame Rotation';
+  String get metric_bad_30_name => '指责轮换';
 
   @override
-  String get metric_bad_30_description =>
-      'Tracks rotating blame between partner, circumstances, and external factors to avoid accountability.';
+  String get metric_bad_30_description => '追踪在伴侣、环境和外部因素之间轮换指责以逃避责任的行为。';
 
   @override
-  String get metric_bad_31_name => 'Rhetorical Mockery';
+  String get metric_bad_31_name => '修辞嘲讽';
 
   @override
-  String get metric_bad_31_description =>
-      'Detects rhetorical or sarcastic questions used to mock rather than understand.';
+  String get metric_bad_31_description => '检测用于嘲讽而非理解的修辞性或讽刺性问题。';
 
   @override
-  String get metric_bad_32_name => 'Sacrifice Reminders';
+  String get metric_bad_32_name => '牺牲提醒';
 
   @override
-  String get metric_bad_32_description =>
-      'Identifies reminding partner of sacrifices, favors, or support to create debt and compliance.';
+  String get metric_bad_32_description => '识别提醒伴侣自己的牺牲、恩惠或支持以制造亏欠感和顺从的行为。';
 
   @override
-  String get metric_bad_33_name => 'Deliberate Escalation';
+  String get metric_bad_33_name => '故意升级';
 
   @override
-  String get metric_bad_33_description =>
-      'Flags deliberately escalating intensity to overwhelm partner\'s ability to respond rationally.';
+  String get metric_bad_33_description => '标记故意加剧冲突强度以压倒伴侣理性反应能力的行为。';
 
   @override
-  String get metric_bad_34_name => 'Strategic Vulnerability';
+  String get metric_bad_34_name => '策略性脆弱';
 
   @override
-  String get metric_bad_34_description =>
-      'Detects sharing emotions only when it serves manipulation or control purposes.';
+  String get metric_bad_34_description => '检测仅在服务于操纵或控制目的时才分享情绪的行为。';
 
   @override
-  String get metric_bad_35_name => 'Deflection Through Counterattack';
+  String get metric_bad_35_name => '反攻转移';
 
   @override
-  String get metric_bad_35_description =>
-      'Identifies turning focus away from partner\'s concerns by raising unrelated issues or countercharges.';
+  String get metric_bad_35_description => '识别通过提出无关问题或反指责来转移对伴侣关切的注意力的行为。';
 
   @override
-  String get metric_bad_36_name => 'Superiority Language';
+  String get metric_bad_36_name => '优越性语言';
 
   @override
-  String get metric_bad_36_description =>
-      'Flags superiority language, condescension, or framing partner as beneath them.';
+  String get metric_bad_36_description => '标记优越性语言、居高临下态度或将伴侣视为低人一等的表述。';
 
   @override
-  String get metric_bad_37_name => 'Conflict Exit Pattern';
+  String get metric_bad_37_name => '冲突退出模式';
 
   @override
-  String get metric_bad_37_description =>
-      'Detects pattern of leaving conversations, refusing to engage, or creating distance during conflict.';
+  String get metric_bad_37_description => '检测在冲突中离开对话、拒绝参与或制造距离的模式。';
 
   @override
-  String get metric_bad_38_name => 'Negative Bias';
+  String get metric_bad_38_name => '负面偏见';
 
   @override
-  String get metric_bad_38_description =>
-      'Tracks consistently interpreting neutral or positive actions as negative or suspicious.';
+  String get metric_bad_38_description => '追踪持续将中性或积极行为解读为负面或可疑的倾向。';
 
   @override
-  String get metric_bad_39_name => 'Agency Denial';
+  String get metric_bad_39_name => '能动性否认';
 
   @override
-  String get metric_bad_39_description =>
-      'Identifies \"I have to,\" \"you make me,\" or language removing personal agency from the speaker.';
+  String get metric_bad_39_description => '识别“我必须”、“你让我”等剥夺说话者个人能动性的语言。';
 
   @override
-  String get metric_bad_40_name => 'Silence as Control';
+  String get metric_bad_40_name => '沉默控制';
 
   @override
-  String get metric_bad_40_description =>
-      'Flags using silence or non-response as a form of punishment or control.';
+  String get metric_bad_40_description => '标记以沉默或不回应作为惩罚或控制手段的行为。';
 
   @override
-  String get metric_bad_41_name => 'Privacy Hypocrisy';
+  String get metric_bad_41_name => '隐私双标';
 
   @override
-  String get metric_bad_41_description =>
-      'Detects refusing to share information while demanding transparency from the partner.';
+  String get metric_bad_41_description => '检测拒绝分享信息却要求伴侣完全透明的行为。';
 
   @override
-  String get metric_bad_42_name => 'Unsolicited Harsh Feedback';
+  String get metric_bad_42_name => '未经请求的严厉反馈';
 
   @override
-  String get metric_bad_42_description =>
-      'Identifies harsh feedback presented as \"constructive\" or \"helpful\" without consent.';
+  String get metric_bad_42_description => '识别未经同意以“建设性”或“帮助”为名提出的严厉反馈。';
 
   @override
-  String get metric_bad_43_name => 'Conditional Care';
+  String get metric_bad_43_name => '有条件关怀';
 
   @override
-  String get metric_bad_43_description =>
-      'Flags support offered only when partner complies with speaker\'s expectations.';
+  String get metric_bad_43_description => '标记仅在伴侣符合说话者期望时才提供的支持。';
 
   @override
-  String get metric_bad_44_name => 'Impact Denial';
+  String get metric_bad_44_name => '影响否认';
 
   @override
-  String get metric_bad_44_description =>
-      'Detects \"I didn\'t mean it that way\" or \"you\'re reading too much into it\" after causing harm.';
+  String get metric_bad_44_description => '检测在造成伤害后说“我不是那个意思”或“你想太多了”的行为。';
 
   @override
-  String get metric_bad_45_name => 'Debt Mentality';
+  String get metric_bad_45_name => '债务心态';
 
   @override
-  String get metric_bad_45_description =>
-      'Tracks bringing up past help or support to create debt and control current behavior.';
+  String get metric_bad_45_description => '追踪提及过去的帮助或支持以制造亏欠感，从而控制当前行为。';
 
   @override
-  String get metric_bad_46_name => 'Responsibility Evasion';
+  String get metric_bad_46_name => '逃避责任';
 
   @override
-  String get metric_bad_46_description =>
-      'Flags consistent pattern of not taking responsibility for the impact of actions.';
+  String get metric_bad_46_description => '标记一贯不为行为后果承担责任的行为模式。';
 
   @override
-  String get metric_bad_47_name => 'Needs Dismissal';
+  String get metric_bad_47_name => '需求否定';
 
   @override
-  String get metric_bad_47_description =>
-      'Identifies treating partner\'s needs as inconvenient, unreasonable, or unimportant.';
+  String get metric_bad_47_description => '识别将伴侣的需求视为不便、不合理或不重要的行为。';
 
   @override
-  String get metric_bad_48_name => 'Emotional Manipulation';
+  String get metric_bad_48_name => '情绪操控';
 
   @override
-  String get metric_bad_48_description =>
-      'Flags using emotions strategically to control outcomes or prevent accountability.';
+  String get metric_bad_48_description => '标记利用情绪策略性地控制结果或逃避责任的行为。';
 
   @override
-  String get metric_bad_49_name => 'Intimacy Avoidance';
+  String get metric_bad_49_name => '亲密回避';
 
   @override
-  String get metric_bad_49_description =>
-      'Tracks consistent withdrawal from emotional or physical closeness without explanation.';
+  String get metric_bad_49_description => '追踪无解释地持续回避情感或身体亲密的行为。';
 
   @override
-  String get metric_bad_50_name => 'Veiled Criticism';
+  String get metric_bad_50_name => '隐性批评';
 
   @override
-  String get metric_bad_50_description =>
-      'Identifies criticism disguised as jokes, observations, or casual comments.';
+  String get metric_bad_50_description => '识别伪装成玩笑、观察或随意评论的批评。';
 
   @override
-  String get metric_bad_51_name => 'Concern Minimization';
+  String get metric_bad_51_name => '轻视担忧';
 
   @override
-  String get metric_bad_51_description =>
-      'Flags reducing partner\'s concerns to insignificance or exaggeration.';
+  String get metric_bad_51_description => '标记将伴侣的担忧贬低为无关紧要或夸大其词的行为。';
 
   @override
-  String get metric_bad_52_name => 'Guilt Enforcement';
+  String get metric_bad_52_name => '内疚施压';
 
   @override
-  String get metric_bad_52_description =>
-      'Identifies using guilt or shame to ensure partner complies with expectations.';
+  String get metric_bad_52_description => '识别利用内疚或羞耻迫使伴侣服从期望的行为。';
 
   @override
-  String get metric_bad_53_name => 'Apology Resistance';
+  String get metric_bad_53_name => '抗拒道歉';
 
   @override
-  String get metric_bad_53_description =>
-      'Tracks resistance to apologizing, explaining away harm, or refusing to acknowledge impact.';
+  String get metric_bad_53_description => '追踪拒绝道歉、合理化伤害或否认行为影响的行为。';
 
   @override
-  String get metric_bad_54_name => 'Perspective Rejection';
+  String get metric_bad_54_name => '观点排斥';
 
   @override
-  String get metric_bad_54_description =>
-      'Flags refusing to consider or validate partner\'s viewpoint or experience.';
+  String get metric_bad_54_description => '标记拒绝考虑或认可伴侣观点或经历的行为。';
 
   @override
-  String get metric_bad_55_name => 'Emotional Rationing';
+  String get metric_bad_55_name => '情感配给';
 
   @override
-  String get metric_bad_55_description =>
-      'Detects deliberately limiting emotional expression or connection as a form of control.';
+  String get metric_bad_55_description => '检测故意限制情感表达或联系以作为控制手段的行为。';
 
   @override
-  String get metric_bad_56_name => 'Obligation Manipulation';
+  String get metric_bad_56_name => '义务操纵';
 
   @override
-  String get metric_bad_56_description =>
-      'Flags using past support or sacrifice to manipulate current decisions.';
+  String get metric_bad_56_description => '标记利用过去的支持或牺牲来操纵当前决策的行为。';
 
   @override
-  String get metric_bad_57_name => 'Resistance to Growth';
+  String get metric_bad_57_name => '抗拒成长';
 
   @override
-  String get metric_bad_57_description =>
-      'Tracks resistance to modifying harmful behavior despite requests or demonstrated impact.';
+  String get metric_bad_57_description => '追踪在他人请求或已证明影响下仍拒绝改变有害行为的情况。';
 
   @override
-  String get metric_bad_58_name => 'Harm Denial';
+  String get metric_bad_58_name => '伤害否认';
 
   @override
-  String get metric_bad_58_description =>
-      'Detects refusing to acknowledge or take seriously the impact of one\'s own behavior.';
+  String get metric_bad_58_description => '检测拒绝承认或认真对待自身行为影响的行为。';
 
   @override
-  String get metric_bad_59_name => 'Loaded Questions';
+  String get metric_bad_59_name => '诱导性问题';
 
   @override
-  String get metric_bad_59_description =>
-      'Flags critical intent disguised as innocent questions or expressions of curiosity.';
+  String get metric_bad_59_description => '标记伪装成无辜问题或好奇表达的批评意图。';
 
   @override
-  String get metric_bad_60_name => 'Contemptuous Tone';
+  String get metric_bad_60_name => '轻蔑语气';
 
   @override
-  String get metric_bad_60_description =>
-      'Identifies dismissive attitude or disdain conveyed through text patterns and word choice.';
+  String get metric_bad_60_description => '识别通过文本模式和措辞表达的轻蔑态度或鄙视。';
 
   @override
-  String get metric_bad_61_name => 'Guilt Trip Cycling';
+  String get metric_bad_61_name => '内疚循环';
 
   @override
-  String get metric_bad_61_description =>
-      'Detects repeatedly using guilt about past support or sacrifice to control current behavior.';
+  String get metric_bad_61_description => '检测反复利用过去支持或牺牲的内疚感来控制当前行为。';
 
   @override
-  String get metric_bad_62_name => 'Emotional Guardedness';
+  String get metric_bad_62_name => '情感防备';
 
   @override
-  String get metric_bad_62_description =>
-      'Tracks refusing to share emotions, fears, or needs with partner as protective withholding.';
+  String get metric_bad_62_description => '追踪拒绝与伴侣分享情感、恐惧或需求作为保护性保留的行为。';
 
   @override
-  String get metric_bad_63_name => 'Boundary Negotiation';
+  String get metric_bad_63_name => '界限协商';
 
   @override
-  String get metric_bad_63_description =>
-      'Flags treating stated limits as suggestions or negotiable rather than firm commitments.';
+  String get metric_bad_63_description => '标记将明确界限视为建议或可协商而非坚定承诺的行为。';
 
   @override
-  String get metric_bad_64_name => 'Emotional Absence';
+  String get metric_bad_64_name => '情感缺席';
 
   @override
-  String get metric_bad_64_description =>
-      'Detects consistent refusal to provide emotional support or engaged presence.';
+  String get metric_bad_64_description => '检测持续拒绝提供情感支持或积极参与的行为。';
 
   @override
-  String get metric_bad_65_name => 'Favor Tracking';
+  String get metric_bad_65_name => '恩惠记账';
 
   @override
-  String get metric_bad_65_description =>
-      'Flags keeping mental score of favors, support, or sacrifices for later leverage.';
+  String get metric_bad_65_description => '标记对恩惠、支持或牺牲进行心理记账以备日后利用的行为。';
 
   @override
-  String get metric_bad_66_name => 'Honesty Avoidance';
+  String get metric_bad_66_name => '回避诚实';
 
   @override
-  String get metric_bad_66_description =>
-      'Detects pattern of withholding truth, omitting facts, or being deliberately vague.';
+  String get metric_bad_66_description => '检测隐瞒真相、省略事实或故意含糊其辞的模式。';
 
   @override
-  String get metric_bad_67_name => 'Validity Denial';
+  String get metric_bad_67_name => '否定有效性';
 
   @override
-  String get metric_bad_67_description =>
-      'Identifies treating partner\'s feelings, needs, or concerns as invalid or illegitimate.';
+  String get metric_bad_67_description => '识别将伴侣的感受、需求或担忧视为无效或不合理的行为。';
 
   @override
-  String get metric_bad_68_name => 'Advice Disguised Criticism';
+  String get metric_bad_68_name => '建议式批评';
 
   @override
-  String get metric_bad_68_description =>
-      'Flags criticism presented as concern, advice, or a helpful observation.';
+  String get metric_bad_68_description => '标记以关心、建议或有益观察为伪装的批评。';
 
   @override
-  String get metric_bad_69_name => 'Superiority Indicators';
+  String get metric_bad_69_name => '优越感指标';
 
   @override
-  String get metric_bad_69_description =>
-      'Detects superiority, mockery, or disdain in language or communication style.';
+  String get metric_bad_69_description => '检测语言或沟通风格中的优越感、嘲讽或轻蔑。';
 
   @override
-  String get metric_bad_70_name => 'Repair Resistance';
+  String get metric_bad_70_name => '修复抗拒';
 
   @override
-  String get metric_bad_70_description =>
-      'Tracks resistance to making amends, reconnecting, or rebuilding after conflict.';
+  String get metric_bad_70_description => '追踪冲突后拒绝弥补、重建联系或修复关系的行为。';
 
   @override
-  String get metric_bad_71_name => 'Effort Dismissal';
+  String get metric_bad_71_name => '努力否定';
 
   @override
-  String get metric_bad_71_description =>
-      'Flags minimizing or ignoring partner\'s attempts to improve or address issues.';
+  String get metric_bad_71_description => '标记轻视或忽视伴侣改善或解决问题的努力。';
 
   @override
-  String get metric_bad_72_name => 'Emotional Distance Pattern';
+  String get metric_bad_72_name => '情感疏远模式';
 
   @override
-  String get metric_bad_72_description =>
-      'Detects long-term pattern of emotional distance or refusal to engage authentically.';
+  String get metric_bad_72_description => '检测长期的情感疏远或拒绝真诚投入的模式。';
 
   @override
-  String get metric_bad_73_name => 'Inferiority Framing';
+  String get metric_bad_73_name => '低人一等框架';
 
   @override
-  String get metric_bad_73_description =>
-      'Identifies framing partner as inferior, flawed, or unworthy of full respect.';
+  String get metric_bad_73_description => '将伴侣视为低人一等、有缺陷或不值得完全尊重。';
 
   @override
-  String get metric_bad_74_name => 'Feedback Resistance';
+  String get metric_bad_74_name => '反馈抵触';
 
   @override
-  String get metric_bad_74_description =>
-      'Detects resistance to hearing criticism, refusing to listen, or shutting down discussion.';
+  String get metric_bad_74_description => '检测对接受批评的抵触、拒绝倾听或终止讨论的行为。';
 
   @override
-  String get metric_bad_75_name => 'Worry Dismissal';
+  String get metric_bad_75_name => '担忧否定';
 
   @override
-  String get metric_bad_75_description =>
-      'Identifies treating partner\'s worries or fears as unfounded or irrational.';
+  String get metric_bad_75_description => '识别将伴侣的担忧或恐惧视为无根据或不理性的行为。';
 
   @override
-  String get metric_bad_76_name => 'Fault Finding';
+  String get metric_bad_76_name => '吹毛求疵';
 
   @override
-  String get metric_bad_76_description =>
-      'Flags chronic pattern of finding fault, complaining about, or attacking partner\'s character.';
+  String get metric_bad_76_description => '标记长期挑剔、抱怨或攻击伴侣性格的模式。';
 
   @override
-  String get metric_bad_77_name => 'Sacrifice Guilt Cycling';
+  String get metric_bad_77_name => '牺牲内疚循环';
 
   @override
-  String get metric_bad_77_description =>
-      'Identifies repeatedly bringing up past support to create guilt or control behavior.';
+  String get metric_bad_77_description => '识别反复提及过去的付出以制造内疚或控制行为。';
 
   @override
-  String get metric_bad_78_name => 'Commitment Ambiguity';
+  String get metric_bad_78_name => '承诺模糊';
 
   @override
-  String get metric_bad_78_description =>
-      'Tracks unclear or wavering commitment language, mixed signals, or reluctance to commit.';
+  String get metric_bad_78_description => '追踪模糊或摇摆的承诺语言、矛盾信号或不愿承诺的表现。';
 
   @override
-  String get metric_bad_79_name => 'Request Dismissal';
+  String get metric_bad_79_name => '请求忽视';
 
   @override
-  String get metric_bad_79_description =>
-      'Flags ignoring, refusing, or delaying response to partner\'s reasonable requests.';
+  String get metric_bad_79_description => '标记忽视、拒绝或延迟回应伴侣合理请求的行为。';
 
   @override
-  String get metric_bad_80_name => 'Emotional Control Tactics';
+  String get metric_bad_80_name => '情绪控制策略';
 
   @override
-  String get metric_bad_80_description =>
-      'Detects strategic use of emotions to control outcomes or prevent accountability.';
+  String get metric_bad_80_description => '检测利用情绪控制结果或逃避责任的策略。';
 
   @override
-  String get metric_bad_81_name => 'Exchange Mentality';
+  String get metric_bad_81_name => '交换心态';
 
   @override
-  String get metric_bad_81_description =>
-      'Flags viewing relationship through lens of debt, obligation, or transactional exchange.';
+  String get metric_bad_81_description => '标记以债务、义务或交易交换的视角看待关系。';
 
   @override
-  String get metric_bad_82_name => 'Personal Development Resistance';
+  String get metric_bad_82_name => '个人发展抗拒';
 
   @override
-  String get metric_bad_82_description =>
-      'Detects resistance to personal development, learning, or changing harmful patterns.';
+  String get metric_bad_82_description => '检测对个人发展、学习或改变有害模式的抗拒。';
 
   @override
-  String get metric_bad_83_name => 'Improvement Rejection';
+  String get metric_bad_83_name => '改进拒绝';
 
   @override
-  String get metric_bad_83_description =>
-      'Identifies minimizing or rejecting partner\'s efforts to improve or address issues.';
+  String get metric_bad_83_description => '识别轻视或拒绝伴侣改进或解决问题的努力。';
 
   @override
-  String get metric_bad_84_name => 'Chronic Criticism';
+  String get metric_bad_84_name => '长期批评';
 
   @override
-  String get metric_bad_84_description =>
-      'Flags chronic pattern of criticism wrapped in concern, helpfulness, or care language.';
+  String get metric_bad_84_description => '标记以关心、帮助或关爱语言包装的长期批评模式。';
 
   @override
-  String get metric_bad_85_name => 'Solution Avoidance';
+  String get metric_bad_85_name => '解决方案回避';
 
   @override
-  String get metric_bad_85_description =>
-      'Detects consistent pattern of avoiding closure, moving forward, or finding workable solutions.';
+  String get metric_bad_85_description => '检测持续回避结束、前进或寻找可行解决方案的模式。';
 
   @override
-  String get metric_bad_86_name => 'Blame Deflection Pattern';
+  String get metric_bad_86_name => '责任转移模式';
 
   @override
-  String get metric_bad_86_description =>
-      'Flags habitual pattern of redirecting responsibility to external factors or the partner.';
+  String get metric_bad_86_description => '标记习惯性将责任转嫁给外部因素或伴侣的模式。';
 
   @override
-  String get metric_bad_87_name => 'Dismissive Responses';
+  String get metric_bad_87_name => '驳回式回应';
 
   @override
-  String get metric_bad_87_description =>
-      'Identifies pattern of dismissing partner\'s input, ideas, or suggestions without consideration.';
+  String get metric_bad_87_description => '识别不加考虑地驳回伴侣意见、想法或建议的模式。';
 
   @override
-  String get metric_bad_88_name => 'Resentment Expression';
+  String get metric_bad_88_name => '怨恨表达';
 
   @override
-  String get metric_bad_88_description =>
-      'Detects tone of resentment, bitterness, or long-held frustration in communication.';
+  String get metric_bad_88_description => '检测沟通中的怨恨、苦涩或长期积怨的语气。';
 
   @override
-  String get metric_bad_89_name => 'Ambivalent Messaging';
+  String get metric_bad_89_name => '矛盾信息';
 
   @override
-  String get metric_bad_89_description =>
-      'Flags mixed messages about commitment, unclear desire to continue, or push-pull dynamics.';
+  String get metric_bad_89_description => '标记关于承诺的矛盾信息、不明确的继续意愿或推拉动态。';
 
   @override
-  String get metric_bad_90_name => 'Expectation Shifting';
+  String get metric_bad_90_name => '期望转移';
 
   @override
-  String get metric_bad_90_description =>
-      'Identifies changing expectations without communication, then blaming partner for not meeting them.';
+  String get metric_bad_90_description => '识别在未沟通的情况下改变期望，然后因伴侣未达到期望而指责。';
 
   @override
-  String get metric_bad_91_name => 'Deflection Habit';
+  String get metric_bad_91_name => '回避习惯';
 
   @override
-  String get metric_bad_91_description =>
-      'Detects habitual avoidance of direct answers or redirection of conversations away from accountability.';
+  String get metric_bad_91_description => '检测习惯性回避直接回答或将对话从责任承担上转移开的行为。';
 
   @override
-  String get metric_bad_92_name => 'Manipulation Through Kindness';
+  String get metric_bad_92_name => '善意操控';
 
   @override
-  String get metric_bad_92_description =>
-      'Flags exaggerated generosity used strategically to create obligation or lower defenses.';
+  String get metric_bad_92_description => '标记为制造义务或降低防御而策略性使用的过度慷慨。';
 
   @override
-  String get metric_bad_93_name => 'Chronic Lateness Pattern';
+  String get metric_bad_93_name => '长期迟到模式';
 
   @override
-  String get metric_bad_93_description =>
-      'Identifies consistent disregard for partner\'s time through lateness or broken scheduling commitments.';
+  String get metric_bad_93_description => '识别因迟到或违背日程承诺而持续忽视伴侣时间的行为。';
 
   @override
-  String get metric_bad_94_name => 'Progress Minimization';
+  String get metric_bad_94_name => '进步贬低';
 
   @override
-  String get metric_bad_94_description =>
-      'Tracks dismissing or failing to acknowledge the partner\'s genuine personal growth or improvements.';
+  String get metric_bad_94_description => '追踪对伴侣真实个人成长或改进的忽视或不予认可。';
 
   @override
-  String get metric_bad_95_name => 'Emotional Weaponizing';
+  String get metric_bad_95_name => '情感武器化';
 
   @override
-  String get metric_bad_95_description =>
-      'Detects using partner\'s disclosed vulnerabilities or fears against them in conflict.';
+  String get metric_bad_95_description => '检测在冲突中利用伴侣透露的脆弱点或恐惧来攻击对方。';
 
   @override
-  String get metric_bad_96_name => 'Gaslighting-Adjacent Tactics';
+  String get metric_bad_96_name => '类煤气灯策略';
 
   @override
-  String get metric_bad_96_description =>
-      'Identifies subtle reality-distorting tactics that create self-doubt without full gaslighting.';
+  String get metric_bad_96_description => '识别制造自我怀疑但不完全构成煤气灯效应的微妙扭曲现实策略。';
 
   @override
-  String get metric_bad_97_name => 'Passive Stonewalling';
+  String get metric_bad_97_name => '被动冷处理';
 
   @override
-  String get metric_bad_97_description =>
-      'Flags subtle disengagement, monosyllabic responses, or checked-out presence as avoidance.';
+  String get metric_bad_97_description => '标记微妙的脱离、单字回应或心不在焉的存在作为回避行为。';
 
   @override
-  String get metric_bad_98_name => 'Narrative Control';
+  String get metric_bad_98_name => '叙事控制';
 
   @override
-  String get metric_bad_98_description =>
-      'Detects insisting on being the sole authority on what happened, how it felt, or what was meant.';
+  String get metric_bad_98_description => '检测坚持作为事件经过、感受或意图的唯一权威。';
 
   @override
-  String get metric_bad_99_name => 'Responsibility Deflection';
+  String get metric_bad_99_name => '责任转移';
 
   @override
-  String get metric_bad_99_description =>
-      'Tracks consistently redirecting accountability onto external factors, third parties, or the partner\'s behavior.';
+  String get metric_bad_99_description => '追踪持续将责任转嫁给外部因素、第三方或伴侣行为。';
 
   @override
-  String get metric_bad_100_name => 'Emotional Unavailability';
+  String get metric_bad_100_name => '情感不可得';
 
   @override
-  String get metric_bad_100_description =>
-      'Flags chronic withdrawal from emotional intimacy, vulnerability, or meaningful connection when the partner needs closeness.';
+  String get metric_bad_100_description => '标记在伴侣需要亲密时，长期回避情感亲密、脆弱或有意义连接的行为。';
 
   @override
-  String get metric_ugly_1_name => 'Physical Violence Threats';
+  String get metric_ugly_1_name => '身体暴力威胁';
 
   @override
-  String get metric_ugly_1_description =>
-      'Detects explicit or veiled threats of hitting, harming, or physical assault against the partner.';
+  String get metric_ugly_1_description => '检测到对伴侣的明确或隐晦的殴打、伤害或人身攻击威胁。';
 
   @override
-  String get metric_ugly_2_name => 'Weapon Possession References';
+  String get metric_ugly_2_name => '武器持有提及';
 
   @override
-  String get metric_ugly_2_description =>
-      'Flags mentions of guns, knives, or weapons in the context of anger, control, or capability to harm.';
+  String get metric_ugly_2_description => '标记在愤怒、控制或伤害能力背景下提及枪支、刀具或武器的内容。';
 
   @override
-  String get metric_ugly_3_name => 'Strangulation Indicators';
+  String get metric_ugly_3_name => '扼杀指标';
 
   @override
-  String get metric_ugly_3_description =>
-      'Identifies choking, throat-grabbing, suffocation, or asphyxiation language or references.';
+  String get metric_ugly_3_description => '识别涉及扼颈、抓喉、窒息或窒息相关语言或提及。';
 
   @override
-  String get metric_ugly_4_name => 'Suicide Threat Weaponization';
+  String get metric_ugly_4_name => '自杀威胁武器化';
 
   @override
-  String get metric_ugly_4_description =>
-      'Detects threats of self-harm used to control, manipulate, or punish the partner.';
+  String get metric_ugly_4_description => '检测利用自残威胁来控制、操纵或惩罚伴侣。';
 
   @override
-  String get metric_ugly_5_name => 'Homicide Ideation Language';
+  String get metric_ugly_5_name => '杀人意念语言';
 
   @override
-  String get metric_ugly_5_description =>
-      'Flags statements expressing intent, planning, or desire to kill the partner.';
+  String get metric_ugly_5_description => '标记表达意图、计划或渴望杀害伴侣的陈述。';
 
   @override
-  String get metric_ugly_6_name => 'Lethality Risk Patterns';
+  String get metric_ugly_6_name => '致命风险模式';
 
   @override
-  String get metric_ugly_6_description =>
-      'Identifies high-lethality warning signs: weapon access, obsession, escalation, and separation threats combined.';
+  String get metric_ugly_6_description => '识别高致命性预警信号：武器获取、执念、升级和分离威胁的组合。';
 
   @override
-  String get metric_ugly_7_name => 'Stalking Obsession Language';
+  String get metric_ugly_7_name => '跟踪痴迷语言';
 
   @override
-  String get metric_ugly_7_description =>
-      'Detects obsessive location monitoring, following, surprise visits, or persistent unwanted pursuit.';
+  String get metric_ugly_7_description => '检测强迫性位置监控、跟踪、突然造访或持续不受欢迎的追求。';
 
   @override
-  String get metric_ugly_8_name => 'Forced Isolation Enforcement';
+  String get metric_ugly_8_name => '强制隔离执行';
 
   @override
-  String get metric_ugly_8_description =>
-      'Flags aggressive demands to cut off all family, friends, work, or outside contact.';
+  String get metric_ugly_8_description => '标记要求切断所有家人、朋友、工作或外界联系的激进要求。';
 
   @override
-  String get metric_ugly_9_name => 'Economic Sabotage';
+  String get metric_ugly_9_name => '经济破坏';
 
   @override
-  String get metric_ugly_9_description =>
-      'Identifies deliberate destruction of employment, credit, finances, or economic stability.';
+  String get metric_ugly_9_description => '识别蓄意破坏就业、信用、财务或经济稳定的行为。';
 
   @override
-  String get metric_ugly_10_name => 'Reproductive Coercion';
+  String get metric_ugly_10_name => '生殖胁迫';
 
   @override
-  String get metric_ugly_10_description =>
-      'Detects forced pregnancy, abortion pressure, contraception tampering, or reproductive control.';
+  String get metric_ugly_10_description => '检测强迫怀孕、堕胎压力、避孕干扰或生殖控制。';
 
   @override
-  String get metric_ugly_11_name => 'Sexual Coercion Pressure';
+  String get metric_ugly_11_name => '性胁迫压力';
 
   @override
-  String get metric_ugly_11_description =>
-      'Flags forced sex, coerced sexual acts, pressure after refusal, or sexual punishment language.';
+  String get metric_ugly_11_description => '标记强迫性行为、胁迫性行为、拒绝后施压或性惩罚语言。';
 
   @override
-  String get metric_ugly_12_name => 'Non-Consensual Sexual Language';
+  String get metric_ugly_12_name => '非自愿性语言';
 
   @override
-  String get metric_ugly_12_description =>
-      'Identifies explicit or implicit non-consensual sexual assault threats or descriptions.';
+  String get metric_ugly_12_description => '识别明确或暗示的非自愿性侵犯威胁或描述。';
 
   @override
-  String get metric_ugly_13_name => 'Child Harm Threats';
+  String get metric_ugly_13_name => '儿童伤害威胁';
 
   @override
-  String get metric_ugly_13_description =>
-      'Detects threats to harm, neglect, or abuse children as leverage or punishment against the partner.';
+  String get metric_ugly_13_description => '检测以伤害、忽视或虐待儿童作为对伴侣的施压或惩罚的威胁。';
 
   @override
-  String get metric_ugly_14_name => 'Child Custody Weaponization';
+  String get metric_ugly_14_name => '儿童监护权武器化';
 
   @override
-  String get metric_ugly_14_description =>
-      'Flags threats to take children, deny access, or use custody as a control mechanism.';
+  String get metric_ugly_14_description => '标记以带走孩子、拒绝探视或利用监护权作为控制手段的威胁。';
 
   @override
-  String get metric_ugly_15_name => 'Pet Harm Threats';
+  String get metric_ugly_15_name => '宠物伤害威胁';
 
   @override
-  String get metric_ugly_15_description =>
-      'Identifies threats to hurt, kill, or abuse pets as punishment or to demonstrate control.';
+  String get metric_ugly_15_description => '识别以伤害、杀害或虐待宠物作为惩罚或展示控制的威胁。';
 
   @override
-  String get metric_ugly_16_name => 'Sleep Deprivation Tactics';
+  String get metric_ugly_16_name => '睡眠剥夺策略';
 
   @override
-  String get metric_ugly_16_description =>
-      'Flags deliberate prevention of sleep, constant interruption, or exhaustion as a control method.';
+  String get metric_ugly_16_description => '标记故意阻止睡眠、持续干扰或耗尽精力作为控制手段。';
 
   @override
-  String get metric_ugly_17_name => 'Confinement Language';
+  String get metric_ugly_17_name => '限制自由语言';
 
   @override
-  String get metric_ugly_17_description =>
-      'Flags locking in, preventing departure, or confining the partner to a location.';
+  String get metric_ugly_17_description => '标记将伴侣锁在室内、阻止离开或限制其活动范围的语言。';
 
   @override
-  String get metric_ugly_18_name => 'Predatory Grooming Language';
+  String get metric_ugly_18_name => '掠夺性诱导语言';
 
   @override
-  String get metric_ugly_18_description =>
-      'Flags systematic manipulation to lower defenses, build false trust, then exploit the partner.';
+  String get metric_ugly_18_description => '标记系统性的操纵行为，旨在降低防御、建立虚假信任，然后利用伴侣。';
 
   @override
-  String get metric_ugly_19_name => 'Dehumanization Language';
+  String get metric_ugly_19_name => '非人化语言';
 
   @override
-  String get metric_ugly_19_description =>
-      'Detects describing partner as an animal, object, subhuman, or unworthy of basic rights.';
+  String get metric_ugly_19_description => '检测到将伴侣描述为动物、物体、非人类或不配享有基本权利的语言。';
 
   @override
-  String get metric_ugly_20_name => 'Narcissistic Rage Escalation';
+  String get metric_ugly_20_name => '自恋暴怒升级';
 
   @override
-  String get metric_ugly_20_description =>
-      'Detects explosive anger triggered by perceived slights, criticism, or any loss of control.';
+  String get metric_ugly_20_description => '检测到因感知到的轻视、批评或任何失控而引发的爆炸性愤怒。';
 
   @override
-  String get metric_ugly_21_name => 'Obsessive Possession Claims';
+  String get metric_ugly_21_name => '强迫性占有主张';
 
   @override
-  String get metric_ugly_21_description =>
-      'Flags language claiming ownership, property rights, or total control over the partner\'s person.';
+  String get metric_ugly_21_description => '标记声称对伴侣拥有所有权、财产权或完全控制权的语言。';
 
   @override
-  String get metric_ugly_22_name => 'Pathological Lying Patterns';
+  String get metric_ugly_22_name => '病态说谎模式';
 
   @override
-  String get metric_ugly_22_description =>
-      'Identifies consistent, elaborate, or unnecessary lies about serious matters without apparent reason.';
+  String get metric_ugly_22_description => '识别关于严重事项的持续、详尽或无必要的谎言，且无明显理由。';
 
   @override
-  String get metric_ugly_23_name => 'Revenge Fantasy Language';
+  String get metric_ugly_23_name => '复仇幻想语言';
 
   @override
-  String get metric_ugly_23_description =>
-      'Identifies detailed fantasies about harming, humiliating, or destroying the partner.';
+  String get metric_ugly_23_description => '识别关于伤害、羞辱或摧毁伴侣的详细幻想。';
 
   @override
-  String get metric_ugly_24_name => 'Betrayal Obsession Fixation';
+  String get metric_ugly_24_name => '背叛执念固着';
 
   @override
-  String get metric_ugly_24_description =>
-      'Detects obsessive rumination, accusation, and punishment focused on perceived infidelity.';
+  String get metric_ugly_24_description => '检测到针对感知不忠的强迫性沉思、指责和惩罚。';
 
   @override
-  String get metric_ugly_25_name => 'Abandonment Panic Aggression';
+  String get metric_ugly_25_name => '遗弃恐慌攻击';
 
   @override
-  String get metric_ugly_25_description =>
-      'Flags violent or aggressive responses to perceived abandonment or any separation attempt.';
+  String get metric_ugly_25_description => '标记对感知到的遗弃或任何分离尝试的暴力或攻击性反应。';
 
   @override
-  String get metric_ugly_26_name => 'Separation Threat Escalation';
+  String get metric_ugly_26_name => '分离威胁升级';
 
   @override
-  String get metric_ugly_26_description =>
-      'Identifies extreme threats or dangerous behaviors triggered by breakup or separation attempts.';
+  String get metric_ugly_26_description => '识别因分手或分离尝试引发的极端威胁或危险行为。';
 
   @override
-  String get metric_ugly_27_name => 'Post-Separation Harassment Threats';
+  String get metric_ugly_27_name => '分离后骚扰威胁';
 
   @override
-  String get metric_ugly_27_description =>
-      'Flags threats of stalking, harm, or forced contact after the relationship ends.';
+  String get metric_ugly_27_description => '标记关系结束后关于跟踪、伤害或强迫接触的威胁。';
 
   @override
-  String get metric_ugly_28_name => 'Custody Kidnapping Threats';
+  String get metric_ugly_28_name => '监护绑架威胁';
 
   @override
-  String get metric_ugly_28_description =>
-      'Identifies threats to take children and flee or hide them permanently from the other parent.';
+  String get metric_ugly_28_description => '识别威胁带走孩子并永久隐藏或逃离另一方的行为。';
 
   @override
-  String get metric_ugly_29_name => 'Parental Alienation Agenda';
+  String get metric_ugly_29_name => '父母疏离议程';
 
   @override
-  String get metric_ugly_29_description =>
-      'Flags systematic attempts to turn children against the other parent through manipulation.';
+  String get metric_ugly_29_description => '标记通过操纵手段系统性地挑拨孩子与另一方父母关系的企图。';
 
   @override
-  String get metric_ugly_30_name => 'Child Witness Indifference';
+  String get metric_ugly_30_name => '儿童见证漠视';
 
   @override
-  String get metric_ugly_30_description =>
-      'Identifies disregard for children witnessing abuse, conflict, or emotional harm.';
+  String get metric_ugly_30_description => '识别对孩子目睹虐待、冲突或情感伤害的漠视行为。';
 
   @override
-  String get metric_ugly_31_name => 'Human Trafficking Language';
+  String get metric_ugly_31_name => '人口贩卖语言';
 
   @override
-  String get metric_ugly_31_description =>
-      'Identifies language suggesting selling, trading, or sexually exploiting the partner.';
+  String get metric_ugly_31_description => '识别暗示贩卖、交易或性剥削伴侣的语言。';
 
   @override
-  String get metric_ugly_32_name => 'Slavery Language';
+  String get metric_ugly_32_name => '奴役语言';
 
   @override
-  String get metric_ugly_32_description =>
-      'Identifies language treating partner as property, slave, or wholly owned person without rights.';
+  String get metric_ugly_32_description => '识别将伴侣视为财产、奴隶或无权利完全占有者的语言。';
 
   @override
-  String get metric_ugly_33_name => 'Debt Bondage Threats';
+  String get metric_ugly_33_name => '债务奴役威胁';
 
   @override
-  String get metric_ugly_33_description =>
-      'Detects threats to trap partner through manufactured debt or financial obligation.';
+  String get metric_ugly_33_description => '检测通过制造债务或财务义务来困住伴侣的威胁。';
 
   @override
-  String get metric_ugly_34_name => 'Forced Labor Demands';
+  String get metric_ugly_34_name => '强迫劳动要求';
 
   @override
-  String get metric_ugly_34_description =>
-      'Flags demands for unpaid labor, servitude, or work under threat of harm or punishment.';
+  String get metric_ugly_34_description => '标记在伤害或惩罚威胁下要求无偿劳动、奴役或工作的行为。';
 
   @override
-  String get metric_ugly_35_name => 'Exploitation Normalization';
+  String get metric_ugly_35_name => '剥削正常化';
 
   @override
-  String get metric_ugly_35_description =>
-      'Identifies framing severe exploitation as normal, deserved, consensual, or even beneficial.';
+  String get metric_ugly_35_description => '识别将严重剥削描述为正常、应得、自愿甚至有益的行为。';
 
   @override
-  String get metric_ugly_36_name => 'Vulnerability Targeting';
+  String get metric_ugly_36_name => '脆弱性针对';
 
   @override
-  String get metric_ugly_36_description =>
-      'Identifies deliberate targeting of isolated, economically dependent, or psychologically vulnerable individuals.';
+  String get metric_ugly_36_description => '识别故意针对孤立、经济依赖或心理脆弱个体的行为。';
 
   @override
-  String get metric_ugly_37_name => 'Trauma Bonding Engineering';
+  String get metric_ugly_37_name => '创伤纽带工程';
 
   @override
-  String get metric_ugly_37_description =>
-      'Detects deliberate creation of fear-relief cycles designed to create deep emotional dependency.';
+  String get metric_ugly_37_description => '检测刻意制造恐惧-缓解循环，旨在建立深层情感依赖。';
 
   @override
-  String get metric_ugly_38_name => 'Intermittent Reinforcement Abuse';
+  String get metric_ugly_38_name => '间歇强化虐待';
 
   @override
-  String get metric_ugly_38_description =>
-      'Flags unpredictable cycles of reward and severe punishment used to create psychological addiction.';
+  String get metric_ugly_38_description => '标记不可预测的奖惩循环，用于制造心理成瘾。';
 
   @override
-  String get metric_ugly_39_name => 'Learned Helplessness Induction';
+  String get metric_ugly_39_name => '习得性无助诱导';
 
   @override
-  String get metric_ugly_39_description =>
-      'Identifies systematic removal of agency, resources, and perceived escape options.';
+  String get metric_ugly_39_description => '识别系统性地剥夺自主权、资源和感知到的逃脱选项。';
 
   @override
-  String get metric_ugly_40_name => 'Identity Erasure Language';
+  String get metric_ugly_40_name => '身份抹除语言';
 
   @override
-  String get metric_ugly_40_description =>
-      'Flags demands to abandon personality, interests, appearance, or core sense of identity.';
+  String get metric_ugly_40_description => '标记要求放弃个性、兴趣、外貌或核心身份认同的言论。';
 
   @override
-  String get metric_ugly_41_name => 'Autonomy Annihilation';
+  String get metric_ugly_41_name => '自主权湮灭';
 
   @override
-  String get metric_ugly_41_description =>
-      'Detects systematic elimination of independent thought, decision-making, or personal agency.';
+  String get metric_ugly_41_description => '检测系统性地消除独立思考、决策或个人自主权。';
 
   @override
-  String get metric_ugly_42_name => 'Thought Control Tactics';
+  String get metric_ugly_42_name => '思想控制策略';
 
   @override
-  String get metric_ugly_42_description =>
-      'Flags demands to think, believe, or feel only as the controlling partner dictates.';
+  String get metric_ugly_42_description => '标记要求仅按控制伴侣的指示思考、相信或感受。';
 
   @override
-  String get metric_ugly_43_name => 'Emotional Numbness Enforcement';
+  String get metric_ugly_43_name => '情感麻木强制';
 
   @override
-  String get metric_ugly_43_description =>
-      'Identifies punishment for showing emotions or explicit demands to suppress all feelings.';
+  String get metric_ugly_43_description => '识别因表达情绪而受惩罚，或明确要求压抑所有感受。';
 
   @override
-  String get metric_ugly_44_name => 'Complex Trauma Creation';
+  String get metric_ugly_44_name => '复杂创伤制造';
 
   @override
-  String get metric_ugly_44_description =>
-      'Flags systematic patterns creating complex PTSD-level trauma through chronic abuse.';
+  String get metric_ugly_44_description => '标记通过长期虐待制造复杂性创伤后应激障碍的系统性模式。';
 
   @override
-  String get metric_ugly_45_name => 'Betrayal Trauma Infliction';
+  String get metric_ugly_45_name => '背叛创伤施加';
 
   @override
-  String get metric_ugly_45_description =>
-      'Identifies deliberate betrayal designed to shatter foundational trust and psychological safety.';
+  String get metric_ugly_45_description => '识别旨在摧毁基础信任和心理安全的蓄意背叛。';
 
   @override
-  String get metric_ugly_46_name => 'Moral Injury Language';
+  String get metric_ugly_46_name => '道德伤害语言';
 
   @override
-  String get metric_ugly_46_description =>
-      'Detects forcing partner to violate their own deeply held values or commit harmful acts.';
+  String get metric_ugly_46_description => '检测强迫伴侣违背自身深层价值观或实施有害行为。';
 
   @override
-  String get metric_ugly_47_name => 'Existential Threat Language';
+  String get metric_ugly_47_name => '生存威胁语言';
 
   @override
-  String get metric_ugly_47_description =>
-      'Flags threats to partner\'s existence, core identity, sanity, or will to live.';
+  String get metric_ugly_47_description => '标记对伴侣存在、核心身份、理智或生存意志的威胁。';
 
   @override
-  String get metric_ugly_48_name => 'Suicide Coercion Language';
+  String get metric_ugly_48_name => '自杀胁迫语言';
 
   @override
-  String get metric_ugly_48_description =>
-      'Identifies pushing partner toward suicidal ideation through sustained abuse and manufactured hopelessness.';
+  String get metric_ugly_48_description => '识别通过持续虐待和制造绝望感推动伴侣产生自杀意念。';
 
   @override
-  String get metric_ugly_49_name => 'Justification Mythology';
+  String get metric_ugly_49_name => '合理化神话';
 
   @override
-  String get metric_ugly_49_description =>
-      'Identifies elaborate invented narratives presented to justify abuse as necessary, deserved, or righteous.';
+  String get metric_ugly_49_description => '识别为将虐待合理化而编造的复杂叙事，声称虐待是必要、应得或正义的。';
 
   @override
-  String get metric_ugly_50_name => 'Victim Narrative Inversion';
+  String get metric_ugly_50_name => '受害者叙事反转';
 
   @override
-  String get metric_ugly_50_description =>
-      'Detects complete reversal where the abuser claims to be the real victim of their own abuse.';
+  String get metric_ugly_50_description => '检测完全颠倒的情况，施虐者声称自己才是自身虐待行为的真正受害者。';
 
   @override
-  String get metric_ugly_51_name => 'Abuse Normalization Preaching';
+  String get metric_ugly_51_name => '虐待正常化说教';
 
   @override
-  String get metric_ugly_51_description =>
-      'Flags teaching or insisting that abuse is normal, healthy, or beneficial for the partner.';
+  String get metric_ugly_51_description => '标记教导或坚持认为虐待是正常、健康或对伴侣有益的言论。';
 
   @override
-  String get metric_ugly_52_name => 'Predatory Ideology';
+  String get metric_ugly_52_name => '掠夺性意识形态';
 
   @override
-  String get metric_ugly_52_description =>
-      'Identifies ideological justification for exploitation, dominance, or harm toward the partner.';
+  String get metric_ugly_52_description => '识别为剥削、支配或伤害伴侣提供意识形态辩护。';
 
   @override
-  String get metric_ugly_53_name => 'Cult Leader Messaging';
+  String get metric_ugly_53_name => '邪教领袖式信息';
 
   @override
-  String get metric_ugly_53_description =>
-      'Detects messaging claiming special knowledge, divine right, or superior authority over the partner.';
+  String get metric_ugly_53_description => '检测声称拥有特殊知识、神权或对伴侣拥有更高权威的信息。';
 
   @override
-  String get metric_ugly_54_name => 'Grooming Timeline Language';
+  String get metric_ugly_54_name => '培养时间线语言';
 
   @override
-  String get metric_ugly_54_description =>
-      'Flags references to a long-term manipulation plan or descriptions of a grooming progression.';
+  String get metric_ugly_54_description => '标记提及长期操纵计划或描述培养进程的言论。';
 
   @override
-  String get metric_ugly_55_name => 'Chronic Humiliation Campaign';
+  String get metric_ugly_55_name => '长期羞辱运动';
 
   @override
-  String get metric_ugly_55_description =>
-      'Identifies sustained pattern of public or private humiliation designed to destroy self-worth.';
+  String get metric_ugly_55_description => '识别持续公开或私下羞辱的模式，旨在摧毁自我价值。';
 
   @override
-  String get metric_ugly_56_name => 'Safety Exit Blocking';
+  String get metric_ugly_56_name => '安全出口封锁';
 
   @override
-  String get metric_ugly_56_description =>
-      'Detects actively preventing the partner from accessing escape routes, support systems, or safety resources.';
+  String get metric_ugly_56_description => '检测主动阻止伴侣获取逃生路线、支持系统或安全资源的行为。';
 
   @override
-  String get metric_ugly_57_name => 'Document Confiscation Threats';
+  String get metric_ugly_57_name => '证件没收威胁';
 
   @override
-  String get metric_ugly_57_description =>
-      'Flags threats or actions to take, hide, or destroy identity documents to prevent escape.';
+  String get metric_ugly_57_description => '标记威胁或行动以获取、隐藏或销毁身份文件，从而阻止逃离。';
 
   @override
-  String get metric_ugly_58_name => 'Violent Jealousy Patterns';
+  String get metric_ugly_58_name => '暴力嫉妒模式';
 
   @override
-  String get metric_ugly_58_description =>
-      'Identifies jealousy that has escalated to explicit threats, surveillance, or violent retaliation.';
+  String get metric_ugly_58_description => '识别已升级为明确威胁、监视或暴力报复的嫉妒行为。';
 
   @override
-  String get metric_ugly_59_name => 'Rage Explosion Patterns';
+  String get metric_ugly_59_name => '暴怒爆发模式';
 
   @override
-  String get metric_ugly_59_description =>
-      'Detects descriptions or patterns of explosive violent outbursts disproportionate to any trigger.';
+  String get metric_ugly_59_description => '检测与任何触发因素不成比例的爆炸性暴力爆发的描述或模式。';
 
   @override
-  String get metric_ugly_60_name => 'Coercive Control Escalation';
+  String get metric_ugly_60_name => '强制控制升级';
 
   @override
-  String get metric_ugly_60_description =>
-      'Tracks increasing severity and breadth of coercive control tactics over time.';
+  String get metric_ugly_60_description => '追踪强制控制策略随时间推移的严重性和广度增加。';
 
   @override
-  String get metric_ugly_61_name => 'Fear-Based Compliance Language';
+  String get metric_ugly_61_name => '恐惧顺从语言';
 
   @override
-  String get metric_ugly_61_description =>
-      'Identifies compliance driven entirely by fear of violence or severe punishment rather than choice.';
+  String get metric_ugly_61_description => '识别完全出于对暴力或严厉惩罚的恐惧而非选择的顺从行为。';
 
   @override
-  String get metric_ugly_62_name => 'Punishment Ritual Language';
+  String get metric_ugly_62_name => '惩罚仪式语言';
 
   @override
-  String get metric_ugly_62_description =>
-      'Detects references to systematic punishment practices used to enforce compliance and control.';
+  String get metric_ugly_62_description => '检测用于强制顺从和控制的系统性惩罚实践的提及。';
 
   @override
-  String get metric_ugly_63_name => 'Degradation Ritual Indicators';
+  String get metric_ugly_63_name => '羞辱仪式指标';
 
   @override
-  String get metric_ugly_63_description =>
-      'Flags systematic degradation or humiliation rituals designed to destroy dignity.';
+  String get metric_ugly_63_description => '标记旨在摧毁尊严的系统性贬低或羞辱仪式。';
 
   @override
-  String get metric_ugly_64_name => 'Non-Consensual Exposure Threats';
+  String get metric_ugly_64_name => '非自愿曝光威胁';
 
   @override
-  String get metric_ugly_64_description =>
-      'Identifies threats to expose intimate images, private information, or secrets without consent.';
+  String get metric_ugly_64_description => '识别未经同意威胁曝光亲密图像、私人信息或秘密的行为。';
 
   @override
-  String get metric_ugly_65_name => 'Image-Based Abuse Threats';
+  String get metric_ugly_65_name => '图像滥用威胁';
 
   @override
-  String get metric_ugly_65_description =>
-      'Detects threats to distribute intimate images as revenge, punishment, or blackmail.';
+  String get metric_ugly_65_description => '检测以报复、惩罚或勒索为目的威胁传播亲密图像的行为。';
 
   @override
-  String get metric_ugly_66_name => 'Financial Entrapment Tactics';
+  String get metric_ugly_66_name => '经济陷阱策略';
 
   @override
-  String get metric_ugly_66_description =>
-      'Flags deliberate creation of financial dependency making independent survival impossible.';
+  String get metric_ugly_66_description => '标记故意制造经济依赖以使其无法独立生存的行为。';
 
   @override
-  String get metric_ugly_67_name => 'Housing Threat Language';
+  String get metric_ugly_67_name => '住房威胁语言';
 
   @override
-  String get metric_ugly_67_description =>
-      'Detects threats to make partner homeless, remove housing access, or destroy shelter security.';
+  String get metric_ugly_67_description => '检测威胁使伴侣无家可归、剥夺住房权利或破坏住所安全的行为。';
 
   @override
-  String get metric_ugly_68_name => 'Immigration Status Threats';
+  String get metric_ugly_68_name => '移民身份威胁';
 
   @override
-  String get metric_ugly_68_description =>
-      'Identifies threats to report immigration status or revoke visa sponsorship as control.';
+  String get metric_ugly_68_description => '识别以控制为目的威胁举报移民身份或撤销签证担保的行为。';
 
   @override
-  String get metric_ugly_69_name => 'Religious or Spiritual Abuse';
+  String get metric_ugly_69_name => '宗教或精神虐待';
 
   @override
-  String get metric_ugly_69_description =>
-      'Detects using religious authority, doctrine, or spiritual threat to control, punish, or harm.';
+  String get metric_ugly_69_description => '检测利用宗教权威、教义或精神威胁进行控制、惩罚或伤害的行为。';
 
   @override
-  String get metric_ugly_70_name => 'Cultural Shame Weaponization';
+  String get metric_ugly_70_name => '文化羞耻武器化';
 
   @override
-  String get metric_ugly_70_description =>
-      'Flags threatening to expose behaviors to cultural or family community as punishment.';
+  String get metric_ugly_70_description => '标记威胁向文化或家庭社区曝光行为作为惩罚的行为。';
 
   @override
-  String get metric_ugly_71_name => 'Family Harm Threats';
+  String get metric_ugly_71_name => '家人伤害威胁';
 
   @override
-  String get metric_ugly_71_description =>
-      'Identifies threats to harm partner\'s family members, children, or loved ones as leverage.';
+  String get metric_ugly_71_description => '识别以伤害伴侣家人、子女或亲人为要挟的威胁行为。';
 
   @override
-  String get metric_ugly_72_name => 'Coordinated Harassment Campaign';
+  String get metric_ugly_72_name => '协同骚扰行动';
 
   @override
-  String get metric_ugly_72_description =>
-      'Detects organizing others to collectively harass, stalk, or intimidate the partner.';
+  String get metric_ugly_72_description => '检测组织他人对伴侣进行集体骚扰、跟踪或恐吓的行为。';
 
   @override
-  String get metric_ugly_73_name => 'False Police Report Threats';
+  String get metric_ugly_73_name => '虚假报警威胁';
 
   @override
-  String get metric_ugly_73_description =>
-      'Flags threatening to make false police reports or legal accusations against the partner.';
+  String get metric_ugly_73_description => '威胁要虚假报警或对伴侣提出法律指控。';
 
   @override
-  String get metric_ugly_74_name => 'Legal System Weaponization';
+  String get metric_ugly_74_name => '法律武器化';
 
   @override
-  String get metric_ugly_74_description =>
-      'Identifies using legal processes, courts, or protective orders as weapons of harassment.';
+  String get metric_ugly_74_description => '识别利用法律程序、法院或保护令作为骚扰武器。';
 
   @override
-  String get metric_ugly_75_name => 'Restraining Order Violation';
+  String get metric_ugly_75_name => '违反限制令';
 
   @override
-  String get metric_ugly_75_description =>
-      'Detects references to violating or planning to violate protective or no-contact orders.';
+  String get metric_ugly_75_description => '检测提及违反或计划违反保护令或禁止接触令。';
 
   @override
-  String get metric_ugly_76_name => 'Workplace Sabotage Threats';
+  String get metric_ugly_76_name => '职场破坏威胁';
 
   @override
-  String get metric_ugly_76_description =>
-      'Flags threats to contact employer, colleagues, or clients to destroy partner\'s livelihood.';
+  String get metric_ugly_76_description => '标记威胁联系雇主、同事或客户以破坏伴侣生计。';
 
   @override
-  String get metric_ugly_77_name => 'Social Annihilation Threats';
+  String get metric_ugly_77_name => '社交毁灭威胁';
 
   @override
-  String get metric_ugly_77_description =>
-      'Detects threats to destroy partner\'s reputation, relationships, and social standing.';
+  String get metric_ugly_77_description => '检测威胁破坏伴侣声誉、关系和社交地位。';
 
   @override
-  String get metric_ugly_78_name => 'Systematic Deception Campaign';
+  String get metric_ugly_78_name => '系统性欺骗行动';
 
   @override
-  String get metric_ugly_78_description =>
-      'Identifies long-term elaborate deception designed to exploit the partner financially or emotionally.';
+  String get metric_ugly_78_description => '识别旨在从财务或情感上剥削伴侣的长期精心欺骗。';
 
   @override
-  String get metric_ugly_79_name => 'Property Destruction as Terror';
+  String get metric_ugly_79_name => '财产破坏式恐吓';
 
   @override
-  String get metric_ugly_79_description =>
-      'Identifies deliberate destruction of partner\'s property as an intimidation tactic.';
+  String get metric_ugly_79_description => '识别故意破坏伴侣财产作为恐吓手段。';
 
   @override
-  String get metric_ugly_80_name => 'Animal Cruelty as Proxy Terror';
+  String get metric_ugly_80_name => '虐待动物式代理恐吓';
 
   @override
-  String get metric_ugly_80_description =>
-      'Detects harming or threatening pets to demonstrate capacity for violence to partner.';
+  String get metric_ugly_80_description => '检测伤害或威胁宠物以向伴侣展示暴力能力。';
 
   @override
-  String get metric_ugly_81_name => 'Child Endangerment Language';
+  String get metric_ugly_81_name => '危害儿童语言';
 
   @override
-  String get metric_ugly_81_description =>
-      'Flags placing children in dangerous situations or threatening to do so as leverage.';
+  String get metric_ugly_81_description => '标记将儿童置于危险境地或以此作为筹码进行威胁。';
 
   @override
-  String get metric_ugly_82_name => 'Disability-Based Control';
+  String get metric_ugly_82_name => '基于残疾的控制';
 
   @override
-  String get metric_ugly_82_description =>
-      'Detects exploiting partner\'s disability by controlling access to medication, mobility, or care.';
+  String get metric_ugly_82_description => '检测通过控制药物、行动或护理来利用伴侣残疾的行为。';
 
   @override
-  String get metric_ugly_83_name => 'Crisis Manufactured Control';
+  String get metric_ugly_83_name => '危机制造控制';
 
   @override
-  String get metric_ugly_83_description =>
-      'Flags deliberately creating emergencies or crises to increase partner dependency or justify monitoring.';
+  String get metric_ugly_83_description => '标记故意制造紧急情况或危机以增加伴侣依赖或为监控辩护的行为。';
 
   @override
-  String get metric_ugly_84_name => 'Isolation from Emergency Services';
+  String get metric_ugly_84_name => '隔离紧急服务';
 
   @override
-  String get metric_ugly_84_description =>
-      'Identifies actively preventing partner from calling police, ambulance, or crisis services.';
+  String get metric_ugly_84_description => '识别主动阻止伴侣报警、叫救护车或联系危机服务的行为。';
 
   @override
-  String get metric_ugly_85_name => 'Threat Escalation Trajectory';
+  String get metric_ugly_85_name => '威胁升级轨迹';
 
   @override
-  String get metric_ugly_85_description =>
-      'Tracks measurable increase in severity, specificity, or frequency of threats over time.';
+  String get metric_ugly_85_description => '追踪威胁在严重性、具体性或频率上随时间可测量的增加。';
 
   @override
-  String get metric_ugly_86_name => 'Lethality Assessment Indicators';
+  String get metric_ugly_86_name => '致命性评估指标';
 
   @override
-  String get metric_ugly_86_description =>
-      'Flags combinations of factors associated with highest risk of intimate partner homicide.';
+  String get metric_ugly_86_description => '标记与亲密伴侣凶杀最高风险相关的因素组合。';
 
   @override
-  String get metric_ugly_87_name => 'Psychological Torture Tactics';
+  String get metric_ugly_87_name => '心理折磨策略';
 
   @override
-  String get metric_ugly_87_description =>
-      'Identifies sustained psychological abuse designed to break the partner\'s mental stability.';
+  String get metric_ugly_87_description => '识别旨在破坏伴侣心理稳定的持续心理虐待。';
 
   @override
-  String get metric_ugly_88_name => 'Captivity Language';
+  String get metric_ugly_88_name => '囚禁语言';
 
   @override
-  String get metric_ugly_88_description =>
-      'Detects references to holding partner captive, preventing departure, or controlling all movement.';
+  String get metric_ugly_88_description => '检测提及囚禁伴侣、阻止离开或控制所有行动的语言。';
 
   @override
-  String get metric_ugly_89_name => 'Targeted Violence Planning';
+  String get metric_ugly_89_name => '针对性暴力计划';
 
   @override
-  String get metric_ugly_89_description =>
-      'Detects any language indicating planning, preparation, or countdown to violence against partner.';
+  String get metric_ugly_89_description => '检测任何表明计划、准备或倒计时对伴侣施暴的语言。';
 
   @override
-  String get metric_ugly_90_name => 'Third Party Threat Recruitment';
+  String get metric_ugly_90_name => '第三方威胁招募';
 
   @override
-  String get metric_ugly_90_description =>
-      'Identifies recruiting friends, family, or others to threaten or harm the partner.';
+  String get metric_ugly_90_description => '识别招募朋友、家人或他人威胁或伤害伴侣的行为。';
 
   @override
-  String get metric_ugly_91_name => 'Suicidal Ideation Exploitation';
+  String get metric_ugly_91_name => '自杀意念利用';
 
   @override
-  String get metric_ugly_91_description =>
-      'Flags exploiting partner\'s suicidal crisis as leverage or to prevent them seeking help.';
+  String get metric_ugly_91_description => '利用伴侣的自杀危机作为筹码或阻止其寻求帮助。';
 
   @override
-  String get metric_ugly_92_name => 'Poisoning or Drugging Threats';
+  String get metric_ugly_92_name => '投毒或下药威胁';
 
   @override
-  String get metric_ugly_92_description =>
-      'Detects threats or references to drugging, poisoning, or tampering with partner\'s food or drink.';
+  String get metric_ugly_92_description => '检测威胁或提及下药、投毒或篡改伴侣食物或饮料的行为。';
 
   @override
-  String get metric_ugly_93_name => 'Non-Suicidal Self-Harm Exploitation';
+  String get metric_ugly_93_name => '非自杀性自伤利用';
 
   @override
-  String get metric_ugly_93_description =>
-      'Flags exploiting partner\'s self-harm behavior as leverage, mockery, or further control.';
+  String get metric_ugly_93_description => '标记利用伴侣的自残行为作为筹码、嘲笑或进一步控制的行为。';
 
   @override
-  String get metric_ugly_94_name => 'Dissociation Induction Language';
+  String get metric_ugly_94_name => '解离诱导语言';
 
   @override
-  String get metric_ugly_94_description =>
-      'Detects patterns designed to cause dissociation, detachment, or depersonalization in the partner.';
+  String get metric_ugly_94_description => '检测旨在导致伴侣解离、疏离或人格解体的语言模式。';
 
   @override
-  String get metric_ugly_95_name => 'Cognitive Distortion Implanting';
+  String get metric_ugly_95_name => '认知扭曲植入';
 
   @override
-  String get metric_ugly_95_description =>
-      'Detects deliberate installation of false beliefs about self, reality, or the partner\'s own sanity.';
+  String get metric_ugly_95_description => '检测故意植入关于自我、现实或伴侣自身理智的错误信念。';
 
   @override
-  String get metric_ugly_96_name => 'Medical Care Obstruction';
+  String get metric_ugly_96_name => '医疗护理阻挠';
 
   @override
-  String get metric_ugly_96_description =>
-      'Detects preventing access to medication, doctors, hospitals, or health treatment.';
+  String get metric_ugly_96_description => '检测阻止获取药物、医生、医院或健康治疗的行为。';
 
   @override
-  String get metric_ugly_97_name => 'Extremist Threat Language';
+  String get metric_ugly_97_name => '极端威胁语言';
 
   @override
-  String get metric_ugly_97_description =>
-      'Flags language borrowed from extremist or violent ideological frameworks applied toward the partner.';
+  String get metric_ugly_97_description => '标记从极端或暴力意识形态框架中借用并应用于伴侣的语言。';
 
   @override
-  String get metric_ugly_98_name => 'Post-Separation Stalking Signals';
+  String get metric_ugly_98_name => '分手后跟踪信号';
 
   @override
-  String get metric_ugly_98_description =>
-      'Detects threats, surveillance language, or intimidation tactics following or anticipating a breakup.';
+  String get metric_ugly_98_description => '检测分手后或预期分手时的威胁、监视语言或恐吓策略。';
 
   @override
-  String get metric_ugly_99_name => 'Child Weaponization';
+  String get metric_ugly_99_name => '儿童武器化';
 
   @override
-  String get metric_ugly_99_description =>
-      'Identifies using children as pawns, threats regarding custody, or leveraging parental bonds as control mechanisms.';
+  String get metric_ugly_99_description => '识别利用孩子作为筹码、威胁监护权或利用亲子关系作为控制机制的行为。';
 
   @override
-  String get metric_ugly_100_name => 'Systematic Dehumanization';
+  String get metric_ugly_100_name => '系统性非人化';
 
   @override
-  String get metric_ugly_100_description =>
-      'Detects sustained language that strips the partner of personhood, dignity, or their right to basic humanity.';
+  String get metric_ugly_100_description => '检测持续剥夺伴侣人格、尊严或基本人权的语言。';
 }

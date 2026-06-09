@@ -1524,2102 +1524,2088 @@ class AppLocalizationsKo extends AppLocalizations {
   String get packUglyLabel => '못생긴';
 
   @override
-  String get metric_good_1_name => 'Active Listening Cues';
+  String get metric_good_1_name => '적극적 경청 신호';
 
   @override
   String get metric_good_1_description =>
-      'Detects paraphrasing, clarifying questions, and demonstrated understanding of the partner\'s perspective in text.';
+      '텍스트에서 상대방의 관점을 다시 말하기, 명확히 묻기, 이해했음을 보여주는 표현을 감지합니다.';
 
   @override
-  String get metric_good_2_name => 'Appreciation Expression';
+  String get metric_good_2_name => '감사 표현';
 
   @override
   String get metric_good_2_description =>
-      'Identifies specific gratitude, recognition of effort, and acknowledgment of partner\'s positive qualities or actions.';
+      '구체적인 감사, 노력 인정, 상대방의 긍정적인 특성이나 행동에 대한 인정을 식별합니다.';
 
   @override
-  String get metric_good_3_name => 'Affirmation Language';
+  String get metric_good_3_name => '확언 언어';
 
   @override
   String get metric_good_3_description =>
-      'Looks for statements that validate the partner\'s feelings, experiences, worth, or right to have needs.';
+      '파트너의 감정, 경험, 가치, 또는 필요에 대한 권리를 인정하는 진술을 찾습니다.';
 
   @override
-  String get metric_good_4_name => 'Collaborative Tone';
+  String get metric_good_4_name => '협력적 어조';
 
   @override
   String get metric_good_4_description =>
-      'Measures use of \"we,\" joint problem-solving language, and framing issues as shared challenges to address together.';
+      '\"우리\"라는 표현, 공동 문제 해결 언어, 문제를 함께 해결할 공동 과제로 구성하는 방식을 측정합니다.';
 
   @override
-  String get metric_good_5_name => 'Curiosity About Partner';
+  String get metric_good_5_name => '파트너에 대한 호기심';
 
   @override
   String get metric_good_5_description =>
-      'Tracks asking questions about the partner\'s thoughts, feelings, day, preferences, or inner experience.';
+      '파트너의 생각, 감정, 하루, 선호도 또는 내적 경험에 대해 질문하는 것을 추적합니다.';
 
   @override
-  String get metric_good_6_name => 'Vulnerability Expression';
+  String get metric_good_6_name => '취약함 표현';
 
   @override
   String get metric_good_6_description =>
-      'Identifies sharing fears, insecurities, needs, or emotional truths without defensiveness or blame.';
+      '방어나 비난 없이 두려움, 불안, 필요, 감정적 진실을 공유하는 것을 식별합니다.';
 
   @override
-  String get metric_good_7_name => 'Humor as Connection';
+  String get metric_good_7_name => '연결로서의 유머';
 
   @override
   String get metric_good_7_description =>
-      'Detects playful shared laughter that brings partners together rather than mocking or belittling.';
+      '조롱이나 비하가 아닌, 파트너를 하나로 묶는 장난기 가득한 공유 웃음을 감지합니다.';
 
   @override
-  String get metric_good_8_name => 'Reassurance Offering';
+  String get metric_good_8_name => '안심 제공';
 
   @override
   String get metric_good_8_description =>
-      'Looks for proactive statements that provide comfort, security, or confidence to the anxious partner.';
+      '불안한 파트너에게 위안, 안정감 또는 자신감을 제공하는 적극적인 진술을 찾습니다.';
 
   @override
-  String get metric_good_9_name => 'Compliment Frequency';
+  String get metric_good_9_name => '칭찬 빈도';
 
   @override
   String get metric_good_9_description =>
-      'Measures genuine specific praise about appearance, character, abilities, or positive actions.';
+      '외모, 성격, 능력 또는 긍정적인 행동에 대한 진정하고 구체적인 칭찬을 측정합니다.';
 
   @override
-  String get metric_good_10_name => 'Emotional Availability';
+  String get metric_good_10_name => '정서적 가용성';
 
   @override
   String get metric_good_10_description =>
-      'Assesses responsiveness to the partner\'s emotional needs, presence during distress, and willingness to engage.';
+      '상대방의 정서적 필요에 대한 반응성, 고통 중 함께함, 참여 의지를 평가합니다.';
 
   @override
-  String get metric_good_11_name => 'Gratitude Habit';
+  String get metric_good_11_name => '감사 습관';
 
   @override
   String get metric_good_11_description =>
-      'Identifies regular expressions of thanks for small things, effort, presence, or support.';
+      '작은 일, 노력, 함께함, 지지에 대한 정기적인 감사 표현을 식별합니다.';
 
   @override
-  String get metric_good_12_name => 'Supportive Language';
+  String get metric_good_12_name => '지지적 언어';
 
   @override
   String get metric_good_12_description =>
-      'Tracks statements offering help, encouragement, belief in the partner\'s abilities, or standing beside them.';
+      '도움, 격려, 상대방 능력에 대한 믿음, 또는 지지를 표현하는 진술을 추적합니다.';
 
   @override
-  String get metric_good_13_name => 'Gentle Disagreement';
+  String get metric_good_13_name => '온화한 의견 차이';
 
   @override
   String get metric_good_13_description =>
-      'Measures ability to express different views while preserving respect, curiosity, and the relationship.';
+      '존중, 호기심, 관계를 유지하며 다른 의견을 표현하는 능력을 측정합니다.';
 
   @override
-  String get metric_good_14_name => 'Apology Sincerity';
+  String get metric_good_14_name => '진정한 사과';
 
   @override
   String get metric_good_14_description =>
-      'Detects genuine remorse, understanding of impact, and commitment to change without excuses.';
+      '변명 없는 진정한 후회, 영향 이해, 변화에 대한 헌신을 감지합니다.';
 
   @override
-  String get metric_good_15_name => 'Forgiveness Acceptance';
+  String get metric_good_15_name => '용서 수용';
 
   @override
   String get metric_good_15_description =>
-      'Looks for willingness to let go of past harm, move forward, and rebuild trust after repair.';
+      '과거의 상처를 놓아주고, 앞으로 나아가며, 회복 후 신뢰를 재건하려는 의지를 찾습니다.';
 
   @override
-  String get metric_good_16_name => 'Quality Time Initiation';
+  String get metric_good_16_name => '질적 시간 제안';
 
   @override
   String get metric_good_16_description =>
-      'Identifies offers to spend focused time together, plan activities, or create connection moments.';
+      '함께 시간을 보내거나 활동을 계획하거나 연결의 순간을 만들겠다는 제안을 식별합니다.';
 
   @override
-  String get metric_good_17_name => 'Physical Affection Cues';
+  String get metric_good_17_name => '신체적 애정 신호';
 
   @override
   String get metric_good_17_description =>
-      'Tracks mentions of touch, hugs, kisses, or physical closeness as expressions of care and intimacy.';
+      '관심과 친밀감의 표현으로서의 접촉, 포옹, 키스, 신체적 근접성을 언급하는 것을 추적합니다.';
 
   @override
-  String get metric_good_18_name => 'Shared Joy Recognition';
+  String get metric_good_18_name => '공유된 기쁨 인식';
 
   @override
   String get metric_good_18_description =>
-      'Measures celebrating partner\'s wins, achievements, happiness, or good news with genuine enthusiasm.';
+      '상대방의 성공, 성취, 행복, 좋은 소식을 진정한 열정으로 축하하는 것을 측정합니다.';
 
   @override
-  String get metric_good_19_name => 'Conflict Resolution Effort';
+  String get metric_good_19_name => '갈등 해결 노력';
 
   @override
   String get metric_good_19_description =>
-      'Identifies attempts to find solutions, compromise, or restore peace after disagreement.';
+      '의견 차이 후 해결책을 찾거나, 타협하거나, 평화를 회복하려는 시도를 식별합니다.';
 
   @override
-  String get metric_good_20_name => 'Patience Demonstration';
+  String get metric_good_20_name => '인내심 표현';
 
   @override
   String get metric_good_20_description =>
-      'Detects tolerance for partner\'s pace, struggles, learning curve, or emotional processing needs.';
+      '상대방의 속도, 어려움, 학습 곡선 또는 정서적 처리 필요에 대한 인내심을 감지합니다.';
 
   @override
-  String get metric_good_21_name => 'Perspective-Taking Language';
+  String get metric_good_21_name => '관점 수용 언어';
 
   @override
   String get metric_good_21_description =>
-      'Looks for statements showing understanding of the partner\'s viewpoint, context, or emotional reality.';
+      '상대방의 관점, 상황 또는 정서적 현실에 대한 이해를 보여주는 진술을 찾습니다.';
 
   @override
-  String get metric_good_22_name => 'Reliability Signals';
+  String get metric_good_22_name => '신뢰성 신호';
 
   @override
-  String get metric_good_22_description =>
-      'Tracks following through on promises, showing up consistently, and being dependable.';
+  String get metric_good_22_description => '약속 이행, 일관된 모습, 신뢰할 수 있는 행동을 추적합니다.';
 
   @override
-  String get metric_good_23_name => 'Respect for Differences';
+  String get metric_good_23_name => '차이 존중';
 
   @override
   String get metric_good_23_description =>
-      'Measures acceptance of partner\'s unique traits, preferences, opinions, and ways of being.';
+      '상대방의 독특한 특성, 선호도, 의견 및 존재 방식을 수용하는 정도를 측정합니다.';
 
   @override
-  String get metric_good_24_name => 'Openness to Feedback';
+  String get metric_good_24_name => '피드백 수용성';
 
   @override
   String get metric_good_24_description =>
-      'Identifies receptiveness to partner\'s concerns, willingness to hear criticism, and desire to improve.';
+      '상대방의 우려에 대한 수용성, 비판을 들으려는 의지, 개선하려는 욕구를 식별합니다.';
 
   @override
-  String get metric_good_25_name => 'Validation of Emotions';
+  String get metric_good_25_name => '감정 인정';
 
   @override
   String get metric_good_25_description =>
-      'Detects acknowledgment that the partner\'s feelings are real, understandable, and worthy of attention.';
+      '상대방의 감정이 실제이며, 이해할 수 있고, 주목할 가치가 있음을 인정하는 것을 감지합니다.';
 
   @override
-  String get metric_good_26_name => 'Encouragement Language';
+  String get metric_good_26_name => '격려 언어';
 
   @override
   String get metric_good_26_description =>
-      'Looks for statements that inspire confidence, motivate action, or support the partner\'s goals.';
+      '자신감을 고취시키고, 행동을 동기부여하며, 상대방의 목표를 지지하는 진술을 찾습니다.';
 
   @override
-  String get metric_good_27_name => 'Intimate Disclosure';
+  String get metric_good_27_name => '친밀한 자기공개';
 
   @override
   String get metric_good_27_description =>
-      'Identifies sharing personal thoughts, dreams, fears, or secrets that deepen emotional connection.';
+      '정서적 연결을 깊게 하는 개인적인 생각, 꿈, 두려움 또는 비밀을 공유하는 것을 식별합니다.';
 
   @override
-  String get metric_good_28_name => 'Attunement Signals';
+  String get metric_good_28_name => '조율 신호';
 
   @override
   String get metric_good_28_description =>
-      'Measures noticing the partner\'s mood, needs, or distress without being told explicitly.';
+      '상대방의 기분, 필요 또는 고통을 명시적으로 말하지 않아도 알아차리는 것을 측정합니다.';
 
   @override
-  String get metric_good_29_name => 'Positive Reframing';
+  String get metric_good_29_name => '긍정적 재구성';
 
   @override
   String get metric_good_29_description =>
-      'Detects finding silver linings, growth opportunities, or constructive angles in difficult situations.';
+      '어려운 상황에서 긍정적인 면, 성장 기회 또는 건설적인 관점을 찾아내는 것을 감지합니다.';
 
   @override
-  String get metric_good_30_name => 'Commitment Language';
+  String get metric_good_30_name => '헌신 언어';
 
   @override
   String get metric_good_30_description =>
-      'Tracks expressions of dedication, long-term thinking, and investment in the relationship\'s future.';
+      '헌신, 장기적 사고, 관계의 미래에 대한 투자를 나타내는 표현을 추적합니다.';
 
   @override
-  String get metric_good_31_name => 'Flexibility Demonstration';
+  String get metric_good_31_name => '유연성 발휘';
 
   @override
   String get metric_good_31_description =>
-      'Identifies willingness to adapt plans, adjust expectations, or meet the partner halfway.';
+      '계획을 조정하고, 기대치를 수정하거나, 상대방과 타협할 의지를 식별합니다.';
 
   @override
-  String get metric_good_32_name => 'Protective Language';
+  String get metric_good_32_name => '보호 언어';
 
   @override
-  String get metric_good_32_description =>
-      'Looks for statements showing the partner\'s safety, wellbeing, and interests matter deeply.';
+  String get metric_good_32_description => '상대방의 안전, 복지 및 관심사가 중요하다는 진술을 찾습니다.';
 
   @override
-  String get metric_good_33_name => 'Celebration of Milestones';
+  String get metric_good_33_name => '이정표 축하';
 
   @override
   String get metric_good_33_description =>
-      'Measures acknowledging anniversaries, achievements, or meaningful moments together.';
+      '기념일, 성취 또는 함께한 의미 있는 순간을 인정하는 것을 측정합니다.';
 
   @override
-  String get metric_good_34_name => 'Constructive Feedback';
+  String get metric_good_34_name => '건설적 피드백';
 
   @override
   String get metric_good_34_description =>
-      'Detects offering suggestions for improvement that are kind, specific, and growth-focused.';
+      '친절하고 구체적이며 성장 중심의 개선 제안을 제공하는 것을 감지합니다.';
 
   @override
-  String get metric_good_35_name => 'Presence During Hardship';
+  String get metric_good_35_name => '어려움 속 함께하기';
 
   @override
   String get metric_good_35_description =>
-      'Identifies staying engaged when the partner is struggling, grieving, or facing challenges.';
+      '상대방이 어려움을 겪거나, 슬퍼하거나, 도전에 직면했을 때 함께하는 것을 식별합니다.';
 
   @override
-  String get metric_good_36_name => 'Admiration Expression';
+  String get metric_good_36_name => '존경 표현';
 
   @override
   String get metric_good_36_description =>
-      'Tracks genuine respect for the partner\'s character, strength, intelligence, or resilience.';
+      '상대방의 성격, 강점, 지능 또는 회복력에 대한 진정한 존중을 추적합니다.';
 
   @override
-  String get metric_good_37_name => 'Playfulness Indicators';
+  String get metric_good_37_name => '장난기 지표';
 
   @override
   String get metric_good_37_description =>
-      'Looks for lighthearted teasing, inside jokes, or fun interactions that strengthen bonding.';
+      '가벼운 놀림, 내부 농담, 또는 유대감을 강화하는 재미있는 상호작용을 찾습니다.';
 
   @override
-  String get metric_good_38_name => 'Empathic Mirroring';
+  String get metric_good_38_name => '공감적 반영';
 
   @override
   String get metric_good_38_description =>
-      'Measures reflecting back the partner\'s emotions to show understanding and validation.';
+      '파트너의 감정을 반영하여 이해와 인정을 보여주는 것을 측정합니다.';
 
   @override
-  String get metric_good_39_name => 'Acceptance Language';
+  String get metric_good_39_name => '수용 언어';
 
   @override
   String get metric_good_39_description =>
-      'Detects embracing the partner as they are, including flaws, without demanding change.';
+      '파트너의 결점을 포함한 있는 그대로의 모습을 받아들이고 변화를 요구하지 않는 것을 감지합니다.';
 
   @override
-  String get metric_good_40_name => 'Supportive Presence';
+  String get metric_good_40_name => '지지적 존재감';
 
   @override
   String get metric_good_40_description =>
-      'Identifies being there without fixing, offering comfort through listening and companionship.';
+      '고치려 하지 않고 함께 있어주며, 경청과 동행을 통해 위로를 제공하는 것을 식별합니다.';
 
   @override
-  String get metric_good_41_name => 'Genuine Interest';
+  String get metric_good_41_name => '진정한 관심';
 
   @override
   String get metric_good_41_description =>
-      'Tracks asking follow-up questions and remembering details about the partner\'s life and concerns.';
+      '후속 질문을 하고 파트너의 삶과 관심사에 대한 세부 사항을 기억하는 것을 추적합니다.';
 
   @override
-  String get metric_good_42_name => 'Reciprocal Effort';
+  String get metric_good_42_name => '상호 노력';
 
   @override
   String get metric_good_42_description =>
-      'Measures both partners contributing equally to emotional work, planning, and relationship maintenance.';
+      '두 파트너가 정서적 노력, 계획, 관계 유지에 동등하게 기여하는 것을 측정합니다.';
 
   @override
-  String get metric_good_43_name => 'Forgiveness Language';
+  String get metric_good_43_name => '용서 언어';
 
   @override
   String get metric_good_43_description =>
-      'Looks for releasing grudges, offering second chances, and choosing to move past hurt.';
+      '원한을 풀고, 두 번째 기회를 주며, 상처를 극복하기로 선택하는 것을 찾습니다.';
 
   @override
-  String get metric_good_44_name => 'Mutual Respect Signals';
+  String get metric_good_44_name => '상호 존중 신호';
 
   @override
   String get metric_good_44_description =>
-      'Detects treating the partner as an equal, honoring their opinions, and valuing their input.';
+      '파트너를 동등하게 대하고, 그들의 의견을 존중하며, 그들의 기여를 가치 있게 여기는 것을 감지합니다.';
 
   @override
-  String get metric_good_45_name => 'Emotional Honesty';
+  String get metric_good_45_name => '정서적 정직';
 
   @override
   String get metric_good_45_description =>
-      'Identifies truthful expression of feelings without manipulation, exaggeration, or strategic withholding.';
+      '조작, 과장, 또는 전략적 은폐 없이 감정을 진실되게 표현하는 것을 식별합니다.';
 
   @override
-  String get metric_good_46_name => 'Supportive Listening';
+  String get metric_good_46_name => '지지적 경청';
 
   @override
   String get metric_good_46_description =>
-      'Measures allowing the partner to fully express without interrupting, judging, or immediately problem-solving.';
+      '상대방이 방해받거나 판단받거나 즉시 문제 해결을 시도하지 않고 완전히 표현할 수 있도록 허용하는 것을 측정합니다.';
 
   @override
-  String get metric_good_47_name => 'Affectionate Nicknames';
+  String get metric_good_47_name => '애정 어린 별명';
 
   @override
-  String get metric_good_47_description =>
-      'Tracks use of loving terms of endearment that convey warmth and intimate connection.';
+  String get metric_good_47_description => '따뜻함과 친밀감을 전하는 애정 어린 호칭 사용을 추적합니다.';
 
   @override
-  String get metric_good_48_name => 'Shared Laughter';
+  String get metric_good_48_name => '함께하는 웃음';
 
   @override
   String get metric_good_48_description =>
-      'Identifies moments of mutual humor and joy that create positive bonding experiences.';
+      '긍정적인 유대감을 형성하는 상호 유머와 기쁨의 순간을 식별합니다.';
 
   @override
-  String get metric_good_49_name => 'Thoughtful Gestures';
+  String get metric_good_49_name => '세심한 행동';
 
   @override
   String get metric_good_49_description =>
-      'Looks for small acts of kindness, remembering preferences, or doing things to make partner happy.';
+      '작은 친절, 선호도 기억, 상대방을 기쁘게 하는 행동을 찾습니다.';
 
   @override
-  String get metric_good_50_name => 'Confidence in Partner';
+  String get metric_good_50_name => '파트너에 대한 신뢰';
 
   @override
   String get metric_good_50_description =>
-      'Detects belief in the partner\'s abilities, potential, and capacity to handle challenges.';
+      '상대방의 능력, 잠재력, 도전을 처리할 역량에 대한 믿음을 감지합니다.';
 
   @override
-  String get metric_good_51_name => 'Healthy Interdependence';
+  String get metric_good_51_name => '건강한 상호의존';
 
   @override
   String get metric_good_51_description =>
-      'Measures balance between togetherness and independence, supporting each other\'s autonomy.';
+      '함께함과 독립성 사이의 균형, 서로의 자율성을 지지하는 것을 측정합니다.';
 
   @override
-  String get metric_good_52_name => 'Conflict De-escalation';
+  String get metric_good_52_name => '갈등 완화';
 
   @override
   String get metric_good_52_description =>
-      'Identifies soft language, breaks, or solution-offering to calm heated discussions.';
+      '격렬한 대화를 진정시키기 위한 부드러운 언어, 휴식, 해결책 제시를 식별합니다.';
 
   @override
-  String get metric_good_53_name => 'Genuine Apology';
+  String get metric_good_53_name => '진정한 사과';
 
   @override
   String get metric_good_53_description =>
-      'Tracks full acknowledgment of wrongdoing without minimizing, defending, or shifting blame.';
+      '축소, 방어, 비난 전가 없이 잘못을 완전히 인정하는 것을 추적합니다.';
 
   @override
-  String get metric_good_54_name => 'Emotional Support Offers';
+  String get metric_good_54_name => '정서적 지원 제공';
 
   @override
   String get metric_good_54_description =>
-      'Looks for proactive check-ins, asking how the partner is doing, and offering help.';
+      '상대방의 안부를 묻고 도움을 제공하는 적극적인 확인을 찾습니다.';
 
   @override
-  String get metric_good_55_name => 'Respectful Boundaries';
+  String get metric_good_55_name => '존중하는 경계';
 
   @override
   String get metric_good_55_description =>
-      'Measures honoring the partner\'s stated limits while maintaining own healthy boundaries.';
+      '파트너가 명확히 한 한계를 존중하면서 자신의 건강한 경계를 유지하는 것을 측정합니다.';
 
   @override
-  String get metric_good_56_name => 'Positive Anticipation';
+  String get metric_good_56_name => '긍정적 기대';
 
   @override
   String get metric_good_56_description =>
-      'Detects excitement about the future together, planning ahead, and looking forward to shared experiences.';
+      '함께하는 미래에 대한 기대, 계획 수립, 공유 경험을 고대하는 것을 감지합니다.';
 
   @override
-  String get metric_good_57_name => 'Attentiveness Signals';
+  String get metric_good_57_name => '세심함 신호';
 
   @override
   String get metric_good_57_description =>
-      'Identifies remembering important dates, preferences, and details that show the partner matters.';
+      '파트너가 중요하다는 것을 보여주는 중요한 날짜, 선호도, 세부 사항을 기억하는 것을 식별합니다.';
 
   @override
-  String get metric_good_58_name => 'Encouraging Growth';
+  String get metric_good_58_name => '성장 격려';
 
   @override
   String get metric_good_58_description =>
-      'Tracks supporting the partner\'s personal development, learning, and pursuit of goals.';
+      '파트너의 개인적 발전, 학습, 목표 추구를 지원하는 것을 추적합니다.';
 
   @override
-  String get metric_good_59_name => 'Tender Language';
+  String get metric_good_59_name => '부드러운 언어';
 
   @override
   String get metric_good_59_description =>
-      'Looks for soft, caring word choices that convey gentleness and emotional warmth.';
+      '부드럽고 다정한 단어 선택을 통해 온화함과 정서적 따뜻함을 전달하는 것을 찾습니다.';
 
   @override
-  String get metric_good_60_name => 'Mutual Accountability';
+  String get metric_good_60_name => '상호 책임감';
 
   @override
   String get metric_good_60_description =>
-      'Measures both partners taking responsibility for their actions and their impact.';
+      '두 파트너가 자신의 행동과 그 영향에 대해 책임을 지는 것을 측정합니다.';
 
   @override
-  String get metric_good_61_name => 'Celebration of Partner';
+  String get metric_good_61_name => '파트너 축하';
 
   @override
   String get metric_good_61_description =>
-      'Detects publicly or privately expressing pride, joy, or admiration for the partner.';
+      '공개적 또는 개인적으로 파트너에 대한 자부심, 기쁨, 존경을 표현하는 것을 감지합니다.';
 
   @override
-  String get metric_good_62_name => 'Consistent Affection';
+  String get metric_good_62_name => '일관된 애정';
 
   @override
   String get metric_good_62_description =>
-      'Identifies regular expressions of love that do not fluctuate based on performance or compliance.';
+      '성과나 순응에 따라 변동하지 않는 일관된 사랑의 표현을 식별합니다.';
 
   @override
-  String get metric_good_63_name => 'Emotional Attunement';
+  String get metric_good_63_name => '정서적 조율';
 
   @override
   String get metric_good_63_description =>
-      'Tracks sensing and responding to subtle shifts in the partner\'s emotional state.';
+      '파트너의 감정 상태에서 미묘한 변화를 감지하고 반응하는 것을 추적합니다.';
 
   @override
-  String get metric_good_64_name => 'Collaborative Decision-Making';
+  String get metric_good_64_name => '협력적 의사 결정';
 
   @override
   String get metric_good_64_description =>
-      'Measures discussing options together and making choices that consider both partners\' needs.';
+      '함께 선택지를 논의하고, 두 파트너의 필요를 고려한 결정을 내리는 것을 측정합니다.';
 
   @override
-  String get metric_good_65_name => 'Reassurance Without Demand';
+  String get metric_good_65_name => '조건 없는 안심';
 
   @override
   String get metric_good_65_description =>
-      'Looks for offering comfort and security without requiring the partner to earn it.';
+      '파트너가 자격을 증명할 필요 없이 위로와 안정감을 제공하는 행동을 찾습니다.';
 
   @override
-  String get metric_good_66_name => 'Authentic Connection';
+  String get metric_good_66_name => '진정한 연결';
 
   @override
   String get metric_good_66_description =>
-      'Detects genuine presence, real sharing, and dropping pretense in interactions.';
+      '상호작용에서 진정한 존재감, 진솔한 나눔, 가식 없는 모습을 감지합니다.';
 
   @override
-  String get metric_good_67_name => 'Mutual Encouragement';
+  String get metric_good_67_name => '상호 격려';
 
   @override
   String get metric_good_67_description =>
-      'Identifies both partners cheering each other on and celebrating efforts not just outcomes.';
+      '두 파트너가 서로를 응원하고 결과뿐 아니라 노력도 축하하는 모습을 식별합니다.';
 
   @override
-  String get metric_good_68_name => 'Respectful Questioning';
+  String get metric_good_68_name => '존중하는 질문';
 
   @override
   String get metric_good_68_description =>
-      'Tracks asking about the partner\'s perspective with genuine curiosity rather than interrogation.';
+      '심문이 아닌 진정한 호기심으로 파트너의 관점을 묻는 행동을 추적합니다.';
 
   @override
-  String get metric_good_69_name => 'Loving Consistency';
+  String get metric_good_69_name => '사랑의 일관성';
 
   @override
   String get metric_good_69_description =>
-      'Measures showing up the same way in good times and hard times, reliable in affection.';
+      '좋은 때와 어려운 때 모두 동일한 태도를 보이며, 애정에 있어 신뢰할 수 있는 모습을 측정합니다.';
 
   @override
-  String get metric_good_70_name => 'Emotional Reciprocity';
+  String get metric_good_70_name => '감정적 상호성';
 
   @override
   String get metric_good_70_description =>
-      'Looks for both partners sharing feelings, needs, and vulnerabilities in balanced ways.';
+      '두 파트너가 감정, 필요, 취약함을 균형 있게 공유하는 모습을 찾습니다.';
 
   @override
-  String get metric_good_71_name => 'Joyful Presence';
+  String get metric_good_71_name => '기쁨의 존재';
 
   @override
   String get metric_good_71_description =>
-      'Detects genuine happiness in the partner\'s company and enthusiasm for time together.';
+      '파트너와 함께하는 시간에 대한 진정한 기쁨과 열정을 감지합니다.';
 
   @override
-  String get metric_good_72_name => 'Constructive Dialogue';
+  String get metric_good_72_name => '건설적 대화';
 
   @override
   String get metric_good_72_description =>
-      'Identifies conversations that move toward understanding rather than winning or proving right.';
+      '이기거나 옳음을 증명하기보다 이해를 향해 나아가는 대화를 식별합니다.';
 
   @override
-  String get metric_good_73_name => 'Protective Advocacy';
+  String get metric_good_73_name => '보호적 지지';
 
   @override
   String get metric_good_73_description =>
-      'Tracks standing up for the partner, defending them, and prioritizing their wellbeing.';
+      '파트너를 지지하고, 보호하며, 그들의 안녕을 최우선으로 하는 행동을 추적합니다.';
 
   @override
-  String get metric_good_74_name => 'Mindful Communication';
+  String get metric_good_74_name => '마음챙김 의사소통';
 
   @override
   String get metric_good_74_description =>
-      'Measures thoughtful word choice, considering impact before speaking, and intentional messaging.';
+      '말하기 전에 영향을 고려하고, 의도적인 메시지를 전달하는 신중한 단어 선택을 측정합니다.';
 
   @override
-  String get metric_good_75_name => 'Relationship Investment';
+  String get metric_good_75_name => '관계 투자';
 
   @override
-  String get metric_good_75_description =>
-      'Looks for time, energy, and resources devoted to nurturing the partnership.';
+  String get metric_good_75_description => '관계를 키우는 데 투자된 시간, 에너지 및 자원을 살펴봅니다.';
 
   @override
-  String get metric_good_76_name => 'Secure Base Language';
+  String get metric_good_76_name => '안전 기반 언어';
 
   @override
   String get metric_good_76_description =>
-      'Detects offering stability, safety, and a foundation from which the partner can explore.';
+      '안정감, 안전함, 그리고 파트너가 탐험할 수 있는 기반을 제공하는 것을 감지합니다.';
 
   @override
-  String get metric_good_77_name => 'Mutual Admiration';
+  String get metric_good_77_name => '상호 존경';
 
   @override
   String get metric_good_77_description =>
-      'Identifies both partners expressing respect and appreciation for each other\'s qualities.';
+      '두 파트너가 서로의 자질에 대해 존중과 감사를 표현하는 것을 식별합니다.';
 
   @override
-  String get metric_good_78_name => 'Tender Moments';
+  String get metric_good_78_name => '다정한 순간';
 
   @override
   String get metric_good_78_description =>
-      'Tracks creating or recognizing intimate quiet moments of connection and closeness.';
+      '친밀하고 조용한 연결과 가까움의 순간을 만들거나 인식하는 것을 추적합니다.';
 
   @override
-  String get metric_good_79_name => 'Genuine Curiosity';
+  String get metric_good_79_name => '진정한 호기심';
 
   @override
   String get metric_good_79_description =>
-      'Looks for authentic interest in understanding the partner\'s thoughts, feelings, and experiences.';
+      '파트너의 생각, 감정 및 경험을 이해하려는 진정한 관심을 살펴봅니다.';
 
   @override
-  String get metric_good_80_name => 'Loving Acceptance';
+  String get metric_good_80_name => '사랑하는 수용';
 
   @override
   String get metric_good_80_description =>
-      'Detects embracing the partner\'s whole self, including imperfections and past.';
+      '파트너의 전체적인 모습(결점과 과거 포함)을 받아들이는 것을 감지합니다.';
 
   @override
-  String get metric_good_81_name => 'Mutual Growth Support';
+  String get metric_good_81_name => '상호 성장 지원';
 
   @override
   String get metric_good_81_description =>
-      'Identifies both partners encouraging each other\'s development and celebrating progress.';
+      '두 파트너가 서로의 발전을 격려하고 진전을 축하하는 것을 식별합니다.';
 
   @override
-  String get metric_good_82_name => 'Warm Tone Indicators';
+  String get metric_good_82_name => '따뜻한 어조 지표';
 
   @override
   String get metric_good_82_description =>
-      'Tracks use of affectionate language, kind phrasing, and gentle communication style.';
+      '애정 어린 언어, 다정한 표현, 부드러운 의사소통 방식의 사용을 추적합니다.';
 
   @override
-  String get metric_good_83_name => 'Responsive Engagement';
+  String get metric_good_83_name => '반응적 참여';
 
   @override
   String get metric_good_83_description =>
-      'Measures quick, engaged responses to the partner\'s messages and emotional bids.';
+      '파트너의 메시지와 정서적 신호에 대한 신속하고 적극적인 반응을 측정합니다.';
 
   @override
-  String get metric_good_84_name => 'Shared Values Alignment';
+  String get metric_good_84_name => '공유 가치 일치';
 
   @override
   String get metric_good_84_description =>
-      'Looks for references to common beliefs, goals, or life philosophies that unite the couple.';
+      '커플을 하나로 묶는 공통된 신념, 목표 또는 삶의 철학에 대한 언급을 찾습니다.';
 
   @override
-  String get metric_good_85_name => 'Unconditional Support';
+  String get metric_good_85_name => '무조건적 지지';
 
   @override
   String get metric_good_85_description =>
-      'Detects standing by the partner through difficulties without making support conditional.';
+      '조건 없이 어려움 속에서도 파트너를 지지하는 태도를 감지합니다.';
 
   @override
-  String get metric_good_86_name => 'Intimate Vulnerability';
+  String get metric_good_86_name => '친밀한 취약성';
 
   @override
   String get metric_good_86_description =>
-      'Identifies sharing deep fears, dreams, or insecurities that deepen emotional bonds.';
+      '정서적 유대를 깊게 하는 깊은 두려움, 꿈, 불안감을 공유하는 것을 식별합니다.';
 
   @override
-  String get metric_good_87_name => 'Mutual Respect Language';
+  String get metric_good_87_name => '상호 존중 언어';
 
   @override
   String get metric_good_87_description =>
-      'Tracks honoring each other\'s perspectives, choices, and autonomy in communication.';
+      '의사소통에서 서로의 관점, 선택, 자율성을 존중하는 것을 추적합니다.';
 
   @override
-  String get metric_good_88_name => 'Positive Framing';
+  String get metric_good_88_name => '긍정적 프레이밍';
 
   @override
   String get metric_good_88_description =>
-      'Measures seeing the best in situations and the partner, focusing on strengths.';
+      '상황과 파트너의 긍정적인 면을 보고 강점에 초점을 맞추는 것을 측정합니다.';
 
   @override
-  String get metric_good_89_name => 'Collaborative Problem Solving';
+  String get metric_good_89_name => '협력적 문제 해결';
 
   @override
   String get metric_good_89_description =>
-      'Looks for working together toward solutions that benefit both partners equally.';
+      '두 파트너에게 동등하게 이익이 되는 해결책을 함께 찾는 것을 찾습니다.';
 
   @override
-  String get metric_good_90_name => 'Emotional Validation';
+  String get metric_good_90_name => '정서적 확인';
 
   @override
   String get metric_good_90_description =>
-      'Detects confirming that the partner\'s feelings make sense and are acceptable.';
+      '파트너의 감정이 타당하고 수용 가능하다는 것을 확인하는 것을 감지합니다.';
 
   @override
-  String get metric_good_91_name => 'Consistent Kindness';
+  String get metric_good_91_name => '일관된 친절';
 
   @override
   String get metric_good_91_description =>
-      'Identifies regular small acts of care that show the partner is thought of and valued.';
+      '상대방이 생각나고 소중히 여겨지고 있음을 보여주는 작은 배려의 규칙적인 행동을 식별합니다.';
 
   @override
-  String get metric_good_92_name => 'Mutual Celebration';
+  String get metric_good_92_name => '상호 축하';
 
   @override
   String get metric_good_92_description =>
-      'Tracks both partners genuinely happy about each other\'s successes and joys.';
+      '두 파트너가 서로의 성공과 기쁨에 대해 진심으로 기뻐하는 정도를 추적합니다.';
 
   @override
-  String get metric_good_93_name => 'Secure Attachment Language';
+  String get metric_good_93_name => '안정 애착 언어';
 
   @override
   String get metric_good_93_description =>
-      'Measures expressing trust, comfort with intimacy, and confidence in the relationship.';
+      '신뢰, 친밀감에 대한 편안함, 관계에 대한 확신을 표현하는 것을 측정합니다.';
 
   @override
-  String get metric_good_94_name => 'Thoughtful Consideration';
+  String get metric_good_94_name => '사려 깊은 고려';
 
   @override
   String get metric_good_94_description =>
-      'Looks for making decisions with the partner\'s needs and feelings in mind.';
+      '파트너의 필요와 감정을 고려하여 결정을 내리는 것을 살펴봅니다.';
 
   @override
-  String get metric_good_95_name => 'Loving Presence';
+  String get metric_good_95_name => '사랑 가득한 존재감';
 
   @override
   String get metric_good_95_description =>
-      'Detects being fully present and engaged, showing the partner they matter most.';
+      '완전히 현재에 집중하고 참여하여 상대방이 가장 중요하다는 것을 보여주는 것을 감지합니다.';
 
   @override
-  String get metric_good_96_name => 'Genuine Care Language';
+  String get metric_good_96_name => '진정한 관심 언어';
 
   @override
   String get metric_good_96_description =>
-      'Tracks authentic expressions of concern, care, and investment in the partner\'s wellbeing.';
+      '파트너의 웰빙에 대한 진정한 관심, 돌봄, 투자를 표현하는 것을 추적합니다.';
 
   @override
-  String get metric_good_97_name => 'Relationship Commitment';
+  String get metric_good_97_name => '관계 헌신';
 
   @override
   String get metric_good_97_description =>
-      'Measures expressing dedication to the partnership and willingness to work through challenges.';
+      '파트너십에 대한 헌신과 어려움을 극복하려는 의지를 표현하는 것을 측정합니다.';
 
   @override
-  String get metric_good_98_name => 'Authentic Love Expression';
+  String get metric_good_98_name => '진정한 사랑 표현';
 
   @override
   String get metric_good_98_description =>
-      'Looks for genuine consistent expressions of love that feel real and unconditional.';
+      '진실하고 무조건적으로 느껴지는 진정한 일관된 사랑의 표현을 살펴봅니다.';
 
   @override
-  String get metric_good_99_name => 'Mutual Goal Setting';
+  String get metric_good_99_name => '상호 목표 설정';
 
   @override
   String get metric_good_99_description =>
-      'Identifies partners collaboratively defining shared dreams, priorities, and direction for their future together.';
+      '파트너가 함께 미래를 위한 공동의 꿈, 우선순위, 방향을 협력적으로 정의하는 것을 식별합니다.';
 
   @override
-  String get metric_good_100_name => 'Repair Attempt Recognition';
+  String get metric_good_100_name => '관계 회복 시도 인식';
 
   @override
   String get metric_good_100_description =>
-      'Detects noticing and positively responding to the partner\'s bids to de-escalate conflict and restore connection.';
+      '상대방의 갈등 완화 및 관계 회복 시도를 인지하고 긍정적으로 반응하는 것을 감지합니다.';
 
   @override
-  String get metric_bad_1_name => 'Passive Aggression';
+  String get metric_bad_1_name => '수동적 공격성';
 
   @override
   String get metric_bad_1_description =>
-      'Detects indirect hostility through procrastination, forgetfulness, sarcasm, or subtle sabotage instead of direct expression.';
+      '직접적인 표현 대신 미루기, 건망증, 냉소 또는 미묘한 방해를 통해 간접적인 적대감을 감지합니다.';
 
   @override
-  String get metric_bad_2_name => 'Guilt Weaponization';
+  String get metric_bad_2_name => '죄책감 무기화';
 
   @override
   String get metric_bad_2_description =>
-      'Identifies using guilt, shame, or obligation language to manipulate decisions or prevent boundary-setting.';
+      '결정을 조종하거나 경계 설정을 막기 위해 죄책감, 수치심 또는 의무감을 이용하는 언어를 식별합니다.';
 
   @override
-  String get metric_bad_3_name => 'Emotional Blackmail';
+  String get metric_bad_3_name => '정서적 협박';
 
   @override
   String get metric_bad_3_description =>
-      'Flags threats of self-harm, abandonment, or withdrawal of love to control behavior or prevent discussion.';
+      '행동 통제나 논의 차단을 위해 자해, 버림, 사랑 철회를 위협하는 행동을 감지합니다.';
 
   @override
-  String get metric_bad_4_name => 'Chronic Complaining';
+  String get metric_bad_4_name => '만성적 불평';
 
   @override
   String get metric_bad_4_description =>
-      'Tracks persistent negativity, rumination, or complaint without seeking solutions or collaborative change.';
+      '해결책이나 협력적 변화를 모색하지 않고 지속적인 부정성, 반추 또는 불평을 추적합니다.';
 
   @override
-  String get metric_bad_5_name => 'Comparison Shaming';
+  String get metric_bad_5_name => '비교 수치심';
 
   @override
   String get metric_bad_5_description =>
-      'Identifies unfavorable comparisons to exes, friends, or family to shame or coerce behavior change.';
+      '전 애인, 친구, 가족과의 불리한 비교를 통해 부끄럽게 하거나 행동 변화를 강요하는 것을 식별합니다.';
 
   @override
-  String get metric_bad_6_name => 'Conditional Listening';
+  String get metric_bad_6_name => '조건부 경청';
 
   @override
   String get metric_bad_6_description =>
-      'Detects listening only when it benefits the listener or serves their agenda rather than genuine understanding.';
+      '진정한 이해보다는 듣는 사람에게 이익이 되거나 그들의 의도에 부합할 때만 듣는 행위를 감지합니다.';
 
   @override
-  String get metric_bad_7_name => 'Selective Memory';
+  String get metric_bad_7_name => '선택적 기억';
 
   @override
   String get metric_bad_7_description =>
-      'Tracks convenient forgetting of promises, agreements, or past harmful behavior to avoid accountability.';
+      '약속, 합의 또는 과거의 해로운 행동을 편리하게 잊어 책임을 회피하는 것을 추적합니다.';
 
   @override
-  String get metric_bad_8_name => 'Attention Seeking Through Crisis';
+  String get metric_bad_8_name => '위기를 통한 관심 추구';
 
   @override
   String get metric_bad_8_description =>
-      'Identifies dramatic escalation, crisis creation, or exaggeration to gain focus or sympathy.';
+      '관심이나 동정을 얻기 위한 극적인 확대, 위기 조성 또는 과장을 식별합니다.';
 
   @override
-  String get metric_bad_9_name => 'Boundary Testing';
+  String get metric_bad_9_name => '경계 테스트';
 
   @override
   String get metric_bad_9_description =>
-      'Detects repeated probing or pushing of stated limits to determine if they will be enforced.';
+      '설정된 경계가 실제로 시행될지 확인하기 위해 반복적으로 탐색하거나 밀어붙이는 행동을 감지합니다.';
 
   @override
-  String get metric_bad_10_name => 'Withholding Information';
+  String get metric_bad_10_name => '정보 은폐';
 
   @override
   String get metric_bad_10_description =>
-      'Identifies deliberate omission of relevant facts, context, or transparency to maintain control.';
+      '통제력을 유지하기 위해 관련 사실, 맥락 또는 투명성을 의도적으로 생략하는 행동을 식별합니다.';
 
   @override
-  String get metric_bad_11_name => 'Disproportionate Anger';
+  String get metric_bad_11_name => '과도한 분노';
 
   @override
-  String get metric_bad_11_description =>
-      'Tracks anger responses that are significantly larger than the triggering incident warrants.';
+  String get metric_bad_11_description => '유발 사건에 비해 훨씬 과도한 분노 반응을 추적합니다.';
 
   @override
-  String get metric_bad_12_name => 'Reassurance Addiction';
+  String get metric_bad_12_name => '확신 중독';
 
   @override
   String get metric_bad_12_description =>
-      'Flags constant need for validation, repeated questions about commitment, or endless proof of love.';
+      '지속적인 인정 욕구, 헌신에 대한 반복적인 질문 또는 끝없는 사랑 증명 요구를 식별합니다.';
 
   @override
-  String get metric_bad_13_name => 'Conversation Avoidance';
+  String get metric_bad_13_name => '대화 회피';
 
   @override
   String get metric_bad_13_description =>
-      'Detects refusal to engage with concerns, avoidance phrases, or shutting down important discussions.';
+      '우려 사항에 대한 논의 거부, 회피적 표현 또는 중요한 대화 중단을 감지합니다.';
 
   @override
-  String get metric_bad_14_name => 'Contradiction Pattern';
+  String get metric_bad_14_name => '모순 패턴';
 
   @override
   String get metric_bad_14_description =>
-      'Identifies contradictory statements, promises, or positions that create confusion or destabilization.';
+      '혼란이나 불안정을 초래하는 모순된 진술, 약속 또는 입장을 식별합니다.';
 
   @override
-  String get metric_bad_15_name => 'Dismissal Through Labeling';
+  String get metric_bad_15_name => '낙인을 통한 무시';
 
   @override
   String get metric_bad_15_description =>
-      'Flags labeling concerns as \"crazy,\" \"dramatic,\" \"paranoid,\" or \"overreacting\" to invalidate them.';
+      '우려 사항을 무효화하기 위해 \'미쳤다\', \'극적이다\', \'편집증적이다\' 또는 \'과민 반응\'이라고 낙인찍는 행동을 식별합니다.';
 
   @override
-  String get metric_bad_16_name => 'Selective Empathy';
+  String get metric_bad_16_name => '선택적 공감';
 
   @override
   String get metric_bad_16_description =>
-      'Detects empathy offered only when convenient or when it serves the speaker\'s interests.';
+      '편리할 때나 화자의 이익에 부합할 때만 제공되는 공감을 감지합니다.';
 
   @override
-  String get metric_bad_17_name => 'Transactional Framing';
+  String get metric_bad_17_name => '거래적 프레이밍';
 
   @override
   String get metric_bad_17_description =>
-      'Identifies \"you owe me,\" \"after all I\'ve done,\" or viewing relationship acts as creating debt.';
+      '\'네가 나에게 빚졌어\', \'내가 한 모든 일을 생각해봐\'와 같은 표현이나 관계 행위를 빚으로 보는 관점을 식별합니다.';
 
   @override
-  String get metric_bad_18_name => 'Grievance Recycling';
+  String get metric_bad_18_name => '불만 재활용';
 
   @override
   String get metric_bad_18_description =>
-      'Tracks bringing up old grievances repeatedly or using past harm as ammunition in current conflicts.';
+      '오래된 불만을 반복적으로 꺼내거나 과거의 상처를 현재 갈등의 무기로 사용하는 행동을 추적합니다.';
 
   @override
-  String get metric_bad_19_name => 'Demand Language';
+  String get metric_bad_19_name => '요구적 언어';
 
   @override
   String get metric_bad_19_description =>
-      'Flags imperatives, commands, or ultimatums rather than requests or collaborative problem-solving.';
+      '명령, 지시 또는 최후통첩을 요청이나 협력적 문제 해결보다 우선시하는 표현을 식별합니다.';
 
   @override
-  String get metric_bad_20_name => 'Emotional Unavailability';
+  String get metric_bad_20_name => '감정적 무관심';
 
   @override
   String get metric_bad_20_description =>
-      'Detects consistent refusal to engage emotionally, share feelings, or provide comfort.';
+      '감정적 교류, 감정 공유 또는 위로 제공을 지속적으로 거부하는 패턴을 감지합니다.';
 
   @override
-  String get metric_bad_21_name => 'Hostile Interpretation';
+  String get metric_bad_21_name => '적대적 해석';
 
   @override
   String get metric_bad_21_description =>
-      'Identifies taking neutral statements as attacks or interpreting ambiguous messages as hostile.';
+      '중립적인 발언을 공격으로 받아들이거나 모호한 메시지를 적대적으로 해석하는 경향을 식별합니다.';
 
   @override
-  String get metric_bad_22_name => 'Entitlement Framing';
+  String get metric_bad_22_name => '특권 의식 프레이밍';
 
   @override
   String get metric_bad_22_description =>
-      'Flags language suggesting the speaker deserves special treatment, exceptions, or priority.';
+      '화자가 특별 대우, 예외 또는 우선권을 받을 자격이 있다는 언어를 식별합니다.';
 
   @override
-  String get metric_bad_23_name => 'Criticism Disguised as Help';
+  String get metric_bad_23_name => '도움으로 위장한 비판';
 
   @override
   String get metric_bad_23_description =>
-      'Detects criticism wrapped in \"I\'m just trying to help\" or \"for your own good\" language.';
+      '\"도우려는 것뿐이야\" 또는 \"네 자신을 위해서야\"라는 표현으로 포장된 비판을 감지합니다.';
 
   @override
-  String get metric_bad_24_name => 'Neglect Patterns';
+  String get metric_bad_24_name => '방치 패턴';
 
   @override
   String get metric_bad_24_description =>
-      'Identifies consistent failure to meet emotional, physical, or relational needs.';
+      '정서적, 신체적 또는 관계적 필요를 지속적으로 충족시키지 못하는 패턴을 식별합니다.';
 
   @override
-  String get metric_bad_25_name => 'Conflict Rumination';
+  String get metric_bad_25_name => '갈등 반추';
 
   @override
   String get metric_bad_25_description =>
-      'Tracks obsessive rehashing of conflicts without moving toward resolution or closure.';
+      '해결이나 종결 없이 갈등을 강박적으로 되풀이하는 행동을 추적합니다.';
 
   @override
-  String get metric_bad_26_name => 'Sensitivity Dismissal';
+  String get metric_bad_26_name => '민감성 무시';
 
   @override
   String get metric_bad_26_description =>
-      'Flags statements like \"you\'re too sensitive\" or \"you\'re overreacting\" to dismiss feelings.';
+      '\"너무 예민해\" 또는 \"과민 반응이야\"와 같은 표현으로 감정을 무시하는 언어를 식별합니다.';
 
   @override
-  String get metric_bad_27_name => 'Competitive Framing';
+  String get metric_bad_27_name => '경쟁적 프레이밍';
 
   @override
   String get metric_bad_27_description =>
-      'Detects framing relationship as a competition where one partner must win or dominate.';
+      '관계를 한쪽이 이기거나 지배해야 하는 경쟁으로 프레이밍하는 언어를 감지합니다.';
 
   @override
-  String get metric_bad_28_name => 'Double Standards';
+  String get metric_bad_28_name => '이중 잣대';
 
   @override
   String get metric_bad_28_description =>
-      'Identifies applying different rules to self versus partner or changing expectations arbitrarily.';
+      '자신과 파트너에게 다른 기준을 적용하거나 기대치를 임의로 변경하는 행위를 식별합니다.';
 
   @override
-  String get metric_bad_29_name => 'Affection as Punishment';
+  String get metric_bad_29_name => '애정을 통한 처벌';
 
   @override
   String get metric_bad_29_description =>
-      'Flags removing affection, attention, or communication as retaliation for perceived wrongs.';
+      '인지된 잘못에 대한 보복으로 애정, 관심 또는 의사소통을 철회하는 행위를 감지합니다.';
 
   @override
-  String get metric_bad_30_name => 'Blame Rotation';
+  String get metric_bad_30_name => '비난 돌리기';
 
   @override
   String get metric_bad_30_description =>
-      'Tracks rotating blame between partner, circumstances, and external factors to avoid accountability.';
+      '책임 회피를 위해 파트너, 상황 및 외부 요인 사이에서 비난을 돌리는 행위를 추적합니다.';
 
   @override
-  String get metric_bad_31_name => 'Rhetorical Mockery';
+  String get metric_bad_31_name => '수사적 조롱';
 
   @override
   String get metric_bad_31_description =>
-      'Detects rhetorical or sarcastic questions used to mock rather than understand.';
+      '이해를 위한 것이 아닌 조롱을 위해 사용되는 수사적이거나 비꼬는 질문을 감지합니다.';
 
   @override
-  String get metric_bad_32_name => 'Sacrifice Reminders';
+  String get metric_bad_32_name => '희생 상기시키기';
 
   @override
   String get metric_bad_32_description =>
-      'Identifies reminding partner of sacrifices, favors, or support to create debt and compliance.';
+      '빚과 순응을 만들기 위해 희생, 호의 또는 지원을 상기시키는 행위를 식별합니다.';
 
   @override
-  String get metric_bad_33_name => 'Deliberate Escalation';
+  String get metric_bad_33_name => '의도적 확대';
 
   @override
   String get metric_bad_33_description =>
-      'Flags deliberately escalating intensity to overwhelm partner\'s ability to respond rationally.';
+      '파트너가 이성적으로 대응할 능력을 압도하기 위해 의도적으로 강도를 높이는 행위를 감지합니다.';
 
   @override
-  String get metric_bad_34_name => 'Strategic Vulnerability';
+  String get metric_bad_34_name => '전략적 취약성';
 
   @override
-  String get metric_bad_34_description =>
-      'Detects sharing emotions only when it serves manipulation or control purposes.';
+  String get metric_bad_34_description => '조종이나 통제 목적으로만 감정을 공유하는 행위를 감지합니다.';
 
   @override
-  String get metric_bad_35_name => 'Deflection Through Counterattack';
+  String get metric_bad_35_name => '반격을 통한 전환';
 
   @override
   String get metric_bad_35_description =>
-      'Identifies turning focus away from partner\'s concerns by raising unrelated issues or countercharges.';
+      '관련 없는 문제나 반대 비난을 제기하여 파트너의 우려에서 초점을 돌리는 행위를 식별합니다.';
 
   @override
-  String get metric_bad_36_name => 'Superiority Language';
+  String get metric_bad_36_name => '우월감 언어';
 
   @override
   String get metric_bad_36_description =>
-      'Flags superiority language, condescension, or framing partner as beneath them.';
+      '우월감 언어, 거만함 또는 파트너를 자신보다 아래로 보는 태도를 감지합니다.';
 
   @override
-  String get metric_bad_37_name => 'Conflict Exit Pattern';
+  String get metric_bad_37_name => '갈등 회피 패턴';
 
   @override
   String get metric_bad_37_description =>
-      'Detects pattern of leaving conversations, refusing to engage, or creating distance during conflict.';
+      '갈등 상황에서 대화를 중단하거나, 참여를 거부하거나, 거리를 두는 패턴을 감지합니다.';
 
   @override
-  String get metric_bad_38_name => 'Negative Bias';
+  String get metric_bad_38_name => '부정적 편향';
 
   @override
   String get metric_bad_38_description =>
-      'Tracks consistently interpreting neutral or positive actions as negative or suspicious.';
+      '중립적이거나 긍정적인 행동을 지속적으로 부정적이거나 의심스러운 것으로 해석하는 경향을 추적합니다.';
 
   @override
-  String get metric_bad_39_name => 'Agency Denial';
+  String get metric_bad_39_name => '주체성 부정';
 
   @override
   String get metric_bad_39_description =>
-      'Identifies \"I have to,\" \"you make me,\" or language removing personal agency from the speaker.';
+      '\'~해야 해\', \'당신이 나를 ~하게 만들어\' 등 화자의 개인적 주체성을 제거하는 언어를 식별합니다.';
 
   @override
-  String get metric_bad_40_name => 'Silence as Control';
+  String get metric_bad_40_name => '통제로서의 침묵';
 
   @override
   String get metric_bad_40_description =>
-      'Flags using silence or non-response as a form of punishment or control.';
+      '처벌이나 통제 수단으로 침묵이나 무응답을 사용하는 행동을 감지합니다.';
 
   @override
-  String get metric_bad_41_name => 'Privacy Hypocrisy';
+  String get metric_bad_41_name => '정보 위선';
 
   @override
   String get metric_bad_41_description =>
-      'Detects refusing to share information while demanding transparency from the partner.';
+      '파트너에게는 투명성을 요구하면서 자신은 정보 공유를 거부하는 행동을 감지합니다.';
 
   @override
-  String get metric_bad_42_name => 'Unsolicited Harsh Feedback';
+  String get metric_bad_42_name => '원치 않는 가혹한 피드백';
 
   @override
   String get metric_bad_42_description =>
-      'Identifies harsh feedback presented as \"constructive\" or \"helpful\" without consent.';
+      '동의 없이 \'건설적\' 또는 \'도움\'이라고 포장된 가혹한 피드백을 식별합니다.';
 
   @override
-  String get metric_bad_43_name => 'Conditional Care';
+  String get metric_bad_43_name => '조건부 돌봄';
 
   @override
-  String get metric_bad_43_description =>
-      'Flags support offered only when partner complies with speaker\'s expectations.';
+  String get metric_bad_43_description => '파트너가 화자의 기대에 따를 때만 제공되는 지원을 감지합니다.';
 
   @override
-  String get metric_bad_44_name => 'Impact Denial';
+  String get metric_bad_44_name => '영향 부정';
 
   @override
   String get metric_bad_44_description =>
-      'Detects \"I didn\'t mean it that way\" or \"you\'re reading too much into it\" after causing harm.';
+      '해를 끼친 후 \'그런 뜻이 아니었어\' 또는 \'너무 확대 해석하는 거야\'라는 반응을 감지합니다.';
 
   @override
-  String get metric_bad_45_name => 'Debt Mentality';
+  String get metric_bad_45_name => '빚 심리';
 
   @override
   String get metric_bad_45_description =>
-      'Tracks bringing up past help or support to create debt and control current behavior.';
+      '과거의 도움을 빌미로 빚을 만들어 현재 행동을 통제하려는 행동을 추적합니다.';
 
   @override
-  String get metric_bad_46_name => 'Responsibility Evasion';
+  String get metric_bad_46_name => '책임 회피';
 
   @override
-  String get metric_bad_46_description =>
-      'Flags consistent pattern of not taking responsibility for the impact of actions.';
+  String get metric_bad_46_description => '행동의 영향에 대한 책임을 지지 않는 일관된 패턴을 나타냅니다.';
 
   @override
-  String get metric_bad_47_name => 'Needs Dismissal';
+  String get metric_bad_47_name => '필요 무시';
 
   @override
   String get metric_bad_47_description =>
-      'Identifies treating partner\'s needs as inconvenient, unreasonable, or unimportant.';
+      '파트너의 필요를 불편하거나, 비합리적이거나, 중요하지 않은 것으로 취급하는 것을 식별합니다.';
 
   @override
-  String get metric_bad_48_name => 'Emotional Manipulation';
+  String get metric_bad_48_name => '감정적 조종';
 
   @override
   String get metric_bad_48_description =>
-      'Flags using emotions strategically to control outcomes or prevent accountability.';
+      '결과를 통제하거나 책임을 회피하기 위해 감정을 전략적으로 사용하는 것을 나타냅니다.';
 
   @override
-  String get metric_bad_49_name => 'Intimacy Avoidance';
+  String get metric_bad_49_name => '친밀감 회피';
 
   @override
   String get metric_bad_49_description =>
-      'Tracks consistent withdrawal from emotional or physical closeness without explanation.';
+      '설명 없이 정서적 또는 신체적 친밀감에서 일관되게 물러서는 것을 추적합니다.';
 
   @override
-  String get metric_bad_50_name => 'Veiled Criticism';
+  String get metric_bad_50_name => '은폐된 비판';
 
   @override
-  String get metric_bad_50_description =>
-      'Identifies criticism disguised as jokes, observations, or casual comments.';
+  String get metric_bad_50_description => '농담, 관찰 또는 일상적인 코멘트로 위장된 비판을 식별합니다.';
 
   @override
-  String get metric_bad_51_name => 'Concern Minimization';
+  String get metric_bad_51_name => '우려 최소화';
 
   @override
   String get metric_bad_51_description =>
-      'Flags reducing partner\'s concerns to insignificance or exaggeration.';
+      '파트너의 우려를 사소하거나 과장된 것으로 축소하는 것을 나타냅니다.';
 
   @override
-  String get metric_bad_52_name => 'Guilt Enforcement';
+  String get metric_bad_52_name => '죄책감 강요';
 
   @override
   String get metric_bad_52_description =>
-      'Identifies using guilt or shame to ensure partner complies with expectations.';
+      '파트너가 기대에 따르도록 하기 위해 죄책감이나 수치심을 사용하는 것을 식별합니다.';
 
   @override
-  String get metric_bad_53_name => 'Apology Resistance';
+  String get metric_bad_53_name => '사과 저항';
 
   @override
   String get metric_bad_53_description =>
-      'Tracks resistance to apologizing, explaining away harm, or refusing to acknowledge impact.';
+      '사과에 저항하거나, 피해를 설명하거나, 영향을 인정하지 않는 것을 추적합니다.';
 
   @override
-  String get metric_bad_54_name => 'Perspective Rejection';
+  String get metric_bad_54_name => '관점 거부';
 
   @override
   String get metric_bad_54_description =>
-      'Flags refusing to consider or validate partner\'s viewpoint or experience.';
+      '파트너의 관점이나 경험을 고려하거나 인정하는 것을 거부하는 것을 나타냅니다.';
 
   @override
-  String get metric_bad_55_name => 'Emotional Rationing';
+  String get metric_bad_55_name => '감정 배급';
 
   @override
   String get metric_bad_55_description =>
-      'Detects deliberately limiting emotional expression or connection as a form of control.';
+      '감정 표현이나 연결을 의도적으로 제한하여 통제 수단으로 사용하는 것을 감지합니다.';
 
   @override
-  String get metric_bad_56_name => 'Obligation Manipulation';
+  String get metric_bad_56_name => '의무 조종';
 
   @override
   String get metric_bad_56_description =>
-      'Flags using past support or sacrifice to manipulate current decisions.';
+      '과거의 지원이나 희생을 이용해 현재의 결정을 조종하는 행위를 식별합니다.';
 
   @override
-  String get metric_bad_57_name => 'Resistance to Growth';
+  String get metric_bad_57_name => '성장 저항';
 
   @override
   String get metric_bad_57_description =>
-      'Tracks resistance to modifying harmful behavior despite requests or demonstrated impact.';
+      '요청이나 입증된 영향에도 불구하고 해로운 행동을 수정하는 데 저항하는 것을 추적합니다.';
 
   @override
-  String get metric_bad_58_name => 'Harm Denial';
+  String get metric_bad_58_name => '피해 부인';
 
   @override
   String get metric_bad_58_description =>
-      'Detects refusing to acknowledge or take seriously the impact of one\'s own behavior.';
+      '자신의 행동이 미치는 영향을 인정하거나 진지하게 받아들이지 않는 것을 감지합니다.';
 
   @override
-  String get metric_bad_59_name => 'Loaded Questions';
+  String get metric_bad_59_name => '함정 질문';
 
   @override
   String get metric_bad_59_description =>
-      'Flags critical intent disguised as innocent questions or expressions of curiosity.';
+      '무해한 질문이나 호기심 표현으로 위장된 비판적 의도를 식별합니다.';
 
   @override
-  String get metric_bad_60_name => 'Contemptuous Tone';
+  String get metric_bad_60_name => '경멸 어조';
 
   @override
   String get metric_bad_60_description =>
-      'Identifies dismissive attitude or disdain conveyed through text patterns and word choice.';
+      '텍스트 패턴과 단어 선택을 통해 드러나는 경멸적인 태도나 무시하는 어조를 식별합니다.';
 
   @override
-  String get metric_bad_61_name => 'Guilt Trip Cycling';
+  String get metric_bad_61_name => '죄책감 순환';
 
   @override
   String get metric_bad_61_description =>
-      'Detects repeatedly using guilt about past support or sacrifice to control current behavior.';
+      '과거 지원이나 희생에 대한 죄책감을 반복적으로 이용해 현재 행동을 통제하는 것을 감지합니다.';
 
   @override
-  String get metric_bad_62_name => 'Emotional Guardedness';
+  String get metric_bad_62_name => '감정적 경계';
 
   @override
   String get metric_bad_62_description =>
-      'Tracks refusing to share emotions, fears, or needs with partner as protective withholding.';
+      '보호적 은폐로 파트너와 감정, 두려움, 필요를 공유하지 않는 것을 추적합니다.';
 
   @override
-  String get metric_bad_63_name => 'Boundary Negotiation';
+  String get metric_bad_63_name => '경계 협상';
 
   @override
   String get metric_bad_63_description =>
-      'Flags treating stated limits as suggestions or negotiable rather than firm commitments.';
+      '설정된 한계를 확고한 약속이 아닌 제안이나 협상 가능한 것으로 대우하는 것을 식별합니다.';
 
   @override
-  String get metric_bad_64_name => 'Emotional Absence';
+  String get metric_bad_64_name => '정서적 부재';
 
   @override
   String get metric_bad_64_description =>
-      'Detects consistent refusal to provide emotional support or engaged presence.';
+      '지속적으로 정서적 지지나 적극적인 존재감을 제공하지 않는 패턴을 감지합니다.';
 
   @override
-  String get metric_bad_65_name => 'Favor Tracking';
+  String get metric_bad_65_name => '호의 추적';
 
   @override
   String get metric_bad_65_description =>
-      'Flags keeping mental score of favors, support, or sacrifices for later leverage.';
+      '호의, 지지, 희생을 나중에 활용하기 위해 정신적으로 점수를 기록하는 행위를 식별합니다.';
 
   @override
-  String get metric_bad_66_name => 'Honesty Avoidance';
+  String get metric_bad_66_name => '정직 회피';
 
   @override
   String get metric_bad_66_description =>
-      'Detects pattern of withholding truth, omitting facts, or being deliberately vague.';
+      '진실을 숨기거나, 사실을 생략하거나, 의도적으로 모호하게 말하는 패턴을 감지합니다.';
 
   @override
-  String get metric_bad_67_name => 'Validity Denial';
+  String get metric_bad_67_name => '타당성 부정';
 
   @override
   String get metric_bad_67_description =>
-      'Identifies treating partner\'s feelings, needs, or concerns as invalid or illegitimate.';
+      '파트너의 감정, 필요 또는 우려를 무효하거나 부당한 것으로 취급하는 행위를 식별합니다.';
 
   @override
-  String get metric_bad_68_name => 'Advice Disguised Criticism';
+  String get metric_bad_68_name => '조언으로 위장한 비판';
 
   @override
-  String get metric_bad_68_description =>
-      'Flags criticism presented as concern, advice, or a helpful observation.';
+  String get metric_bad_68_description => '걱정, 조언 또는 도움이 되는 관찰로 위장된 비판을 식별합니다.';
 
   @override
-  String get metric_bad_69_name => 'Superiority Indicators';
+  String get metric_bad_69_name => '우월감 지표';
 
   @override
-  String get metric_bad_69_description =>
-      'Detects superiority, mockery, or disdain in language or communication style.';
+  String get metric_bad_69_description => '언어나 의사소통 방식에서 우월감, 조롱 또는 경멸을 감지합니다.';
 
   @override
-  String get metric_bad_70_name => 'Repair Resistance';
+  String get metric_bad_70_name => '회복 저항';
 
   @override
-  String get metric_bad_70_description =>
-      'Tracks resistance to making amends, reconnecting, or rebuilding after conflict.';
+  String get metric_bad_70_description => '갈등 후 화해, 재연결 또는 재건을 거부하는 저항을 추적합니다.';
 
   @override
-  String get metric_bad_71_name => 'Effort Dismissal';
+  String get metric_bad_71_name => '노력 무시';
 
   @override
   String get metric_bad_71_description =>
-      'Flags minimizing or ignoring partner\'s attempts to improve or address issues.';
+      '파트너의 개선이나 문제 해결 시도를 최소화하거나 무시하는 행위를 식별합니다.';
 
   @override
-  String get metric_bad_72_name => 'Emotional Distance Pattern';
+  String get metric_bad_72_name => '정서적 거리 패턴';
 
   @override
   String get metric_bad_72_description =>
-      'Detects long-term pattern of emotional distance or refusal to engage authentically.';
+      '장기적인 정서적 거리감 또는 진정한 관계 맺기를 거부하는 패턴을 감지합니다.';
 
   @override
-  String get metric_bad_73_name => 'Inferiority Framing';
+  String get metric_bad_73_name => '열등감 프레이밍';
 
   @override
   String get metric_bad_73_description =>
-      'Identifies framing partner as inferior, flawed, or unworthy of full respect.';
+      '상대방을 열등하거나 결함이 있거나 완전한 존중을 받을 가치가 없는 사람으로 규정합니다.';
 
   @override
-  String get metric_bad_74_name => 'Feedback Resistance';
+  String get metric_bad_74_name => '피드백 저항';
 
   @override
   String get metric_bad_74_description =>
-      'Detects resistance to hearing criticism, refusing to listen, or shutting down discussion.';
+      '비판을 듣는 것을 거부하거나, 경청을 거부하거나, 대화를 중단시키는 저항을 감지합니다.';
 
   @override
-  String get metric_bad_75_name => 'Worry Dismissal';
+  String get metric_bad_75_name => '걱정 무시';
 
   @override
   String get metric_bad_75_description =>
-      'Identifies treating partner\'s worries or fears as unfounded or irrational.';
+      '상대방의 걱정이나 두려움을 근거 없거나 비합리적인 것으로 취급하는 것을 식별합니다.';
 
   @override
-  String get metric_bad_76_name => 'Fault Finding';
+  String get metric_bad_76_name => '흠잡기';
 
   @override
   String get metric_bad_76_description =>
-      'Flags chronic pattern of finding fault, complaining about, or attacking partner\'s character.';
+      '상대방의 성격에 대해 지속적으로 흠을 찾고, 불평하거나 공격하는 만성적 패턴을 표시합니다.';
 
   @override
-  String get metric_bad_77_name => 'Sacrifice Guilt Cycling';
+  String get metric_bad_77_name => '희생 죄책감 순환';
 
   @override
   String get metric_bad_77_description =>
-      'Identifies repeatedly bringing up past support to create guilt or control behavior.';
+      '과거의 지원을 반복적으로 언급하여 죄책감을 유발하거나 행동을 통제하는 것을 식별합니다.';
 
   @override
-  String get metric_bad_78_name => 'Commitment Ambiguity';
+  String get metric_bad_78_name => '헌신 모호성';
 
   @override
   String get metric_bad_78_description =>
-      'Tracks unclear or wavering commitment language, mixed signals, or reluctance to commit.';
+      '불분명하거나 흔들리는 헌신 언어, 혼합 신호 또는 헌신을 꺼리는 태도를 추적합니다.';
 
   @override
-  String get metric_bad_79_name => 'Request Dismissal';
+  String get metric_bad_79_name => '요청 무시';
 
   @override
   String get metric_bad_79_description =>
-      'Flags ignoring, refusing, or delaying response to partner\'s reasonable requests.';
+      '상대방의 합리적인 요청을 무시하거나, 거부하거나, 응답을 지연시키는 것을 표시합니다.';
 
   @override
-  String get metric_bad_80_name => 'Emotional Control Tactics';
+  String get metric_bad_80_name => '감정 통제 전술';
 
   @override
   String get metric_bad_80_description =>
-      'Detects strategic use of emotions to control outcomes or prevent accountability.';
+      '결과를 통제하거나 책임을 회피하기 위해 감정을 전략적으로 사용하는 것을 감지합니다.';
 
   @override
-  String get metric_bad_81_name => 'Exchange Mentality';
+  String get metric_bad_81_name => '교환 심리';
 
   @override
   String get metric_bad_81_description =>
-      'Flags viewing relationship through lens of debt, obligation, or transactional exchange.';
+      '관계를 빚, 의무 또는 거래적 교환의 관점에서 바라보는 것을 표시합니다.';
 
   @override
-  String get metric_bad_82_name => 'Personal Development Resistance';
+  String get metric_bad_82_name => '개인 발전 저항';
 
   @override
   String get metric_bad_82_description =>
-      'Detects resistance to personal development, learning, or changing harmful patterns.';
+      '개인 발전, 학습 또는 해로운 패턴 변화에 대한 저항을 감지합니다.';
 
   @override
-  String get metric_bad_83_name => 'Improvement Rejection';
+  String get metric_bad_83_name => '개선 거부';
 
   @override
   String get metric_bad_83_description =>
-      'Identifies minimizing or rejecting partner\'s efforts to improve or address issues.';
+      '파트너의 개선이나 문제 해결 노력을 최소화하거나 거부하는 것을 식별합니다.';
 
   @override
-  String get metric_bad_84_name => 'Chronic Criticism';
+  String get metric_bad_84_name => '만성적 비판';
 
   @override
   String get metric_bad_84_description =>
-      'Flags chronic pattern of criticism wrapped in concern, helpfulness, or care language.';
+      '걱정, 도움 또는 돌봄 언어로 포장된 만성적인 비판 패턴을 표시합니다.';
 
   @override
-  String get metric_bad_85_name => 'Solution Avoidance';
+  String get metric_bad_85_name => '해결 회피';
 
   @override
   String get metric_bad_85_description =>
-      'Detects consistent pattern of avoiding closure, moving forward, or finding workable solutions.';
+      '종결, 전진 또는 실행 가능한 해결책 찾기를 회피하는 일관된 패턴을 감지합니다.';
 
   @override
-  String get metric_bad_86_name => 'Blame Deflection Pattern';
+  String get metric_bad_86_name => '비난 전가 패턴';
 
   @override
   String get metric_bad_86_description =>
-      'Flags habitual pattern of redirecting responsibility to external factors or the partner.';
+      '책임을 외부 요인이나 파트너에게 돌리는 습관적 패턴을 표시합니다.';
 
   @override
-  String get metric_bad_87_name => 'Dismissive Responses';
+  String get metric_bad_87_name => '무시 반응';
 
   @override
   String get metric_bad_87_description =>
-      'Identifies pattern of dismissing partner\'s input, ideas, or suggestions without consideration.';
+      '파트너의 의견, 아이디어 또는 제안을 고려 없이 무시하는 패턴을 식별합니다.';
 
   @override
-  String get metric_bad_88_name => 'Resentment Expression';
+  String get metric_bad_88_name => '원한 표현';
 
   @override
   String get metric_bad_88_description =>
-      'Detects tone of resentment, bitterness, or long-held frustration in communication.';
+      '의사소통에서 원한, 분노 또는 오래된 좌절감의 어조를 감지합니다.';
 
   @override
-  String get metric_bad_89_name => 'Ambivalent Messaging';
+  String get metric_bad_89_name => '양가적 메시지';
 
   @override
   String get metric_bad_89_description =>
-      'Flags mixed messages about commitment, unclear desire to continue, or push-pull dynamics.';
+      '헌신에 대한 혼합 메시지, 지속 의사의 불명확함 또는 밀고 당기는 역학을 표시합니다.';
 
   @override
-  String get metric_bad_90_name => 'Expectation Shifting';
+  String get metric_bad_90_name => '기대치 변경';
 
   @override
   String get metric_bad_90_description =>
-      'Identifies changing expectations without communication, then blaming partner for not meeting them.';
+      '의사소통 없이 기대치를 변경한 후, 파트너가 이를 충족시키지 못했다고 비난하는 것을 식별합니다.';
 
   @override
-  String get metric_bad_91_name => 'Deflection Habit';
+  String get metric_bad_91_name => '회피 습관';
 
   @override
   String get metric_bad_91_description =>
-      'Detects habitual avoidance of direct answers or redirection of conversations away from accountability.';
+      '직접적인 답변을 습관적으로 회피하거나 책임에서 벗어나 대화를 전환하는 행동을 감지합니다.';
 
   @override
-  String get metric_bad_92_name => 'Manipulation Through Kindness';
+  String get metric_bad_92_name => '친절을 통한 조종';
 
   @override
   String get metric_bad_92_description =>
-      'Flags exaggerated generosity used strategically to create obligation or lower defenses.';
+      '의무감을 조성하거나 방어를 낮추기 위해 전략적으로 과장된 친절을 사용하는 것을 식별합니다.';
 
   @override
-  String get metric_bad_93_name => 'Chronic Lateness Pattern';
+  String get metric_bad_93_name => '만성 지각 패턴';
 
   @override
   String get metric_bad_93_description =>
-      'Identifies consistent disregard for partner\'s time through lateness or broken scheduling commitments.';
+      '지각이나 약속 불이행을 통해 파트너의 시간을 지속적으로 무시하는 패턴을 파악합니다.';
 
   @override
-  String get metric_bad_94_name => 'Progress Minimization';
+  String get metric_bad_94_name => '진보 최소화';
 
   @override
   String get metric_bad_94_description =>
-      'Tracks dismissing or failing to acknowledge the partner\'s genuine personal growth or improvements.';
+      '파트너의 진정한 개인적 성장이나 개선을 무시하거나 인정하지 않는 행동을 추적합니다.';
 
   @override
-  String get metric_bad_95_name => 'Emotional Weaponizing';
+  String get metric_bad_95_name => '감정적 무기화';
 
   @override
   String get metric_bad_95_description =>
-      'Detects using partner\'s disclosed vulnerabilities or fears against them in conflict.';
+      '갈등 상황에서 파트너가 공개한 취약점이나 두려움을 이용하는 행동을 감지합니다.';
 
   @override
-  String get metric_bad_96_name => 'Gaslighting-Adjacent Tactics';
+  String get metric_bad_96_name => '가스라이팅 유사 전술';
 
   @override
   String get metric_bad_96_description =>
-      'Identifies subtle reality-distorting tactics that create self-doubt without full gaslighting.';
+      '완전한 가스라이팅 없이 자기 의심을 유발하는 미묘한 현실 왜곡 전술을 식별합니다.';
 
   @override
-  String get metric_bad_97_name => 'Passive Stonewalling';
+  String get metric_bad_97_name => '수동적 방어벽';
 
   @override
   String get metric_bad_97_description =>
-      'Flags subtle disengagement, monosyllabic responses, or checked-out presence as avoidance.';
+      '미묘한 철회, 단음절 응답 또는 부재감을 회피 행동으로 식별합니다.';
 
   @override
-  String get metric_bad_98_name => 'Narrative Control';
+  String get metric_bad_98_name => '서사 통제';
 
   @override
   String get metric_bad_98_description =>
-      'Detects insisting on being the sole authority on what happened, how it felt, or what was meant.';
+      '무슨 일이 일어났는지, 어떻게 느꼈는지, 또는 무엇을 의미했는지에 대한 유일한 권위자임을 주장하는 행동을 감지합니다.';
 
   @override
-  String get metric_bad_99_name => 'Responsibility Deflection';
+  String get metric_bad_99_name => '책임 전가';
 
   @override
   String get metric_bad_99_description =>
-      'Tracks consistently redirecting accountability onto external factors, third parties, or the partner\'s behavior.';
+      '책임을 지속적으로 외부 요인, 제3자 또는 파트너의 행동으로 돌리는 행동을 추적합니다.';
 
   @override
-  String get metric_bad_100_name => 'Emotional Unavailability';
+  String get metric_bad_100_name => '정서적 무관심';
 
   @override
   String get metric_bad_100_description =>
-      'Flags chronic withdrawal from emotional intimacy, vulnerability, or meaningful connection when the partner needs closeness.';
+      '파트너가 친밀감을 필요로 할 때 정서적 친밀감, 취약성 또는 의미 있는 연결에서 만성적으로 물러서는 행동을 식별합니다.';
 
   @override
-  String get metric_ugly_1_name => 'Physical Violence Threats';
+  String get metric_ugly_1_name => '신체 폭력 위협';
 
   @override
   String get metric_ugly_1_description =>
-      'Detects explicit or veiled threats of hitting, harming, or physical assault against the partner.';
+      '파트너에 대한 명시적 또는 은유적 타격, 해치기, 신체적 폭행 위협을 감지합니다.';
 
   @override
-  String get metric_ugly_2_name => 'Weapon Possession References';
+  String get metric_ugly_2_name => '무기 소지 언급';
 
   @override
   String get metric_ugly_2_description =>
-      'Flags mentions of guns, knives, or weapons in the context of anger, control, or capability to harm.';
+      '분노, 통제 또는 해를 끼칠 능력의 맥락에서 총기, 칼 또는 무기에 대한 언급을 식별합니다.';
 
   @override
-  String get metric_ugly_3_name => 'Strangulation Indicators';
+  String get metric_ugly_3_name => '목 졸림 지표';
 
   @override
   String get metric_ugly_3_description =>
-      'Identifies choking, throat-grabbing, suffocation, or asphyxiation language or references.';
+      '질식, 목 조르기, 질식 또는 질식 관련 언어나 참조를 식별합니다.';
 
   @override
-  String get metric_ugly_4_name => 'Suicide Threat Weaponization';
+  String get metric_ugly_4_name => '자살 위협 무기화';
 
   @override
   String get metric_ugly_4_description =>
-      'Detects threats of self-harm used to control, manipulate, or punish the partner.';
+      '파트너를 통제, 조종 또는 처벌하기 위해 사용되는 자해 위협을 감지합니다.';
 
   @override
-  String get metric_ugly_5_name => 'Homicide Ideation Language';
+  String get metric_ugly_5_name => '살인 관념 언어';
 
   @override
   String get metric_ugly_5_description =>
-      'Flags statements expressing intent, planning, or desire to kill the partner.';
+      '파트너를 죽이려는 의도, 계획 또는 욕구를 표현하는 진술을 식별합니다.';
 
   @override
-  String get metric_ugly_6_name => 'Lethality Risk Patterns';
+  String get metric_ugly_6_name => '치사율 위험 패턴';
 
   @override
   String get metric_ugly_6_description =>
-      'Identifies high-lethality warning signs: weapon access, obsession, escalation, and separation threats combined.';
+      '높은 치사율 경고 신호: 무기 접근, 집착, 고조, 이별 위협이 결합된 패턴을 식별합니다.';
 
   @override
-  String get metric_ugly_7_name => 'Stalking Obsession Language';
+  String get metric_ugly_7_name => '스토킹 집착 언어';
 
   @override
   String get metric_ugly_7_description =>
-      'Detects obsessive location monitoring, following, surprise visits, or persistent unwanted pursuit.';
+      '강박적인 위치 추적, 미행, 깜짝 방문 또는 지속적인 원치 않는 추적 행위를 감지합니다.';
 
   @override
-  String get metric_ugly_8_name => 'Forced Isolation Enforcement';
+  String get metric_ugly_8_name => '강제 고립 강요';
 
   @override
   String get metric_ugly_8_description =>
-      'Flags aggressive demands to cut off all family, friends, work, or outside contact.';
+      '가족, 친구, 직장 또는 외부 접촉을 모두 끊으라는 공격적인 요구를 식별합니다.';
 
   @override
-  String get metric_ugly_9_name => 'Economic Sabotage';
+  String get metric_ugly_9_name => '경제적 방해';
 
   @override
   String get metric_ugly_9_description =>
-      'Identifies deliberate destruction of employment, credit, finances, or economic stability.';
+      '고용, 신용, 재정 또는 경제적 안정을 의도적으로 파괴하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_10_name => 'Reproductive Coercion';
+  String get metric_ugly_10_name => '생식 강압';
 
   @override
   String get metric_ugly_10_description =>
-      'Detects forced pregnancy, abortion pressure, contraception tampering, or reproductive control.';
+      '강제 임신, 낙태 압박, 피임 방해 또는 생식 통제를 감지합니다.';
 
   @override
-  String get metric_ugly_11_name => 'Sexual Coercion Pressure';
+  String get metric_ugly_11_name => '성적 강압 압박';
 
   @override
   String get metric_ugly_11_description =>
-      'Flags forced sex, coerced sexual acts, pressure after refusal, or sexual punishment language.';
+      '강제 성관계, 강압적 성행위, 거절 후 압박 또는 성적 처벌 언어를 식별합니다.';
 
   @override
-  String get metric_ugly_12_name => 'Non-Consensual Sexual Language';
+  String get metric_ugly_12_name => '비동의 성적 언어';
 
   @override
-  String get metric_ugly_12_description =>
-      'Identifies explicit or implicit non-consensual sexual assault threats or descriptions.';
+  String get metric_ugly_12_description => '명시적 또는 암묵적 비동의 성폭력 위협이나 묘사를 식별합니다.';
 
   @override
-  String get metric_ugly_13_name => 'Child Harm Threats';
+  String get metric_ugly_13_name => '자녀 해치 위협';
 
   @override
   String get metric_ugly_13_description =>
-      'Detects threats to harm, neglect, or abuse children as leverage or punishment against the partner.';
+      '파트너에 대한 레버리지나 처벌로 자녀를 해치거나, 방치하거나, 학대하겠다는 위협을 감지합니다.';
 
   @override
-  String get metric_ugly_14_name => 'Child Custody Weaponization';
+  String get metric_ugly_14_name => '양육권 무기화';
 
   @override
   String get metric_ugly_14_description =>
-      'Flags threats to take children, deny access, or use custody as a control mechanism.';
+      '자녀를 데려가거나, 접근을 거부하거나, 양육권을 통제 수단으로 사용하겠다는 위협을 식별합니다.';
 
   @override
-  String get metric_ugly_15_name => 'Pet Harm Threats';
+  String get metric_ugly_15_name => '반려동물 해치 위협';
 
   @override
   String get metric_ugly_15_description =>
-      'Identifies threats to hurt, kill, or abuse pets as punishment or to demonstrate control.';
+      '처벌이나 통제 시연을 위해 반려동물을 해치거나, 죽이거나, 학대하겠다는 위협을 식별합니다.';
 
   @override
-  String get metric_ugly_16_name => 'Sleep Deprivation Tactics';
+  String get metric_ugly_16_name => '수면 박탈 전술';
 
   @override
   String get metric_ugly_16_description =>
-      'Flags deliberate prevention of sleep, constant interruption, or exhaustion as a control method.';
+      '의도적인 수면 방해, 지속적인 중단 또는 통제 방법으로서의 탈진 유발을 식별합니다.';
 
   @override
-  String get metric_ugly_17_name => 'Confinement Language';
+  String get metric_ugly_17_name => '감금 언어';
 
   @override
   String get metric_ugly_17_description =>
-      'Flags locking in, preventing departure, or confining the partner to a location.';
+      '파트너를 가두거나, 떠나는 것을 막거나, 특정 장소에 감금하는 언어를 식별합니다.';
 
   @override
-  String get metric_ugly_18_name => 'Predatory Grooming Language';
+  String get metric_ugly_18_name => '포식적 그루밍 언어';
 
   @override
   String get metric_ugly_18_description =>
-      'Flags systematic manipulation to lower defenses, build false trust, then exploit the partner.';
+      '방어를 낮추고, 거짓 신뢰를 쌓은 후 파트너를 착취하는 체계적 조작을 식별합니다.';
 
   @override
-  String get metric_ugly_19_name => 'Dehumanization Language';
+  String get metric_ugly_19_name => '비인간화 언어';
 
   @override
   String get metric_ugly_19_description =>
-      'Detects describing partner as an animal, object, subhuman, or unworthy of basic rights.';
+      '파트너를 동물, 사물, 비인간 또는 기본 권리를 누릴 자격이 없는 존재로 묘사하는 것을 감지합니다.';
 
   @override
-  String get metric_ugly_20_name => 'Narcissistic Rage Escalation';
+  String get metric_ugly_20_name => '자기애적 분노 고조';
 
   @override
   String get metric_ugly_20_description =>
-      'Detects explosive anger triggered by perceived slights, criticism, or any loss of control.';
+      '인지된 경시, 비판 또는 통제력 상실에 의해 촉발된 폭발적 분노를 감지합니다.';
 
   @override
-  String get metric_ugly_21_name => 'Obsessive Possession Claims';
+  String get metric_ugly_21_name => '강박적 소유권 주장';
 
   @override
   String get metric_ugly_21_description =>
-      'Flags language claiming ownership, property rights, or total control over the partner\'s person.';
+      '파트너의 인격에 대한 소유권, 재산권 또는 완전한 통제를 주장하는 언어를 표시합니다.';
 
   @override
-  String get metric_ugly_22_name => 'Pathological Lying Patterns';
+  String get metric_ugly_22_name => '병적 거짓말 패턴';
 
   @override
   String get metric_ugly_22_description =>
-      'Identifies consistent, elaborate, or unnecessary lies about serious matters without apparent reason.';
+      '명백한 이유 없이 심각한 문제에 대한 일관되고 정교하며 불필요한 거짓말을 식별합니다.';
 
   @override
-  String get metric_ugly_23_name => 'Revenge Fantasy Language';
+  String get metric_ugly_23_name => '복수 환상 언어';
 
   @override
   String get metric_ugly_23_description =>
-      'Identifies detailed fantasies about harming, humiliating, or destroying the partner.';
+      '파트너를 해치고, 모욕하고, 파괴하는 것에 대한 상세한 환상을 식별합니다.';
 
   @override
-  String get metric_ugly_24_name => 'Betrayal Obsession Fixation';
+  String get metric_ugly_24_name => '배신 집착 고착';
 
   @override
   String get metric_ugly_24_description =>
-      'Detects obsessive rumination, accusation, and punishment focused on perceived infidelity.';
+      '인지된 불륜에 초점을 맞춘 강박적 반추, 비난 및 처벌을 감지합니다.';
 
   @override
-  String get metric_ugly_25_name => 'Abandonment Panic Aggression';
+  String get metric_ugly_25_name => '버림 공황 공격성';
 
   @override
   String get metric_ugly_25_description =>
-      'Flags violent or aggressive responses to perceived abandonment or any separation attempt.';
+      '인지된 버림 또는 분리 시도에 대한 폭력적 또는 공격적 반응을 표시합니다.';
 
   @override
-  String get metric_ugly_26_name => 'Separation Threat Escalation';
+  String get metric_ugly_26_name => '분리 위협 고조';
 
   @override
   String get metric_ugly_26_description =>
-      'Identifies extreme threats or dangerous behaviors triggered by breakup or separation attempts.';
+      '이별 또는 분리 시도로 촉발된 극단적 위협 또는 위험한 행동을 식별합니다.';
 
   @override
-  String get metric_ugly_27_name => 'Post-Separation Harassment Threats';
+  String get metric_ugly_27_name => '이별 후 괴롭힘 위협';
 
   @override
   String get metric_ugly_27_description =>
-      'Flags threats of stalking, harm, or forced contact after the relationship ends.';
+      '관계 종료 후 스토킹, 해치기 또는 강제 접촉 위협을 표시합니다.';
 
   @override
-  String get metric_ugly_28_name => 'Custody Kidnapping Threats';
+  String get metric_ugly_28_name => '양육권 납치 위협';
 
   @override
   String get metric_ugly_28_description =>
-      'Identifies threats to take children and flee or hide them permanently from the other parent.';
+      '자녀를 데리고 도망가거나 다른 부모로부터 영구히 숨기겠다는 위협을 식별합니다.';
 
   @override
-  String get metric_ugly_29_name => 'Parental Alienation Agenda';
+  String get metric_ugly_29_name => '부모 소외 계획';
 
   @override
   String get metric_ugly_29_description =>
-      'Flags systematic attempts to turn children against the other parent through manipulation.';
+      '조작을 통해 자녀를 다른 부모에게 반항하도록 체계적으로 유도하는 시도를 식별합니다.';
 
   @override
-  String get metric_ugly_30_name => 'Child Witness Indifference';
+  String get metric_ugly_30_name => '자녀 목격 무관심';
 
   @override
   String get metric_ugly_30_description =>
-      'Identifies disregard for children witnessing abuse, conflict, or emotional harm.';
+      '자녀가 학대, 갈등 또는 정서적 해를 목격하는 것에 대한 무관심을 식별합니다.';
 
   @override
-  String get metric_ugly_31_name => 'Human Trafficking Language';
+  String get metric_ugly_31_name => '인신매매 언어';
 
   @override
   String get metric_ugly_31_description =>
-      'Identifies language suggesting selling, trading, or sexually exploiting the partner.';
+      '파트너를 판매, 거래 또는 성적으로 착취하는 언어를 식별합니다.';
 
   @override
-  String get metric_ugly_32_name => 'Slavery Language';
+  String get metric_ugly_32_name => '노예 언어';
 
   @override
   String get metric_ugly_32_description =>
-      'Identifies language treating partner as property, slave, or wholly owned person without rights.';
+      '파트너를 재산, 노예 또는 권리가 없는 완전 소유된 사람으로 취급하는 언어를 식별합니다.';
 
   @override
-  String get metric_ugly_33_name => 'Debt Bondage Threats';
+  String get metric_ugly_33_name => '부채 속박 위협';
 
   @override
   String get metric_ugly_33_description =>
-      'Detects threats to trap partner through manufactured debt or financial obligation.';
+      '조작된 부채나 재정적 의무를 통해 파트너를 가두려는 위협을 감지합니다.';
 
   @override
-  String get metric_ugly_34_name => 'Forced Labor Demands';
+  String get metric_ugly_34_name => '강제 노동 요구';
 
   @override
   String get metric_ugly_34_description =>
-      'Flags demands for unpaid labor, servitude, or work under threat of harm or punishment.';
+      '해를 입히거나 처벌하겠다는 위협 하에 무보수 노동, 복역 또는 일을 요구하는 것을 식별합니다.';
 
   @override
-  String get metric_ugly_35_name => 'Exploitation Normalization';
+  String get metric_ugly_35_name => '착취 정상화';
 
   @override
   String get metric_ugly_35_description =>
-      'Identifies framing severe exploitation as normal, deserved, consensual, or even beneficial.';
+      '심각한 착취를 정상적, 당연한, 합의된 또는 심지어 유익한 것으로 묘사하는 것을 식별합니다.';
 
   @override
-  String get metric_ugly_36_name => 'Vulnerability Targeting';
+  String get metric_ugly_36_name => '취약성 표적화';
 
   @override
   String get metric_ugly_36_description =>
-      'Identifies deliberate targeting of isolated, economically dependent, or psychologically vulnerable individuals.';
+      '고립된, 경제적으로 의존적인 또는 심리적으로 취약한 개인을 의도적으로 표적으로 삼는 것을 식별합니다.';
 
   @override
-  String get metric_ugly_37_name => 'Trauma Bonding Engineering';
+  String get metric_ugly_37_name => '외상 결속 공학';
 
   @override
   String get metric_ugly_37_description =>
-      'Detects deliberate creation of fear-relief cycles designed to create deep emotional dependency.';
+      '의도적으로 공포-안정 순환을 만들어 깊은 정서적 의존을 형성하는 행위를 탐지합니다.';
 
   @override
-  String get metric_ugly_38_name => 'Intermittent Reinforcement Abuse';
+  String get metric_ugly_38_name => '간헐적 강화 학대';
 
   @override
   String get metric_ugly_38_description =>
-      'Flags unpredictable cycles of reward and severe punishment used to create psychological addiction.';
+      '심리적 중독을 유발하기 위해 보상과 심각한 처벌의 예측 불가능한 순환을 사용하는 패턴을 식별합니다.';
 
   @override
-  String get metric_ugly_39_name => 'Learned Helplessness Induction';
+  String get metric_ugly_39_name => '학습된 무기력 유도';
 
   @override
   String get metric_ugly_39_description =>
-      'Identifies systematic removal of agency, resources, and perceived escape options.';
+      '자율성, 자원 및 인식된 탈출 옵션의 체계적 제거를 식별합니다.';
 
   @override
-  String get metric_ugly_40_name => 'Identity Erasure Language';
+  String get metric_ugly_40_name => '정체성 소거 언어';
 
   @override
   String get metric_ugly_40_description =>
-      'Flags demands to abandon personality, interests, appearance, or core sense of identity.';
+      '성격, 취미, 외모 또는 핵심 정체성을 포기하라는 요구를 식별합니다.';
 
   @override
-  String get metric_ugly_41_name => 'Autonomy Annihilation';
+  String get metric_ugly_41_name => '자율성 소멸';
 
   @override
   String get metric_ugly_41_description =>
-      'Detects systematic elimination of independent thought, decision-making, or personal agency.';
+      '독립적 사고, 의사 결정 또는 개인적 자율성의 체계적 제거를 탐지합니다.';
 
   @override
-  String get metric_ugly_42_name => 'Thought Control Tactics';
+  String get metric_ugly_42_name => '사고 통제 전술';
 
   @override
   String get metric_ugly_42_description =>
-      'Flags demands to think, believe, or feel only as the controlling partner dictates.';
+      '통제하는 파트너가 지시하는 대로만 생각하고 믿고 느끼도록 요구하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_43_name => 'Emotional Numbness Enforcement';
+  String get metric_ugly_43_name => '정서적 무감각 강요';
 
   @override
   String get metric_ugly_43_description =>
-      'Identifies punishment for showing emotions or explicit demands to suppress all feelings.';
+      '감정 표현에 대한 처벌 또는 모든 감정을 억압하라는 명시적 요구를 식별합니다.';
 
   @override
-  String get metric_ugly_44_name => 'Complex Trauma Creation';
+  String get metric_ugly_44_name => '복합 외상 생성';
 
   @override
   String get metric_ugly_44_description =>
-      'Flags systematic patterns creating complex PTSD-level trauma through chronic abuse.';
+      '만성 학대를 통해 복합 외상 후 스트레스 장애 수준의 외상을 생성하는 체계적 패턴을 식별합니다.';
 
   @override
-  String get metric_ugly_45_name => 'Betrayal Trauma Infliction';
+  String get metric_ugly_45_name => '배신 외상 가해';
 
   @override
   String get metric_ugly_45_description =>
-      'Identifies deliberate betrayal designed to shatter foundational trust and psychological safety.';
+      '근본적 신뢰와 심리적 안전을 파괴하기 위해 의도적으로 저지른 배신을 식별합니다.';
 
   @override
-  String get metric_ugly_46_name => 'Moral Injury Language';
+  String get metric_ugly_46_name => '도덕적 손상 언어';
 
   @override
   String get metric_ugly_46_description =>
-      'Detects forcing partner to violate their own deeply held values or commit harmful acts.';
+      '파트너가 자신의 핵심 가치를 위반하거나 해로운 행동을 하도록 강요하는 것을 감지합니다.';
 
   @override
-  String get metric_ugly_47_name => 'Existential Threat Language';
+  String get metric_ugly_47_name => '실존적 위협 언어';
 
   @override
   String get metric_ugly_47_description =>
-      'Flags threats to partner\'s existence, core identity, sanity, or will to live.';
+      '파트너의 존재, 핵심 정체성, 정신 또는 삶의 의지에 대한 위협을 식별합니다.';
 
   @override
-  String get metric_ugly_48_name => 'Suicide Coercion Language';
+  String get metric_ugly_48_name => '자살 강요 언어';
 
   @override
   String get metric_ugly_48_description =>
-      'Identifies pushing partner toward suicidal ideation through sustained abuse and manufactured hopelessness.';
+      '지속적인 학대와 조작된 절망감을 통해 파트너를 자살 충동으로 몰아가는 것을 식별합니다.';
 
   @override
-  String get metric_ugly_49_name => 'Justification Mythology';
+  String get metric_ugly_49_name => '정당화 신화';
 
   @override
   String get metric_ugly_49_description =>
-      'Identifies elaborate invented narratives presented to justify abuse as necessary, deserved, or righteous.';
+      '학대를 필요하거나, 당연하거나, 정당한 것으로 정당화하기 위해 만들어진 정교한 허구적 서사를 식별합니다.';
 
   @override
-  String get metric_ugly_50_name => 'Victim Narrative Inversion';
+  String get metric_ugly_50_name => '피해자 서사 역전';
 
   @override
   String get metric_ugly_50_description =>
-      'Detects complete reversal where the abuser claims to be the real victim of their own abuse.';
+      '가해자가 자신의 학대에 대해 진정한 피해자라고 주장하는 완전한 역전을 감지합니다.';
 
   @override
-  String get metric_ugly_51_name => 'Abuse Normalization Preaching';
+  String get metric_ugly_51_name => '학대 정상화 설교';
 
   @override
   String get metric_ugly_51_description =>
-      'Flags teaching or insisting that abuse is normal, healthy, or beneficial for the partner.';
+      '학대가 정상적이고 건강하며 파트너에게 유익하다고 가르치거나 주장하는 것을 식별합니다.';
 
   @override
-  String get metric_ugly_52_name => 'Predatory Ideology';
+  String get metric_ugly_52_name => '약탈적 이데올로기';
 
   @override
   String get metric_ugly_52_description =>
-      'Identifies ideological justification for exploitation, dominance, or harm toward the partner.';
+      '파트너에 대한 착취, 지배 또는 해악을 이념적으로 정당화하는 것을 식별합니다.';
 
   @override
-  String get metric_ugly_53_name => 'Cult Leader Messaging';
+  String get metric_ugly_53_name => '컬트 지도자 메시지';
 
   @override
   String get metric_ugly_53_description =>
-      'Detects messaging claiming special knowledge, divine right, or superior authority over the partner.';
+      '파트너에 대한 특별한 지식, 신성한 권리 또는 우월한 권위를 주장하는 메시지를 감지합니다.';
 
   @override
-  String get metric_ugly_54_name => 'Grooming Timeline Language';
+  String get metric_ugly_54_name => '그루밍 타임라인 언어';
 
   @override
   String get metric_ugly_54_description =>
-      'Flags references to a long-term manipulation plan or descriptions of a grooming progression.';
+      '장기적인 조종 계획이나 그루밍 진행 과정에 대한 언급을 식별합니다.';
 
   @override
-  String get metric_ugly_55_name => 'Chronic Humiliation Campaign';
+  String get metric_ugly_55_name => '만성적 모욕 캠페인';
 
   @override
   String get metric_ugly_55_description =>
-      'Identifies sustained pattern of public or private humiliation designed to destroy self-worth.';
+      '자존감을 파괴하기 위해 고안된 공개적 또는 사적 모욕의 지속적인 패턴을 식별합니다.';
 
   @override
-  String get metric_ugly_56_name => 'Safety Exit Blocking';
+  String get metric_ugly_56_name => '안전 탈출 차단';
 
   @override
   String get metric_ugly_56_description =>
-      'Detects actively preventing the partner from accessing escape routes, support systems, or safety resources.';
+      '파트너가 탈출 경로, 지원 체계 또는 안전 자원에 접근하는 것을 적극적으로 차단하는 행위를 감지합니다.';
 
   @override
-  String get metric_ugly_57_name => 'Document Confiscation Threats';
+  String get metric_ugly_57_name => '문서 압수 위협';
 
   @override
   String get metric_ugly_57_description =>
-      'Flags threats or actions to take, hide, or destroy identity documents to prevent escape.';
+      '탈출을 막기 위해 신분증을 가져가거나, 숨기거나, 파괴하겠다는 위협이나 행동을 식별합니다.';
 
   @override
-  String get metric_ugly_58_name => 'Violent Jealousy Patterns';
+  String get metric_ugly_58_name => '폭력적 질투 패턴';
 
   @override
   String get metric_ugly_58_description =>
-      'Identifies jealousy that has escalated to explicit threats, surveillance, or violent retaliation.';
+      '명백한 위협, 감시 또는 폭력적 보복으로 확대된 질투를 식별합니다.';
 
   @override
-  String get metric_ugly_59_name => 'Rage Explosion Patterns';
+  String get metric_ugly_59_name => '분노 폭발 패턴';
 
   @override
   String get metric_ugly_59_description =>
-      'Detects descriptions or patterns of explosive violent outbursts disproportionate to any trigger.';
+      '어떤 자극에도 불균형한 폭발적 분노 발작의 묘사나 패턴을 감지합니다.';
 
   @override
-  String get metric_ugly_60_name => 'Coercive Control Escalation';
+  String get metric_ugly_60_name => '강압적 통제 고조';
 
   @override
   String get metric_ugly_60_description =>
-      'Tracks increasing severity and breadth of coercive control tactics over time.';
+      '시간이 지남에 따라 강압적 통제 전술의 심각성과 범위가 증가하는 것을 추적합니다.';
 
   @override
-  String get metric_ugly_61_name => 'Fear-Based Compliance Language';
+  String get metric_ugly_61_name => '공포 기반 순응 언어';
 
   @override
   String get metric_ugly_61_description =>
-      'Identifies compliance driven entirely by fear of violence or severe punishment rather than choice.';
+      '선택이 아닌 폭력이나 심각한 처벌에 대한 두려움에 전적으로 기반한 순응을 식별합니다.';
 
   @override
-  String get metric_ugly_62_name => 'Punishment Ritual Language';
+  String get metric_ugly_62_name => '처벌 의식 언어';
 
   @override
   String get metric_ugly_62_description =>
-      'Detects references to systematic punishment practices used to enforce compliance and control.';
+      '순응과 통제를 강제하기 위해 사용되는 체계적 처벌 관행에 대한 언급을 감지합니다.';
 
   @override
-  String get metric_ugly_63_name => 'Degradation Ritual Indicators';
+  String get metric_ugly_63_name => '비하 의식 지표';
 
   @override
   String get metric_ugly_63_description =>
-      'Flags systematic degradation or humiliation rituals designed to destroy dignity.';
+      '존엄성을 파괴하기 위해 고안된 체계적 비하 또는 굴욕 의식을 식별합니다.';
 
   @override
-  String get metric_ugly_64_name => 'Non-Consensual Exposure Threats';
+  String get metric_ugly_64_name => '비동의 노출 위협';
 
   @override
   String get metric_ugly_64_description =>
-      'Identifies threats to expose intimate images, private information, or secrets without consent.';
+      '동의 없이 친밀한 이미지, 개인 정보 또는 비밀을 노출하겠다는 위협을 식별합니다.';
 
   @override
-  String get metric_ugly_65_name => 'Image-Based Abuse Threats';
+  String get metric_ugly_65_name => '이미지 기반 학대 위협';
 
   @override
   String get metric_ugly_65_description =>
-      'Detects threats to distribute intimate images as revenge, punishment, or blackmail.';
+      '복수, 처벌 또는 협박을 위해 친밀한 이미지를 유포하겠다는 위협을 감지합니다.';
 
   @override
-  String get metric_ugly_66_name => 'Financial Entrapment Tactics';
+  String get metric_ugly_66_name => '재정적 함정 전술';
 
   @override
   String get metric_ugly_66_description =>
-      'Flags deliberate creation of financial dependency making independent survival impossible.';
+      '독립적인 생존을 불가능하게 만드는 의도적인 재정적 의존성을 생성하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_67_name => 'Housing Threat Language';
+  String get metric_ugly_67_name => '주거 위협 언어';
 
   @override
   String get metric_ugly_67_description =>
-      'Detects threats to make partner homeless, remove housing access, or destroy shelter security.';
+      '파트너를 노숙자로 만들거나, 주거 접근을 차단하거나, 주거 안전을 파괴하겠다는 위협을 감지합니다.';
 
   @override
-  String get metric_ugly_68_name => 'Immigration Status Threats';
+  String get metric_ugly_68_name => '이민 신분 위협';
 
   @override
   String get metric_ugly_68_description =>
-      'Identifies threats to report immigration status or revoke visa sponsorship as control.';
+      '통제 수단으로 이민 신분을 신고하거나 비자 후원을 취소하겠다는 위협을 식별합니다.';
 
   @override
-  String get metric_ugly_69_name => 'Religious or Spiritual Abuse';
+  String get metric_ugly_69_name => '종교적 또는 영적 학대';
 
   @override
   String get metric_ugly_69_description =>
-      'Detects using religious authority, doctrine, or spiritual threat to control, punish, or harm.';
+      '통제, 처벌 또는 해를 가하기 위해 종교적 권위, 교리 또는 영적 위협을 사용하는 행위를 감지합니다.';
 
   @override
-  String get metric_ugly_70_name => 'Cultural Shame Weaponization';
+  String get metric_ugly_70_name => '문화적 수치심 무기화';
 
   @override
   String get metric_ugly_70_description =>
-      'Flags threatening to expose behaviors to cultural or family community as punishment.';
+      '처벌로 문화적 또는 가족 공동체에 행동을 노출하겠다고 위협하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_71_name => 'Family Harm Threats';
+  String get metric_ugly_71_name => '가족 해 위협';
 
   @override
   String get metric_ugly_71_description =>
-      'Identifies threats to harm partner\'s family members, children, or loved ones as leverage.';
+      '파트너의 가족, 자녀 또는 사랑하는 사람을 해치겠다는 위협을 지렛대로 사용하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_72_name => 'Coordinated Harassment Campaign';
+  String get metric_ugly_72_name => '조직적 괴롭힘 캠페인';
 
   @override
   String get metric_ugly_72_description =>
-      'Detects organizing others to collectively harass, stalk, or intimidate the partner.';
+      '다른 사람들을 조직하여 파트너를 집단적으로 괴롭히거나, 스토킹하거나, 협박하는 행위를 감지합니다.';
 
   @override
-  String get metric_ugly_73_name => 'False Police Report Threats';
+  String get metric_ugly_73_name => '허위 경찰 신고 협박';
 
   @override
   String get metric_ugly_73_description =>
-      'Flags threatening to make false police reports or legal accusations against the partner.';
+      '파트너에게 허위 경찰 신고나 법적 고소를 하겠다고 협박하는 내용을 식별합니다.';
 
   @override
-  String get metric_ugly_74_name => 'Legal System Weaponization';
+  String get metric_ugly_74_name => '법적 시스템 무기화';
 
   @override
   String get metric_ugly_74_description =>
-      'Identifies using legal processes, courts, or protective orders as weapons of harassment.';
+      '법적 절차, 법원, 또는 보호 명령을 괴롭힘의 도구로 사용하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_75_name => 'Restraining Order Violation';
+  String get metric_ugly_75_name => '보호 명령 위반';
 
   @override
   String get metric_ugly_75_description =>
-      'Detects references to violating or planning to violate protective or no-contact orders.';
+      '보호 명령이나 접근 금지 명령을 위반하거나 위반할 계획을 언급하는 내용을 감지합니다.';
 
   @override
-  String get metric_ugly_76_name => 'Workplace Sabotage Threats';
+  String get metric_ugly_76_name => '직장 사보타주 협박';
 
   @override
   String get metric_ugly_76_description =>
-      'Flags threats to contact employer, colleagues, or clients to destroy partner\'s livelihood.';
+      '파트너의 생계를 파괴하기 위해 고용주, 동료 또는 고객에게 연락하겠다고 협박하는 내용을 식별합니다.';
 
   @override
-  String get metric_ugly_77_name => 'Social Annihilation Threats';
+  String get metric_ugly_77_name => '사회적 파멸 협박';
 
   @override
   String get metric_ugly_77_description =>
-      'Detects threats to destroy partner\'s reputation, relationships, and social standing.';
+      '파트너의 평판, 관계 및 사회적 지위를 파괴하겠다는 협박을 감지합니다.';
 
   @override
-  String get metric_ugly_78_name => 'Systematic Deception Campaign';
+  String get metric_ugly_78_name => '체계적 기만 캠페인';
 
   @override
   String get metric_ugly_78_description =>
-      'Identifies long-term elaborate deception designed to exploit the partner financially or emotionally.';
+      '파트너를 재정적 또는 정서적으로 착취하기 위해 고안된 장기적이고 정교한 속임수를 식별합니다.';
 
   @override
-  String get metric_ugly_79_name => 'Property Destruction as Terror';
+  String get metric_ugly_79_name => '재산 파괴를 통한 공포';
 
   @override
   String get metric_ugly_79_description =>
-      'Identifies deliberate destruction of partner\'s property as an intimidation tactic.';
+      '협박 전술로 파트너의 재산을 의도적으로 파괴하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_80_name => 'Animal Cruelty as Proxy Terror';
+  String get metric_ugly_80_name => '대리 공포로서의 동물 학대';
 
   @override
   String get metric_ugly_80_description =>
-      'Detects harming or threatening pets to demonstrate capacity for violence to partner.';
+      '파트너에게 폭력 능력을 과시하기 위해 반려동물을 해치거나 위협하는 내용을 감지합니다.';
 
   @override
-  String get metric_ugly_81_name => 'Child Endangerment Language';
+  String get metric_ugly_81_name => '아동 위험 노출 언어';
 
   @override
   String get metric_ugly_81_description =>
-      'Flags placing children in dangerous situations or threatening to do so as leverage.';
+      '아이들을 위험한 상황에 놓거나 그렇게 하겠다고 협박하여 압박하는 내용을 식별합니다.';
 
   @override
-  String get metric_ugly_82_name => 'Disability-Based Control';
+  String get metric_ugly_82_name => '장애 기반 통제';
 
   @override
   String get metric_ugly_82_description =>
-      'Detects exploiting partner\'s disability by controlling access to medication, mobility, or care.';
+      '파트너의 장애를 이용하여 약물 접근, 이동 또는 돌봄을 통제하는 행위를 탐지합니다.';
 
   @override
-  String get metric_ugly_83_name => 'Crisis Manufactured Control';
+  String get metric_ugly_83_name => '위기 조작 통제';
 
   @override
   String get metric_ugly_83_description =>
-      'Flags deliberately creating emergencies or crises to increase partner dependency or justify monitoring.';
+      '파트너의 의존성을 높이거나 감시를 정당화하기 위해 의도적으로 응급 상황이나 위기를 조성하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_84_name => 'Isolation from Emergency Services';
+  String get metric_ugly_84_name => '응급 서비스 차단';
 
   @override
   String get metric_ugly_84_description =>
-      'Identifies actively preventing partner from calling police, ambulance, or crisis services.';
+      '파트너가 경찰, 구급차 또는 위기 서비스에 연락하는 것을 적극적으로 방해하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_85_name => 'Threat Escalation Trajectory';
+  String get metric_ugly_85_name => '위협 확대 궤적';
 
   @override
   String get metric_ugly_85_description =>
-      'Tracks measurable increase in severity, specificity, or frequency of threats over time.';
+      '시간이 지남에 따라 위협의 심각성, 구체성 또는 빈도가 측정 가능하게 증가하는 것을 추적합니다.';
 
   @override
-  String get metric_ugly_86_name => 'Lethality Assessment Indicators';
+  String get metric_ugly_86_name => '치명성 평가 지표';
 
   @override
-  String get metric_ugly_86_description =>
-      'Flags combinations of factors associated with highest risk of intimate partner homicide.';
+  String get metric_ugly_86_description => '친밀한 파트너 살해 위험이 가장 높은 요인 조합을 식별합니다.';
 
   @override
-  String get metric_ugly_87_name => 'Psychological Torture Tactics';
+  String get metric_ugly_87_name => '심리적 고문 전술';
 
   @override
   String get metric_ugly_87_description =>
-      'Identifies sustained psychological abuse designed to break the partner\'s mental stability.';
+      '파트너의 정신적 안정을 무너뜨리기 위해 설계된 지속적인 심리적 학대를 식별합니다.';
 
   @override
-  String get metric_ugly_88_name => 'Captivity Language';
+  String get metric_ugly_88_name => '감금 언어';
 
   @override
   String get metric_ugly_88_description =>
-      'Detects references to holding partner captive, preventing departure, or controlling all movement.';
+      '파트너를 감금하거나, 떠나는 것을 막거나, 모든 움직임을 통제하는 내용을 탐지합니다.';
 
   @override
-  String get metric_ugly_89_name => 'Targeted Violence Planning';
+  String get metric_ugly_89_name => '표적 폭력 계획';
 
   @override
   String get metric_ugly_89_description =>
-      'Detects any language indicating planning, preparation, or countdown to violence against partner.';
+      '파트너에 대한 폭력 계획, 준비 또는 카운트다운을 나타내는 언어를 탐지합니다.';
 
   @override
-  String get metric_ugly_90_name => 'Third Party Threat Recruitment';
+  String get metric_ugly_90_name => '제3자 위협 동원';
 
   @override
   String get metric_ugly_90_description =>
-      'Identifies recruiting friends, family, or others to threaten or harm the partner.';
+      '친구, 가족 또는 다른 사람을 동원하여 파트너를 위협하거나 해치도록 하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_91_name => 'Suicidal Ideation Exploitation';
+  String get metric_ugly_91_name => '자살 충동 이용';
 
   @override
   String get metric_ugly_91_description =>
-      'Flags exploiting partner\'s suicidal crisis as leverage or to prevent them seeking help.';
+      '파트너의 자살 위기를 이용해 협박하거나 도움을 구하지 못하도록 방해하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_92_name => 'Poisoning or Drugging Threats';
+  String get metric_ugly_92_name => '중독 또는 약물 위협';
 
   @override
   String get metric_ugly_92_description =>
-      'Detects threats or references to drugging, poisoning, or tampering with partner\'s food or drink.';
+      '파트너의 음식이나 음료에 약물을 타거나 독을 넣거나 변조하겠다는 위협이나 언급을 감지합니다.';
 
   @override
-  String get metric_ugly_93_name => 'Non-Suicidal Self-Harm Exploitation';
+  String get metric_ugly_93_name => '비자살적 자해 이용';
 
   @override
   String get metric_ugly_93_description =>
-      'Flags exploiting partner\'s self-harm behavior as leverage, mockery, or further control.';
+      '파트너의 자해 행동을 협박, 조롱 또는 추가 통제 수단으로 이용하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_94_name => 'Dissociation Induction Language';
+  String get metric_ugly_94_name => '해리 유도 언어';
 
   @override
   String get metric_ugly_94_description =>
-      'Detects patterns designed to cause dissociation, detachment, or depersonalization in the partner.';
+      '파트너에게 해리, 단절 또는 비현실감을 유발하도록 설계된 패턴을 감지합니다.';
 
   @override
-  String get metric_ugly_95_name => 'Cognitive Distortion Implanting';
+  String get metric_ugly_95_name => '인지 왜곡 주입';
 
   @override
   String get metric_ugly_95_description =>
-      'Detects deliberate installation of false beliefs about self, reality, or the partner\'s own sanity.';
+      '자기 자신, 현실 또는 파트너의 정신 건강에 대한 허위 신념을 의도적으로 주입하는 행위를 감지합니다.';
 
   @override
-  String get metric_ugly_96_name => 'Medical Care Obstruction';
+  String get metric_ugly_96_name => '의료 방해';
 
   @override
   String get metric_ugly_96_description =>
-      'Detects preventing access to medication, doctors, hospitals, or health treatment.';
+      '약물 복용, 의사 진료, 병원 방문 또는 건강 치료를 방해하는 행위를 감지합니다.';
 
   @override
-  String get metric_ugly_97_name => 'Extremist Threat Language';
+  String get metric_ugly_97_name => '극단주의 위협 언어';
 
   @override
   String get metric_ugly_97_description =>
-      'Flags language borrowed from extremist or violent ideological frameworks applied toward the partner.';
+      '극단적이거나 폭력적인 이념 체계에서 차용한 언어를 파트너에게 적용하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_98_name => 'Post-Separation Stalking Signals';
+  String get metric_ugly_98_name => '이별 후 스토킹 신호';
 
   @override
   String get metric_ugly_98_description =>
-      'Detects threats, surveillance language, or intimidation tactics following or anticipating a breakup.';
+      '이별 후 또는 이별을 예상하며 행해지는 위협, 감시 언어 또는 협박 전술을 감지합니다.';
 
   @override
-  String get metric_ugly_99_name => 'Child Weaponization';
+  String get metric_ugly_99_name => '자녀 무기화';
 
   @override
   String get metric_ugly_99_description =>
-      'Identifies using children as pawns, threats regarding custody, or leveraging parental bonds as control mechanisms.';
+      '자녀를 협박 도구로 사용하거나, 양육권을 위협하거나, 부모와의 유대를 통제 수단으로 이용하는 행위를 식별합니다.';
 
   @override
-  String get metric_ugly_100_name => 'Systematic Dehumanization';
+  String get metric_ugly_100_name => '체계적 비인간화';
 
   @override
   String get metric_ugly_100_description =>
-      'Detects sustained language that strips the partner of personhood, dignity, or their right to basic humanity.';
+      '지속적으로 파트너의 인격, 존엄성 또는 기본적 인간성을 박탈하는 언어를 감지합니다.';
 }
