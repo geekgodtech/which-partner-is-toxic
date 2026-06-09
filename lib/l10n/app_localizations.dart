@@ -2813,6 +2813,3606 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The Ugly'**
   String get packUglyLabel;
+
+  /// No description provided for @metric_good_1_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Listening Cues'**
+  String get metric_good_1_name;
+
+  /// No description provided for @metric_good_1_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects paraphrasing, clarifying questions, and demonstrated understanding of the partner\'s perspective in text.'**
+  String get metric_good_1_description;
+
+  /// No description provided for @metric_good_2_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Appreciation Expression'**
+  String get metric_good_2_name;
+
+  /// No description provided for @metric_good_2_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies specific gratitude, recognition of effort, and acknowledgment of partner\'s positive qualities or actions.'**
+  String get metric_good_2_description;
+
+  /// No description provided for @metric_good_3_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Affirmation Language'**
+  String get metric_good_3_name;
+
+  /// No description provided for @metric_good_3_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for statements that validate the partner\'s feelings, experiences, worth, or right to have needs.'**
+  String get metric_good_3_description;
+
+  /// No description provided for @metric_good_4_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Collaborative Tone'**
+  String get metric_good_4_name;
+
+  /// No description provided for @metric_good_4_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures use of \"we,\" joint problem-solving language, and framing issues as shared challenges to address together.'**
+  String get metric_good_4_description;
+
+  /// No description provided for @metric_good_5_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Curiosity About Partner'**
+  String get metric_good_5_name;
+
+  /// No description provided for @metric_good_5_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks asking questions about the partner\'s thoughts, feelings, day, preferences, or inner experience.'**
+  String get metric_good_5_description;
+
+  /// No description provided for @metric_good_6_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Vulnerability Expression'**
+  String get metric_good_6_name;
+
+  /// No description provided for @metric_good_6_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies sharing fears, insecurities, needs, or emotional truths without defensiveness or blame.'**
+  String get metric_good_6_description;
+
+  /// No description provided for @metric_good_7_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Humor as Connection'**
+  String get metric_good_7_name;
+
+  /// No description provided for @metric_good_7_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects playful shared laughter that brings partners together rather than mocking or belittling.'**
+  String get metric_good_7_description;
+
+  /// No description provided for @metric_good_8_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Reassurance Offering'**
+  String get metric_good_8_name;
+
+  /// No description provided for @metric_good_8_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for proactive statements that provide comfort, security, or confidence to the anxious partner.'**
+  String get metric_good_8_description;
+
+  /// No description provided for @metric_good_9_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Compliment Frequency'**
+  String get metric_good_9_name;
+
+  /// No description provided for @metric_good_9_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures genuine specific praise about appearance, character, abilities, or positive actions.'**
+  String get metric_good_9_description;
+
+  /// No description provided for @metric_good_10_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Availability'**
+  String get metric_good_10_name;
+
+  /// No description provided for @metric_good_10_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Assesses responsiveness to the partner\'s emotional needs, presence during distress, and willingness to engage.'**
+  String get metric_good_10_description;
+
+  /// No description provided for @metric_good_11_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Gratitude Habit'**
+  String get metric_good_11_name;
+
+  /// No description provided for @metric_good_11_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies regular expressions of thanks for small things, effort, presence, or support.'**
+  String get metric_good_11_description;
+
+  /// No description provided for @metric_good_12_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Supportive Language'**
+  String get metric_good_12_name;
+
+  /// No description provided for @metric_good_12_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks statements offering help, encouragement, belief in the partner\'s abilities, or standing beside them.'**
+  String get metric_good_12_description;
+
+  /// No description provided for @metric_good_13_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Gentle Disagreement'**
+  String get metric_good_13_name;
+
+  /// No description provided for @metric_good_13_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures ability to express different views while preserving respect, curiosity, and the relationship.'**
+  String get metric_good_13_description;
+
+  /// No description provided for @metric_good_14_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Apology Sincerity'**
+  String get metric_good_14_name;
+
+  /// No description provided for @metric_good_14_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects genuine remorse, understanding of impact, and commitment to change without excuses.'**
+  String get metric_good_14_description;
+
+  /// No description provided for @metric_good_15_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgiveness Acceptance'**
+  String get metric_good_15_name;
+
+  /// No description provided for @metric_good_15_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for willingness to let go of past harm, move forward, and rebuild trust after repair.'**
+  String get metric_good_15_description;
+
+  /// No description provided for @metric_good_16_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Quality Time Initiation'**
+  String get metric_good_16_name;
+
+  /// No description provided for @metric_good_16_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies offers to spend focused time together, plan activities, or create connection moments.'**
+  String get metric_good_16_description;
+
+  /// No description provided for @metric_good_17_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Physical Affection Cues'**
+  String get metric_good_17_name;
+
+  /// No description provided for @metric_good_17_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks mentions of touch, hugs, kisses, or physical closeness as expressions of care and intimacy.'**
+  String get metric_good_17_description;
+
+  /// No description provided for @metric_good_18_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared Joy Recognition'**
+  String get metric_good_18_name;
+
+  /// No description provided for @metric_good_18_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures celebrating partner\'s wins, achievements, happiness, or good news with genuine enthusiasm.'**
+  String get metric_good_18_description;
+
+  /// No description provided for @metric_good_19_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Conflict Resolution Effort'**
+  String get metric_good_19_name;
+
+  /// No description provided for @metric_good_19_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies attempts to find solutions, compromise, or restore peace after disagreement.'**
+  String get metric_good_19_description;
+
+  /// No description provided for @metric_good_20_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Patience Demonstration'**
+  String get metric_good_20_name;
+
+  /// No description provided for @metric_good_20_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects tolerance for partner\'s pace, struggles, learning curve, or emotional processing needs.'**
+  String get metric_good_20_description;
+
+  /// No description provided for @metric_good_21_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Perspective-Taking Language'**
+  String get metric_good_21_name;
+
+  /// No description provided for @metric_good_21_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for statements showing understanding of the partner\'s viewpoint, context, or emotional reality.'**
+  String get metric_good_21_description;
+
+  /// No description provided for @metric_good_22_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Reliability Signals'**
+  String get metric_good_22_name;
+
+  /// No description provided for @metric_good_22_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks following through on promises, showing up consistently, and being dependable.'**
+  String get metric_good_22_description;
+
+  /// No description provided for @metric_good_23_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Respect for Differences'**
+  String get metric_good_23_name;
+
+  /// No description provided for @metric_good_23_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures acceptance of partner\'s unique traits, preferences, opinions, and ways of being.'**
+  String get metric_good_23_description;
+
+  /// No description provided for @metric_good_24_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Openness to Feedback'**
+  String get metric_good_24_name;
+
+  /// No description provided for @metric_good_24_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies receptiveness to partner\'s concerns, willingness to hear criticism, and desire to improve.'**
+  String get metric_good_24_description;
+
+  /// No description provided for @metric_good_25_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Validation of Emotions'**
+  String get metric_good_25_name;
+
+  /// No description provided for @metric_good_25_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects acknowledgment that the partner\'s feelings are real, understandable, and worthy of attention.'**
+  String get metric_good_25_description;
+
+  /// No description provided for @metric_good_26_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Encouragement Language'**
+  String get metric_good_26_name;
+
+  /// No description provided for @metric_good_26_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for statements that inspire confidence, motivate action, or support the partner\'s goals.'**
+  String get metric_good_26_description;
+
+  /// No description provided for @metric_good_27_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Intimate Disclosure'**
+  String get metric_good_27_name;
+
+  /// No description provided for @metric_good_27_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies sharing personal thoughts, dreams, fears, or secrets that deepen emotional connection.'**
+  String get metric_good_27_description;
+
+  /// No description provided for @metric_good_28_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Attunement Signals'**
+  String get metric_good_28_name;
+
+  /// No description provided for @metric_good_28_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures noticing the partner\'s mood, needs, or distress without being told explicitly.'**
+  String get metric_good_28_description;
+
+  /// No description provided for @metric_good_29_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Positive Reframing'**
+  String get metric_good_29_name;
+
+  /// No description provided for @metric_good_29_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects finding silver linings, growth opportunities, or constructive angles in difficult situations.'**
+  String get metric_good_29_description;
+
+  /// No description provided for @metric_good_30_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Commitment Language'**
+  String get metric_good_30_name;
+
+  /// No description provided for @metric_good_30_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks expressions of dedication, long-term thinking, and investment in the relationship\'s future.'**
+  String get metric_good_30_description;
+
+  /// No description provided for @metric_good_31_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Flexibility Demonstration'**
+  String get metric_good_31_name;
+
+  /// No description provided for @metric_good_31_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies willingness to adapt plans, adjust expectations, or meet the partner halfway.'**
+  String get metric_good_31_description;
+
+  /// No description provided for @metric_good_32_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Protective Language'**
+  String get metric_good_32_name;
+
+  /// No description provided for @metric_good_32_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for statements showing the partner\'s safety, wellbeing, and interests matter deeply.'**
+  String get metric_good_32_description;
+
+  /// No description provided for @metric_good_33_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Celebration of Milestones'**
+  String get metric_good_33_name;
+
+  /// No description provided for @metric_good_33_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures acknowledging anniversaries, achievements, or meaningful moments together.'**
+  String get metric_good_33_description;
+
+  /// No description provided for @metric_good_34_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Constructive Feedback'**
+  String get metric_good_34_name;
+
+  /// No description provided for @metric_good_34_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects offering suggestions for improvement that are kind, specific, and growth-focused.'**
+  String get metric_good_34_description;
+
+  /// No description provided for @metric_good_35_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Presence During Hardship'**
+  String get metric_good_35_name;
+
+  /// No description provided for @metric_good_35_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies staying engaged when the partner is struggling, grieving, or facing challenges.'**
+  String get metric_good_35_description;
+
+  /// No description provided for @metric_good_36_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Admiration Expression'**
+  String get metric_good_36_name;
+
+  /// No description provided for @metric_good_36_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks genuine respect for the partner\'s character, strength, intelligence, or resilience.'**
+  String get metric_good_36_description;
+
+  /// No description provided for @metric_good_37_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Playfulness Indicators'**
+  String get metric_good_37_name;
+
+  /// No description provided for @metric_good_37_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for lighthearted teasing, inside jokes, or fun interactions that strengthen bonding.'**
+  String get metric_good_37_description;
+
+  /// No description provided for @metric_good_38_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Empathic Mirroring'**
+  String get metric_good_38_name;
+
+  /// No description provided for @metric_good_38_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures reflecting back the partner\'s emotions to show understanding and validation.'**
+  String get metric_good_38_description;
+
+  /// No description provided for @metric_good_39_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Acceptance Language'**
+  String get metric_good_39_name;
+
+  /// No description provided for @metric_good_39_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects embracing the partner as they are, including flaws, without demanding change.'**
+  String get metric_good_39_description;
+
+  /// No description provided for @metric_good_40_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Supportive Presence'**
+  String get metric_good_40_name;
+
+  /// No description provided for @metric_good_40_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies being there without fixing, offering comfort through listening and companionship.'**
+  String get metric_good_40_description;
+
+  /// No description provided for @metric_good_41_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Genuine Interest'**
+  String get metric_good_41_name;
+
+  /// No description provided for @metric_good_41_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks asking follow-up questions and remembering details about the partner\'s life and concerns.'**
+  String get metric_good_41_description;
+
+  /// No description provided for @metric_good_42_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Reciprocal Effort'**
+  String get metric_good_42_name;
+
+  /// No description provided for @metric_good_42_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures both partners contributing equally to emotional work, planning, and relationship maintenance.'**
+  String get metric_good_42_description;
+
+  /// No description provided for @metric_good_43_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgiveness Language'**
+  String get metric_good_43_name;
+
+  /// No description provided for @metric_good_43_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for releasing grudges, offering second chances, and choosing to move past hurt.'**
+  String get metric_good_43_description;
+
+  /// No description provided for @metric_good_44_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mutual Respect Signals'**
+  String get metric_good_44_name;
+
+  /// No description provided for @metric_good_44_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects treating the partner as an equal, honoring their opinions, and valuing their input.'**
+  String get metric_good_44_description;
+
+  /// No description provided for @metric_good_45_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Honesty'**
+  String get metric_good_45_name;
+
+  /// No description provided for @metric_good_45_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies truthful expression of feelings without manipulation, exaggeration, or strategic withholding.'**
+  String get metric_good_45_description;
+
+  /// No description provided for @metric_good_46_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Supportive Listening'**
+  String get metric_good_46_name;
+
+  /// No description provided for @metric_good_46_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures allowing the partner to fully express without interrupting, judging, or immediately problem-solving.'**
+  String get metric_good_46_description;
+
+  /// No description provided for @metric_good_47_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Affectionate Nicknames'**
+  String get metric_good_47_name;
+
+  /// No description provided for @metric_good_47_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks use of loving terms of endearment that convey warmth and intimate connection.'**
+  String get metric_good_47_description;
+
+  /// No description provided for @metric_good_48_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared Laughter'**
+  String get metric_good_48_name;
+
+  /// No description provided for @metric_good_48_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies moments of mutual humor and joy that create positive bonding experiences.'**
+  String get metric_good_48_description;
+
+  /// No description provided for @metric_good_49_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Thoughtful Gestures'**
+  String get metric_good_49_name;
+
+  /// No description provided for @metric_good_49_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for small acts of kindness, remembering preferences, or doing things to make partner happy.'**
+  String get metric_good_49_description;
+
+  /// No description provided for @metric_good_50_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Confidence in Partner'**
+  String get metric_good_50_name;
+
+  /// No description provided for @metric_good_50_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects belief in the partner\'s abilities, potential, and capacity to handle challenges.'**
+  String get metric_good_50_description;
+
+  /// No description provided for @metric_good_51_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Healthy Interdependence'**
+  String get metric_good_51_name;
+
+  /// No description provided for @metric_good_51_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures balance between togetherness and independence, supporting each other\'s autonomy.'**
+  String get metric_good_51_description;
+
+  /// No description provided for @metric_good_52_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Conflict De-escalation'**
+  String get metric_good_52_name;
+
+  /// No description provided for @metric_good_52_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies soft language, breaks, or solution-offering to calm heated discussions.'**
+  String get metric_good_52_description;
+
+  /// No description provided for @metric_good_53_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Genuine Apology'**
+  String get metric_good_53_name;
+
+  /// No description provided for @metric_good_53_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks full acknowledgment of wrongdoing without minimizing, defending, or shifting blame.'**
+  String get metric_good_53_description;
+
+  /// No description provided for @metric_good_54_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Support Offers'**
+  String get metric_good_54_name;
+
+  /// No description provided for @metric_good_54_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for proactive check-ins, asking how the partner is doing, and offering help.'**
+  String get metric_good_54_description;
+
+  /// No description provided for @metric_good_55_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Respectful Boundaries'**
+  String get metric_good_55_name;
+
+  /// No description provided for @metric_good_55_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures honoring the partner\'s stated limits while maintaining own healthy boundaries.'**
+  String get metric_good_55_description;
+
+  /// No description provided for @metric_good_56_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Positive Anticipation'**
+  String get metric_good_56_name;
+
+  /// No description provided for @metric_good_56_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects excitement about the future together, planning ahead, and looking forward to shared experiences.'**
+  String get metric_good_56_description;
+
+  /// No description provided for @metric_good_57_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Attentiveness Signals'**
+  String get metric_good_57_name;
+
+  /// No description provided for @metric_good_57_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies remembering important dates, preferences, and details that show the partner matters.'**
+  String get metric_good_57_description;
+
+  /// No description provided for @metric_good_58_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Encouraging Growth'**
+  String get metric_good_58_name;
+
+  /// No description provided for @metric_good_58_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks supporting the partner\'s personal development, learning, and pursuit of goals.'**
+  String get metric_good_58_description;
+
+  /// No description provided for @metric_good_59_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Tender Language'**
+  String get metric_good_59_name;
+
+  /// No description provided for @metric_good_59_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for soft, caring word choices that convey gentleness and emotional warmth.'**
+  String get metric_good_59_description;
+
+  /// No description provided for @metric_good_60_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mutual Accountability'**
+  String get metric_good_60_name;
+
+  /// No description provided for @metric_good_60_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures both partners taking responsibility for their actions and their impact.'**
+  String get metric_good_60_description;
+
+  /// No description provided for @metric_good_61_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Celebration of Partner'**
+  String get metric_good_61_name;
+
+  /// No description provided for @metric_good_61_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects publicly or privately expressing pride, joy, or admiration for the partner.'**
+  String get metric_good_61_description;
+
+  /// No description provided for @metric_good_62_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Consistent Affection'**
+  String get metric_good_62_name;
+
+  /// No description provided for @metric_good_62_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies regular expressions of love that do not fluctuate based on performance or compliance.'**
+  String get metric_good_62_description;
+
+  /// No description provided for @metric_good_63_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Attunement'**
+  String get metric_good_63_name;
+
+  /// No description provided for @metric_good_63_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks sensing and responding to subtle shifts in the partner\'s emotional state.'**
+  String get metric_good_63_description;
+
+  /// No description provided for @metric_good_64_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Collaborative Decision-Making'**
+  String get metric_good_64_name;
+
+  /// No description provided for @metric_good_64_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures discussing options together and making choices that consider both partners\' needs.'**
+  String get metric_good_64_description;
+
+  /// No description provided for @metric_good_65_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Reassurance Without Demand'**
+  String get metric_good_65_name;
+
+  /// No description provided for @metric_good_65_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for offering comfort and security without requiring the partner to earn it.'**
+  String get metric_good_65_description;
+
+  /// No description provided for @metric_good_66_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Authentic Connection'**
+  String get metric_good_66_name;
+
+  /// No description provided for @metric_good_66_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects genuine presence, real sharing, and dropping pretense in interactions.'**
+  String get metric_good_66_description;
+
+  /// No description provided for @metric_good_67_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mutual Encouragement'**
+  String get metric_good_67_name;
+
+  /// No description provided for @metric_good_67_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies both partners cheering each other on and celebrating efforts not just outcomes.'**
+  String get metric_good_67_description;
+
+  /// No description provided for @metric_good_68_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Respectful Questioning'**
+  String get metric_good_68_name;
+
+  /// No description provided for @metric_good_68_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks asking about the partner\'s perspective with genuine curiosity rather than interrogation.'**
+  String get metric_good_68_description;
+
+  /// No description provided for @metric_good_69_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Loving Consistency'**
+  String get metric_good_69_name;
+
+  /// No description provided for @metric_good_69_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures showing up the same way in good times and hard times, reliable in affection.'**
+  String get metric_good_69_description;
+
+  /// No description provided for @metric_good_70_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Reciprocity'**
+  String get metric_good_70_name;
+
+  /// No description provided for @metric_good_70_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for both partners sharing feelings, needs, and vulnerabilities in balanced ways.'**
+  String get metric_good_70_description;
+
+  /// No description provided for @metric_good_71_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Joyful Presence'**
+  String get metric_good_71_name;
+
+  /// No description provided for @metric_good_71_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects genuine happiness in the partner\'s company and enthusiasm for time together.'**
+  String get metric_good_71_description;
+
+  /// No description provided for @metric_good_72_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Constructive Dialogue'**
+  String get metric_good_72_name;
+
+  /// No description provided for @metric_good_72_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies conversations that move toward understanding rather than winning or proving right.'**
+  String get metric_good_72_description;
+
+  /// No description provided for @metric_good_73_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Protective Advocacy'**
+  String get metric_good_73_name;
+
+  /// No description provided for @metric_good_73_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks standing up for the partner, defending them, and prioritizing their wellbeing.'**
+  String get metric_good_73_description;
+
+  /// No description provided for @metric_good_74_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mindful Communication'**
+  String get metric_good_74_name;
+
+  /// No description provided for @metric_good_74_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures thoughtful word choice, considering impact before speaking, and intentional messaging.'**
+  String get metric_good_74_description;
+
+  /// No description provided for @metric_good_75_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Relationship Investment'**
+  String get metric_good_75_name;
+
+  /// No description provided for @metric_good_75_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for time, energy, and resources devoted to nurturing the partnership.'**
+  String get metric_good_75_description;
+
+  /// No description provided for @metric_good_76_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure Base Language'**
+  String get metric_good_76_name;
+
+  /// No description provided for @metric_good_76_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects offering stability, safety, and a foundation from which the partner can explore.'**
+  String get metric_good_76_description;
+
+  /// No description provided for @metric_good_77_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mutual Admiration'**
+  String get metric_good_77_name;
+
+  /// No description provided for @metric_good_77_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies both partners expressing respect and appreciation for each other\'s qualities.'**
+  String get metric_good_77_description;
+
+  /// No description provided for @metric_good_78_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Tender Moments'**
+  String get metric_good_78_name;
+
+  /// No description provided for @metric_good_78_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks creating or recognizing intimate quiet moments of connection and closeness.'**
+  String get metric_good_78_description;
+
+  /// No description provided for @metric_good_79_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Genuine Curiosity'**
+  String get metric_good_79_name;
+
+  /// No description provided for @metric_good_79_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for authentic interest in understanding the partner\'s thoughts, feelings, and experiences.'**
+  String get metric_good_79_description;
+
+  /// No description provided for @metric_good_80_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Loving Acceptance'**
+  String get metric_good_80_name;
+
+  /// No description provided for @metric_good_80_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects embracing the partner\'s whole self, including imperfections and past.'**
+  String get metric_good_80_description;
+
+  /// No description provided for @metric_good_81_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mutual Growth Support'**
+  String get metric_good_81_name;
+
+  /// No description provided for @metric_good_81_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies both partners encouraging each other\'s development and celebrating progress.'**
+  String get metric_good_81_description;
+
+  /// No description provided for @metric_good_82_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm Tone Indicators'**
+  String get metric_good_82_name;
+
+  /// No description provided for @metric_good_82_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks use of affectionate language, kind phrasing, and gentle communication style.'**
+  String get metric_good_82_description;
+
+  /// No description provided for @metric_good_83_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Responsive Engagement'**
+  String get metric_good_83_name;
+
+  /// No description provided for @metric_good_83_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures quick, engaged responses to the partner\'s messages and emotional bids.'**
+  String get metric_good_83_description;
+
+  /// No description provided for @metric_good_84_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Shared Values Alignment'**
+  String get metric_good_84_name;
+
+  /// No description provided for @metric_good_84_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for references to common beliefs, goals, or life philosophies that unite the couple.'**
+  String get metric_good_84_description;
+
+  /// No description provided for @metric_good_85_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Unconditional Support'**
+  String get metric_good_85_name;
+
+  /// No description provided for @metric_good_85_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects standing by the partner through difficulties without making support conditional.'**
+  String get metric_good_85_description;
+
+  /// No description provided for @metric_good_86_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Intimate Vulnerability'**
+  String get metric_good_86_name;
+
+  /// No description provided for @metric_good_86_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies sharing deep fears, dreams, or insecurities that deepen emotional bonds.'**
+  String get metric_good_86_description;
+
+  /// No description provided for @metric_good_87_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mutual Respect Language'**
+  String get metric_good_87_name;
+
+  /// No description provided for @metric_good_87_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks honoring each other\'s perspectives, choices, and autonomy in communication.'**
+  String get metric_good_87_description;
+
+  /// No description provided for @metric_good_88_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Positive Framing'**
+  String get metric_good_88_name;
+
+  /// No description provided for @metric_good_88_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures seeing the best in situations and the partner, focusing on strengths.'**
+  String get metric_good_88_description;
+
+  /// No description provided for @metric_good_89_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Collaborative Problem Solving'**
+  String get metric_good_89_name;
+
+  /// No description provided for @metric_good_89_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for working together toward solutions that benefit both partners equally.'**
+  String get metric_good_89_description;
+
+  /// No description provided for @metric_good_90_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Validation'**
+  String get metric_good_90_name;
+
+  /// No description provided for @metric_good_90_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects confirming that the partner\'s feelings make sense and are acceptable.'**
+  String get metric_good_90_description;
+
+  /// No description provided for @metric_good_91_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Consistent Kindness'**
+  String get metric_good_91_name;
+
+  /// No description provided for @metric_good_91_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies regular small acts of care that show the partner is thought of and valued.'**
+  String get metric_good_91_description;
+
+  /// No description provided for @metric_good_92_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mutual Celebration'**
+  String get metric_good_92_name;
+
+  /// No description provided for @metric_good_92_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks both partners genuinely happy about each other\'s successes and joys.'**
+  String get metric_good_92_description;
+
+  /// No description provided for @metric_good_93_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure Attachment Language'**
+  String get metric_good_93_name;
+
+  /// No description provided for @metric_good_93_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures expressing trust, comfort with intimacy, and confidence in the relationship.'**
+  String get metric_good_93_description;
+
+  /// No description provided for @metric_good_94_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Thoughtful Consideration'**
+  String get metric_good_94_name;
+
+  /// No description provided for @metric_good_94_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for making decisions with the partner\'s needs and feelings in mind.'**
+  String get metric_good_94_description;
+
+  /// No description provided for @metric_good_95_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Loving Presence'**
+  String get metric_good_95_name;
+
+  /// No description provided for @metric_good_95_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects being fully present and engaged, showing the partner they matter most.'**
+  String get metric_good_95_description;
+
+  /// No description provided for @metric_good_96_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Genuine Care Language'**
+  String get metric_good_96_name;
+
+  /// No description provided for @metric_good_96_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks authentic expressions of concern, care, and investment in the partner\'s wellbeing.'**
+  String get metric_good_96_description;
+
+  /// No description provided for @metric_good_97_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Relationship Commitment'**
+  String get metric_good_97_name;
+
+  /// No description provided for @metric_good_97_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Measures expressing dedication to the partnership and willingness to work through challenges.'**
+  String get metric_good_97_description;
+
+  /// No description provided for @metric_good_98_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Authentic Love Expression'**
+  String get metric_good_98_name;
+
+  /// No description provided for @metric_good_98_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Looks for genuine consistent expressions of love that feel real and unconditional.'**
+  String get metric_good_98_description;
+
+  /// No description provided for @metric_good_99_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Mutual Goal Setting'**
+  String get metric_good_99_name;
+
+  /// No description provided for @metric_good_99_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies partners collaboratively defining shared dreams, priorities, and direction for their future together.'**
+  String get metric_good_99_description;
+
+  /// No description provided for @metric_good_100_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Repair Attempt Recognition'**
+  String get metric_good_100_name;
+
+  /// No description provided for @metric_good_100_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects noticing and positively responding to the partner\'s bids to de-escalate conflict and restore connection.'**
+  String get metric_good_100_description;
+
+  /// No description provided for @metric_bad_1_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Passive Aggression'**
+  String get metric_bad_1_name;
+
+  /// No description provided for @metric_bad_1_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects indirect hostility through procrastination, forgetfulness, sarcasm, or subtle sabotage instead of direct expression.'**
+  String get metric_bad_1_description;
+
+  /// No description provided for @metric_bad_2_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Guilt Weaponization'**
+  String get metric_bad_2_name;
+
+  /// No description provided for @metric_bad_2_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies using guilt, shame, or obligation language to manipulate decisions or prevent boundary-setting.'**
+  String get metric_bad_2_description;
+
+  /// No description provided for @metric_bad_3_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Blackmail'**
+  String get metric_bad_3_name;
+
+  /// No description provided for @metric_bad_3_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags threats of self-harm, abandonment, or withdrawal of love to control behavior or prevent discussion.'**
+  String get metric_bad_3_description;
+
+  /// No description provided for @metric_bad_4_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Chronic Complaining'**
+  String get metric_bad_4_name;
+
+  /// No description provided for @metric_bad_4_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks persistent negativity, rumination, or complaint without seeking solutions or collaborative change.'**
+  String get metric_bad_4_description;
+
+  /// No description provided for @metric_bad_5_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Comparison Shaming'**
+  String get metric_bad_5_name;
+
+  /// No description provided for @metric_bad_5_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies unfavorable comparisons to exes, friends, or family to shame or coerce behavior change.'**
+  String get metric_bad_5_description;
+
+  /// No description provided for @metric_bad_6_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Conditional Listening'**
+  String get metric_bad_6_name;
+
+  /// No description provided for @metric_bad_6_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects listening only when it benefits the listener or serves their agenda rather than genuine understanding.'**
+  String get metric_bad_6_description;
+
+  /// No description provided for @metric_bad_7_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Selective Memory'**
+  String get metric_bad_7_name;
+
+  /// No description provided for @metric_bad_7_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks convenient forgetting of promises, agreements, or past harmful behavior to avoid accountability.'**
+  String get metric_bad_7_description;
+
+  /// No description provided for @metric_bad_8_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Attention Seeking Through Crisis'**
+  String get metric_bad_8_name;
+
+  /// No description provided for @metric_bad_8_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies dramatic escalation, crisis creation, or exaggeration to gain focus or sympathy.'**
+  String get metric_bad_8_description;
+
+  /// No description provided for @metric_bad_9_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Boundary Testing'**
+  String get metric_bad_9_name;
+
+  /// No description provided for @metric_bad_9_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects repeated probing or pushing of stated limits to determine if they will be enforced.'**
+  String get metric_bad_9_description;
+
+  /// No description provided for @metric_bad_10_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Withholding Information'**
+  String get metric_bad_10_name;
+
+  /// No description provided for @metric_bad_10_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies deliberate omission of relevant facts, context, or transparency to maintain control.'**
+  String get metric_bad_10_description;
+
+  /// No description provided for @metric_bad_11_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Disproportionate Anger'**
+  String get metric_bad_11_name;
+
+  /// No description provided for @metric_bad_11_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks anger responses that are significantly larger than the triggering incident warrants.'**
+  String get metric_bad_11_description;
+
+  /// No description provided for @metric_bad_12_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Reassurance Addiction'**
+  String get metric_bad_12_name;
+
+  /// No description provided for @metric_bad_12_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags constant need for validation, repeated questions about commitment, or endless proof of love.'**
+  String get metric_bad_12_description;
+
+  /// No description provided for @metric_bad_13_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Conversation Avoidance'**
+  String get metric_bad_13_name;
+
+  /// No description provided for @metric_bad_13_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects refusal to engage with concerns, avoidance phrases, or shutting down important discussions.'**
+  String get metric_bad_13_description;
+
+  /// No description provided for @metric_bad_14_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Contradiction Pattern'**
+  String get metric_bad_14_name;
+
+  /// No description provided for @metric_bad_14_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies contradictory statements, promises, or positions that create confusion or destabilization.'**
+  String get metric_bad_14_description;
+
+  /// No description provided for @metric_bad_15_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Dismissal Through Labeling'**
+  String get metric_bad_15_name;
+
+  /// No description provided for @metric_bad_15_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags labeling concerns as \"crazy,\" \"dramatic,\" \"paranoid,\" or \"overreacting\" to invalidate them.'**
+  String get metric_bad_15_description;
+
+  /// No description provided for @metric_bad_16_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Selective Empathy'**
+  String get metric_bad_16_name;
+
+  /// No description provided for @metric_bad_16_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects empathy offered only when convenient or when it serves the speaker\'s interests.'**
+  String get metric_bad_16_description;
+
+  /// No description provided for @metric_bad_17_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Transactional Framing'**
+  String get metric_bad_17_name;
+
+  /// No description provided for @metric_bad_17_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies \"you owe me,\" \"after all I\'ve done,\" or viewing relationship acts as creating debt.'**
+  String get metric_bad_17_description;
+
+  /// No description provided for @metric_bad_18_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Grievance Recycling'**
+  String get metric_bad_18_name;
+
+  /// No description provided for @metric_bad_18_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks bringing up old grievances repeatedly or using past harm as ammunition in current conflicts.'**
+  String get metric_bad_18_description;
+
+  /// No description provided for @metric_bad_19_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Demand Language'**
+  String get metric_bad_19_name;
+
+  /// No description provided for @metric_bad_19_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags imperatives, commands, or ultimatums rather than requests or collaborative problem-solving.'**
+  String get metric_bad_19_description;
+
+  /// No description provided for @metric_bad_20_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Unavailability'**
+  String get metric_bad_20_name;
+
+  /// No description provided for @metric_bad_20_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects consistent refusal to engage emotionally, share feelings, or provide comfort.'**
+  String get metric_bad_20_description;
+
+  /// No description provided for @metric_bad_21_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Hostile Interpretation'**
+  String get metric_bad_21_name;
+
+  /// No description provided for @metric_bad_21_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies taking neutral statements as attacks or interpreting ambiguous messages as hostile.'**
+  String get metric_bad_21_description;
+
+  /// No description provided for @metric_bad_22_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Entitlement Framing'**
+  String get metric_bad_22_name;
+
+  /// No description provided for @metric_bad_22_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags language suggesting the speaker deserves special treatment, exceptions, or priority.'**
+  String get metric_bad_22_description;
+
+  /// No description provided for @metric_bad_23_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Criticism Disguised as Help'**
+  String get metric_bad_23_name;
+
+  /// No description provided for @metric_bad_23_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects criticism wrapped in \"I\'m just trying to help\" or \"for your own good\" language.'**
+  String get metric_bad_23_description;
+
+  /// No description provided for @metric_bad_24_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Neglect Patterns'**
+  String get metric_bad_24_name;
+
+  /// No description provided for @metric_bad_24_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies consistent failure to meet emotional, physical, or relational needs.'**
+  String get metric_bad_24_description;
+
+  /// No description provided for @metric_bad_25_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Conflict Rumination'**
+  String get metric_bad_25_name;
+
+  /// No description provided for @metric_bad_25_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks obsessive rehashing of conflicts without moving toward resolution or closure.'**
+  String get metric_bad_25_description;
+
+  /// No description provided for @metric_bad_26_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Sensitivity Dismissal'**
+  String get metric_bad_26_name;
+
+  /// No description provided for @metric_bad_26_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags statements like \"you\'re too sensitive\" or \"you\'re overreacting\" to dismiss feelings.'**
+  String get metric_bad_26_description;
+
+  /// No description provided for @metric_bad_27_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Competitive Framing'**
+  String get metric_bad_27_name;
+
+  /// No description provided for @metric_bad_27_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects framing relationship as a competition where one partner must win or dominate.'**
+  String get metric_bad_27_description;
+
+  /// No description provided for @metric_bad_28_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Double Standards'**
+  String get metric_bad_28_name;
+
+  /// No description provided for @metric_bad_28_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies applying different rules to self versus partner or changing expectations arbitrarily.'**
+  String get metric_bad_28_description;
+
+  /// No description provided for @metric_bad_29_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Affection as Punishment'**
+  String get metric_bad_29_name;
+
+  /// No description provided for @metric_bad_29_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags removing affection, attention, or communication as retaliation for perceived wrongs.'**
+  String get metric_bad_29_description;
+
+  /// No description provided for @metric_bad_30_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Blame Rotation'**
+  String get metric_bad_30_name;
+
+  /// No description provided for @metric_bad_30_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks rotating blame between partner, circumstances, and external factors to avoid accountability.'**
+  String get metric_bad_30_description;
+
+  /// No description provided for @metric_bad_31_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Rhetorical Mockery'**
+  String get metric_bad_31_name;
+
+  /// No description provided for @metric_bad_31_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects rhetorical or sarcastic questions used to mock rather than understand.'**
+  String get metric_bad_31_description;
+
+  /// No description provided for @metric_bad_32_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Sacrifice Reminders'**
+  String get metric_bad_32_name;
+
+  /// No description provided for @metric_bad_32_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies reminding partner of sacrifices, favors, or support to create debt and compliance.'**
+  String get metric_bad_32_description;
+
+  /// No description provided for @metric_bad_33_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Deliberate Escalation'**
+  String get metric_bad_33_name;
+
+  /// No description provided for @metric_bad_33_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags deliberately escalating intensity to overwhelm partner\'s ability to respond rationally.'**
+  String get metric_bad_33_description;
+
+  /// No description provided for @metric_bad_34_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Strategic Vulnerability'**
+  String get metric_bad_34_name;
+
+  /// No description provided for @metric_bad_34_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects sharing emotions only when it serves manipulation or control purposes.'**
+  String get metric_bad_34_description;
+
+  /// No description provided for @metric_bad_35_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Deflection Through Counterattack'**
+  String get metric_bad_35_name;
+
+  /// No description provided for @metric_bad_35_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies turning focus away from partner\'s concerns by raising unrelated issues or countercharges.'**
+  String get metric_bad_35_description;
+
+  /// No description provided for @metric_bad_36_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Superiority Language'**
+  String get metric_bad_36_name;
+
+  /// No description provided for @metric_bad_36_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags superiority language, condescension, or framing partner as beneath them.'**
+  String get metric_bad_36_description;
+
+  /// No description provided for @metric_bad_37_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Conflict Exit Pattern'**
+  String get metric_bad_37_name;
+
+  /// No description provided for @metric_bad_37_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects pattern of leaving conversations, refusing to engage, or creating distance during conflict.'**
+  String get metric_bad_37_description;
+
+  /// No description provided for @metric_bad_38_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Negative Bias'**
+  String get metric_bad_38_name;
+
+  /// No description provided for @metric_bad_38_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks consistently interpreting neutral or positive actions as negative or suspicious.'**
+  String get metric_bad_38_description;
+
+  /// No description provided for @metric_bad_39_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Agency Denial'**
+  String get metric_bad_39_name;
+
+  /// No description provided for @metric_bad_39_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies \"I have to,\" \"you make me,\" or language removing personal agency from the speaker.'**
+  String get metric_bad_39_description;
+
+  /// No description provided for @metric_bad_40_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence as Control'**
+  String get metric_bad_40_name;
+
+  /// No description provided for @metric_bad_40_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags using silence or non-response as a form of punishment or control.'**
+  String get metric_bad_40_description;
+
+  /// No description provided for @metric_bad_41_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Hypocrisy'**
+  String get metric_bad_41_name;
+
+  /// No description provided for @metric_bad_41_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects refusing to share information while demanding transparency from the partner.'**
+  String get metric_bad_41_description;
+
+  /// No description provided for @metric_bad_42_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsolicited Harsh Feedback'**
+  String get metric_bad_42_name;
+
+  /// No description provided for @metric_bad_42_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies harsh feedback presented as \"constructive\" or \"helpful\" without consent.'**
+  String get metric_bad_42_description;
+
+  /// No description provided for @metric_bad_43_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Conditional Care'**
+  String get metric_bad_43_name;
+
+  /// No description provided for @metric_bad_43_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags support offered only when partner complies with speaker\'s expectations.'**
+  String get metric_bad_43_description;
+
+  /// No description provided for @metric_bad_44_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Impact Denial'**
+  String get metric_bad_44_name;
+
+  /// No description provided for @metric_bad_44_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects \"I didn\'t mean it that way\" or \"you\'re reading too much into it\" after causing harm.'**
+  String get metric_bad_44_description;
+
+  /// No description provided for @metric_bad_45_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Debt Mentality'**
+  String get metric_bad_45_name;
+
+  /// No description provided for @metric_bad_45_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks bringing up past help or support to create debt and control current behavior.'**
+  String get metric_bad_45_description;
+
+  /// No description provided for @metric_bad_46_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Responsibility Evasion'**
+  String get metric_bad_46_name;
+
+  /// No description provided for @metric_bad_46_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags consistent pattern of not taking responsibility for the impact of actions.'**
+  String get metric_bad_46_description;
+
+  /// No description provided for @metric_bad_47_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Needs Dismissal'**
+  String get metric_bad_47_name;
+
+  /// No description provided for @metric_bad_47_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies treating partner\'s needs as inconvenient, unreasonable, or unimportant.'**
+  String get metric_bad_47_description;
+
+  /// No description provided for @metric_bad_48_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Manipulation'**
+  String get metric_bad_48_name;
+
+  /// No description provided for @metric_bad_48_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags using emotions strategically to control outcomes or prevent accountability.'**
+  String get metric_bad_48_description;
+
+  /// No description provided for @metric_bad_49_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Intimacy Avoidance'**
+  String get metric_bad_49_name;
+
+  /// No description provided for @metric_bad_49_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks consistent withdrawal from emotional or physical closeness without explanation.'**
+  String get metric_bad_49_description;
+
+  /// No description provided for @metric_bad_50_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Veiled Criticism'**
+  String get metric_bad_50_name;
+
+  /// No description provided for @metric_bad_50_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies criticism disguised as jokes, observations, or casual comments.'**
+  String get metric_bad_50_description;
+
+  /// No description provided for @metric_bad_51_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Concern Minimization'**
+  String get metric_bad_51_name;
+
+  /// No description provided for @metric_bad_51_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags reducing partner\'s concerns to insignificance or exaggeration.'**
+  String get metric_bad_51_description;
+
+  /// No description provided for @metric_bad_52_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Guilt Enforcement'**
+  String get metric_bad_52_name;
+
+  /// No description provided for @metric_bad_52_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies using guilt or shame to ensure partner complies with expectations.'**
+  String get metric_bad_52_description;
+
+  /// No description provided for @metric_bad_53_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Apology Resistance'**
+  String get metric_bad_53_name;
+
+  /// No description provided for @metric_bad_53_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks resistance to apologizing, explaining away harm, or refusing to acknowledge impact.'**
+  String get metric_bad_53_description;
+
+  /// No description provided for @metric_bad_54_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Perspective Rejection'**
+  String get metric_bad_54_name;
+
+  /// No description provided for @metric_bad_54_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags refusing to consider or validate partner\'s viewpoint or experience.'**
+  String get metric_bad_54_description;
+
+  /// No description provided for @metric_bad_55_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Rationing'**
+  String get metric_bad_55_name;
+
+  /// No description provided for @metric_bad_55_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects deliberately limiting emotional expression or connection as a form of control.'**
+  String get metric_bad_55_description;
+
+  /// No description provided for @metric_bad_56_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Obligation Manipulation'**
+  String get metric_bad_56_name;
+
+  /// No description provided for @metric_bad_56_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags using past support or sacrifice to manipulate current decisions.'**
+  String get metric_bad_56_description;
+
+  /// No description provided for @metric_bad_57_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Resistance to Growth'**
+  String get metric_bad_57_name;
+
+  /// No description provided for @metric_bad_57_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks resistance to modifying harmful behavior despite requests or demonstrated impact.'**
+  String get metric_bad_57_description;
+
+  /// No description provided for @metric_bad_58_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Harm Denial'**
+  String get metric_bad_58_name;
+
+  /// No description provided for @metric_bad_58_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects refusing to acknowledge or take seriously the impact of one\'s own behavior.'**
+  String get metric_bad_58_description;
+
+  /// No description provided for @metric_bad_59_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Loaded Questions'**
+  String get metric_bad_59_name;
+
+  /// No description provided for @metric_bad_59_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags critical intent disguised as innocent questions or expressions of curiosity.'**
+  String get metric_bad_59_description;
+
+  /// No description provided for @metric_bad_60_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Contemptuous Tone'**
+  String get metric_bad_60_name;
+
+  /// No description provided for @metric_bad_60_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies dismissive attitude or disdain conveyed through text patterns and word choice.'**
+  String get metric_bad_60_description;
+
+  /// No description provided for @metric_bad_61_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Guilt Trip Cycling'**
+  String get metric_bad_61_name;
+
+  /// No description provided for @metric_bad_61_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects repeatedly using guilt about past support or sacrifice to control current behavior.'**
+  String get metric_bad_61_description;
+
+  /// No description provided for @metric_bad_62_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Guardedness'**
+  String get metric_bad_62_name;
+
+  /// No description provided for @metric_bad_62_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks refusing to share emotions, fears, or needs with partner as protective withholding.'**
+  String get metric_bad_62_description;
+
+  /// No description provided for @metric_bad_63_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Boundary Negotiation'**
+  String get metric_bad_63_name;
+
+  /// No description provided for @metric_bad_63_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags treating stated limits as suggestions or negotiable rather than firm commitments.'**
+  String get metric_bad_63_description;
+
+  /// No description provided for @metric_bad_64_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Absence'**
+  String get metric_bad_64_name;
+
+  /// No description provided for @metric_bad_64_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects consistent refusal to provide emotional support or engaged presence.'**
+  String get metric_bad_64_description;
+
+  /// No description provided for @metric_bad_65_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Favor Tracking'**
+  String get metric_bad_65_name;
+
+  /// No description provided for @metric_bad_65_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags keeping mental score of favors, support, or sacrifices for later leverage.'**
+  String get metric_bad_65_description;
+
+  /// No description provided for @metric_bad_66_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Honesty Avoidance'**
+  String get metric_bad_66_name;
+
+  /// No description provided for @metric_bad_66_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects pattern of withholding truth, omitting facts, or being deliberately vague.'**
+  String get metric_bad_66_description;
+
+  /// No description provided for @metric_bad_67_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Validity Denial'**
+  String get metric_bad_67_name;
+
+  /// No description provided for @metric_bad_67_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies treating partner\'s feelings, needs, or concerns as invalid or illegitimate.'**
+  String get metric_bad_67_description;
+
+  /// No description provided for @metric_bad_68_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Advice Disguised Criticism'**
+  String get metric_bad_68_name;
+
+  /// No description provided for @metric_bad_68_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags criticism presented as concern, advice, or a helpful observation.'**
+  String get metric_bad_68_description;
+
+  /// No description provided for @metric_bad_69_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Superiority Indicators'**
+  String get metric_bad_69_name;
+
+  /// No description provided for @metric_bad_69_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects superiority, mockery, or disdain in language or communication style.'**
+  String get metric_bad_69_description;
+
+  /// No description provided for @metric_bad_70_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Repair Resistance'**
+  String get metric_bad_70_name;
+
+  /// No description provided for @metric_bad_70_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks resistance to making amends, reconnecting, or rebuilding after conflict.'**
+  String get metric_bad_70_description;
+
+  /// No description provided for @metric_bad_71_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Effort Dismissal'**
+  String get metric_bad_71_name;
+
+  /// No description provided for @metric_bad_71_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags minimizing or ignoring partner\'s attempts to improve or address issues.'**
+  String get metric_bad_71_description;
+
+  /// No description provided for @metric_bad_72_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Distance Pattern'**
+  String get metric_bad_72_name;
+
+  /// No description provided for @metric_bad_72_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects long-term pattern of emotional distance or refusal to engage authentically.'**
+  String get metric_bad_72_description;
+
+  /// No description provided for @metric_bad_73_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Inferiority Framing'**
+  String get metric_bad_73_name;
+
+  /// No description provided for @metric_bad_73_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies framing partner as inferior, flawed, or unworthy of full respect.'**
+  String get metric_bad_73_description;
+
+  /// No description provided for @metric_bad_74_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Feedback Resistance'**
+  String get metric_bad_74_name;
+
+  /// No description provided for @metric_bad_74_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects resistance to hearing criticism, refusing to listen, or shutting down discussion.'**
+  String get metric_bad_74_description;
+
+  /// No description provided for @metric_bad_75_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Worry Dismissal'**
+  String get metric_bad_75_name;
+
+  /// No description provided for @metric_bad_75_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies treating partner\'s worries or fears as unfounded or irrational.'**
+  String get metric_bad_75_description;
+
+  /// No description provided for @metric_bad_76_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Fault Finding'**
+  String get metric_bad_76_name;
+
+  /// No description provided for @metric_bad_76_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags chronic pattern of finding fault, complaining about, or attacking partner\'s character.'**
+  String get metric_bad_76_description;
+
+  /// No description provided for @metric_bad_77_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Sacrifice Guilt Cycling'**
+  String get metric_bad_77_name;
+
+  /// No description provided for @metric_bad_77_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies repeatedly bringing up past support to create guilt or control behavior.'**
+  String get metric_bad_77_description;
+
+  /// No description provided for @metric_bad_78_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Commitment Ambiguity'**
+  String get metric_bad_78_name;
+
+  /// No description provided for @metric_bad_78_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks unclear or wavering commitment language, mixed signals, or reluctance to commit.'**
+  String get metric_bad_78_description;
+
+  /// No description provided for @metric_bad_79_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Dismissal'**
+  String get metric_bad_79_name;
+
+  /// No description provided for @metric_bad_79_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags ignoring, refusing, or delaying response to partner\'s reasonable requests.'**
+  String get metric_bad_79_description;
+
+  /// No description provided for @metric_bad_80_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Control Tactics'**
+  String get metric_bad_80_name;
+
+  /// No description provided for @metric_bad_80_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects strategic use of emotions to control outcomes or prevent accountability.'**
+  String get metric_bad_80_description;
+
+  /// No description provided for @metric_bad_81_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Exchange Mentality'**
+  String get metric_bad_81_name;
+
+  /// No description provided for @metric_bad_81_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags viewing relationship through lens of debt, obligation, or transactional exchange.'**
+  String get metric_bad_81_description;
+
+  /// No description provided for @metric_bad_82_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Development Resistance'**
+  String get metric_bad_82_name;
+
+  /// No description provided for @metric_bad_82_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects resistance to personal development, learning, or changing harmful patterns.'**
+  String get metric_bad_82_description;
+
+  /// No description provided for @metric_bad_83_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Improvement Rejection'**
+  String get metric_bad_83_name;
+
+  /// No description provided for @metric_bad_83_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies minimizing or rejecting partner\'s efforts to improve or address issues.'**
+  String get metric_bad_83_description;
+
+  /// No description provided for @metric_bad_84_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Chronic Criticism'**
+  String get metric_bad_84_name;
+
+  /// No description provided for @metric_bad_84_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags chronic pattern of criticism wrapped in concern, helpfulness, or care language.'**
+  String get metric_bad_84_description;
+
+  /// No description provided for @metric_bad_85_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Solution Avoidance'**
+  String get metric_bad_85_name;
+
+  /// No description provided for @metric_bad_85_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects consistent pattern of avoiding closure, moving forward, or finding workable solutions.'**
+  String get metric_bad_85_description;
+
+  /// No description provided for @metric_bad_86_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Blame Deflection Pattern'**
+  String get metric_bad_86_name;
+
+  /// No description provided for @metric_bad_86_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags habitual pattern of redirecting responsibility to external factors or the partner.'**
+  String get metric_bad_86_description;
+
+  /// No description provided for @metric_bad_87_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Dismissive Responses'**
+  String get metric_bad_87_name;
+
+  /// No description provided for @metric_bad_87_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies pattern of dismissing partner\'s input, ideas, or suggestions without consideration.'**
+  String get metric_bad_87_description;
+
+  /// No description provided for @metric_bad_88_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Resentment Expression'**
+  String get metric_bad_88_name;
+
+  /// No description provided for @metric_bad_88_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects tone of resentment, bitterness, or long-held frustration in communication.'**
+  String get metric_bad_88_description;
+
+  /// No description provided for @metric_bad_89_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Ambivalent Messaging'**
+  String get metric_bad_89_name;
+
+  /// No description provided for @metric_bad_89_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags mixed messages about commitment, unclear desire to continue, or push-pull dynamics.'**
+  String get metric_bad_89_description;
+
+  /// No description provided for @metric_bad_90_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Expectation Shifting'**
+  String get metric_bad_90_name;
+
+  /// No description provided for @metric_bad_90_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies changing expectations without communication, then blaming partner for not meeting them.'**
+  String get metric_bad_90_description;
+
+  /// No description provided for @metric_bad_91_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Deflection Habit'**
+  String get metric_bad_91_name;
+
+  /// No description provided for @metric_bad_91_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects habitual avoidance of direct answers or redirection of conversations away from accountability.'**
+  String get metric_bad_91_description;
+
+  /// No description provided for @metric_bad_92_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Manipulation Through Kindness'**
+  String get metric_bad_92_name;
+
+  /// No description provided for @metric_bad_92_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags exaggerated generosity used strategically to create obligation or lower defenses.'**
+  String get metric_bad_92_description;
+
+  /// No description provided for @metric_bad_93_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Chronic Lateness Pattern'**
+  String get metric_bad_93_name;
+
+  /// No description provided for @metric_bad_93_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies consistent disregard for partner\'s time through lateness or broken scheduling commitments.'**
+  String get metric_bad_93_description;
+
+  /// No description provided for @metric_bad_94_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress Minimization'**
+  String get metric_bad_94_name;
+
+  /// No description provided for @metric_bad_94_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks dismissing or failing to acknowledge the partner\'s genuine personal growth or improvements.'**
+  String get metric_bad_94_description;
+
+  /// No description provided for @metric_bad_95_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Weaponizing'**
+  String get metric_bad_95_name;
+
+  /// No description provided for @metric_bad_95_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects using partner\'s disclosed vulnerabilities or fears against them in conflict.'**
+  String get metric_bad_95_description;
+
+  /// No description provided for @metric_bad_96_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Gaslighting-Adjacent Tactics'**
+  String get metric_bad_96_name;
+
+  /// No description provided for @metric_bad_96_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies subtle reality-distorting tactics that create self-doubt without full gaslighting.'**
+  String get metric_bad_96_description;
+
+  /// No description provided for @metric_bad_97_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Passive Stonewalling'**
+  String get metric_bad_97_name;
+
+  /// No description provided for @metric_bad_97_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags subtle disengagement, monosyllabic responses, or checked-out presence as avoidance.'**
+  String get metric_bad_97_description;
+
+  /// No description provided for @metric_bad_98_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Narrative Control'**
+  String get metric_bad_98_name;
+
+  /// No description provided for @metric_bad_98_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects insisting on being the sole authority on what happened, how it felt, or what was meant.'**
+  String get metric_bad_98_description;
+
+  /// No description provided for @metric_bad_99_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Responsibility Deflection'**
+  String get metric_bad_99_name;
+
+  /// No description provided for @metric_bad_99_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks consistently redirecting accountability onto external factors, third parties, or the partner\'s behavior.'**
+  String get metric_bad_99_description;
+
+  /// No description provided for @metric_bad_100_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Unavailability'**
+  String get metric_bad_100_name;
+
+  /// No description provided for @metric_bad_100_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags chronic withdrawal from emotional intimacy, vulnerability, or meaningful connection when the partner needs closeness.'**
+  String get metric_bad_100_description;
+
+  /// No description provided for @metric_ugly_1_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Physical Violence Threats'**
+  String get metric_ugly_1_name;
+
+  /// No description provided for @metric_ugly_1_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects explicit or veiled threats of hitting, harming, or physical assault against the partner.'**
+  String get metric_ugly_1_description;
+
+  /// No description provided for @metric_ugly_2_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Weapon Possession References'**
+  String get metric_ugly_2_name;
+
+  /// No description provided for @metric_ugly_2_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags mentions of guns, knives, or weapons in the context of anger, control, or capability to harm.'**
+  String get metric_ugly_2_description;
+
+  /// No description provided for @metric_ugly_3_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Strangulation Indicators'**
+  String get metric_ugly_3_name;
+
+  /// No description provided for @metric_ugly_3_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies choking, throat-grabbing, suffocation, or asphyxiation language or references.'**
+  String get metric_ugly_3_description;
+
+  /// No description provided for @metric_ugly_4_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Suicide Threat Weaponization'**
+  String get metric_ugly_4_name;
+
+  /// No description provided for @metric_ugly_4_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects threats of self-harm used to control, manipulate, or punish the partner.'**
+  String get metric_ugly_4_description;
+
+  /// No description provided for @metric_ugly_5_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Homicide Ideation Language'**
+  String get metric_ugly_5_name;
+
+  /// No description provided for @metric_ugly_5_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags statements expressing intent, planning, or desire to kill the partner.'**
+  String get metric_ugly_5_description;
+
+  /// No description provided for @metric_ugly_6_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Lethality Risk Patterns'**
+  String get metric_ugly_6_name;
+
+  /// No description provided for @metric_ugly_6_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies high-lethality warning signs: weapon access, obsession, escalation, and separation threats combined.'**
+  String get metric_ugly_6_description;
+
+  /// No description provided for @metric_ugly_7_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Stalking Obsession Language'**
+  String get metric_ugly_7_name;
+
+  /// No description provided for @metric_ugly_7_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects obsessive location monitoring, following, surprise visits, or persistent unwanted pursuit.'**
+  String get metric_ugly_7_description;
+
+  /// No description provided for @metric_ugly_8_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Forced Isolation Enforcement'**
+  String get metric_ugly_8_name;
+
+  /// No description provided for @metric_ugly_8_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags aggressive demands to cut off all family, friends, work, or outside contact.'**
+  String get metric_ugly_8_description;
+
+  /// No description provided for @metric_ugly_9_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Economic Sabotage'**
+  String get metric_ugly_9_name;
+
+  /// No description provided for @metric_ugly_9_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies deliberate destruction of employment, credit, finances, or economic stability.'**
+  String get metric_ugly_9_description;
+
+  /// No description provided for @metric_ugly_10_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Reproductive Coercion'**
+  String get metric_ugly_10_name;
+
+  /// No description provided for @metric_ugly_10_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects forced pregnancy, abortion pressure, contraception tampering, or reproductive control.'**
+  String get metric_ugly_10_description;
+
+  /// No description provided for @metric_ugly_11_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Sexual Coercion Pressure'**
+  String get metric_ugly_11_name;
+
+  /// No description provided for @metric_ugly_11_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags forced sex, coerced sexual acts, pressure after refusal, or sexual punishment language.'**
+  String get metric_ugly_11_description;
+
+  /// No description provided for @metric_ugly_12_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Non-Consensual Sexual Language'**
+  String get metric_ugly_12_name;
+
+  /// No description provided for @metric_ugly_12_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies explicit or implicit non-consensual sexual assault threats or descriptions.'**
+  String get metric_ugly_12_description;
+
+  /// No description provided for @metric_ugly_13_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Child Harm Threats'**
+  String get metric_ugly_13_name;
+
+  /// No description provided for @metric_ugly_13_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects threats to harm, neglect, or abuse children as leverage or punishment against the partner.'**
+  String get metric_ugly_13_description;
+
+  /// No description provided for @metric_ugly_14_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Child Custody Weaponization'**
+  String get metric_ugly_14_name;
+
+  /// No description provided for @metric_ugly_14_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags threats to take children, deny access, or use custody as a control mechanism.'**
+  String get metric_ugly_14_description;
+
+  /// No description provided for @metric_ugly_15_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Pet Harm Threats'**
+  String get metric_ugly_15_name;
+
+  /// No description provided for @metric_ugly_15_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies threats to hurt, kill, or abuse pets as punishment or to demonstrate control.'**
+  String get metric_ugly_15_description;
+
+  /// No description provided for @metric_ugly_16_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep Deprivation Tactics'**
+  String get metric_ugly_16_name;
+
+  /// No description provided for @metric_ugly_16_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags deliberate prevention of sleep, constant interruption, or exhaustion as a control method.'**
+  String get metric_ugly_16_description;
+
+  /// No description provided for @metric_ugly_17_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Confinement Language'**
+  String get metric_ugly_17_name;
+
+  /// No description provided for @metric_ugly_17_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags locking in, preventing departure, or confining the partner to a location.'**
+  String get metric_ugly_17_description;
+
+  /// No description provided for @metric_ugly_18_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Predatory Grooming Language'**
+  String get metric_ugly_18_name;
+
+  /// No description provided for @metric_ugly_18_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags systematic manipulation to lower defenses, build false trust, then exploit the partner.'**
+  String get metric_ugly_18_description;
+
+  /// No description provided for @metric_ugly_19_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Dehumanization Language'**
+  String get metric_ugly_19_name;
+
+  /// No description provided for @metric_ugly_19_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects describing partner as an animal, object, subhuman, or unworthy of basic rights.'**
+  String get metric_ugly_19_description;
+
+  /// No description provided for @metric_ugly_20_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Narcissistic Rage Escalation'**
+  String get metric_ugly_20_name;
+
+  /// No description provided for @metric_ugly_20_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects explosive anger triggered by perceived slights, criticism, or any loss of control.'**
+  String get metric_ugly_20_description;
+
+  /// No description provided for @metric_ugly_21_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Obsessive Possession Claims'**
+  String get metric_ugly_21_name;
+
+  /// No description provided for @metric_ugly_21_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags language claiming ownership, property rights, or total control over the partner\'s person.'**
+  String get metric_ugly_21_description;
+
+  /// No description provided for @metric_ugly_22_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Pathological Lying Patterns'**
+  String get metric_ugly_22_name;
+
+  /// No description provided for @metric_ugly_22_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies consistent, elaborate, or unnecessary lies about serious matters without apparent reason.'**
+  String get metric_ugly_22_description;
+
+  /// No description provided for @metric_ugly_23_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Revenge Fantasy Language'**
+  String get metric_ugly_23_name;
+
+  /// No description provided for @metric_ugly_23_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies detailed fantasies about harming, humiliating, or destroying the partner.'**
+  String get metric_ugly_23_description;
+
+  /// No description provided for @metric_ugly_24_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Betrayal Obsession Fixation'**
+  String get metric_ugly_24_name;
+
+  /// No description provided for @metric_ugly_24_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects obsessive rumination, accusation, and punishment focused on perceived infidelity.'**
+  String get metric_ugly_24_description;
+
+  /// No description provided for @metric_ugly_25_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Abandonment Panic Aggression'**
+  String get metric_ugly_25_name;
+
+  /// No description provided for @metric_ugly_25_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags violent or aggressive responses to perceived abandonment or any separation attempt.'**
+  String get metric_ugly_25_description;
+
+  /// No description provided for @metric_ugly_26_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Separation Threat Escalation'**
+  String get metric_ugly_26_name;
+
+  /// No description provided for @metric_ugly_26_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies extreme threats or dangerous behaviors triggered by breakup or separation attempts.'**
+  String get metric_ugly_26_description;
+
+  /// No description provided for @metric_ugly_27_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Post-Separation Harassment Threats'**
+  String get metric_ugly_27_name;
+
+  /// No description provided for @metric_ugly_27_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags threats of stalking, harm, or forced contact after the relationship ends.'**
+  String get metric_ugly_27_description;
+
+  /// No description provided for @metric_ugly_28_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Custody Kidnapping Threats'**
+  String get metric_ugly_28_name;
+
+  /// No description provided for @metric_ugly_28_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies threats to take children and flee or hide them permanently from the other parent.'**
+  String get metric_ugly_28_description;
+
+  /// No description provided for @metric_ugly_29_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Parental Alienation Agenda'**
+  String get metric_ugly_29_name;
+
+  /// No description provided for @metric_ugly_29_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags systematic attempts to turn children against the other parent through manipulation.'**
+  String get metric_ugly_29_description;
+
+  /// No description provided for @metric_ugly_30_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Child Witness Indifference'**
+  String get metric_ugly_30_name;
+
+  /// No description provided for @metric_ugly_30_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies disregard for children witnessing abuse, conflict, or emotional harm.'**
+  String get metric_ugly_30_description;
+
+  /// No description provided for @metric_ugly_31_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Human Trafficking Language'**
+  String get metric_ugly_31_name;
+
+  /// No description provided for @metric_ugly_31_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies language suggesting selling, trading, or sexually exploiting the partner.'**
+  String get metric_ugly_31_description;
+
+  /// No description provided for @metric_ugly_32_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Slavery Language'**
+  String get metric_ugly_32_name;
+
+  /// No description provided for @metric_ugly_32_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies language treating partner as property, slave, or wholly owned person without rights.'**
+  String get metric_ugly_32_description;
+
+  /// No description provided for @metric_ugly_33_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Debt Bondage Threats'**
+  String get metric_ugly_33_name;
+
+  /// No description provided for @metric_ugly_33_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects threats to trap partner through manufactured debt or financial obligation.'**
+  String get metric_ugly_33_description;
+
+  /// No description provided for @metric_ugly_34_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Forced Labor Demands'**
+  String get metric_ugly_34_name;
+
+  /// No description provided for @metric_ugly_34_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags demands for unpaid labor, servitude, or work under threat of harm or punishment.'**
+  String get metric_ugly_34_description;
+
+  /// No description provided for @metric_ugly_35_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Exploitation Normalization'**
+  String get metric_ugly_35_name;
+
+  /// No description provided for @metric_ugly_35_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies framing severe exploitation as normal, deserved, consensual, or even beneficial.'**
+  String get metric_ugly_35_description;
+
+  /// No description provided for @metric_ugly_36_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Vulnerability Targeting'**
+  String get metric_ugly_36_name;
+
+  /// No description provided for @metric_ugly_36_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies deliberate targeting of isolated, economically dependent, or psychologically vulnerable individuals.'**
+  String get metric_ugly_36_description;
+
+  /// No description provided for @metric_ugly_37_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Trauma Bonding Engineering'**
+  String get metric_ugly_37_name;
+
+  /// No description provided for @metric_ugly_37_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects deliberate creation of fear-relief cycles designed to create deep emotional dependency.'**
+  String get metric_ugly_37_description;
+
+  /// No description provided for @metric_ugly_38_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Intermittent Reinforcement Abuse'**
+  String get metric_ugly_38_name;
+
+  /// No description provided for @metric_ugly_38_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags unpredictable cycles of reward and severe punishment used to create psychological addiction.'**
+  String get metric_ugly_38_description;
+
+  /// No description provided for @metric_ugly_39_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Learned Helplessness Induction'**
+  String get metric_ugly_39_name;
+
+  /// No description provided for @metric_ugly_39_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies systematic removal of agency, resources, and perceived escape options.'**
+  String get metric_ugly_39_description;
+
+  /// No description provided for @metric_ugly_40_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Identity Erasure Language'**
+  String get metric_ugly_40_name;
+
+  /// No description provided for @metric_ugly_40_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags demands to abandon personality, interests, appearance, or core sense of identity.'**
+  String get metric_ugly_40_description;
+
+  /// No description provided for @metric_ugly_41_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Autonomy Annihilation'**
+  String get metric_ugly_41_name;
+
+  /// No description provided for @metric_ugly_41_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects systematic elimination of independent thought, decision-making, or personal agency.'**
+  String get metric_ugly_41_description;
+
+  /// No description provided for @metric_ugly_42_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Thought Control Tactics'**
+  String get metric_ugly_42_name;
+
+  /// No description provided for @metric_ugly_42_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags demands to think, believe, or feel only as the controlling partner dictates.'**
+  String get metric_ugly_42_description;
+
+  /// No description provided for @metric_ugly_43_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Emotional Numbness Enforcement'**
+  String get metric_ugly_43_name;
+
+  /// No description provided for @metric_ugly_43_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies punishment for showing emotions or explicit demands to suppress all feelings.'**
+  String get metric_ugly_43_description;
+
+  /// No description provided for @metric_ugly_44_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Complex Trauma Creation'**
+  String get metric_ugly_44_name;
+
+  /// No description provided for @metric_ugly_44_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags systematic patterns creating complex PTSD-level trauma through chronic abuse.'**
+  String get metric_ugly_44_description;
+
+  /// No description provided for @metric_ugly_45_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Betrayal Trauma Infliction'**
+  String get metric_ugly_45_name;
+
+  /// No description provided for @metric_ugly_45_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies deliberate betrayal designed to shatter foundational trust and psychological safety.'**
+  String get metric_ugly_45_description;
+
+  /// No description provided for @metric_ugly_46_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Moral Injury Language'**
+  String get metric_ugly_46_name;
+
+  /// No description provided for @metric_ugly_46_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects forcing partner to violate their own deeply held values or commit harmful acts.'**
+  String get metric_ugly_46_description;
+
+  /// No description provided for @metric_ugly_47_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Existential Threat Language'**
+  String get metric_ugly_47_name;
+
+  /// No description provided for @metric_ugly_47_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags threats to partner\'s existence, core identity, sanity, or will to live.'**
+  String get metric_ugly_47_description;
+
+  /// No description provided for @metric_ugly_48_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Suicide Coercion Language'**
+  String get metric_ugly_48_name;
+
+  /// No description provided for @metric_ugly_48_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies pushing partner toward suicidal ideation through sustained abuse and manufactured hopelessness.'**
+  String get metric_ugly_48_description;
+
+  /// No description provided for @metric_ugly_49_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Justification Mythology'**
+  String get metric_ugly_49_name;
+
+  /// No description provided for @metric_ugly_49_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies elaborate invented narratives presented to justify abuse as necessary, deserved, or righteous.'**
+  String get metric_ugly_49_description;
+
+  /// No description provided for @metric_ugly_50_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Victim Narrative Inversion'**
+  String get metric_ugly_50_name;
+
+  /// No description provided for @metric_ugly_50_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects complete reversal where the abuser claims to be the real victim of their own abuse.'**
+  String get metric_ugly_50_description;
+
+  /// No description provided for @metric_ugly_51_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Abuse Normalization Preaching'**
+  String get metric_ugly_51_name;
+
+  /// No description provided for @metric_ugly_51_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags teaching or insisting that abuse is normal, healthy, or beneficial for the partner.'**
+  String get metric_ugly_51_description;
+
+  /// No description provided for @metric_ugly_52_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Predatory Ideology'**
+  String get metric_ugly_52_name;
+
+  /// No description provided for @metric_ugly_52_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies ideological justification for exploitation, dominance, or harm toward the partner.'**
+  String get metric_ugly_52_description;
+
+  /// No description provided for @metric_ugly_53_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Cult Leader Messaging'**
+  String get metric_ugly_53_name;
+
+  /// No description provided for @metric_ugly_53_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects messaging claiming special knowledge, divine right, or superior authority over the partner.'**
+  String get metric_ugly_53_description;
+
+  /// No description provided for @metric_ugly_54_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Grooming Timeline Language'**
+  String get metric_ugly_54_name;
+
+  /// No description provided for @metric_ugly_54_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags references to a long-term manipulation plan or descriptions of a grooming progression.'**
+  String get metric_ugly_54_description;
+
+  /// No description provided for @metric_ugly_55_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Chronic Humiliation Campaign'**
+  String get metric_ugly_55_name;
+
+  /// No description provided for @metric_ugly_55_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies sustained pattern of public or private humiliation designed to destroy self-worth.'**
+  String get metric_ugly_55_description;
+
+  /// No description provided for @metric_ugly_56_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Safety Exit Blocking'**
+  String get metric_ugly_56_name;
+
+  /// No description provided for @metric_ugly_56_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects actively preventing the partner from accessing escape routes, support systems, or safety resources.'**
+  String get metric_ugly_56_description;
+
+  /// No description provided for @metric_ugly_57_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Document Confiscation Threats'**
+  String get metric_ugly_57_name;
+
+  /// No description provided for @metric_ugly_57_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags threats or actions to take, hide, or destroy identity documents to prevent escape.'**
+  String get metric_ugly_57_description;
+
+  /// No description provided for @metric_ugly_58_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Violent Jealousy Patterns'**
+  String get metric_ugly_58_name;
+
+  /// No description provided for @metric_ugly_58_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies jealousy that has escalated to explicit threats, surveillance, or violent retaliation.'**
+  String get metric_ugly_58_description;
+
+  /// No description provided for @metric_ugly_59_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Rage Explosion Patterns'**
+  String get metric_ugly_59_name;
+
+  /// No description provided for @metric_ugly_59_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects descriptions or patterns of explosive violent outbursts disproportionate to any trigger.'**
+  String get metric_ugly_59_description;
+
+  /// No description provided for @metric_ugly_60_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Coercive Control Escalation'**
+  String get metric_ugly_60_name;
+
+  /// No description provided for @metric_ugly_60_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks increasing severity and breadth of coercive control tactics over time.'**
+  String get metric_ugly_60_description;
+
+  /// No description provided for @metric_ugly_61_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Fear-Based Compliance Language'**
+  String get metric_ugly_61_name;
+
+  /// No description provided for @metric_ugly_61_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies compliance driven entirely by fear of violence or severe punishment rather than choice.'**
+  String get metric_ugly_61_description;
+
+  /// No description provided for @metric_ugly_62_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Punishment Ritual Language'**
+  String get metric_ugly_62_name;
+
+  /// No description provided for @metric_ugly_62_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects references to systematic punishment practices used to enforce compliance and control.'**
+  String get metric_ugly_62_description;
+
+  /// No description provided for @metric_ugly_63_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Degradation Ritual Indicators'**
+  String get metric_ugly_63_name;
+
+  /// No description provided for @metric_ugly_63_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags systematic degradation or humiliation rituals designed to destroy dignity.'**
+  String get metric_ugly_63_description;
+
+  /// No description provided for @metric_ugly_64_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Non-Consensual Exposure Threats'**
+  String get metric_ugly_64_name;
+
+  /// No description provided for @metric_ugly_64_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies threats to expose intimate images, private information, or secrets without consent.'**
+  String get metric_ugly_64_description;
+
+  /// No description provided for @metric_ugly_65_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Image-Based Abuse Threats'**
+  String get metric_ugly_65_name;
+
+  /// No description provided for @metric_ugly_65_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects threats to distribute intimate images as revenge, punishment, or blackmail.'**
+  String get metric_ugly_65_description;
+
+  /// No description provided for @metric_ugly_66_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Financial Entrapment Tactics'**
+  String get metric_ugly_66_name;
+
+  /// No description provided for @metric_ugly_66_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags deliberate creation of financial dependency making independent survival impossible.'**
+  String get metric_ugly_66_description;
+
+  /// No description provided for @metric_ugly_67_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Housing Threat Language'**
+  String get metric_ugly_67_name;
+
+  /// No description provided for @metric_ugly_67_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects threats to make partner homeless, remove housing access, or destroy shelter security.'**
+  String get metric_ugly_67_description;
+
+  /// No description provided for @metric_ugly_68_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Immigration Status Threats'**
+  String get metric_ugly_68_name;
+
+  /// No description provided for @metric_ugly_68_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies threats to report immigration status or revoke visa sponsorship as control.'**
+  String get metric_ugly_68_description;
+
+  /// No description provided for @metric_ugly_69_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Religious or Spiritual Abuse'**
+  String get metric_ugly_69_name;
+
+  /// No description provided for @metric_ugly_69_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects using religious authority, doctrine, or spiritual threat to control, punish, or harm.'**
+  String get metric_ugly_69_description;
+
+  /// No description provided for @metric_ugly_70_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Cultural Shame Weaponization'**
+  String get metric_ugly_70_name;
+
+  /// No description provided for @metric_ugly_70_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags threatening to expose behaviors to cultural or family community as punishment.'**
+  String get metric_ugly_70_description;
+
+  /// No description provided for @metric_ugly_71_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Harm Threats'**
+  String get metric_ugly_71_name;
+
+  /// No description provided for @metric_ugly_71_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies threats to harm partner\'s family members, children, or loved ones as leverage.'**
+  String get metric_ugly_71_description;
+
+  /// No description provided for @metric_ugly_72_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Coordinated Harassment Campaign'**
+  String get metric_ugly_72_name;
+
+  /// No description provided for @metric_ugly_72_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects organizing others to collectively harass, stalk, or intimidate the partner.'**
+  String get metric_ugly_72_description;
+
+  /// No description provided for @metric_ugly_73_name.
+  ///
+  /// In en, this message translates to:
+  /// **'False Police Report Threats'**
+  String get metric_ugly_73_name;
+
+  /// No description provided for @metric_ugly_73_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags threatening to make false police reports or legal accusations against the partner.'**
+  String get metric_ugly_73_description;
+
+  /// No description provided for @metric_ugly_74_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Legal System Weaponization'**
+  String get metric_ugly_74_name;
+
+  /// No description provided for @metric_ugly_74_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies using legal processes, courts, or protective orders as weapons of harassment.'**
+  String get metric_ugly_74_description;
+
+  /// No description provided for @metric_ugly_75_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Restraining Order Violation'**
+  String get metric_ugly_75_name;
+
+  /// No description provided for @metric_ugly_75_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects references to violating or planning to violate protective or no-contact orders.'**
+  String get metric_ugly_75_description;
+
+  /// No description provided for @metric_ugly_76_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Workplace Sabotage Threats'**
+  String get metric_ugly_76_name;
+
+  /// No description provided for @metric_ugly_76_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags threats to contact employer, colleagues, or clients to destroy partner\'s livelihood.'**
+  String get metric_ugly_76_description;
+
+  /// No description provided for @metric_ugly_77_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Social Annihilation Threats'**
+  String get metric_ugly_77_name;
+
+  /// No description provided for @metric_ugly_77_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects threats to destroy partner\'s reputation, relationships, and social standing.'**
+  String get metric_ugly_77_description;
+
+  /// No description provided for @metric_ugly_78_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Systematic Deception Campaign'**
+  String get metric_ugly_78_name;
+
+  /// No description provided for @metric_ugly_78_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies long-term elaborate deception designed to exploit the partner financially or emotionally.'**
+  String get metric_ugly_78_description;
+
+  /// No description provided for @metric_ugly_79_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Property Destruction as Terror'**
+  String get metric_ugly_79_name;
+
+  /// No description provided for @metric_ugly_79_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies deliberate destruction of partner\'s property as an intimidation tactic.'**
+  String get metric_ugly_79_description;
+
+  /// No description provided for @metric_ugly_80_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Animal Cruelty as Proxy Terror'**
+  String get metric_ugly_80_name;
+
+  /// No description provided for @metric_ugly_80_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects harming or threatening pets to demonstrate capacity for violence to partner.'**
+  String get metric_ugly_80_description;
+
+  /// No description provided for @metric_ugly_81_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Child Endangerment Language'**
+  String get metric_ugly_81_name;
+
+  /// No description provided for @metric_ugly_81_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags placing children in dangerous situations or threatening to do so as leverage.'**
+  String get metric_ugly_81_description;
+
+  /// No description provided for @metric_ugly_82_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Disability-Based Control'**
+  String get metric_ugly_82_name;
+
+  /// No description provided for @metric_ugly_82_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects exploiting partner\'s disability by controlling access to medication, mobility, or care.'**
+  String get metric_ugly_82_description;
+
+  /// No description provided for @metric_ugly_83_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Crisis Manufactured Control'**
+  String get metric_ugly_83_name;
+
+  /// No description provided for @metric_ugly_83_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags deliberately creating emergencies or crises to increase partner dependency or justify monitoring.'**
+  String get metric_ugly_83_description;
+
+  /// No description provided for @metric_ugly_84_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Isolation from Emergency Services'**
+  String get metric_ugly_84_name;
+
+  /// No description provided for @metric_ugly_84_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies actively preventing partner from calling police, ambulance, or crisis services.'**
+  String get metric_ugly_84_description;
+
+  /// No description provided for @metric_ugly_85_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Threat Escalation Trajectory'**
+  String get metric_ugly_85_name;
+
+  /// No description provided for @metric_ugly_85_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracks measurable increase in severity, specificity, or frequency of threats over time.'**
+  String get metric_ugly_85_description;
+
+  /// No description provided for @metric_ugly_86_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Lethality Assessment Indicators'**
+  String get metric_ugly_86_name;
+
+  /// No description provided for @metric_ugly_86_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags combinations of factors associated with highest risk of intimate partner homicide.'**
+  String get metric_ugly_86_description;
+
+  /// No description provided for @metric_ugly_87_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Psychological Torture Tactics'**
+  String get metric_ugly_87_name;
+
+  /// No description provided for @metric_ugly_87_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies sustained psychological abuse designed to break the partner\'s mental stability.'**
+  String get metric_ugly_87_description;
+
+  /// No description provided for @metric_ugly_88_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Captivity Language'**
+  String get metric_ugly_88_name;
+
+  /// No description provided for @metric_ugly_88_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects references to holding partner captive, preventing departure, or controlling all movement.'**
+  String get metric_ugly_88_description;
+
+  /// No description provided for @metric_ugly_89_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Targeted Violence Planning'**
+  String get metric_ugly_89_name;
+
+  /// No description provided for @metric_ugly_89_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects any language indicating planning, preparation, or countdown to violence against partner.'**
+  String get metric_ugly_89_description;
+
+  /// No description provided for @metric_ugly_90_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Third Party Threat Recruitment'**
+  String get metric_ugly_90_name;
+
+  /// No description provided for @metric_ugly_90_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies recruiting friends, family, or others to threaten or harm the partner.'**
+  String get metric_ugly_90_description;
+
+  /// No description provided for @metric_ugly_91_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Suicidal Ideation Exploitation'**
+  String get metric_ugly_91_name;
+
+  /// No description provided for @metric_ugly_91_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags exploiting partner\'s suicidal crisis as leverage or to prevent them seeking help.'**
+  String get metric_ugly_91_description;
+
+  /// No description provided for @metric_ugly_92_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Poisoning or Drugging Threats'**
+  String get metric_ugly_92_name;
+
+  /// No description provided for @metric_ugly_92_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects threats or references to drugging, poisoning, or tampering with partner\'s food or drink.'**
+  String get metric_ugly_92_description;
+
+  /// No description provided for @metric_ugly_93_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Non-Suicidal Self-Harm Exploitation'**
+  String get metric_ugly_93_name;
+
+  /// No description provided for @metric_ugly_93_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags exploiting partner\'s self-harm behavior as leverage, mockery, or further control.'**
+  String get metric_ugly_93_description;
+
+  /// No description provided for @metric_ugly_94_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Dissociation Induction Language'**
+  String get metric_ugly_94_name;
+
+  /// No description provided for @metric_ugly_94_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects patterns designed to cause dissociation, detachment, or depersonalization in the partner.'**
+  String get metric_ugly_94_description;
+
+  /// No description provided for @metric_ugly_95_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Cognitive Distortion Implanting'**
+  String get metric_ugly_95_name;
+
+  /// No description provided for @metric_ugly_95_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects deliberate installation of false beliefs about self, reality, or the partner\'s own sanity.'**
+  String get metric_ugly_95_description;
+
+  /// No description provided for @metric_ugly_96_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Medical Care Obstruction'**
+  String get metric_ugly_96_name;
+
+  /// No description provided for @metric_ugly_96_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects preventing access to medication, doctors, hospitals, or health treatment.'**
+  String get metric_ugly_96_description;
+
+  /// No description provided for @metric_ugly_97_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Extremist Threat Language'**
+  String get metric_ugly_97_name;
+
+  /// No description provided for @metric_ugly_97_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Flags language borrowed from extremist or violent ideological frameworks applied toward the partner.'**
+  String get metric_ugly_97_description;
+
+  /// No description provided for @metric_ugly_98_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Post-Separation Stalking Signals'**
+  String get metric_ugly_98_name;
+
+  /// No description provided for @metric_ugly_98_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects threats, surveillance language, or intimidation tactics following or anticipating a breakup.'**
+  String get metric_ugly_98_description;
+
+  /// No description provided for @metric_ugly_99_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Child Weaponization'**
+  String get metric_ugly_99_name;
+
+  /// No description provided for @metric_ugly_99_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Identifies using children as pawns, threats regarding custody, or leveraging parental bonds as control mechanisms.'**
+  String get metric_ugly_99_description;
+
+  /// No description provided for @metric_ugly_100_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Systematic Dehumanization'**
+  String get metric_ugly_100_name;
+
+  /// No description provided for @metric_ugly_100_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Detects sustained language that strips the partner of personhood, dignity, or their right to basic humanity.'**
+  String get metric_ugly_100_description;
 }
 
 class _AppLocalizationsDelegate
