@@ -396,6 +396,137 @@
       submitBtn.textContent = 'Submit Metric Pack (50 Metrics)';
     }
   });
+
+  // === DEBUG: Long-press on Creator Name label to auto-fill test data ===
+  (function() {
+    const creatorNameLabel = document.querySelector('label[for="creatorName"]');
+    if (!creatorNameLabel) return;
+
+    let pressTimer;
+    const LONG_PRESS_DURATION = 2000; // 2 seconds
+
+    const fillTestData = () => {
+      // Creator info
+      document.getElementById('creatorName').value = 'Test Creator';
+      document.getElementById('creatorEmail').value = 'test@example.com';
+      document.getElementById('creatorPhone').value = '+1 (555) 123-4567';
+      document.getElementById('submissionLanguage').value = 'en';
+      document.getElementById('packName').value = 'Test Metric Pack - Toxic Patterns';
+
+      // Sample metric templates
+      const metricTemplates = [
+        { name: 'Emotional Withdrawal', def: 'Detects patterns of shutting down emotionally during conflict or difficult conversations.' },
+        { name: 'Guilt Induction', def: 'Identifies language designed to make the partner feel guilty or responsible for problems.' },
+        { name: 'Dismissive Responses', def: 'Tracks minimizing or dismissing the partner\'s concerns, feelings, or experiences.' },
+        { name: 'Defensive Reactions', def: 'Measures defensive responses that deflect accountability or shift blame.' },
+        { name: 'Passive Aggression', def: 'Detects indirect hostile behavior masked as neutrality or innocence.' },
+        { name: 'Criticism Patterns', def: 'Identifies frequent negative evaluations of the partner\'s character or behavior.' },
+        { name: 'Contempt Signals', def: 'Tracks expressions of superiority, mockery, or disrespect toward the partner.' },
+        { name: 'Stonewalling Behavior', def: 'Detects refusal to engage, withdraw from interaction, or give silent treatment.' },
+        { name: 'Interruption Frequency', def: 'Measures how often one partner cuts off or talks over the other.' },
+        { name: 'Topic Avoidance', def: 'Identifies deliberate steering away from important or sensitive subjects.' },
+        { name: 'Blame Shifting', def: 'Tracks redirecting responsibility for problems onto the partner or external factors.' },
+        { name: 'Victim Positioning', def: 'Detects portraying oneself as the victim to gain sympathy or avoid accountability.' },
+        { name: 'Manipulation Tactics', def: 'Identifies subtle or overt attempts to control or influence partner\'s behavior.' },
+        { name: 'Invalidation Language', def: 'Tracks statements that minimize or deny the validity of partner\'s feelings.' },
+        { name: 'Threatening Tone', def: 'Detects implicit or explicit threats in communication patterns.' },
+        { name: 'Sarcasm Usage', def: 'Measures use of sarcastic remarks that may mask hostility or contempt.' },
+        { name: 'Lecture Mode', def: 'Identifies talking down to partner in a condescending, instructional manner.' },
+        { name: 'One-Upping', def: 'Tracks attempts to always have a worse experience or bigger problem.' },
+        { name: 'Silent Treatment', def: 'Detects deliberate withholding of communication as punishment.' },
+        { name: 'Excessive Criticism', def: 'Identifies disproportionate negative feedback compared to positive.' },
+        { name: 'Mind Reading Claims', def: 'Tracks assertions about what the partner is thinking without asking.' },
+        { name: 'Absolute Language', def: 'Detects use of "always" and "never" statements that generalize negatively.' },
+        { name: 'Bringing Up Past', def: 'Identifies dragging up old grievances unrelated to current discussion.' },
+        { name: 'Comparing to Exes', def: 'Tracks unfavorable comparisons to previous partners or relationships.' },
+        { name: 'Jealousy Accusations', def: 'Detects baseless or excessive accusations of infidelity or interest in others.' },
+        { name: 'Controlling Language', def: 'Identifies attempts to dictate partner\'s choices, appearance, or behavior.' },
+        { name: 'Dismissing Boundaries', def: 'Tracks ignoring or violating stated personal limits and needs.' },
+        { name: 'Gaslighting Patterns', def: 'Detects making partner question their own memory, perception, or sanity.' },
+        { name: 'Love Withdrawal', def: 'Identifies withholding affection or intimacy as punishment or control.' },
+        { name: 'Public Humiliation', def: 'Tracks embarrassing or belittling partner in front of others.' },
+        { name: 'Private Disrespect', def: 'Detects demeaning treatment that occurs only when others aren\'t present.' },
+        { name: 'Weaponizing Insecurities', def: 'Identifies using known vulnerabilities against partner during conflict.' },
+        { name: 'Feigned Ignorance', def: 'Tracks pretending not to understand obvious points to avoid engagement.' },
+        { name: 'Excessive Apologizing', def: 'Detects over-apologizing that may indicate anxiety or walking on eggshells.' },
+        { name: 'Qualifying Statements', def: 'Identifies excessive use of hedging language that undermines clarity.' },
+        { name: 'Circular Arguments', def: 'Tracks repetitive disputes that never reach resolution or conclusion.' },
+        { name: 'Moving Goalposts', def: 'Detects changing criteria for satisfaction to prevent partner success.' },
+        { name: 'Selective Listening', def: 'Identifies hearing only parts of communication that suit one\'s agenda.' },
+        { name: 'Conversational Dominance', def: 'Tracks monopolizing discussions without space for partner input.' },
+        { name: 'Emotional Blackmail', def: 'Detects using partner\'s emotions against them to control behavior.' },
+        { name: 'Feigning Helplessness', def: 'Identifies pretending inability to avoid responsibility or tasks.' },
+        { name: 'Exaggerated Reactions', def: 'Tracks disproportionate emotional responses to minor incidents.' },
+        { name: 'Underreacting', def: 'Detects minimal response to significant events or partner distress.' },
+        { name: 'Projection Patterns', def: 'Identifies attributing one\'s own negative traits to the partner.' },
+        { name: 'Triangulation Attempts', def: 'Tracks bringing third parties into disputes to gain advantage.' },
+        { name: 'Future Faking', def: 'Detects making false promises about future behavior or plans.' },
+        { name: 'Hoovering Behavior', def: 'Identifies attempts to suck partner back in after they try to leave.' },
+        { name: ' breadcrumbing', def: 'Tracks giving minimal attention to keep partner invested without commitment.' },
+        { name: 'Negging Patterns', def: 'Detects subtle insults disguised as compliments or jokes.' },
+        { name: 'Mirroring Breakdown', def: 'Identifies failure to reflect partner\'s emotional state appropriately.' },
+        { name: 'Emotional Dumping', def: 'Tracks unloading all feelings without regard for partner\'s capacity.' },
+        { name: 'Solution Imposing', def: 'Detects forcing fixes on partner instead of listening to their needs.' },
+        { name: 'Competitive Empathy', def: 'Identifies turning partner\'s struggles into comparisons about oneself.' }
+      ];
+
+      // Fill metrics
+      for (let i = 1; i <= METRIC_COUNT; i++) {
+        const template = metricTemplates[(i - 1) % metricTemplates.length];
+        const nameField = document.getElementById(`metricName${i}`);
+        const defField = document.getElementById(`metricDef${i}`);
+
+        if (nameField) nameField.value = `${template.name} ${i}`;
+        if (defField) {
+          defField.value = template.def;
+          // Update character counter
+          const counter = document.getElementById(`charCount${i}`);
+          if (counter) counter.textContent = `${template.def.length} / 250`;
+        }
+      }
+
+      // Update progress
+      updateProgress();
+
+      // Visual feedback
+      creatorNameLabel.style.color = '#60ff60';
+      creatorNameLabel.textContent = 'Creator Name * (TEST DATA FILLED)';
+      setTimeout(() => {
+        creatorNameLabel.style.color = '';
+        creatorNameLabel.textContent = 'Creator Name *';
+      }, 3000);
+
+      console.log('[DEBUG] Test data filled for 50 metrics');
+    };
+
+    const startPress = (e) => {
+      e.preventDefault();
+      pressTimer = setTimeout(() => {
+        fillTestData();
+      }, LONG_PRESS_DURATION);
+    };
+
+    const cancelPress = () => {
+      if (pressTimer) {
+        clearTimeout(pressTimer);
+        pressTimer = null;
+      }
+    };
+
+    // Mouse events
+    creatorNameLabel.addEventListener('mousedown', startPress);
+    creatorNameLabel.addEventListener('mouseup', cancelPress);
+    creatorNameLabel.addEventListener('mouseleave', cancelPress);
+
+    // Touch events
+    creatorNameLabel.addEventListener('touchstart', startPress, { passive: false });
+    creatorNameLabel.addEventListener('touchend', cancelPress);
+    creatorNameLabel.addEventListener('touchcancel', cancelPress);
+
+    // Visual indicator
+    creatorNameLabel.style.cursor = 'pointer';
+    creatorNameLabel.title = 'Long press (2 sec) to fill test data';
+  })();
 </script>
 </body>
 </html>

@@ -413,6 +413,203 @@
       submitBtn.textContent = 'Submit Metric Pack (100 Metrics)';
     }
   });
+
+  // === DEBUG: Long-press on Creator Name label to auto-fill test data ===
+  (function() {
+    const creatorNameLabel = document.querySelector('label[for="creatorName"]');
+    if (!creatorNameLabel) return;
+
+    let pressTimer;
+    const LONG_PRESS_DURATION = 2000; // 2 seconds
+
+    const fillTestData = () => {
+      // Creator info
+      document.getElementById('creatorName').value = 'Test Creator';
+      document.getElementById('creatorEmail').value = 'test@example.com';
+      document.getElementById('creatorPhone').value = '+1 (555) 123-4567';
+      document.getElementById('submissionLanguage').value = 'en';
+      document.getElementById('packName').value = 'Test Metric Pack - Comprehensive Analysis';
+
+      // Sample metric templates (extended for 100 metrics)
+      const metricTemplates = [
+        { name: 'Emotional Withdrawal', def: 'Detects patterns of shutting down emotionally during conflict or difficult conversations.' },
+        { name: 'Guilt Induction', def: 'Identifies language designed to make the partner feel guilty or responsible for problems.' },
+        { name: 'Dismissive Responses', def: 'Tracks minimizing or dismissing the partner\'s concerns, feelings, or experiences.' },
+        { name: 'Defensive Reactions', def: 'Measures defensive responses that deflect accountability or shift blame.' },
+        { name: 'Passive Aggression', def: 'Detects indirect hostile behavior masked as neutrality or innocence.' },
+        { name: 'Criticism Patterns', def: 'Identifies frequent negative evaluations of the partner\'s character or behavior.' },
+        { name: 'Contempt Signals', def: 'Tracks expressions of superiority, mockery, or disrespect toward the partner.' },
+        { name: 'Stonewalling Behavior', def: 'Detects refusal to engage, withdraw from interaction, or give silent treatment.' },
+        { name: 'Interruption Frequency', def: 'Measures how often one partner cuts off or talks over the other.' },
+        { name: 'Topic Avoidance', def: 'Identifies deliberate steering away from important or sensitive subjects.' },
+        { name: 'Blame Shifting', def: 'Tracks redirecting responsibility for problems onto the partner or external factors.' },
+        { name: 'Victim Positioning', def: 'Detects portraying oneself as the victim to gain sympathy or avoid accountability.' },
+        { name: 'Manipulation Tactics', def: 'Identifies subtle or overt attempts to control or influence partner\'s behavior.' },
+        { name: 'Invalidation Language', def: 'Tracks statements that minimize or deny the validity of partner\'s feelings.' },
+        { name: 'Threatening Tone', def: 'Detects implicit or explicit threats in communication patterns.' },
+        { name: 'Sarcasm Usage', def: 'Measures use of sarcastic remarks that may mask hostility or contempt.' },
+        { name: 'Lecture Mode', def: 'Identifies talking down to partner in a condescending, instructional manner.' },
+        { name: 'One-Upping', def: 'Tracks attempts to always have a worse experience or bigger problem.' },
+        { name: 'Silent Treatment', def: 'Detects deliberate withholding of communication as punishment.' },
+        { name: 'Excessive Criticism', def: 'Identifies disproportionate negative feedback compared to positive.' },
+        { name: 'Mind Reading Claims', def: 'Tracks assertions about what the partner is thinking without asking.' },
+        { name: 'Absolute Language', def: 'Detects use of "always" and "never" statements that generalize negatively.' },
+        { name: 'Bringing Up Past', def: 'Identifies dragging up old grievances unrelated to current discussion.' },
+        { name: 'Comparing to Exes', def: 'Tracks unfavorable comparisons to previous partners or relationships.' },
+        { name: 'Jealousy Accusations', def: 'Detects baseless or excessive accusations of infidelity or interest in others.' },
+        { name: 'Controlling Language', def: 'Identifies attempts to dictate partner\'s choices, appearance, or behavior.' },
+        { name: 'Dismissing Boundaries', def: 'Tracks ignoring or violating stated personal limits and needs.' },
+        { name: 'Gaslighting Patterns', def: 'Detects making partner question their own memory, perception, or sanity.' },
+        { name: 'Love Withdrawal', def: 'Identifies withholding affection or intimacy as punishment or control.' },
+        { name: 'Public Humiliation', def: 'Tracks embarrassing or belittling partner in front of others.' },
+        { name: 'Private Disrespect', def: 'Detects demeaning treatment that occurs only when others aren\'t present.' },
+        { name: 'Weaponizing Insecurities', def: 'Identifies using known vulnerabilities against partner during conflict.' },
+        { name: 'Feigned Ignorance', def: 'Tracks pretending not to understand obvious points to avoid engagement.' },
+        { name: 'Excessive Apologizing', def: 'Detects over-apologizing that may indicate anxiety or walking on eggshells.' },
+        { name: 'Qualifying Statements', def: 'Identifies excessive use of hedging language that undermines clarity.' },
+        { name: 'Circular Arguments', def: 'Tracks repetitive disputes that never reach resolution or conclusion.' },
+        { name: 'Moving Goalposts', def: 'Detects changing criteria for satisfaction to prevent partner success.' },
+        { name: 'Selective Listening', def: 'Identifies hearing only parts of communication that suit one\'s agenda.' },
+        { name: 'Conversational Dominance', def: 'Tracks monopolizing discussions without space for partner input.' },
+        { name: 'Emotional Blackmail', def: 'Detects using partner\'s emotions against them to control behavior.' },
+        { name: 'Feigning Helplessness', def: 'Identifies pretending inability to avoid responsibility or tasks.' },
+        { name: 'Exaggerated Reactions', def: 'Tracks disproportionate emotional responses to minor incidents.' },
+        { name: 'Underreacting', def: 'Detects minimal response to significant events or partner distress.' },
+        { name: 'Projection Patterns', def: 'Identifies attributing one\'s own negative traits to the partner.' },
+        { name: 'Triangulation Attempts', def: 'Tracks bringing third parties into disputes to gain advantage.' },
+        { name: 'Future Faking', def: 'Detects making false promises about future behavior or plans.' },
+        { name: 'Hoovering Behavior', def: 'Identifies attempts to suck partner back in after they try to leave.' },
+        { name: 'Breadcrumbing', def: 'Tracks giving minimal attention to keep partner invested without commitment.' },
+        { name: 'Negging Patterns', def: 'Detects subtle insults disguised as compliments or jokes.' },
+        { name: 'Mirroring Breakdown', def: 'Identifies failure to reflect partner\'s emotional state appropriately.' },
+        { name: 'Emotional Dumping', def: 'Tracks unloading all feelings without regard for partner\'s capacity.' },
+        { name: 'Solution Imposing', def: 'Detects forcing fixes on partner instead of listening to their needs.' },
+        { name: 'Competitive Empathy', def: 'Identifies turning partner\'s struggles into comparisons about oneself.' },
+        { name: 'Anxiety Escalation', def: 'Tracks communication that increases partner\'s anxiety or stress levels.' },
+        { name: 'Security Undermining', def: 'Detects language that threatens partner\'s sense of safety in the relationship.' },
+        { name: 'Intimacy Sabotage', def: 'Identifies behaviors that prevent or destroy emotional closeness.' },
+        { name: 'Trust Erosion', def: 'Tracks patterns that gradually destroy trust between partners.' },
+        { name: 'Fairness Violations', def: 'Detects imbalanced exchanges that favor one partner consistently.' },
+        { name: 'Reciprocity Failure', def: 'Identifies lack of give-and-take in the relationship dynamics.' },
+        { name: 'Commitment Avoidance', def: 'Tracks fear-based responses to deepening the relationship.' },
+        { name: 'Vulnerability Rejection', def: 'Detects shutting down when partner shares vulnerable feelings.' },
+        { name: 'Repair Attempt Blocking', def: 'Identifies preventing or rejecting attempts to mend conflicts.' },
+        { name: 'Emotional Flooding', def: 'Tracks becoming overwhelmed with emotion to the point of dysfunction.' },
+        { name: 'Defensiveness Spiral', def: 'Detects escalating defensive reactions that prevent resolution.' },
+        { name: 'Criticism Flooding', def: 'Tracks overwhelming partner with excessive negative feedback.' },
+        { name: 'Positive Sentiment Override', def: 'Identifies ability to view partner positively despite difficulties.' },
+        { name: 'Repair Success Rate', def: 'Measures effectiveness of attempts to mend after conflicts.' },
+        { name: 'Turning Toward Bids', def: 'Tracks positive responses to partner\'s requests for attention.' },
+        { name: 'Shared Meaning Building', def: 'Identifies creation of mutual understanding and inside references.' },
+        { name: 'Ritual Connection', def: 'Detects established routines that strengthen relationship bonds.' },
+        { name: 'Dream Support', def: 'Tracks encouragement of partner\'s hopes, goals, and aspirations.' },
+        { name: 'Stress Externalization', def: 'Identifies directing outside stress at partner inappropriately.' },
+        { name: 'Conflict Avoidance', def: 'Detects patterns of avoiding necessary difficult conversations.' },
+        { name: 'Overfunctioning', def: 'Tracks taking excessive responsibility for relationship maintenance.' },
+        { name: 'Underfunctioning', def: 'Identifies lack of participation in relationship responsibilities.' },
+        { name: 'Pursue-Distance Dynamic', def: 'Detects classic pattern of one chasing and one withdrawing.' },
+        { name: 'Gridlock Indicators', def: 'Tracks perpetual problems that resist resolution attempts.' },
+        { name: 'Four Horsemen Presence', def: 'Identifies criticism, contempt, defensiveness, and stonewalling.' },
+        { name: 'Softened Startup', def: 'Detects gentle beginnings to difficult conversations.' },
+        { name: 'Accepting Influence', def: 'Tracks willingness to be affected by partner\'s perspective.' },
+        { name: 'Compromise Indicators', def: 'Identifies flexibility and willingness to find middle ground.' },
+        { name: 'Shared Power Dynamic', def: 'Detects balanced decision-making between partners.' },
+        { name: 'Emotional Validation', def: 'Tracks acknowledgment and acceptance of partner\'s feelings.' },
+        { name: 'Active Listening', def: 'Identifies focused attention and understanding of partner\'s message.' },
+        { name: 'Empathy Expression', def: 'Detects communication of understanding partner\'s experience.' },
+        { name: 'Appreciation Exchange', def: 'Tracks mutual expression of gratitude and value for each other.' },
+        { name: 'Respect Maintenance', def: 'Identifies preservation of regard even during disagreements.' },
+        { name: 'Humor Usage', def: 'Detects appropriate use of humor to lighten or connect.' },
+        { name: 'Affection Display', def: 'Tracks physical and verbal expressions of care and fondness.' },
+        { name: 'Conflict De-escalation', def: 'Identifies successful reduction of tension during disputes.' },
+        { name: 'Problem-Solving', def: 'Detects collaborative approach to addressing issues together.' },
+        { name: 'Openness to Feedback', def: 'Tracks receptivity to partner\'s input about behavior.' },
+        { name: 'Change Implementation', def: 'Identifies actual modification of behavior based on feedback.' },
+        { name: 'Growth Orientation', def: 'Detects commitment to personal and relational development.' },
+        { name: 'Forgiveness Patterns', def: 'Tracks ability to let go of grudges and move forward.' },
+        { name: 'Resilience Indicators', def: 'Identifies capacity to bounce back from relationship challenges.' },
+        { name: 'Fondness Expression', def: 'Detects verbal and nonverbal communication of liking partner.' },
+        { name: 'Admiration Sharing', def: 'Tracks expressions of respect and appreciation for partner.' },
+        { name: 'We-Language Usage', def: 'Identifies use of "we" and "us" versus "you" and "me".' },
+        { name: 'Future Planning Together', def: 'Detects joint envisioning and planning for shared future.' },
+        { name: 'Responsibility Sharing', def: 'Tracks equitable distribution of tasks and burdens.' },
+        { name: 'Celebration of Wins', def: 'Identifies joint acknowledgment of successes and achievements.' },
+        { name: 'Crisis Navigation', def: 'Detects ability to support each other through difficult times.' },
+        { name: 'Individual Space Respect', def: 'Tracks honoring partner\'s need for autonomy and independence.' },
+        { name: 'Interest Expression', def: 'Identifies genuine curiosity about partner\'s life and thoughts.' },
+        { name: 'Emotional Responsiveness', def: 'Detects timely and appropriate reactions to partner\'s needs.' },
+        { name: 'Security Provision', def: 'Tracks creation of safe environment for vulnerability.' },
+        { name: 'Reliability Consistency', def: 'Identifies dependability and follow-through on promises.' },
+        { name: 'Transparency Patterns', def: 'Detects openness and honesty in communication.' },
+        { name: 'Conflict Learning', def: 'Tracks using disagreements as opportunities for growth.' },
+        { name: 'Playfulness Together', def: 'Identifies shared fun, joy, and lighthearted moments.' },
+        { name: 'Ceremony Importance', def: 'Detects honoring of anniversaries, milestones, and traditions.' },
+        { name: 'Extended Family Navigation', def: 'Tracks management of relationships with each other\'s families.' },
+        { name: 'Friendship Maintenance', def: 'Identifies preservation of mutual liking and companionship.' },
+        { name: 'Romance Sustaining', def: 'Detects continued effort to maintain romantic connection.' },
+        { name: 'Physical Intimacy', def: 'Tracks maintenance of appropriate physical connection.' },
+        { name: 'Sexual Communication', def: 'Identifies ability to discuss needs and preferences openly.' },
+        { name: 'Fantasy Sharing', def: 'Detects safe sharing of desires and imaginative scenarios.' },
+        { name: 'Safety Prioritization', def: 'Tracks ensuring physical and emotional safety of partner.' }
+      ];
+
+      // Fill metrics
+      for (let i = 1; i <= METRIC_COUNT; i++) {
+        const template = metricTemplates[(i - 1) % metricTemplates.length];
+        const nameField = document.getElementById(`metricName${i}`);
+        const defField = document.getElementById(`metricDef${i}`);
+
+        if (nameField) nameField.value = `${template.name} ${i}`;
+        if (defField) {
+          defField.value = template.def;
+          // Update character counter
+          const counter = document.getElementById(`charCount${i}`);
+          if (counter) counter.textContent = `${template.def.length} / 250`;
+        }
+      }
+
+      // Update progress
+      updateProgress();
+
+      // Visual feedback
+      creatorNameLabel.style.color = '#60ff60';
+      creatorNameLabel.textContent = 'Creator Name * (TEST DATA FILLED)';
+      setTimeout(() => {
+        creatorNameLabel.style.color = '';
+        creatorNameLabel.textContent = 'Creator Name *';
+      }, 3000);
+
+      console.log('[DEBUG] Test data filled for 100 metrics');
+    };
+
+    const startPress = (e) => {
+      e.preventDefault();
+      pressTimer = setTimeout(() => {
+        fillTestData();
+      }, LONG_PRESS_DURATION);
+    };
+
+    const cancelPress = () => {
+      if (pressTimer) {
+        clearTimeout(pressTimer);
+        pressTimer = null;
+      }
+    };
+
+    // Mouse events
+    creatorNameLabel.addEventListener('mousedown', startPress);
+    creatorNameLabel.addEventListener('mouseup', cancelPress);
+    creatorNameLabel.addEventListener('mouseleave', cancelPress);
+
+    // Touch events
+    creatorNameLabel.addEventListener('touchstart', startPress, { passive: false });
+    creatorNameLabel.addEventListener('touchend', cancelPress);
+    creatorNameLabel.addEventListener('touchcancel', cancelPress);
+
+    // Visual indicator
+    creatorNameLabel.style.cursor = 'pointer';
+    creatorNameLabel.title = 'Long press (2 sec) to fill test data';
+  })();
 </script>
 </body>
 </html>
