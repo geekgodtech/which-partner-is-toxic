@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIRTA Admin - Approve Pending Packs</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+      background: #0d0d1a; 
+      color: #e8e8f0; 
+      line-height: 1.6;
+      padding: 20px;
+    }
+    header { 
+      background: linear-gradient(135deg, #1a1a3e 0%, #0d0d1a 100%); 
+      padding: 30px 20px; 
+      text-align: center; 
+      border-bottom: 1px solid #2a2a5a;
+      margin: -20px -20px 30px -20px;
+    }
+    header h1 { font-size: 1.6rem; color: #d0d0ff; }
+    header p { color: #8888aa; margin-top: 8px; }
+    .container { max-width: 800px; margin: 0 auto; }
+    .card {
+      background: #12122a;
+      border: 1px solid #2a2a5a;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      color: #c080ff;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+    .pack-item {
+      background: #0a0a18;
+      border: 1px solid #1a1a3a;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 12px;
+    }
+    .pack-item.pending { border-left: 3px solid #ffaa40; }
+    .pack-item.approved { border-left: 3px solid #60ff60; }
+    .pack-name { font-weight: 600; color: #d0d0ff; }
+    .pack-meta { font-size: 0.85rem; color: #8888aa; margin-top: 4px; }
+    .pack-status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    .status-pending { background: #ffaa40; color: #1a1204; }
+    .status-approved { background: #60ff60; color: #0d1a0d; }
+    button {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #4040cc 0%, #6060ff 100%);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover { opacity: 0.9; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .loading { color: #8080ff; }
+    .error { color: #ff4444; }
+    .success { color: #60ff60; }
+    .actions { margin-top: 15px; }
+    .approve-btn {
+      background: linear-gradient(135deg, #2a5a2a 0%, #60ff60 100%);
+      color: #0d1a0d;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      margin-right: 10px;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: #6666aa;
+    }
+    #loginSection { text-align: center; padding: 40px; }
+    .login-btn {
+      font-size: 1.1rem;
+      padding: 15px 30px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🔧 AIRTA Admin Tool</h1>
+  <p>Approve Pending Metric Packs</p>
+</header>
+
+<div class="container">
+  <div id="loginSection" class="card">
+    <h2>Authentication Required</h2>
+    <p style="color: #8888aa; margin: 15px 0;">
+      You must sign in with an admin account to view and approve pending metric packs.
+    </p>
+    <button id="loginBtn" class="login-btn">Sign In with Google</button>
+  </div>
+
+  <div id="adminSection" style="display: none;">
+    <div class="card">
+      <h2>📦 Pending Packs</h2>
+      <div id="packsList">
+        <p class="loading">Loading packs...</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>⚡ Quick Actions</h2>
+      <button id="approveAllBtn">Approve All Pending Packs</button>
+      <button id="refreshBtn" style="margin-left: 10px; background: #2a2a5a;">Refresh List</button>
+      <div id="actionStatus" style="margin-top: 15px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore, collection, query, where, getDocs, updateDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCoFnDNv-95zCFfiss0nh0E5uazF3-hGfk",
+    authDomain: "airta-app.firebaseapp.com",
+    projectId: "airta-app",
+    storageBucket: "airta-app.firebasestorage.app",
+    messagingSenderId: "201308661380",
+    appId: "1:201308661380:web:479c8ba0454cb3dc9844d1"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const auth = getAuth(app);
+
+  const loginSection = document.getElementById('loginSection');
+  const adminSection = document.getElementById('adminSection');
+  const packsList = document.getElementById('packsList');
+  const actionStatus = document.getElementById('actionStatus');
+
+  // Auth state
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      loginSection.style.display = 'none';
+      adminSection.style.display = 'block';
+      loadPacks();
+    } else {
+      loginSection.style.display = 'block';
+      adminSection.style.display = 'none';
+    }
+  });
+
+  // Login
+  document.getElementById('loginBtn').addEventListener('click', async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+    } catch (err) {
+      alert('Login failed: ' + err.message);
+    }
+  });
+
+  // Load packs
+  async function loadPacks() {
+    packsList.innerHTML = '<p class="loading">Loading packs...</p>';
+    
+    try {
+      const q = query(collection(db, 'user_submitted_packs'), where('status', '==', 'pending_review'));
+      const snapshot = await getDocs(q);
+      
+      if (snapshot.empty) {
+        packsList.innerHTML = `
+          <div class="empty-state">
+            <p style="font-size: 2rem;">✅</p>
+            <p>No pending packs found!</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">All submitted packs have been approved.</p>
+          </div>
+        `;
+        return;
+      }
+
+      let html = `<p style="color: #ffaa40; margin-bottom: 15px;">Found ${snapshot.size} pending pack(s):</p>`;
+      
+      snapshot.forEach((docSnap) => {
+        const data = docSnap.data();
+        html += `
+          <div class="pack-item pending" data-id="${docSnap.id}">
+            <div class="pack-name">${data.packName || 'Unnamed Pack'}</div>
+            <div class="pack-meta">
+              Creator: ${data.creatorName || 'N/A'} (${data.creatorEmail || 'N/A'})<br>
+              Submitted: ${data.submissionDate || 'N/A'}<br>
+              Language: ${data.submissionLanguage || 'N/A'} • Metrics: ${data.metricCount || 'N/A'}
+            </div>
+            <span class="pack-status status-pending">PENDING REVIEW</span>
+            <div class="actions">
+              <button class="approve-btn" onclick="approvePack('${docSnap.id}')">✓ Approve This Pack</button>
+            </div>
+          </div>
+        `;
+      });
+      
+      packsList.innerHTML = html;
+    } catch (err) {
+      packsList.innerHTML = `<p class="error">Error loading packs: ${err.message}</p>`;
+    }
+  }
+
+  // Approve single pack
+  window.approvePack = async function(packId) {
+    const btn = document.querySelector(`[data-id="${packId}"] .approve-btn`);
+    btn.disabled = true;
+    btn.textContent = 'Approving...';
+    
+    try {
+      await updateDoc(doc(db, 'user_submitted_packs', packId), {
+        status: 'approved'
+      });
+      
+      const packEl = document.querySelector(`[data-id="${packId}"]`);
+      packEl.classList.remove('pending');
+      packEl.classList.add('approved');
+      packEl.querySelector('.pack-status').textContent = 'APPROVED';
+      packEl.querySelector('.pack-status').className = 'pack-status status-approved';
+      packEl.querySelector('.actions').innerHTML = '<span style="color: #60ff60;">✓ Approved!</span>';
+      
+      actionStatus.innerHTML = `<span class="success">✓ Pack approved successfully!</span>`;
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = '✓ Approve This Pack';
+      actionStatus.innerHTML = `<span class="error">✗ Error: ${err.message}</span>`;
+    }
+  };
+
+  // Approve all
+  document.getElementById('approveAllBtn').addEventListener('click', async () => {
+    if (!confirm('Approve ALL pending packs? This cannot be undone.')) return;
+    
+    const btn = document.getElementById('approveAllBtn');
+    btn.disabled = true;
+    btn.textContent = 'Approving...';
+    actionStatus.innerHTML = '<span class="loading">Processing all pending packs...</span>';
+    
+    try {
+      const q = query(collection(db, 'user_submitted_packs'), where('status', '==', 'pending_review'));
+      const snapshot = await getDocs(q);
+      
+      let approved = 0;
+      const promises = snapshot.docs.map(async (docSnap) => {
+        await updateDoc(doc(db, 'user_submitted_packs', docSnap.id), {
+          status: 'approved'
+        });
+        approved++;
+      });
+      
+      await Promise.all(promises);
+      
+      actionStatus.innerHTML = `<span class="success">✓ Approved ${approved} pack(s) successfully!</span>`;
+      setTimeout(loadPacks, 1000);
+    } catch (err) {
+      actionStatus.innerHTML = `<span class="error">✗ Error: ${err.message}</span>`;
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Approve All Pending Packs';
+    }
+  });
+
+  // Refresh
+  document.getElementById('refreshBtn').addEventListener('click', loadPacks);
+</script>
+
+</body>
+</html>
