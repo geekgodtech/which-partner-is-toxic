@@ -73,14 +73,27 @@
     <a href="Sample.txt" download>📥 Download Sample Conversation (Sample.txt)</a>
   </div>
 
+  <div class="panel" style="margin-bottom:20px; border-color:#2a5a2a;">
+    <h2 style="color:#60ff60;">Use Your Own Conversation</h2>
+    <p style="color:#a0a0c0; margin-bottom:8px;">The Sample.txt file is just an example. You can edit it or replace its contents with any real conversation you've exported from your phone or messaging app. Just keep it in plain text format.</p>
+    <p style="color:#8888aa; font-size:0.82rem; margin-bottom:12px;">The AI analyzes the raw text — it works with any conversation format as long as it's readable.</p>
+    <p style="color:#a0a0c0; font-size:0.85rem; font-weight:600; margin-bottom:6px;">Supported file types:</p>
+    <ul style="color:#8888aa; font-size:0.83rem; padding-left:20px; list-style:disc;">
+      <li><strong style="color:#d0d0ff;">.txt</strong> — Plain text exports (SMS Backup, Google Messages export, any chat log)</li>
+      <li><strong style="color:#d0d0ff;">.csv</strong> — CSV exports from WhatsApp, Signal, or other messaging apps</li>
+      <li><strong style="color:#d0d0ff;">.text</strong> — Any plain text file with a different extension</li>
+    </ul>
+    <p style="color:#6666aa; font-size:0.78rem; margin-top:10px;">Tip: On Android, export your SMS thread from the Messages app. On iPhone, use an iMessage export tool or simply copy-paste a conversation into a .txt file.</p>
+  </div>
+
   <!-- INPUT PANEL -->
   <div class="panel" id="inputPanel">
     <h2>1. Load Conversation</h2>
-    <p>Upload a .txt file containing a conversation (SMS export, chat log, etc.)</p>
+    <p>Upload a .txt or .csv file containing a conversation (SMS export, chat log, WhatsApp export, etc.)</p>
     <div class="file-drop" id="fileDrop">
-      <input type="file" id="fileInput" accept=".txt,.text" />
+      <input type="file" id="fileInput" accept=".txt,.text,.csv" />
       <div class="icon">📂</div>
-      <div class="text">Click or drop a .txt file here</div>
+      <div class="text">Click or drop a .txt / .csv file here</div>
     </div>
     <div class="file-loaded" id="fileLoaded"></div>
 
@@ -176,8 +189,8 @@ fileDrop.addEventListener('drop', (e) => { e.preventDefault(); fileDrop.classLis
 function handleFile(e) { if (e.target.files.length) handleFileObj(e.target.files[0]); }
 
 function handleFileObj(file) {
-  if (!file.name.endsWith('.txt') && !file.name.endsWith('.text')) {
-    fileLoaded.textContent = 'Please upload a .txt file';
+  if (!file.name.endsWith('.txt') && !file.name.endsWith('.text') && !file.name.endsWith('.csv')) {
+    fileLoaded.textContent = 'Please upload a .txt, .text, or .csv file';
     fileLoaded.style.color = '#ff8080';
     return;
   }
