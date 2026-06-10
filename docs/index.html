@@ -1379,6 +1379,14 @@ window.checkMath = checkMath;
   setLang(detected);
 })();
 
+// Belt-and-suspenders: re-run after DOM is fully loaded in case
+// the inline IIFE ran before layout was complete (e.g. cached page)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', generateMathQuestion);
+} else {
+  generateMathQuestion();
+}
+
 </script>
 </body>
 </html>
