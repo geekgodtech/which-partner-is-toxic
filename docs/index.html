@@ -13,7 +13,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png" />
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d0d1a; color: #e8e8f0; line-height: 1.6; }
@@ -303,11 +302,12 @@
         <span class="slider-value" id="sliderValue">20</span>
       </div>
 
-      <h3 style="margin-top:24px;">3. Verify You're Human</h3>
-      <div style="display:flex; justify-content:center; margin:12px 0; min-height:65px;">
-        <div id="turnstile-widget"></div>
+      <h3 style="margin-top:24px;">3. Quick Check</h3>
+      <div style="display:flex; align-items:center; gap:10px; justify-content:center; margin:12px 0;">
+        <span id="mathQuestion" style="color:#a0a0ff; font-size:1rem; font-weight:600;"></span>
+        <input id="mathAnswer" type="number" placeholder="?" style="width:70px; padding:8px; border-radius:8px; border:1px solid #3a3a7a; background:#1a1a3a; color:#e0e0ff; font-size:1rem; text-align:center;" oninput="checkMath()" />
       </div>
-      <div id="captchaStatus" style="text-align:center; color:#6666aa; font-size:0.8rem; min-height:18px;">Loading verification...</div>
+      <div id="captchaStatus" style="text-align:center; color:#6666aa; font-size:0.8rem; min-height:18px;"></div>
 
       <div style="margin-top:20px; text-align:center;">
         <button class="btn btn-primary" id="analyzeBtn" disabled>
@@ -481,64 +481,35 @@ function isUsageLimitReached() {
   return getUsageCount() >= MAX_ANALYSES;
 }
 
-// CAPTCHA state
+// Simple math CAPTCHA
 let captchaPassed = false;
+let mathCorrectAnswer = 0;
 
-function onCaptchaSuccess(token) {
-  captchaPassed = true;
-  document.getElementById('captchaStatus').textContent = '✓ Verified';
-  document.getElementById('captchaStatus').style.color = '#60ff60';
-  updateAnalyzeButton();
-}
-
-function onCaptchaExpired() {
+function generateMathQuestion() {
+  const a = Math.floor(Math.random() * 9) + 1;
+  const b = Math.floor(Math.random() * 9) + 1;
+  mathCorrectAnswer = a + b;
+  document.getElementById('mathQuestion').textContent = 'What is ' + a + ' + ' + b + ' =';
+  document.getElementById('mathAnswer').value = '';
   captchaPassed = false;
-  document.getElementById('captchaStatus').textContent = 'Verification expired — please re-verify';
-  document.getElementById('captchaStatus').style.color = '#c0c040';
+}
+
+function checkMath() {
+  const val = parseInt(document.getElementById('mathAnswer').value);
+  const statusEl = document.getElementById('captchaStatus');
+  if (val === mathCorrectAnswer) {
+    captchaPassed = true;
+    statusEl.textContent = '✓ Verified';
+    statusEl.style.color = '#60ff60';
+  } else {
+    captchaPassed = false;
+    statusEl.textContent = '';
+  }
   updateAnalyzeButton();
 }
 
-// Make callbacks global for Turnstile
-window.onCaptchaSuccess = onCaptchaSuccess;
-window.onCaptchaExpired = onCaptchaExpired;
-
-// Explicitly render Turnstile widget when script loads
-window.onloadTurnstileCallback = function() {
-  try {
-    if (typeof turnstile === 'undefined') {
-      console.error('Turnstile library not loaded');
-      document.getElementById('captchaStatus').textContent = 'Verification library failed to load.';
-      document.getElementById('captchaStatus').style.color = '#ff6060';
-      return;
-    }
-    turnstile.render('#turnstile-widget', {
-      sitekey: '0x4AAAAAADh4XmsBKqBvRtu_',
-      theme: 'dark',
-      callback: onCaptchaSuccess,
-      'expired-callback': onCaptchaExpired,
-      'error-callback': function(error) {
-        console.error('Turnstile error:', error);
-        document.getElementById('captchaStatus').textContent = 'Verification failed. Please refresh or check browser compatibility.';
-        document.getElementById('captchaStatus').style.color = '#ff6060';
-      }
-    });
-    document.getElementById('captchaStatus').textContent = '';
-  } catch (e) {
-    console.error('Failed to render Turnstile:', e);
-    document.getElementById('captchaStatus').textContent = 'Verification unavailable. Try disabling ad blockers or using a different browser.';
-    document.getElementById('captchaStatus').style.color = '#ff6060';
-  }
-};
-
-// Fallback: Check if widget rendered after 5 seconds
-setTimeout(function() {
-  const widget = document.getElementById('turnstile-widget');
-  if (widget && widget.children.length === 0) {
-    console.warn('Turnstile widget did not render');
-    document.getElementById('captchaStatus').textContent = 'Verification not loading. Ad blockers or privacy extensions may be blocking it.';
-    document.getElementById('captchaStatus').style.color = '#ff6060';
-  }
-}, 5000);
+// Generate question on page load
+generateMathQuestion();
 
 function updateAnalyzeButton() {
   if (isUsageLimitReached()) {
