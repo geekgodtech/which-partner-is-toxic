@@ -33,5 +33,11 @@ service cloud.firestore {
       allow read: if true;
       allow write: if true;
     }
+
+    // Developer Licenses - users can create their own, anyone can verify
+    match /developer_licenses/{email} {
+      allow read: if true;
+      allow create: if true;
+    }
   }
 }

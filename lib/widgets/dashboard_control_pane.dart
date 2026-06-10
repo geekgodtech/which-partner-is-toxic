@@ -24,6 +24,7 @@ import 'package:airta/services/custom_metric_service.dart';
 import 'package:airta/widgets/user_submitted_packs_page.dart';
 import 'package:airta/widgets/referral_screen.dart';
 import 'package:airta/services/referral_service.dart';
+import 'package:airta/widgets/user_account_page.dart';
 // UNIPILE INTEGRATION - COMMENTED OUT PENDING BUSINESS NEGOTIATION
 // Uncomment these imports if Unipile deal is finalized:
 // import 'package:airta/widgets/unipile_auth_view.dart';
@@ -1102,6 +1103,7 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
       _PurchaseCustomMetricTile(controller: controller),
       _UserSubmittedPacksTile(),
       _ReferFriendsTile(),
+      _MyAccountTile(),
       if (!goodUnlocked)         _MetricPackTile.good(controller: controller),
       if (!badUnlocked)          _MetricPackTile.bad(controller: controller),
       if (!uglyUnlocked)         _MetricPackTile.ugly(controller: controller),
@@ -2112,6 +2114,122 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// MY ACCOUNT TILE
+// ---------------------------------------------------------------------------
+
+class _MyAccountTile extends StatelessWidget {
+  const _MyAccountTile();
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final subService = SubscriptionService();
+    final tier = subService.activeTier;
+
+    return AnimatedScale(
+      scale: 0.94,
+      duration: const Duration(milliseconds: 160),
+      child: Material(
+        color: const Color(0xFF1a2a3a).withOpacity(0.85),
+        borderRadius: BorderRadius.circular(14),
+        elevation: 1,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(14),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => const UserAccountPage(),
+              ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 3),
+                                child: Icon(Icons.account_circle,
+                                    color: const Color(0xFF60a0ff),
+                                    size: (constraints.maxWidth * 0.165).clamp(14.0, 26.0)),
+                              ),
+                              const SizedBox(width: 5),
+                              Expanded(
+                                child: AutoSizeText(
+                                  'My Account',
+                                  maxLines: 1,
+                                  minFontSize: 10,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: colorScheme.onSecondaryContainer,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: (constraints.maxWidth * 0.24).clamp(14.0, 28.0),
+                                    height: 1.12,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: constraints.maxWidth * 0.03),
+                          Expanded(
+                            child: AutoSizeText(
+                              'Membership, referrals, purchases, sales & developer license',
+                              minFontSize: 9,
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                color: colorScheme.onSecondaryContainer.withOpacity(0.78),
+                                fontSize: 32,
+                                height: 1.3,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          tier.displayName,
+                          style: const TextStyle(
+                              color: Color(0xFF60a0ff),
+                              fontSize: 11,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF2a4a6a),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Icon(Icons.arrow_forward_ios,
+                              color: Color(0xFF60a0ff), size: 10),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 // REFERRAL PROGRAM TILE
 // ---------------------------------------------------------------------------
 

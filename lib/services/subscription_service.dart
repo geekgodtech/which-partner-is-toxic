@@ -26,6 +26,7 @@ class SubscriptionService extends ChangeNotifier {
   static const String packUglyOneTimeId = 'metrics_pack_ugly_9_99';
   static const String packNarcissistOneTimeId = 'metrics_pack_narcissist_4_99';
   static const String packSerialKillerOneTimeId = 'metrics_pack_serial_killer_4_99';
+  static const String developerLicenseOneTimeId = 'developer_license_9_99';
 
   // Available products
   List<ProductDetails> _products = [];

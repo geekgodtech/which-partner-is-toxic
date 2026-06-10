@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:airta/services/user_submitted_packs_service.dart';
+import 'package:airta/services/developer_license_service.dart';
 
 /// Language tab data with flag emoji and code.
 class _LangTab {
@@ -150,6 +151,104 @@ class _UserSubmittedPacksPageState extends State<UserSubmittedPacksPage>
   }
 
   void _showSubmitOptions(BuildContext context) {
+    final devLicense = DeveloperLicenseService();
+    if (!devLicense.hasLicense) {
+      _showLicensePurchaseGate(context);
+      return;
+    }
+    _showSubmissionForms(context);
+  }
+
+  void _showLicensePurchaseGate(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF1a1a3e),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (ctx) => Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Icon(Icons.developer_mode,
+                color: Color(0xFFc080ff), size: 40),
+            const SizedBox(height: 12),
+            const Text(
+              'Metric Pack Developer License Required',
+              style: TextStyle(
+                  color: Color(0xFFd0d0ff),
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'To submit metric packs for sale and earn creator credits, '
+              'you need a one-time Developer License.',
+              style: TextStyle(color: Color(0xFF8888aa), fontSize: 13),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0xFF0d0d1a),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: const Color(0xFF4a2a7a)),
+              ),
+              child: const Column(
+                children: [
+                  Text('\$9.99',
+                      style: TextStyle(
+                          color: Color(0xFF60ff60),
+                          fontSize: 28,
+                          fontWeight: FontWeight.w800)),
+                  SizedBox(height: 4),
+                  Text('Lifetime Access',
+                      style: TextStyle(
+                          color: Color(0xFFa0a0c0), fontSize: 14)),
+                  SizedBox(height: 12),
+                  Text(
+                    'Submit unlimited metric packs\n'
+                    'Earn 50% of every sale\n'
+                    'Cash out at \$9.99 or \$19.99',
+                    style:
+                        TextStyle(color: Color(0xFF8888aa), fontSize: 12),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pop(ctx);
+                  _purchaseDeveloperLicense(context);
+                },
+                icon: const Icon(Icons.shopping_cart, size: 18),
+                label: const Text('Purchase Developer License',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF4040cc),
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showSubmissionForms(BuildContext context) {
     showModalBottomSheet(
       context: context,
       backgroundColor: const Color(0xFF1a1a3e),
@@ -161,6 +260,22 @@ class _UserSubmittedPacksPageState extends State<UserSubmittedPacksPage>
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.verified,
+                    color: Color(0xFF60ff60), size: 20),
+                const SizedBox(width: 8),
+                const Text(
+                  'Developer License Active',
+                  style: TextStyle(
+                      color: Color(0xFF60ff60),
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
             const Text(
               'Submit Your Metric Pack',
               style: TextStyle(
@@ -213,6 +328,88 @@ class _UserSubmittedPacksPageState extends State<UserSubmittedPacksPage>
         ),
       ),
     );
+  }
+
+  Future<void> _purchaseDeveloperLicense(BuildContext context) async {
+    final emailController = TextEditingController();
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF1a1a3e),
+        title: const Text('Purchase Developer License',
+            style: TextStyle(color: Color(0xFFd0d0ff), fontSize: 16)),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'One-time purchase: \$9.99',
+              style: TextStyle(
+                  color: Color(0xFF60ff60),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Enter the email you want associated with your license. '
+              'Creator credits and payout notifications will be sent here.',
+              style: TextStyle(color: Color(0xFFa0a0c0), fontSize: 12),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: emailController,
+              style: const TextStyle(color: Color(0xFFe8e8f0)),
+              decoration: const InputDecoration(
+                labelText: 'Your email',
+                labelStyle: TextStyle(color: Color(0xFF6666aa)),
+                border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2a2a5a))),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF6060ff))),
+              ),
+              keyboardType: TextInputType.emailAddress,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancel',
+                style: TextStyle(color: Color(0xFF6666aa))),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (emailController.text.contains('@')) {
+                Navigator.pop(ctx, true);
+              }
+            },
+            style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF4040cc)),
+            child: const Text('Purchase \$9.99'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true && context.mounted) {
+      final email = emailController.text.trim();
+      final devLicense = DeveloperLicenseService();
+      final success = await devLicense.purchaseLicense(email: email);
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(success
+                ? 'Developer License activated! You can now submit packs.'
+                : 'Purchase failed. Please try again.'),
+            backgroundColor: success
+                ? const Color(0xFF2a5a2a)
+                : const Color(0xFF5a2a2a),
+          ),
+        );
+      }
+    }
+    emailController.dispose();
   }
 
   void _showCreatorCreditsDialog(BuildContext context) {
