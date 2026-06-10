@@ -656,19 +656,23 @@ class _DiscordAccordionState extends State<_DiscordAccordion> {
             ),
             child: Row(
               children: [
-                Icon(Icons.discord, size: 20, color: const Color(0xFF5865F2)),
-                const SizedBox(width: 8),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        l10n.discordAccordionTitle,
-                        textAlign: TextAlign.center,
-                        style: theme.textTheme.titleSmall?.copyWith(
-                          fontWeight: FontWeight.w700,
-                        ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.discord, size: 20, color: const Color(0xFF5865F2)),
+                          const SizedBox(width: 8),
+                          Text(
+                            l10n.discordAccordionTitle,
+                            style: theme.textTheme.titleSmall?.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
                       ),
                       Text(
                         l10n.discordAccordionSubtitle,
