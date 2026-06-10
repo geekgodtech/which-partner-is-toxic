@@ -76,6 +76,78 @@ class AppLocalizationsAr extends AppLocalizations {
   String get discordBotConfiguration => 'تكوين البوت';
 
   @override
+  String get discordBotConfigTitle => 'Discord Bot Configuration';
+
+  @override
+  String get discordBotTokenSetupTitle => 'Bot Token Setup';
+
+  @override
+  String get discordBotTokenSetupDescription =>
+      'Enter your Discord bot token below. This is required to access your Discord servers and channels.';
+
+  @override
+  String get discordWhereToFindToken => 'Where to find your bot token:';
+
+  @override
+  String get discordStepDiscordDevelopers => 'Go to discord.com/developers';
+
+  @override
+  String get discordStepClickApplication => 'Click on your application';
+
+  @override
+  String get discordStepGoToBot => 'Go to \"Bot\" section';
+
+  @override
+  String get discordStepResetToken => 'Click \"Reset Token\" if needed';
+
+  @override
+  String get discordStepCopyToken => 'Copy the token and paste it below';
+
+  @override
+  String get discordNeverShareToken => '⚠️ Never share this token with anyone!';
+
+  @override
+  String get discordBotTokenLabel => 'Bot Token';
+
+  @override
+  String get discordBotTokenHint => 'Paste your Discord bot token here';
+
+  @override
+  String get discordTokenRequiredError => 'Please enter your bot token';
+
+  @override
+  String get discordTokenTooShortError => 'Token appears too short';
+
+  @override
+  String get discordSaveToken => 'Save Token';
+
+  @override
+  String get discordSaving => 'Saving...';
+
+  @override
+  String get discordTestConnection => 'Test Connection';
+
+  @override
+  String get discordViewFullSetup => 'View Full Setup Instructions';
+
+  @override
+  String get discordTokenSavedSuccess => 'Bot token saved successfully';
+
+  @override
+  String get discordTokenSaveFailed => 'Failed to save';
+
+  @override
+  String get discordConnectionTestNotImplemented =>
+      'Connection test not yet implemented';
+
+  @override
+  String get discordReadyToConfigureTitle => 'Ready to configure your bot?';
+
+  @override
+  String get discordReadyToConfigureDescription =>
+      'Once you\'ve created your Discord bot following the steps above, enter your bot token in the settings to start analyzing.';
+
+  @override
   String get gotIt => 'فهمت';
 
   @override
@@ -1424,8 +1496,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get noMessagesInDateRange =>
-      'لم يتم العثور على رسائل في نطاق التاريخ المحدد. يرجى تحديد تواريخ مختلفة أو مسح مرشح التاريخ.';
+  String get noMessagesInDateRange => 'لا توجد رسائل في نطاق التاريخ';
 
   @override
   String get purchaseCustomMetricTileTitle => 'شراء مقياس مخصص';
@@ -4530,4 +4601,233 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enableDiscord => 'تفعيل Discord';
+
+  @override
+  String get aboutTitle => 'About';
+
+  @override
+  String get aboutDescription =>
+      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+
+  @override
+  String get contactUs => 'Contact Us';
+
+  @override
+  String get supportEmail => 'Support';
+
+  @override
+  String get supportEmailDesc => 'Get help with using the app';
+
+  @override
+  String get businessEmail => 'Business';
+
+  @override
+  String get businessEmailDesc => 'Partnerships and inquiries';
+
+  @override
+  String get privacyEmail => 'Privacy';
+
+  @override
+  String get privacyEmailDesc => 'Data and privacy questions';
+
+  @override
+  String get importantLinks => 'Links';
+
+  @override
+  String get website => 'Website';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get termsOfService => 'Terms of Service';
+
+  @override
+  String get github => 'GitHub';
+
+  @override
+  String get allRightsReserved => 'All rights reserved.';
+
+  @override
+  String get packTheGood => 'حزمة الجيدين';
+
+  @override
+  String get packTheBad => 'حزمة الأشرار';
+
+  @override
+  String get packTheUgly => 'حزمة القبيحين';
+
+  @override
+  String get packTheNarcissist => 'حزمة النرجسيين';
+
+  @override
+  String get metricsExpansionPack => 'حزمة توسيع المقاييس';
+
+  @override
+  String purchaseTitle(String title) {
+    return 'شراء';
+  }
+
+  @override
+  String buyForPrice(String price) {
+    return 'شراء مقابل $price';
+  }
+
+  @override
+  String get processingPurchase => 'جاري معالجة الشراء...';
+
+  @override
+  String get waitingForStoreConfirmation => 'في انتظار تأكيد المتجر...';
+
+  @override
+  String get myMetricList => 'قائمة المقاييس الخاصة بي';
+
+  @override
+  String get botTokenSaved => 'تم حفظ رمز البوت';
+
+  @override
+  String failedToSaveError(String error) {
+    return 'فشل في الحفظ';
+  }
+
+  @override
+  String get connectionTestNotImplemented => 'اختبار الاتصال لم يتم تنفيذه بعد';
+
+  @override
+  String get pasteDiscordBotTokenHint => 'الصق رمز بوت Discord هنا';
+
+  @override
+  String get botTokenLabel => 'رمز البوت';
+
+  @override
+  String get botConfigButton => 'تكوين البوت';
+
+  @override
+  String get customMetricPurchasePlaceholder => 'وصف شراء المقياس المخصص';
+
+  @override
+  String get configureBotToken => 'تكوين رمز البوت';
+
+  @override
+  String get retryButton => 'إعادة المحاولة';
+
+  @override
+  String get ownerLabel => 'المالك';
+
+  @override
+  String get noMessagesInChannel => 'لا توجد رسائل في القناة';
+
+  @override
+  String failedToImportError(String error) {
+    return 'فشل الاستيراد';
+  }
+
+  @override
+  String get proMembershipUpsell => 'الترقية إلى العضوية Pro';
+
+  @override
+  String unlockForPrice(String price) {
+    return 'فتح مقابل $price';
+  }
+
+  @override
+  String get startCapture => 'بدء الالتقاط';
+
+  @override
+  String get finishAndProcess => 'إنهاء ومعالجة';
+
+  @override
+  String get cancelButton => 'إلغاء';
+
+  @override
+  String get processScreenshots => 'معالجة لقطات الشاشة';
+
+  @override
+  String get startOver => 'البدء من جديد';
+
+  @override
+  String get capturingStatus => 'جاري الالتقاط...';
+
+  @override
+  String get captureComplete => 'اكتمل الالتقاط';
+
+  @override
+  String get errorDialogTitle => 'خطأ';
+
+  @override
+  String failedToLoadConversation(String error) {
+    return 'فشل تحميل المحادثة';
+  }
+
+  @override
+  String get selectConversationTitle => 'اختيار المحادثة';
+
+  @override
+  String get platformCredentialsTitle => 'بيانات اعتماد المنصة';
+
+  @override
+  String get saveCredentialsTooltip => 'حفظ بيانات الاعتماد';
+
+  @override
+  String get upgradeToProPlusTitle => 'الترقية إلى Pro+';
+
+  @override
+  String get upgradeNowButton => 'الترقية الآن';
+
+  @override
+  String get selectLanguageTooltip => 'اختيار اللغة';
+
+  @override
+  String get nextSizeButton => 'الحجم التالي';
+
+  @override
+  String get startSequenceButton => 'بدء التسلسل';
+
+  @override
+  String get nextSizeInstruction => 'جاهز للحجم التالي';
+
+  @override
+  String get okButton => 'موافق';
+
+  @override
+  String get noMessagesInDateRangeBody =>
+      'No messages were found in the selected date range. Try adjusting the date range.';
+
+  @override
+  String get credentialsSavedSuccess => 'Credentials saved successfully';
+
+  @override
+  String errorSavingCredentials(String error) {
+    return 'Error saving credentials: $error';
+  }
+
+  @override
+  String get credentialsSecurityInfo =>
+      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+
+  @override
+  String get savingButton => 'Saving...';
+
+  @override
+  String get saveAllCredentials => 'Save Credentials';
+
+  @override
+  String get proPlusLabel => 'Pro+';
+
+  @override
+  String get upgradeButton => 'Upgrade';
+
+  @override
+  String get usernameLabel => 'Username';
+
+  @override
+  String get passwordLabel => 'Password';
+
+  @override
+  String get upgradeToProPlusBody =>
+      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+
+  @override
+  String get noConversationsFoundBody =>
+      'No conversations were found. Make sure your credentials are correct and try again.';
 }

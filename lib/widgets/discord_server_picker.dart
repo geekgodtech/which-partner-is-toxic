@@ -4,6 +4,7 @@ import '../services/discord_api_service.dart';
 import '../controllers/toxicity_analyzer_controller.dart';
 import 'discord_channel_picker.dart';
 import 'discord_settings_page.dart';
+import '../l10n/app_localizations.dart';
 
 class DiscordServerPicker extends StatefulWidget {
   final ToxicityAnalyzerController controller;
@@ -76,6 +77,7 @@ class _DiscordServerPickerState extends State<DiscordServerPicker> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         title: LayoutBuilder(
@@ -135,7 +137,7 @@ class _DiscordServerPickerState extends State<DiscordServerPicker> {
                               );
                             },
                             icon: const Icon(Icons.settings),
-                            label: const Text('Configure Bot Token'),
+                            label: Text(l10n.configureBotToken),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF5865F2),
                               foregroundColor: Colors.white,
@@ -150,7 +152,7 @@ class _DiscordServerPickerState extends State<DiscordServerPicker> {
                               });
                               _loadGuilds();
                             },
-                            child: const Text('Retry'),
+                            child: Text(l10n.retryButton),
                           ),
                       ],
                     ),
@@ -210,11 +212,11 @@ class _DiscordServerPickerState extends State<DiscordServerPicker> {
                               style: const TextStyle(fontWeight: FontWeight.bold),
                             ),
                             subtitle: guild.owner
-                                ? const Row(
+                                ? Row(
                                     children: [
-                                      Icon(Icons.star, size: 16, color: Colors.amber),
-                                      SizedBox(width: 4),
-                                      Text('Owner'),
+                                      const Icon(Icons.star, size: 16, color: Colors.amber),
+                                      const SizedBox(width: 4),
+                                      Text(l10n.ownerLabel),
                                     ],
                                   )
                                 : null,

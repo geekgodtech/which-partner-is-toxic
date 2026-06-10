@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:airta/services/subscription_service.dart';
 import 'package:airta/widgets/membership_landing_page.dart';
 import 'dart:convert';
+import 'package:airta/l10n/app_localizations.dart';
 
 class PlatformCredentialsPage extends StatefulWidget {
   const PlatformCredentialsPage({super.key});
@@ -105,18 +106,20 @@ class _PlatformCredentialsPageState extends State<PlatformCredentialsPage> {
       }
 
       if (mounted) {
+        final l10n = AppLocalizations.of(context)!;
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Credentials saved successfully'),
+          SnackBar(
+            content: Text(l10n.credentialsSavedSuccess),
             backgroundColor: Colors.green,
           ),
         );
       }
     } catch (e) {
       if (mounted) {
+        final l10n = AppLocalizations.of(context)!;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Error saving credentials: $e'),
+            content: Text(l10n.errorSavingCredentials(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -136,13 +139,14 @@ class _PlatformCredentialsPageState extends State<PlatformCredentialsPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         title: LayoutBuilder(
           builder: (context, constraints) {
             final isNarrow = constraints.maxWidth < 400;
             return Text(
-              'Platform Credentials',
+              l10n.platformCredentialsTitle,
               style: TextStyle(
                 fontSize: isNarrow ? 18 : 20,
                 height: 1.0,
@@ -166,7 +170,7 @@ class _PlatformCredentialsPageState extends State<PlatformCredentialsPage> {
             IconButton(
               icon: const Icon(Icons.save),
               onPressed: _saveCredentials,
-              tooltip: 'Save Credentials',
+              tooltip: l10n.saveCredentialsTooltip,
             ),
         ],
       ),
@@ -183,7 +187,7 @@ class _PlatformCredentialsPageState extends State<PlatformCredentialsPage> {
                       const SizedBox(width: 12),
                       Expanded(
                         child: Text(
-                          'Store your platform credentials securely. These are encrypted and stored only on your device.',
+                          l10n.credentialsSecurityInfo,
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ),
@@ -231,7 +235,7 @@ class _PlatformCredentialsPageState extends State<PlatformCredentialsPage> {
                               )
                             : const Icon(Icons.save),
                         label: Text(
-                            _isSaving ? 'Saving...' : 'Save All Credentials'),
+                            _isSaving ? l10n.savingButton : l10n.saveAllCredentials),
                         style: FilledButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                         ),
@@ -256,6 +260,7 @@ class _PlatformCredentialRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final subscriptionService = context.watch<SubscriptionService>();
     final isProPlus = subscriptionService.activeTier == MembershipTier.proPlus;
     final isLocked = platform.requiresProPlus && !isProPlus;
@@ -301,9 +306,9 @@ class _PlatformCredentialRow extends StatelessWidget {
                         const SizedBox(width: 8),
                         const Icon(Icons.lock, size: 20, color: Colors.orange),
                         const SizedBox(width: 4),
-                        const Text(
-                          'Pro Plus',
-                          style: TextStyle(
+                        Text(
+                          l10n.proPlusLabel,
+                          style: const TextStyle(
                             fontSize: 12,
                             color: Colors.orange,
                             fontWeight: FontWeight.bold,
@@ -316,7 +321,7 @@ class _PlatformCredentialRow extends StatelessWidget {
                 if (isLocked)
                   TextButton(
                     onPressed: () => _showUpgradeDialog(context),
-                    child: const Text('Upgrade'),
+                    child: Text(l10n.upgradeButton),
                   ),
               ],
             ),
@@ -327,10 +332,10 @@ class _PlatformCredentialRow extends StatelessWidget {
                   Expanded(
                     child: TextField(
                       controller: platform.usernameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Username',
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.person),
+                      decoration: InputDecoration(
+                        labelText: l10n.usernameLabel,
+                        border: const OutlineInputBorder(),
+                        prefixIcon: const Icon(Icons.person),
                         isDense: true,
                       ),
                     ),
@@ -341,7 +346,7 @@ class _PlatformCredentialRow extends StatelessWidget {
                       controller: platform.passwordController,
                       obscureText: !platform.showPassword,
                       decoration: InputDecoration(
-                        labelText: 'Password',
+                        labelText: l10n.passwordLabel,
                         border: const OutlineInputBorder(),
                         prefixIcon: const Icon(Icons.lock),
                         isDense: true,
@@ -369,21 +374,16 @@ class _PlatformCredentialRow extends StatelessWidget {
   }
 
   void _showUpgradeDialog(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Upgrade to Pro Plus'),
-        content: const Text(
-          'Discord integration is exclusive to Pro Plus members.\n\n'
-          'Upgrade now for only \$4.99 more per month and unlock:\n'
-          '\u2022 Discord chat analysis\n'
-          '\u2022 Exclusive Discord community access\n'
-          '\u2022 All Pro features',
-        ),
+        title: Text(l10n.upgradeToProPlusTitle),
+        content: Text(l10n.upgradeToProPlusBody),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
+            child: Text(l10n.cancelButton),
           ),
           FilledButton(
             onPressed: () {
@@ -394,7 +394,7 @@ class _PlatformCredentialRow extends StatelessWidget {
                 ),
               );
             },
-            child: const Text('Upgrade Now'),
+            child: Text(l10n.upgradeNowButton),
           ),
         ],
       ),

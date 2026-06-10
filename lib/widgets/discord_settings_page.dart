@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../l10n/app_localizations.dart';
 import '../controllers/toxicity_analyzer_controller.dart';
 
@@ -36,6 +37,7 @@ class _DiscordSettingsPageState extends State<DiscordSettingsPage> {
 
   Future<void> _saveToken() async {
     if (!_formKey.currentState!.validate()) return;
+    final l10n = AppLocalizations.of(context)!;
 
     setState(() {
       _saving = true;
@@ -53,7 +55,7 @@ class _DiscordSettingsPageState extends State<DiscordSettingsPage> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Bot token saved successfully'),
+          content: Text(l10n.botTokenSaved),
           backgroundColor: Colors.green,
         ),
       );
@@ -63,7 +65,7 @@ class _DiscordSettingsPageState extends State<DiscordSettingsPage> {
       });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Failed to save: $e'),
+          content: Text(l10n.failedToSaveError(e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -71,10 +73,11 @@ class _DiscordSettingsPageState extends State<DiscordSettingsPage> {
   }
 
   Future<void> _testConnection() async {
+    final l10n = AppLocalizations.of(context)!;
     // This would test the connection - placeholder for now
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Connection test not yet implemented'),
+        content: Text(l10n.connectionTestNotImplemented),
         backgroundColor: Colors.orange,
       ),
     );
@@ -87,7 +90,7 @@ class _DiscordSettingsPageState extends State<DiscordSettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Discord Bot Configuration'),
+        title: Text(l10n.discordBotConfigTitle),
         backgroundColor: const Color(0xFF5865F2),
       ),
       body: SingleChildScrollView(
@@ -137,6 +140,43 @@ class _DiscordSettingsPageState extends State<DiscordSettingsPage> {
                       ),
                       const SizedBox(height: 8),
                       _buildStep('1', 'Go to discord.com/developers'),
+                      const SizedBox(height: 4),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 32),
+                        child: InkWell(
+                          onTap: () async {
+                            final uri = Uri.parse('https://discord.com/developers/applications');
+                            if (await canLaunchUrl(uri)) {
+                              await launchUrl(uri, mode: LaunchMode.externalApplication);
+                            }
+                          },
+                          borderRadius: BorderRadius.circular(8),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF5865F2).withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: const Color(0xFF5865F2).withOpacity(0.3)),
+                            ),
+                            child: const Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.open_in_new, size: 16, color: Color(0xFF5865F2)),
+                                SizedBox(width: 6),
+                                Text(
+                                  'Open Discord Developer Portal →',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: Color(0xFF5865F2),
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
                       _buildStep('2', 'Click on your application'),
                       _buildStep('3', 'Go to "Bot" section'),
                       _buildStep('4', 'Click "Reset Token" if needed'),
@@ -159,8 +199,8 @@ class _DiscordSettingsPageState extends State<DiscordSettingsPage> {
               TextFormField(
                 controller: _botTokenController,
                 decoration: InputDecoration(
-                  labelText: 'Bot Token',
-                  hintText: 'Paste your Discord bot token here',
+                  labelText: l10n.botTokenLabel,
+                  hintText: l10n.pasteDiscordBotTokenHint,
                   prefixIcon: const Icon(Icons.vpn_key),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -207,7 +247,11 @@ class _DiscordSettingsPageState extends State<DiscordSettingsPage> {
                     child: OutlinedButton.icon(
                       onPressed: _testConnection,
                       icon: const Icon(Icons.check_circle_outline),
-                      label: const Text('Test Connection'),
+                      label: Text(
+                        l10n.discordTestConnection,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontSize: 13),
+                      ),
                       style: OutlinedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 48),
                       ),
@@ -227,7 +271,7 @@ class _DiscordSettingsPageState extends State<DiscordSettingsPage> {
                     );
                   },
                   icon: const Icon(Icons.help_outline),
-                  label: const Text('View Full Setup Instructions'),
+                  label: Text(l10n.discordViewFullSetup),
                 ),
               ),
             ],

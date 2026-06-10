@@ -148,7 +148,7 @@ class _IosSmsCaptureScreenState extends State<IosSmssCaptureScreen> {
               ),
             const SizedBox(height: 12),
             Text(
-              _isCapturing ? 'Capturing...' : 'Capture Complete',
+              _isCapturing ? AppLocalizations.of(context)!.capturingStatus : AppLocalizations.of(context)!.captureComplete,
               style: Theme.of(
                 context,
               ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
@@ -172,7 +172,7 @@ class _IosSmsCaptureScreenState extends State<IosSmssCaptureScreen> {
           ElevatedButton.icon(
             onPressed: _startCapture,
             icon: const Icon(Icons.camera_alt),
-            label: const Text('Start Capture'),
+            label: Text(AppLocalizations.of(context)!.startCapture),
             style: ElevatedButton.styleFrom(
               minimumSize: const Size.fromHeight(56),
             ),
@@ -181,7 +181,7 @@ class _IosSmsCaptureScreenState extends State<IosSmssCaptureScreen> {
           ElevatedButton.icon(
             onPressed: _finishCapture,
             icon: const Icon(Icons.stop),
-            label: const Text('Finish & Process'),
+            label: Text(AppLocalizations.of(context)!.finishAndProcess),
             style: ElevatedButton.styleFrom(
               minimumSize: const Size.fromHeight(56),
             ),
@@ -190,7 +190,7 @@ class _IosSmsCaptureScreenState extends State<IosSmssCaptureScreen> {
           OutlinedButton.icon(
             onPressed: _cancelCapture,
             icon: const Icon(Icons.cancel),
-            label: const Text('Cancel'),
+            label: Text(AppLocalizations.of(context)!.cancelButton),
             style: OutlinedButton.styleFrom(
               minimumSize: const Size.fromHeight(56),
             ),
@@ -200,7 +200,7 @@ class _IosSmsCaptureScreenState extends State<IosSmssCaptureScreen> {
           ElevatedButton.icon(
             onPressed: _processScreenshots,
             icon: const Icon(Icons.auto_fix_high),
-            label: const Text('Process Screenshots'),
+            label: Text(AppLocalizations.of(context)!.processScreenshots),
             style: ElevatedButton.styleFrom(
               minimumSize: const Size.fromHeight(56),
             ),
@@ -209,7 +209,7 @@ class _IosSmsCaptureScreenState extends State<IosSmssCaptureScreen> {
           OutlinedButton.icon(
             onPressed: _resetCapture,
             icon: const Icon(Icons.refresh),
-            label: const Text('Start Over'),
+            label: Text(AppLocalizations.of(context)!.startOver),
             style: OutlinedButton.styleFrom(
               minimumSize: const Size.fromHeight(56),
             ),

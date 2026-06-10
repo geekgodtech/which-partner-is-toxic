@@ -40,20 +40,20 @@ class _AnalyzerWorkspaceState extends State<AnalyzerWorkspace> {
             _lastShownError = err;
             WidgetsBinding.instance.addPostFrameCallback((_) {
               if (!mounted) return;
+              final l10n = AppLocalizations.of(context)!;
               if (err == 'NO_MESSAGES_IN_DATE_RANGE') {
                 showDialog<void>(
                   context: context,
                   barrierDismissible: false,
                   builder: (_) => AlertDialog(
-                    title: const Text('No Messages Found in Date Range'),
-                    content: const Text(
-                      'There are no messages in the loaded thread that match your selected date range.\n\n'
-                      'Please revise your date selection or load a different text thread that contains messages within your selected date range.',
+                    title: Text(l10n.noMessagesInDateRange),
+                    content: Text(
+                      l10n.noMessagesInDateRangeBody,
                     ),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.of(context).pop(),
-                        child: const Text('OK'),
+                        child: Text(l10n.okButton),
                       ),
                     ],
                   ),

@@ -76,6 +76,78 @@ class AppLocalizationsHi extends AppLocalizations {
   String get discordBotConfiguration => 'बॉट कॉन्फ़िगरेशन';
 
   @override
+  String get discordBotConfigTitle => 'Discord Bot Configuration';
+
+  @override
+  String get discordBotTokenSetupTitle => 'Bot Token Setup';
+
+  @override
+  String get discordBotTokenSetupDescription =>
+      'Enter your Discord bot token below. This is required to access your Discord servers and channels.';
+
+  @override
+  String get discordWhereToFindToken => 'Where to find your bot token:';
+
+  @override
+  String get discordStepDiscordDevelopers => 'Go to discord.com/developers';
+
+  @override
+  String get discordStepClickApplication => 'Click on your application';
+
+  @override
+  String get discordStepGoToBot => 'Go to \"Bot\" section';
+
+  @override
+  String get discordStepResetToken => 'Click \"Reset Token\" if needed';
+
+  @override
+  String get discordStepCopyToken => 'Copy the token and paste it below';
+
+  @override
+  String get discordNeverShareToken => '⚠️ Never share this token with anyone!';
+
+  @override
+  String get discordBotTokenLabel => 'Bot Token';
+
+  @override
+  String get discordBotTokenHint => 'Paste your Discord bot token here';
+
+  @override
+  String get discordTokenRequiredError => 'Please enter your bot token';
+
+  @override
+  String get discordTokenTooShortError => 'Token appears too short';
+
+  @override
+  String get discordSaveToken => 'Save Token';
+
+  @override
+  String get discordSaving => 'Saving...';
+
+  @override
+  String get discordTestConnection => 'Test Connection';
+
+  @override
+  String get discordViewFullSetup => 'View Full Setup Instructions';
+
+  @override
+  String get discordTokenSavedSuccess => 'Bot token saved successfully';
+
+  @override
+  String get discordTokenSaveFailed => 'Failed to save';
+
+  @override
+  String get discordConnectionTestNotImplemented =>
+      'Connection test not yet implemented';
+
+  @override
+  String get discordReadyToConfigureTitle => 'Ready to configure your bot?';
+
+  @override
+  String get discordReadyToConfigureDescription =>
+      'Once you\'ve created your Discord bot following the steps above, enter your bot token in the settings to start analyzing.';
+
+  @override
   String get gotIt => 'समझ गया';
 
   @override
@@ -1434,8 +1506,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get noMessagesInDateRange =>
-      'चयनित दिनांक सीमा में कोई संदेश नहीं मिला। कृपया अलग-अलग तारीख चुनें या दिनांक फ़िल्टर साफ़ करें।';
+  String get noMessagesInDateRange => 'चयनित दिनांक सीमा में कोई संदेश नहीं';
 
   @override
   String get purchaseCustomMetricTileTitle => 'कस्टम मेट्रिक खरीदें';
@@ -4545,4 +4616,235 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get enableDiscord => 'Discord सक्षम करें';
+
+  @override
+  String get aboutTitle => 'About';
+
+  @override
+  String get aboutDescription =>
+      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+
+  @override
+  String get contactUs => 'Contact Us';
+
+  @override
+  String get supportEmail => 'Support';
+
+  @override
+  String get supportEmailDesc => 'Get help with using the app';
+
+  @override
+  String get businessEmail => 'Business';
+
+  @override
+  String get businessEmailDesc => 'Partnerships and inquiries';
+
+  @override
+  String get privacyEmail => 'Privacy';
+
+  @override
+  String get privacyEmailDesc => 'Data and privacy questions';
+
+  @override
+  String get importantLinks => 'Links';
+
+  @override
+  String get website => 'Website';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get termsOfService => 'Terms of Service';
+
+  @override
+  String get github => 'GitHub';
+
+  @override
+  String get allRightsReserved => 'All rights reserved.';
+
+  @override
+  String get packTheGood => 'पैक: अच्छा';
+
+  @override
+  String get packTheBad => 'पैक: बुरा';
+
+  @override
+  String get packTheUgly => 'पैक: बदसूरत';
+
+  @override
+  String get packTheNarcissist => 'पैक: नार्सिसिस्ट';
+
+  @override
+  String get metricsExpansionPack => 'मेट्रिक्स विस्तार पैक';
+
+  @override
+  String purchaseTitle(String title) {
+    return 'खरीदारी';
+  }
+
+  @override
+  String buyForPrice(String price) {
+    return '$price में खरीदें';
+  }
+
+  @override
+  String get processingPurchase => 'खरीदारी प्रसंस्करण...';
+
+  @override
+  String get waitingForStoreConfirmation => 'स्टोर पुष्टि की प्रतीक्षा...';
+
+  @override
+  String get myMetricList => 'मेरी मेट्रिक सूची';
+
+  @override
+  String get botTokenSaved => 'बॉट टोकन सहेजा गया';
+
+  @override
+  String failedToSaveError(String error) {
+    return 'सहेजने में विफल';
+  }
+
+  @override
+  String get connectionTestNotImplemented =>
+      'कनेक्शन परीक्षण अभी तक लागू नहीं किया गया है';
+
+  @override
+  String get pasteDiscordBotTokenHint =>
+      'अपना Discord बॉट टोकन यहाँ पेस्ट करें';
+
+  @override
+  String get botTokenLabel => 'बॉट टोकन';
+
+  @override
+  String get botConfigButton => 'बॉट कॉन्फ़िगर करें';
+
+  @override
+  String get customMetricPurchasePlaceholder => 'कस्टम मेट्रिक (खरीदारी)';
+
+  @override
+  String get configureBotToken => 'बॉट टोकन कॉन्फ़िगर करें';
+
+  @override
+  String get retryButton => 'पुनः प्रयास करें';
+
+  @override
+  String get ownerLabel => 'मालिक';
+
+  @override
+  String get noMessagesInChannel => 'इस चैनल में कोई संदेश नहीं';
+
+  @override
+  String failedToImportError(String error) {
+    return 'आयात विफल';
+  }
+
+  @override
+  String get proMembershipUpsell => 'पूर्ण पहुंच के लिए Pro में अपग्रेड करें';
+
+  @override
+  String unlockForPrice(String price) {
+    return '$price में अनलॉक करें';
+  }
+
+  @override
+  String get startCapture => 'कैप्चर शुरू करें';
+
+  @override
+  String get finishAndProcess => 'समाप्त और प्रक्रिया';
+
+  @override
+  String get cancelButton => 'रद्द करें';
+
+  @override
+  String get processScreenshots => 'स्क्रीनशॉट प्रक्रिया';
+
+  @override
+  String get startOver => 'फिर से शुरू करें';
+
+  @override
+  String get capturingStatus => 'कैप्चर कर रहा है...';
+
+  @override
+  String get captureComplete => 'कैप्चर पूर्ण!';
+
+  @override
+  String get errorDialogTitle => 'त्रुटि';
+
+  @override
+  String failedToLoadConversation(String error) {
+    return 'वार्तालाप लोड करने में विफल';
+  }
+
+  @override
+  String get selectConversationTitle => 'वार्तालाप चुनें';
+
+  @override
+  String get platformCredentialsTitle => 'प्लेटफ़ॉर्म क्रेडेंशियल्स';
+
+  @override
+  String get saveCredentialsTooltip => 'क्रेडेंशियल्स सहेजें';
+
+  @override
+  String get upgradeToProPlusTitle => 'Pro+ में अपग्रेड करें';
+
+  @override
+  String get upgradeNowButton => 'अभी अपग्रेड करें';
+
+  @override
+  String get selectLanguageTooltip => 'भाषा चुनें';
+
+  @override
+  String get nextSizeButton => 'अगला आकार';
+
+  @override
+  String get startSequenceButton => 'अनुक्रम प्रारंभ करें';
+
+  @override
+  String get nextSizeInstruction => 'जारी रखने के लिए अगला आकार दबाएं';
+
+  @override
+  String get okButton => 'ठीक है';
+
+  @override
+  String get noMessagesInDateRangeBody =>
+      'No messages were found in the selected date range. Try adjusting the date range.';
+
+  @override
+  String get credentialsSavedSuccess => 'Credentials saved successfully';
+
+  @override
+  String errorSavingCredentials(String error) {
+    return 'Error saving credentials: $error';
+  }
+
+  @override
+  String get credentialsSecurityInfo =>
+      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+
+  @override
+  String get savingButton => 'Saving...';
+
+  @override
+  String get saveAllCredentials => 'Save Credentials';
+
+  @override
+  String get proPlusLabel => 'Pro+';
+
+  @override
+  String get upgradeButton => 'Upgrade';
+
+  @override
+  String get usernameLabel => 'Username';
+
+  @override
+  String get passwordLabel => 'Password';
+
+  @override
+  String get upgradeToProPlusBody =>
+      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+
+  @override
+  String get noConversationsFoundBody =>
+      'No conversations were found. Make sure your credentials are correct and try again.';
 }

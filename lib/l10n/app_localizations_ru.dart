@@ -76,6 +76,78 @@ class AppLocalizationsRu extends AppLocalizations {
   String get discordBotConfiguration => 'Конфигурация Бота';
 
   @override
+  String get discordBotConfigTitle => 'Discord Bot Configuration';
+
+  @override
+  String get discordBotTokenSetupTitle => 'Bot Token Setup';
+
+  @override
+  String get discordBotTokenSetupDescription =>
+      'Enter your Discord bot token below. This is required to access your Discord servers and channels.';
+
+  @override
+  String get discordWhereToFindToken => 'Where to find your bot token:';
+
+  @override
+  String get discordStepDiscordDevelopers => 'Go to discord.com/developers';
+
+  @override
+  String get discordStepClickApplication => 'Click on your application';
+
+  @override
+  String get discordStepGoToBot => 'Go to \"Bot\" section';
+
+  @override
+  String get discordStepResetToken => 'Click \"Reset Token\" if needed';
+
+  @override
+  String get discordStepCopyToken => 'Copy the token and paste it below';
+
+  @override
+  String get discordNeverShareToken => '⚠️ Never share this token with anyone!';
+
+  @override
+  String get discordBotTokenLabel => 'Bot Token';
+
+  @override
+  String get discordBotTokenHint => 'Paste your Discord bot token here';
+
+  @override
+  String get discordTokenRequiredError => 'Please enter your bot token';
+
+  @override
+  String get discordTokenTooShortError => 'Token appears too short';
+
+  @override
+  String get discordSaveToken => 'Save Token';
+
+  @override
+  String get discordSaving => 'Saving...';
+
+  @override
+  String get discordTestConnection => 'Test Connection';
+
+  @override
+  String get discordViewFullSetup => 'View Full Setup Instructions';
+
+  @override
+  String get discordTokenSavedSuccess => 'Bot token saved successfully';
+
+  @override
+  String get discordTokenSaveFailed => 'Failed to save';
+
+  @override
+  String get discordConnectionTestNotImplemented =>
+      'Connection test not yet implemented';
+
+  @override
+  String get discordReadyToConfigureTitle => 'Ready to configure your bot?';
+
+  @override
+  String get discordReadyToConfigureDescription =>
+      'Once you\'ve created your Discord bot following the steps above, enter your bot token in the settings to start analyzing.';
+
+  @override
   String get gotIt => 'Понятно';
 
   @override
@@ -4550,4 +4622,238 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get enableDiscord => 'Включить Discord';
+
+  @override
+  String get aboutTitle => 'About';
+
+  @override
+  String get aboutDescription =>
+      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+
+  @override
+  String get contactUs => 'Contact Us';
+
+  @override
+  String get supportEmail => 'Support';
+
+  @override
+  String get supportEmailDesc => 'Get help with using the app';
+
+  @override
+  String get businessEmail => 'Business';
+
+  @override
+  String get businessEmailDesc => 'Partnerships and inquiries';
+
+  @override
+  String get privacyEmail => 'Privacy';
+
+  @override
+  String get privacyEmailDesc => 'Data and privacy questions';
+
+  @override
+  String get importantLinks => 'Links';
+
+  @override
+  String get website => 'Website';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get termsOfService => 'Terms of Service';
+
+  @override
+  String get github => 'GitHub';
+
+  @override
+  String get allRightsReserved => 'All rights reserved.';
+
+  @override
+  String get packTheGood => 'Хорошее';
+
+  @override
+  String get packTheBad => 'Плохое';
+
+  @override
+  String get packTheUgly => 'Безобразное';
+
+  @override
+  String get packTheNarcissist => 'Нарциссист';
+
+  @override
+  String get metricsExpansionPack => 'Расширенный набор метрик';
+
+  @override
+  String purchaseTitle(String title) {
+    return 'Купить $title';
+  }
+
+  @override
+  String buyForPrice(String price) {
+    return 'Купить за $price';
+  }
+
+  @override
+  String get processingPurchase => 'Обработка покупки...';
+
+  @override
+  String get waitingForStoreConfirmation =>
+      'Ожидание подтверждения магазина...';
+
+  @override
+  String get myMetricList => 'Мой список метрик';
+
+  @override
+  String get botTokenSaved => 'Токен бота успешно сохранён';
+
+  @override
+  String failedToSaveError(String error) {
+    return 'Не удалось сохранить: $error';
+  }
+
+  @override
+  String get connectionTestNotImplemented =>
+      'Тест подключения пока не реализован';
+
+  @override
+  String get pasteDiscordBotTokenHint =>
+      'Вставьте сюда токен вашего Discord-бота';
+
+  @override
+  String get botTokenLabel => 'Токен бота';
+
+  @override
+  String get botConfigButton => 'Настройка бота';
+
+  @override
+  String get customMetricPurchasePlaceholder =>
+      'Здесь начнётся покупка пользовательской метрики';
+
+  @override
+  String get configureBotToken => 'Настроить токен бота';
+
+  @override
+  String get retryButton => 'Повторить';
+
+  @override
+  String get ownerLabel => 'Владелец';
+
+  @override
+  String get noMessagesInChannel => 'В этом канале сообщений не найдено';
+
+  @override
+  String failedToImportError(String error) {
+    return 'Не удалось импортировать: $error';
+  }
+
+  @override
+  String get proMembershipUpsell => 'Подписка Pro — \$9.99/мес';
+
+  @override
+  String unlockForPrice(String price) {
+    return 'Разблокировать за \$$price';
+  }
+
+  @override
+  String get startCapture => 'Начать захват';
+
+  @override
+  String get finishAndProcess => 'Завершить и обработать';
+
+  @override
+  String get cancelButton => 'Отмена';
+
+  @override
+  String get processScreenshots => 'Обработать скриншоты';
+
+  @override
+  String get startOver => 'Начать заново';
+
+  @override
+  String get capturingStatus => 'Захват...';
+
+  @override
+  String get captureComplete => 'Захват завершён';
+
+  @override
+  String get errorDialogTitle => 'Ошибка';
+
+  @override
+  String failedToLoadConversation(String error) {
+    return 'Не удалось загрузить беседу: $error';
+  }
+
+  @override
+  String get selectConversationTitle => 'Выбрать беседу';
+
+  @override
+  String get platformCredentialsTitle => 'Учётные данные платформы';
+
+  @override
+  String get saveCredentialsTooltip => 'Сохранить учётные данные';
+
+  @override
+  String get upgradeToProPlusTitle => 'Перейти на Pro Plus';
+
+  @override
+  String get upgradeNowButton => 'Обновить сейчас';
+
+  @override
+  String get selectLanguageTooltip => 'Выбрать язык';
+
+  @override
+  String get nextSizeButton => 'Следующий размер';
+
+  @override
+  String get startSequenceButton => 'Начать последовательность';
+
+  @override
+  String get nextSizeInstruction =>
+      'Нажмите «Следующий размер» для следующего измерения';
+
+  @override
+  String get okButton => 'ОК';
+
+  @override
+  String get noMessagesInDateRangeBody =>
+      'No messages were found in the selected date range. Try adjusting the date range.';
+
+  @override
+  String get credentialsSavedSuccess => 'Credentials saved successfully';
+
+  @override
+  String errorSavingCredentials(String error) {
+    return 'Error saving credentials: $error';
+  }
+
+  @override
+  String get credentialsSecurityInfo =>
+      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+
+  @override
+  String get savingButton => 'Saving...';
+
+  @override
+  String get saveAllCredentials => 'Save Credentials';
+
+  @override
+  String get proPlusLabel => 'Pro+';
+
+  @override
+  String get upgradeButton => 'Upgrade';
+
+  @override
+  String get usernameLabel => 'Username';
+
+  @override
+  String get passwordLabel => 'Password';
+
+  @override
+  String get upgradeToProPlusBody =>
+      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+
+  @override
+  String get noConversationsFoundBody =>
+      'No conversations were found. Make sure your credentials are correct and try again.';
 }

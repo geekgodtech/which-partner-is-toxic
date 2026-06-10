@@ -42,38 +42,110 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get discordStep1Description =>
-      'Go to discord.com/developers, create a new application, and add a bot to it. Copy the bot token.';
+      '1. Go to discord.com/developers and click \'New Application\'\n2. Enter a name (e.g., \'AIRTA Bot\') and click Create\n3. In the left sidebar, click \'Bot\'\n4. Click \'Add Bot\' and confirm \'Yes, do it!\'\n5. Under the bot username, click \'Reset Token\' then \'Copy\' to save it\n6. Turn OFF \'Public Bot\' (private use only)\n7. Turn ON \'Message Content Intent\' and \'Server Members Intent\'';
 
   @override
-  String get discordStep2Title => 'Enable Bot Privileges';
+  String get discordStep2Title => 'Get Your Bot Token';
 
   @override
   String get discordStep2Description =>
-      'In the bot settings, enable \'Message Content Intent\' and \'Server Members Intent\'.';
+      'In the Bot section (left sidebar), click \'Reset Token\' under the bot username, then click \'Copy\'. This token is your bot\'s password—keep it secret! Paste it into AIRTA\'s Discord settings.';
 
   @override
-  String get discordStep3Title => 'Invite Bot to Server';
+  String get discordStep3Title => 'Invite Bot to Your Server';
 
   @override
   String get discordStep3Description =>
-      'Use OAuth2 URL generator to invite the bot to your Discord server with required permissions.';
+      '1. In the left sidebar, click \'OAuth2\' then \'URL Generator\'\n2. Under \'SCOPES\', check \'bot\'\n3. Under \'BOT PERMISSIONS\', check:\n   • Read Messages/View Channels\n   • Read Message History\n   • Send Messages (optional)\n4. Copy the generated URL at the bottom\n5. Paste it in a new browser tab and select your server\n6. Click \'Authorize\' and complete the CAPTCHA';
 
   @override
-  String get discordStep4Title => 'Configure in App';
+  String get discordStep4Title => 'Enter Token in AIRTA';
 
   @override
   String get discordStep4Description =>
-      'Enter your bot token in the app settings (contact support if you need help).';
+      'Return to this app, go to Settings → Discord Bot Configuration, paste your bot token, and tap Save. The app will verify your bot can connect to Discord.';
 
   @override
-  String get discordStep5Title => 'Select Channel';
+  String get discordStep5Title => 'Select a Channel to Analyze';
 
   @override
   String get discordStep5Description =>
-      'Tap \'Select Discord Channel\', choose your server, then select the channel to analyze.';
+      'Back on the main screen, tap \'Select Discord Channel\'. Choose your server from the list, then pick the channel you want to analyze. AIRTA will fetch recent messages and analyze them for relationship toxicity patterns.';
 
   @override
   String get discordBotConfiguration => 'Bot Configuration';
+
+  @override
+  String get discordBotConfigTitle => 'Discord Bot Configuration';
+
+  @override
+  String get discordBotTokenSetupTitle => 'Bot Token Setup';
+
+  @override
+  String get discordBotTokenSetupDescription =>
+      'Enter your Discord bot token below. This is required to access your Discord servers and channels.';
+
+  @override
+  String get discordWhereToFindToken => 'Where to find your bot token:';
+
+  @override
+  String get discordStepDiscordDevelopers => 'Go to discord.com/developers';
+
+  @override
+  String get discordStepClickApplication => 'Click on your application';
+
+  @override
+  String get discordStepGoToBot => 'Go to \"Bot\" section';
+
+  @override
+  String get discordStepResetToken => 'Click \"Reset Token\" if needed';
+
+  @override
+  String get discordStepCopyToken => 'Copy the token and paste it below';
+
+  @override
+  String get discordNeverShareToken => '⚠️ Never share this token with anyone!';
+
+  @override
+  String get discordBotTokenLabel => 'Bot Token';
+
+  @override
+  String get discordBotTokenHint => 'Paste your Discord bot token here';
+
+  @override
+  String get discordTokenRequiredError => 'Please enter your bot token';
+
+  @override
+  String get discordTokenTooShortError => 'Token appears too short';
+
+  @override
+  String get discordSaveToken => 'Save Token';
+
+  @override
+  String get discordSaving => 'Saving...';
+
+  @override
+  String get discordTestConnection => 'Test Connection';
+
+  @override
+  String get discordViewFullSetup => 'View Full Setup Instructions';
+
+  @override
+  String get discordTokenSavedSuccess => 'Bot token saved successfully';
+
+  @override
+  String get discordTokenSaveFailed => 'Failed to save';
+
+  @override
+  String get discordConnectionTestNotImplemented =>
+      'Connection test not yet implemented';
+
+  @override
+  String get discordReadyToConfigureTitle => 'Ready to configure your bot?';
+
+  @override
+  String get discordReadyToConfigureDescription =>
+      'Once you\'ve created your Discord bot following the steps above, enter your bot token in the settings to start analyzing.';
 
   @override
   String get gotIt => 'Got it';
@@ -1426,8 +1498,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get noMessagesInDateRange =>
-      'No messages found in the selected date range. Please select different dates or clear the date filter.';
+  String get noMessagesInDateRange => 'No Messages Found in Date Range';
 
   @override
   String get purchaseCustomMetricTileTitle => 'Purchase Custom Metric';
@@ -4535,4 +4606,235 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get enableDiscord => 'Enable Discord';
+
+  @override
+  String get aboutTitle => 'About';
+
+  @override
+  String get aboutDescription =>
+      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+
+  @override
+  String get contactUs => 'Contact Us';
+
+  @override
+  String get supportEmail => 'Support';
+
+  @override
+  String get supportEmailDesc => 'Get help with using the app';
+
+  @override
+  String get businessEmail => 'Business';
+
+  @override
+  String get businessEmailDesc => 'Partnerships and inquiries';
+
+  @override
+  String get privacyEmail => 'Privacy';
+
+  @override
+  String get privacyEmailDesc => 'Data and privacy questions';
+
+  @override
+  String get importantLinks => 'Links';
+
+  @override
+  String get website => 'Website';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get termsOfService => 'Terms of Service';
+
+  @override
+  String get github => 'GitHub';
+
+  @override
+  String get allRightsReserved => 'All rights reserved.';
+
+  @override
+  String get packTheGood => 'The Good';
+
+  @override
+  String get packTheBad => 'The Bad';
+
+  @override
+  String get packTheUgly => 'The Ugly';
+
+  @override
+  String get packTheNarcissist => 'The Narcissist';
+
+  @override
+  String get metricsExpansionPack => 'Metrics Expansion Pack';
+
+  @override
+  String purchaseTitle(String title) {
+    return 'Purchase $title';
+  }
+
+  @override
+  String buyForPrice(String price) {
+    return 'Buy for $price';
+  }
+
+  @override
+  String get processingPurchase => 'Processing Purchase...';
+
+  @override
+  String get waitingForStoreConfirmation => 'Waiting for store confirmation...';
+
+  @override
+  String get myMetricList => 'My Metric List';
+
+  @override
+  String get botTokenSaved => 'Bot token saved successfully';
+
+  @override
+  String failedToSaveError(String error) {
+    return 'Failed to save: $error';
+  }
+
+  @override
+  String get connectionTestNotImplemented =>
+      'Connection test not yet implemented';
+
+  @override
+  String get pasteDiscordBotTokenHint => 'Paste your Discord bot token here';
+
+  @override
+  String get botTokenLabel => 'Bot Token';
+
+  @override
+  String get botConfigButton => 'Bot Config';
+
+  @override
+  String get customMetricPurchasePlaceholder =>
+      'Custom metric purchase would start here';
+
+  @override
+  String get configureBotToken => 'Configure Bot Token';
+
+  @override
+  String get retryButton => 'Retry';
+
+  @override
+  String get ownerLabel => 'Owner';
+
+  @override
+  String get noMessagesInChannel => 'No messages found in this channel';
+
+  @override
+  String failedToImportError(String error) {
+    return 'Failed to import: $error';
+  }
+
+  @override
+  String get proMembershipUpsell => 'Pro Membership - \$0.99/mo';
+
+  @override
+  String unlockForPrice(String price) {
+    return 'Unlock for $price';
+  }
+
+  @override
+  String get startCapture => 'Start Capture';
+
+  @override
+  String get finishAndProcess => 'Finish & Process';
+
+  @override
+  String get cancelButton => 'Cancel';
+
+  @override
+  String get processScreenshots => 'Process Screenshots';
+
+  @override
+  String get startOver => 'Start Over';
+
+  @override
+  String get capturingStatus => 'Capturing...';
+
+  @override
+  String get captureComplete => 'Capture Complete';
+
+  @override
+  String get errorDialogTitle => 'Error';
+
+  @override
+  String failedToLoadConversation(String error) {
+    return 'Failed to load conversation: $error';
+  }
+
+  @override
+  String get selectConversationTitle => 'Select Conversation';
+
+  @override
+  String get platformCredentialsTitle => 'Platform Credentials';
+
+  @override
+  String get saveCredentialsTooltip => 'Save Credentials';
+
+  @override
+  String get upgradeToProPlusTitle => 'Upgrade to Pro Plus';
+
+  @override
+  String get upgradeNowButton => 'Upgrade Now';
+
+  @override
+  String get selectLanguageTooltip => 'Select Language';
+
+  @override
+  String get nextSizeButton => 'Next Size';
+
+  @override
+  String get startSequenceButton => 'Start Sequence';
+
+  @override
+  String get nextSizeInstruction => 'Click \"Next Size\" for next dimension';
+
+  @override
+  String get okButton => 'OK';
+
+  @override
+  String get noMessagesInDateRangeBody =>
+      'No messages were found in the selected date range. Try adjusting the date range.';
+
+  @override
+  String get credentialsSavedSuccess => 'Credentials saved successfully';
+
+  @override
+  String errorSavingCredentials(String error) {
+    return 'Error saving credentials: $error';
+  }
+
+  @override
+  String get credentialsSecurityInfo =>
+      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+
+  @override
+  String get savingButton => 'Saving...';
+
+  @override
+  String get saveAllCredentials => 'Save Credentials';
+
+  @override
+  String get proPlusLabel => 'Pro+';
+
+  @override
+  String get upgradeButton => 'Upgrade';
+
+  @override
+  String get usernameLabel => 'Username';
+
+  @override
+  String get passwordLabel => 'Password';
+
+  @override
+  String get upgradeToProPlusBody =>
+      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+
+  @override
+  String get noConversationsFoundBody =>
+      'No conversations were found. Make sure your credentials are correct and try again.';
 }

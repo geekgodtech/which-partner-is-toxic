@@ -2581,11 +2581,26 @@ class _MetricPackTile extends StatelessWidget {
     }
   }
 
+  // -- Localization helpers ---------------------------------------------------
+
+  String _getLocalizedTitle(AppLocalizations l10n) {
+    switch (packId) {
+      case _PackId.good:         return l10n.packTheGood;
+      case _PackId.bad:          return l10n.packTheBad;
+      case _PackId.ugly:         return l10n.packTheUgly;
+      case _PackId.narcissist:   return l10n.packTheNarcissist;
+      case _PackId.serialKiller: return _data[packId]!.title;
+    }
+  }
+
+  String _getLocalizedSubtitle(AppLocalizations l10n) => l10n.metricsExpansionPack;
+
   // -- Build ------------------------------------------------------------------
 
   @override
   Widget build(BuildContext context) {
     final d = _data[packId]!;
+    final l10n = AppLocalizations.of(context)!;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final tileColor = isDark ? d.darkColor : d.bgColor;
     final textColor = isDark ? Colors.white : d.color;
@@ -2629,7 +2644,7 @@ class _MetricPackTile extends StatelessWidget {
                                   mainAxisSize: MainAxisSize.min,
                                     children: [
                                       AutoSizeText(
-                                        d.title,
+                                        _getLocalizedTitle(l10n),
                                         maxLines: 1,
                                         minFontSize: 10,
                                         wrapWords: false,
@@ -2642,7 +2657,7 @@ class _MetricPackTile extends StatelessWidget {
                                         ),
                                       ),
                                       AutoSizeText(
-                                        d.subtitle,
+                                        _getLocalizedSubtitle(l10n),
                                         maxLines: 1,
                                         minFontSize: 8,
                                         overflow: TextOverflow.ellipsis,
@@ -2708,12 +2723,13 @@ class _MetricPackTile extends StatelessWidget {
   Future<void> _startPackPurchaseFlow(BuildContext context) async {
     const isDemoMode = bool.fromEnvironment('DEMO_MODE', defaultValue: false);
     final d = _data[packId]!;
+    final l10n = AppLocalizations.of(context)!;
 
     if (!isDemoMode) {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text('Purchase ${d.title}'),
+          title: Text(l10n.purchaseTitle(_getLocalizedTitle(l10n))),
           content: Text(
             'Add 100 new "${d.title}" psychological metrics to your analyzer for a '
             'one-time fee of ${d.price}. These metrics will be permanently added '
@@ -2722,11 +2738,11 @@ class _MetricPackTile extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(ctx, false),
-              child: const Text('Not now'),
+              child: Text(l10n.notNow),
             ),
             FilledButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: Text('Buy for ${d.price}'),
+              child: Text(l10n.buyForPrice(d.price)),
             ),
           ],
         ),
@@ -2754,13 +2770,13 @@ class _MetricPackTile extends StatelessWidget {
           context: context,
           barrierDismissible: false,
           builder: (ctx) => AlertDialog(
-            title: const Text('Processing Purchase...'),
-            content: const Column(
+            title: Text(l10n.processingPurchase),
+            content: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 CircularProgressIndicator(),
                 SizedBox(height: 16),
-                Text('Waiting for store confirmation...'),
+                Text(l10n.waitingForStoreConfirmation),
               ],
             ),
           ),

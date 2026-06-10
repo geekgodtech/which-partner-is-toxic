@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/discord_api_service.dart';
 import '../services/remote_config_service.dart';
 import '../controllers/toxicity_analyzer_controller.dart';
+import '../l10n/app_localizations.dart';
 
 class DiscordChannelPicker extends StatefulWidget {
   final ToxicityAnalyzerController controller;
@@ -52,6 +53,7 @@ class _DiscordChannelPickerState extends State<DiscordChannelPicker> {
   }
 
   Future<void> _importChannel(DiscordChannel channel) async {
+    final l10n = AppLocalizations.of(context)!;
     setState(() {
       _importing = true;
       _importProgress = 0;
@@ -71,8 +73,8 @@ class _DiscordChannelPickerState extends State<DiscordChannelPicker> {
       if (messages.isEmpty) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('No messages found in this channel'),
+            SnackBar(
+              content: Text(l10n.noMessagesInChannel),
               backgroundColor: Colors.orange,
             ),
           );
@@ -105,7 +107,7 @@ class _DiscordChannelPickerState extends State<DiscordChannelPicker> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to import: $e'),
+            content: Text(l10n.failedToImportError(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -121,6 +123,7 @@ class _DiscordChannelPickerState extends State<DiscordChannelPicker> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         title: LayoutBuilder(
@@ -177,7 +180,7 @@ class _DiscordChannelPickerState extends State<DiscordChannelPicker> {
                             });
                             _loadChannels();
                           },
-                          child: const Text('Retry'),
+                          child: Text(l10n.retryButton),
                         ),
                       ],
                     ),

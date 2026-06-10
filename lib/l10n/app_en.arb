@@ -41,39 +41,39 @@
   "@discordStep1Title": {
     "description": "Step 1 title for Discord setup"
   },
-  "discordStep1Description": "Go to discord.com/developers, create a new application, and add a bot to it. Copy the bot token.",
+  "discordStep1Description": "1. Go to discord.com/developers and click 'New Application'\n2. Enter a name (e.g., 'AIRTA Bot') and click Create\n3. In the left sidebar, click 'Bot'\n4. Click 'Add Bot' and confirm 'Yes, do it!'\n5. Under the bot username, click 'Reset Token' then 'Copy' to save it\n6. Turn OFF 'Public Bot' (private use only)\n7. Turn ON 'Message Content Intent' and 'Server Members Intent'",
   "@discordStep1Description": {
     "description": "Step 1 description for Discord setup"
   },
-  "discordStep2Title": "Enable Bot Privileges",
+  "discordStep2Title": "Get Your Bot Token",
   "@discordStep2Title": {
     "description": "Step 2 title for Discord setup"
   },
-  "discordStep2Description": "In the bot settings, enable 'Message Content Intent' and 'Server Members Intent'.",
+  "discordStep2Description": "In the Bot section (left sidebar), click 'Reset Token' under the bot username, then click 'Copy'. This token is your bot's password—keep it secret! Paste it into AIRTA's Discord settings.",
   "@discordStep2Description": {
     "description": "Step 2 description for Discord setup"
   },
-  "discordStep3Title": "Invite Bot to Server",
+  "discordStep3Title": "Invite Bot to Your Server",
   "@discordStep3Title": {
     "description": "Step 3 title for Discord setup"
   },
-  "discordStep3Description": "Use OAuth2 URL generator to invite the bot to your Discord server with required permissions.",
+  "discordStep3Description": "1. In the left sidebar, click 'OAuth2' then 'URL Generator'\n2. Under 'SCOPES', check 'bot'\n3. Under 'BOT PERMISSIONS', check:\n   • Read Messages/View Channels\n   • Read Message History\n   • Send Messages (optional)\n4. Copy the generated URL at the bottom\n5. Paste it in a new browser tab and select your server\n6. Click 'Authorize' and complete the CAPTCHA",
   "@discordStep3Description": {
     "description": "Step 3 description for Discord setup"
   },
-  "discordStep4Title": "Configure in App",
+  "discordStep4Title": "Enter Token in AIRTA",
   "@discordStep4Title": {
     "description": "Step 4 title for Discord setup"
   },
-  "discordStep4Description": "Enter your bot token in the app settings (contact support if you need help).",
+  "discordStep4Description": "Return to this app, go to Settings → Discord Bot Configuration, paste your bot token, and tap Save. The app will verify your bot can connect to Discord.",
   "@discordStep4Description": {
     "description": "Step 4 description for Discord setup"
   },
-  "discordStep5Title": "Select Channel",
+  "discordStep5Title": "Select a Channel to Analyze",
   "@discordStep5Title": {
     "description": "Step 5 title for Discord setup"
   },
-  "discordStep5Description": "Tap 'Select Discord Channel', choose your server, then select the channel to analyze.",
+  "discordStep5Description": "Back on the main screen, tap 'Select Discord Channel'. Choose your server from the list, then pick the channel you want to analyze. AIRTA will fetch recent messages and analyze them for relationship toxicity patterns.",
   "@discordStep5Description": {
     "description": "Step 5 description for Discord setup"
   },
@@ -81,7 +81,99 @@
   "@discordBotConfiguration": {
     "description": "Button to go to bot configuration page"
   },
-  "gotIt": "Got it",
+    "discordBotConfigTitle": "Discord Bot Configuration",
+  "@discordBotConfigTitle": {
+    "description": "Discord bot settings localization"
+  },
+  "discordBotTokenSetupTitle": "Bot Token Setup",
+  "@discordBotTokenSetupTitle": {
+    "description": "Discord bot settings localization"
+  },
+  "discordBotTokenSetupDescription": "Enter your Discord bot token below. This is required to access your Discord servers and channels.",
+  "@discordBotTokenSetupDescription": {
+    "description": "Discord bot settings localization"
+  },
+  "discordWhereToFindToken": "Where to find your bot token:",
+  "@discordWhereToFindToken": {
+    "description": "Discord bot settings localization"
+  },
+  "discordStepDiscordDevelopers": "Go to discord.com/developers",
+  "@discordStepDiscordDevelopers": {
+    "description": "Discord bot settings localization"
+  },
+  "discordStepClickApplication": "Click on your application",
+  "@discordStepClickApplication": {
+    "description": "Discord bot settings localization"
+  },
+  "discordStepGoToBot": "Go to \"Bot\" section",
+  "@discordStepGoToBot": {
+    "description": "Discord bot settings localization"
+  },
+  "discordStepResetToken": "Click \"Reset Token\" if needed",
+  "@discordStepResetToken": {
+    "description": "Discord bot settings localization"
+  },
+  "discordStepCopyToken": "Copy the token and paste it below",
+  "@discordStepCopyToken": {
+    "description": "Discord bot settings localization"
+  },
+  "discordNeverShareToken": "⚠️ Never share this token with anyone!",
+  "@discordNeverShareToken": {
+    "description": "Discord bot settings localization"
+  },
+  "discordBotTokenLabel": "Bot Token",
+  "@discordBotTokenLabel": {
+    "description": "Discord bot settings localization"
+  },
+  "discordBotTokenHint": "Paste your Discord bot token here",
+  "@discordBotTokenHint": {
+    "description": "Discord bot settings localization"
+  },
+  "discordTokenRequiredError": "Please enter your bot token",
+  "@discordTokenRequiredError": {
+    "description": "Discord bot settings localization"
+  },
+  "discordTokenTooShortError": "Token appears too short",
+  "@discordTokenTooShortError": {
+    "description": "Discord bot settings localization"
+  },
+  "discordSaveToken": "Save Token",
+  "@discordSaveToken": {
+    "description": "Discord bot settings localization"
+  },
+  "discordSaving": "Saving...",
+  "@discordSaving": {
+    "description": "Discord bot settings localization"
+  },
+  "discordTestConnection": "Test Connection",
+  "@discordTestConnection": {
+    "description": "Discord bot settings localization"
+  },
+  "discordViewFullSetup": "View Full Setup Instructions",
+  "@discordViewFullSetup": {
+    "description": "Discord bot settings localization"
+  },
+  "discordTokenSavedSuccess": "Bot token saved successfully",
+  "@discordTokenSavedSuccess": {
+    "description": "Discord bot settings localization"
+  },
+  "discordTokenSaveFailed": "Failed to save",
+  "@discordTokenSaveFailed": {
+    "description": "Discord bot settings localization"
+  },
+  "discordConnectionTestNotImplemented": "Connection test not yet implemented",
+  "@discordConnectionTestNotImplemented": {
+    "description": "Discord bot settings localization"
+  },
+  "discordReadyToConfigureTitle": "Ready to configure your bot?",
+  "@discordReadyToConfigureTitle": {
+    "description": "Discord bot settings localization"
+  },
+  "discordReadyToConfigureDescription": "Once you've created your Discord bot following the steps above, enter your bot token in the settings to start analyzing.",
+  "@discordReadyToConfigureDescription": {
+    "description": "Discord bot settings localization"
+  },
+"gotIt": "Got it",
   "@gotIt": {
     "description": "Button to dismiss help dialog"
   },
@@ -1810,15 +1902,319 @@
   "restorePurchasesButton": "Restore Previous Purchases",
   "restorePurchasesSuccess": "Purchases restored successfully!",
   "restorePurchasesError": "Could not restore purchases. Please try again.",
-  "restorePurchasesNoneFound": "No previous purchases found."
-,
+  "restorePurchasesNoneFound": "No previous purchases found.",
   "discordAddonPopupTitle": "Discord Feature",
-  "discordAddonPopupMessage": "This feature is available as an add-on."
-,
+  "discordAddonPopupMessage": "This feature is available as an add-on.",
   "discordAccordionTitle": "Discord Integration",
-  "discordAccordionSubtitle": "Connect Discord servers"
-,
-  "selectDiscord": "Select Discord"
-,
-  "enableDiscord": "Enable Discord"
+  "discordAccordionSubtitle": "Connect Discord servers",
+  "selectDiscord": "Select Discord",
+  "enableDiscord": "Enable Discord",
+
+  "aboutTitle": "About",
+  "@aboutTitle": {
+    "description": "Title for About page"
+  },
+  "aboutDescription": "AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.",
+  "@aboutDescription": {
+    "description": "About page app description"
+  },
+  "contactUs": "Contact Us",
+  "@contactUs": {
+    "description": "Section title for contact information"
+  },
+  "supportEmail": "Support",
+  "@supportEmail": {
+    "description": "Label for support email"
+  },
+  "supportEmailDesc": "Get help with using the app",
+  "businessEmail": "Business",
+  "@businessEmail": {
+    "description": "Label for business email"
+  },
+  "businessEmailDesc": "Partnerships and inquiries",
+  "privacyEmail": "Privacy",
+  "@privacyEmail": {
+    "description": "Label for privacy email"
+  },
+  "privacyEmailDesc": "Data and privacy questions",
+  "importantLinks": "Links",
+  "@importantLinks": {
+    "description": "Section title for important links"
+  },
+  "website": "Website",
+  "@website": {
+    "description": "Website link label"
+  },
+  "privacyPolicy": "Privacy Policy",
+  "@privacyPolicy": {
+    "description": "Privacy policy link label"
+  },
+  "termsOfService": "Terms of Service",
+  "@termsOfService": {
+    "description": "Terms of service link label"
+  },
+  "github": "GitHub",
+  "@github": {
+    "description": "GitHub repository link label"
+  },
+  "allRightsReserved": "All rights reserved.",
+  "packTheGood": "The Good",
+  "@packTheGood": {
+    "description": "Title for The Good metrics pack"
+  },
+  "packTheBad": "The Bad",
+  "@packTheBad": {
+    "description": "Title for The Bad metrics pack"
+  },
+  "packTheUgly": "The Ugly",
+  "@packTheUgly": {
+    "description": "Title for The Ugly metrics pack"
+  },
+  "packTheNarcissist": "The Narcissist",
+  "@packTheNarcissist": {
+    "description": "Title for The Narcissist metrics pack"
+  },
+  "metricsExpansionPack": "Metrics Expansion Pack",
+  "@metricsExpansionPack": {
+    "description": "Subtitle for metrics expansion packs"
+  },
+  "purchaseTitle": "Purchase {title}",
+  "@purchaseTitle": {
+    "description": "Dialog title for purchasing an item",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "notNow": "Not now",
+  "@notNow": {
+    "description": "Button to dismiss purchase dialog"
+  },
+  "buyForPrice": "Buy for {price}",
+  "@buyForPrice": {
+    "description": "Button to purchase item at given price",
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "processingPurchase": "Processing Purchase...",
+  "@processingPurchase": {
+    "description": "Dialog title shown while processing purchase"
+  },
+  "waitingForStoreConfirmation": "Waiting for store confirmation...",
+  "@waitingForStoreConfirmation": {
+    "description": "Status text while waiting for store confirmation"
+  },
+  "myMetricList": "My Metric List",
+  "@myMetricList": {
+    "description": "Hint text for metric list"
+  },
+  "botTokenSaved": "Bot token saved successfully",
+  "@botTokenSaved": {
+    "description": "SnackBar message when bot token is saved"
+  },
+  "failedToSaveError": "Failed to save: {error}",
+  "@failedToSaveError": {
+    "description": "Error message when saving fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "connectionTestNotImplemented": "Connection test not yet implemented",
+  "@connectionTestNotImplemented": {
+    "description": "Status message when connection test is not available"
+  },
+  "pasteDiscordBotTokenHint": "Paste your Discord bot token here",
+  "@pasteDiscordBotTokenHint": {
+    "description": "Hint text for Discord bot token input"
+  },
+  "botTokenLabel": "Bot Token",
+  "@botTokenLabel": {
+    "description": "Label for bot token field"
+  },
+  "botConfigButton": "Bot Config",
+  "@botConfigButton": {
+    "description": "Button label for bot configuration"
+  },
+  "customMetricPurchasePlaceholder": "Custom metric purchase would start here",
+  "@customMetricPurchasePlaceholder": {
+    "description": "Placeholder text for custom metric purchase"
+  },
+  "configureBotToken": "Configure Bot Token",
+  "@configureBotToken": {
+    "description": "Button to configure bot token"
+  },
+  "retryButton": "Retry",
+  "@retryButton": {
+    "description": "Button to retry an operation"
+  },
+  "ownerLabel": "Owner",
+  "@ownerLabel": {
+    "description": "Label indicating server owner"
+  },
+  "noMessagesInChannel": "No messages found in this channel",
+  "@noMessagesInChannel": {
+    "description": "Status when no messages are found"
+  },
+  "failedToImportError": "Failed to import: {error}",
+  "@failedToImportError": {
+    "description": "Error message when import fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "proMembershipUpsell": "Pro Membership - $0.99/mo",
+  "@proMembershipUpsell": {
+    "description": "Upsell text for Pro membership"
+  },
+  "unlockForPrice": "Unlock for {price}",
+  "@unlockForPrice": {
+    "description": "Button to unlock feature for price",
+    "placeholders": {
+      "price": { "type": "String" }
+    }
+  },
+  "startCapture": "Start Capture",
+  "@startCapture": {
+    "description": "Button to start screenshot capture"
+  },
+  "finishAndProcess": "Finish & Process",
+  "@finishAndProcess": {
+    "description": "Button to finish and process screenshots"
+  },
+  "cancelButton": "Cancel",
+  "@cancelButton": {
+    "description": "Cancel button"
+  },
+  "processScreenshots": "Process Screenshots",
+  "@processScreenshots": {
+    "description": "Button to process screenshots"
+  },
+  "startOver": "Start Over",
+  "@startOver": {
+    "description": "Button to start over"
+  },
+  "capturingStatus": "Capturing...",
+  "@capturingStatus": {
+    "description": "Status while capturing"
+  },
+  "captureComplete": "Capture Complete",
+  "@captureComplete": {
+    "description": "Status when capture is complete"
+  },
+  "noMessagesInDateRange": "No Messages Found in Date Range",
+  "@noMessagesInDateRange": {
+    "description": "Status when no messages in date range"
+  },
+  "errorDialogTitle": "Error",
+  "@errorDialogTitle": {
+    "description": "Title for error dialog"
+  },
+  "failedToLoadConversation": "Failed to load conversation: {error}",
+  "@failedToLoadConversation": {
+    "description": "Error when loading conversation fails",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "selectConversationTitle": "Select Conversation",
+  "@selectConversationTitle": {
+    "description": "Title for conversation selection"
+  },
+  "platformCredentialsTitle": "Platform Credentials",
+  "@platformCredentialsTitle": {
+    "description": "Title for platform credentials page"
+  },
+  "saveCredentialsTooltip": "Save Credentials",
+  "@saveCredentialsTooltip": {
+    "description": "Tooltip for save credentials button"
+  },
+  "upgradeToProPlusTitle": "Upgrade to Pro Plus",
+  "@upgradeToProPlusTitle": {
+    "description": "Dialog title for Pro Plus upgrade"
+  },
+  "upgradeNowButton": "Upgrade Now",
+  "@upgradeNowButton": {
+    "description": "Button to upgrade now"
+  },
+  "selectLanguageTooltip": "Select Language",
+  "@selectLanguageTooltip": {
+    "description": "Tooltip for language selector"
+  },
+  "nextSizeButton": "Next Size",
+  "@nextSizeButton": {
+    "description": "Button to go to next screenshot size"
+  },
+  "startSequenceButton": "Start Sequence",
+  "@startSequenceButton": {
+    "description": "Button to start screenshot sequence"
+  },
+  "nextSizeInstruction": "Click \"Next Size\" for next dimension",
+  "@nextSizeInstruction": {
+    "description": "Instruction for next size button"
+  },
+  "okButton": "OK",
+  "@okButton": {
+    "description": "OK button"
+  },
+  "noMessagesInDateRangeBody": "No messages were found in the selected date range. Try adjusting the date range.",
+  "@noMessagesInDateRangeBody": {
+    "description": "Body text when no messages found in date range"
+  },
+  "credentialsSavedSuccess": "Credentials saved successfully",
+  "@credentialsSavedSuccess": {
+    "description": "Success message when platform credentials are saved"
+  },
+  "errorSavingCredentials": "Error saving credentials: {error}",
+  "@errorSavingCredentials": {
+    "description": "Error message when saving platform credentials fails",
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "credentialsSecurityInfo": "Your credentials are stored securely on this device only and are never uploaded to our servers.",
+  "@credentialsSecurityInfo": {
+    "description": "Security information about credential storage"
+  },
+  "savingButton": "Saving...",
+  "@savingButton": {
+    "description": "Button label while saving is in progress"
+  },
+  "saveAllCredentials": "Save Credentials",
+  "@saveAllCredentials": {
+    "description": "Button label to save all platform credentials"
+  },
+  "proPlusLabel": "Pro+",
+  "@proPlusLabel": {
+    "description": "Label indicating Pro Plus tier requirement"
+  },
+  "upgradeButton": "Upgrade",
+  "@upgradeButton": {
+    "description": "Button to open upgrade/upsell dialog"
+  },
+  "usernameLabel": "Username",
+  "@usernameLabel": {
+    "description": "Label for username input field"
+  },
+  "passwordLabel": "Password",
+  "@passwordLabel": {
+    "description": "Label for password input field"
+  },
+  "upgradeToProPlusBody": "Upgrade to Pro Plus to access third-party platform integrations and advanced features.",
+  "@upgradeToProPlusBody": {
+    "description": "Body text for upgrade to Pro Plus dialog"
+  },
+  "noConversationsFoundBody": "No conversations were found. Make sure your credentials are correct and try again.",
+  "@noConversationsFoundBody": {
+    "description": "Body text when no conversations are found"
+  }
 }

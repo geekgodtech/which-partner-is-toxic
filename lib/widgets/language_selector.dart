@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:airta/services/language_service.dart';
+import 'package:airta/l10n/app_localizations.dart';
 
 /// Language selector dropdown with flag and language code
 class LanguageSelector extends StatelessWidget {
@@ -11,9 +12,10 @@ class LanguageSelector extends StatelessWidget {
     return Consumer<LanguageService>(
       builder: (context, languageService, child) {
         final currentLanguage = languageService.currentLanguage;
+        final l10n = AppLocalizations.of(context)!;
 
         return PopupMenuButton<String>(
-          tooltip: 'Select Language',
+          tooltip: l10n.selectLanguageTooltip,
           offset: const Offset(0, 40),
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),

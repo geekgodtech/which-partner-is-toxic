@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:airta/l10n/app_localizations.dart';
 import 'discord_settings_page.dart';
 
@@ -53,6 +54,16 @@ class DiscordSetupHelp extends StatelessWidget {
                   description: l10n.discordStep1Description,
                   isSmallScreen: isSmallScreen,
                 ),
+                SizedBox(height: isSmallScreen ? 4 : 8),
+                Padding(
+                  padding: EdgeInsets.only(left: isSmallScreen ? 36 : 48),
+                  child: _LinkButton(
+                    url: 'https://discord.com/developers/applications',
+                    label: 'Open Discord Developer Portal →',
+                    icon: Icons.open_in_new,
+                    isSmallScreen: isSmallScreen,
+                  ),
+                ),
                 SizedBox(height: isSmallScreen ? 12 : 16),
                 _StepNumber(
                   number: 2,
@@ -97,7 +108,7 @@ class DiscordSetupHelp extends StatelessWidget {
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
-                              'Ready to configure your bot?',
+                              l10n.discordReadyToConfigureTitle,
                               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -107,7 +118,7 @@ class DiscordSetupHelp extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        "Once you've created your Discord bot following the steps above, enter your bot token in the settings to start analyzing.",
+                        l10n.discordReadyToConfigureDescription,
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                       const SizedBox(height: 12),
@@ -120,8 +131,8 @@ class DiscordSetupHelp extends StatelessWidget {
                             ),
                           );
                         },
-                        icon: const Icon(Icons.arrow_forward),
-                        label: Text(l10n.discordBotConfiguration),
+                        icon: const Icon(Icons.settings),
+                        label: Text(l10n.botConfigButton),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF5865F2),
                           foregroundColor: Colors.white,
@@ -140,6 +151,67 @@ class DiscordSetupHelp extends StatelessWidget {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _LinkButton extends StatelessWidget {
+  final String url;
+  final String label;
+  final IconData icon;
+  final bool isSmallScreen;
+
+  const _LinkButton({
+    required this.url,
+    required this.label,
+    required this.icon,
+    this.isSmallScreen = false,
+  });
+
+  Future<void> _launchUrl() async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: _launchUrl,
+      borderRadius: BorderRadius.circular(8),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: isSmallScreen ? 8 : 12,
+          vertical: isSmallScreen ? 6 : 8,
+        ),
+        decoration: BoxDecoration(
+          color: const Color(0xFF5865F2).withOpacity(0.1),
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: const Color(0xFF5865F2).withOpacity(0.3),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              size: isSmallScreen ? 14 : 16,
+              color: const Color(0xFF5865F2),
+            ),
+            SizedBox(width: isSmallScreen ? 4 : 6),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: isSmallScreen ? 12 : 14,
+                color: const Color(0xFF5865F2),
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
         ),
       ),
     );

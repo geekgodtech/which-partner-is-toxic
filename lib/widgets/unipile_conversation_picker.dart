@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:airta/controllers/toxicity_analyzer_controller.dart';
 import 'package:airta/services/unipile_integration_service.dart';
 import 'package:airta/models.dart';
+import 'package:airta/l10n/app_localizations.dart';
 
 class UnipileConversationPicker extends StatefulWidget {
   final ToxicityAnalyzerController controller;
@@ -96,16 +97,19 @@ class _UnipileConversationPickerState
         // Show error
         showDialog(
           context: context,
-          builder: (context) => AlertDialog(
-            title: const Text('Error'),
-            content: Text('Failed to load conversation: $e'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text('OK'),
-              ),
-            ],
-          ),
+          builder: (context) {
+            final l10n = AppLocalizations.of(context)!;
+            return AlertDialog(
+              title: Text(l10n.errorDialogTitle),
+              content: Text(l10n.failedToLoadConversation(e.toString())),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text(l10n.okButton),
+                ),
+              ],
+            );
+          },
         );
       }
     }
@@ -113,13 +117,14 @@ class _UnipileConversationPickerState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         title: LayoutBuilder(
           builder: (context, constraints) {
             final isNarrow = constraints.maxWidth < 400;
             return Text(
-              'Select Conversation',
+              l10n.selectConversationTitle,
               style: TextStyle(
                 fontSize: isNarrow ? 18 : 20,
                 height: 1.0,
@@ -136,6 +141,7 @@ class _UnipileConversationPickerState
   }
 
   Widget _buildBody() {
+    final l10n = AppLocalizations.of(context)!;
     if (_isLoading) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -150,7 +156,7 @@ class _UnipileConversationPickerState
               const Icon(Icons.error_outline, size: 64, color: Colors.red),
               const SizedBox(height: 16),
               Text(
-                'Error Loading Conversations',
+                l10n.errorLoadingConversations,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 8),
@@ -162,7 +168,7 @@ class _UnipileConversationPickerState
               ElevatedButton.icon(
                 onPressed: _loadConversations,
                 icon: const Icon(Icons.refresh),
-                label: const Text('Retry'),
+                label: Text(l10n.retryButton),
               ),
             ],
           ),
@@ -180,12 +186,12 @@ class _UnipileConversationPickerState
               const Icon(Icons.chat_bubble_outline, size: 80),
               const SizedBox(height: 24),
               Text(
-                'No Conversations Found',
+                l10n.noConversationsFound,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 12),
-              const Text(
-                'No conversations were found in your connected accounts.',
+              Text(
+                l10n.noConversationsFoundBody,
                 textAlign: TextAlign.center,
               ),
             ],

@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "de",
   "appTitle": "KI-Beziehungstoxizitäts-Analysator",
   "psychologicalMetrics": "Psychologische Metriken",
@@ -1371,4 +1371,78 @@
   "selectDiscord": "Discord wählen"
 ,
   "enableDiscord": "Discord aktivieren"
+,
+  "packTheGood": "Das Gute",
+  "packTheBad": "Das Schlechte",
+  "packTheUgly": "Das Hässliche",
+  "packTheNarcissist": "Der Narzisst",
+  "metricsExpansionPack": "Metriken-Erweiterungspaket",
+  "purchaseTitle": "Kauf",
+  "buyForPrice": "Kaufen für {price}",
+  "@buyForPrice": {
+    "description": "Button label to purchase something at a given price",
+    "placeholders": {
+      "price": { "type": "String" }
+    }
+  },
+  "processingPurchase": "Kauf wird verarbeitet…",
+  "waitingForStoreConfirmation": "Warte auf Bestätigung des Stores…",
+  "myMetricList": "Meine Metrikliste",
+  "botTokenSaved": "Bot-Token gespeichert",
+  "failedToSaveError": "Speichern fehlgeschlagen: {error}",
+  "@failedToSaveError": {
+    "description": "Error message when saving fails",
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "connectionTestNotImplemented": "Verbindungstest noch nicht implementiert",
+  "pasteDiscordBotTokenHint": "Discord Bot-Token hier einfügen",
+  "botTokenLabel": "Bot-Token",
+  "botConfigButton": "Bot konfigurieren",
+  "customMetricPurchasePlaceholder": "z. B. Passiv-Aggressivität, Eifersucht…",
+  "configureBotToken": "Bot-Token konfigurieren",
+  "retryButton": "Erneut versuchen",
+  "ownerLabel": "Eigentümer",
+  "noMessagesInChannel": "Keine Nachrichten in diesem Kanal gefunden.",
+  "failedToImportError": "Import fehlgeschlagen: {error}",
+  "@failedToImportError": {
+    "description": "Error message when import fails",
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "proMembershipUpsell": "Schalten Sie die Pro-Mitgliedschaft frei, um auf alle Funktionen zuzugreifen.",
+  "unlockForPrice": "Für {price} freischalten",
+  "@unlockForPrice": {
+    "description": "Button label to unlock something at a given price",
+    "placeholders": {
+      "price": { "type": "String" }
+    }
+  },
+  "startCapture": "Aufnahme starten",
+  "finishAndProcess": "Abschließen und verarbeiten",
+  "cancelButton": "Abbrechen",
+  "processScreenshots": "Screenshots verarbeiten",
+  "startOver": "Von vorne beginnen",
+  "capturingStatus": "Aufnahme läuft… {count} Screenshot(s) erfasst",
+  "@capturingStatus": {
+    "description": "Status message showing how many screenshots have been captured",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "captureComplete": "Aufnahme abgeschlossen",
+  "errorDialogTitle": "Fehler",
+  "failedToLoadConversation": "Konversation konnte nicht geladen werden.",
+  "selectConversationTitle": "Konversation auswählen",
+  "platformCredentialsTitle": "Plattform-Anmeldedaten",
+  "saveCredentialsTooltip": "Anmeldedaten speichern",
+  "upgradeToProPlusTitle": "Auf Pro+ upgraden",
+  "upgradeNowButton": "Jetzt upgraden",
+  "selectLanguageTooltip": "Sprache auswählen",
+  "nextSizeButton": "Nächste Größe",
+  "startSequenceButton": "Sequenz starten",
+  "nextSizeInstruction": "Wechseln Sie zur nächsten Gerätegröße und tippen Sie dann auf „Sequenz starten“.",
+  "okButton": "OK"
 }

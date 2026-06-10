@@ -506,7 +506,7 @@ void showPremiumUpsellDialog(BuildContext context) {
               Navigator.of(dialogContext).pop();
               _openMembershipLandingPage(context);
             },
-            child: const Text('Pro Membership - \$19.99/mo'),
+            child: Text(AppLocalizations.of(context)!.proMembershipUpsell),
           ),
         ],
       );
@@ -599,6 +599,7 @@ class _DiscountCountdownSnackBarState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Row(
       children: [
         Expanded(
@@ -608,7 +609,7 @@ class _DiscountCountdownSnackBarState
         ),
         TextButton(
           onPressed: _secondsRemaining > 0 ? widget.onUnlock : null,
-          child: const Text('Unlock for \$10'),
+          child: Text(l10n.unlockForPrice(r'$10')),
         ),
       ],
     );

@@ -76,6 +76,78 @@ class AppLocalizationsKo extends AppLocalizations {
   String get discordBotConfiguration => '봇 구성';
 
   @override
+  String get discordBotConfigTitle => 'Discord Bot Configuration';
+
+  @override
+  String get discordBotTokenSetupTitle => 'Bot Token Setup';
+
+  @override
+  String get discordBotTokenSetupDescription =>
+      'Enter your Discord bot token below. This is required to access your Discord servers and channels.';
+
+  @override
+  String get discordWhereToFindToken => 'Where to find your bot token:';
+
+  @override
+  String get discordStepDiscordDevelopers => 'Go to discord.com/developers';
+
+  @override
+  String get discordStepClickApplication => 'Click on your application';
+
+  @override
+  String get discordStepGoToBot => 'Go to \"Bot\" section';
+
+  @override
+  String get discordStepResetToken => 'Click \"Reset Token\" if needed';
+
+  @override
+  String get discordStepCopyToken => 'Copy the token and paste it below';
+
+  @override
+  String get discordNeverShareToken => '⚠️ Never share this token with anyone!';
+
+  @override
+  String get discordBotTokenLabel => 'Bot Token';
+
+  @override
+  String get discordBotTokenHint => 'Paste your Discord bot token here';
+
+  @override
+  String get discordTokenRequiredError => 'Please enter your bot token';
+
+  @override
+  String get discordTokenTooShortError => 'Token appears too short';
+
+  @override
+  String get discordSaveToken => 'Save Token';
+
+  @override
+  String get discordSaving => 'Saving...';
+
+  @override
+  String get discordTestConnection => 'Test Connection';
+
+  @override
+  String get discordViewFullSetup => 'View Full Setup Instructions';
+
+  @override
+  String get discordTokenSavedSuccess => 'Bot token saved successfully';
+
+  @override
+  String get discordTokenSaveFailed => 'Failed to save';
+
+  @override
+  String get discordConnectionTestNotImplemented =>
+      'Connection test not yet implemented';
+
+  @override
+  String get discordReadyToConfigureTitle => 'Ready to configure your bot?';
+
+  @override
+  String get discordReadyToConfigureDescription =>
+      'Once you\'ve created your Discord bot following the steps above, enter your bot token in the settings to start analyzing.';
+
+  @override
   String get gotIt => '알겠습니다';
 
   @override
@@ -131,7 +203,7 @@ class AppLocalizationsKo extends AppLocalizations {
       'The embedded PDF window starts closed to keep the report compact.';
 
   @override
-  String get notNow => 'Not now';
+  String get notNow => '지금 아님';
 
   @override
   String get unlockThisReport => 'Unlock This Report - \$20';
@@ -1418,8 +1490,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get noMessagesInDateRange =>
-      '선택된 날짜 범위에서 메시지를 찾을 수 없습니다. 다른 날짜를 선택하거나 날짜 필터를 지우세요.';
+  String get noMessagesInDateRange => '선택한 날짜 범위에 메시지 없음';
 
   @override
   String get purchaseCustomMetricTileTitle => '커스텀 지표 구매';
@@ -4508,4 +4579,233 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get enableDiscord => 'Discord 활성화';
+
+  @override
+  String get aboutTitle => 'About';
+
+  @override
+  String get aboutDescription =>
+      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+
+  @override
+  String get contactUs => 'Contact Us';
+
+  @override
+  String get supportEmail => 'Support';
+
+  @override
+  String get supportEmailDesc => 'Get help with using the app';
+
+  @override
+  String get businessEmail => 'Business';
+
+  @override
+  String get businessEmailDesc => 'Partnerships and inquiries';
+
+  @override
+  String get privacyEmail => 'Privacy';
+
+  @override
+  String get privacyEmailDesc => 'Data and privacy questions';
+
+  @override
+  String get importantLinks => 'Links';
+
+  @override
+  String get website => 'Website';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get termsOfService => 'Terms of Service';
+
+  @override
+  String get github => 'GitHub';
+
+  @override
+  String get allRightsReserved => 'All rights reserved.';
+
+  @override
+  String get packTheGood => '팩: 좋은';
+
+  @override
+  String get packTheBad => '팩: 나쁜';
+
+  @override
+  String get packTheUgly => '팩: 추한';
+
+  @override
+  String get packTheNarcissist => '팩: 자기애자';
+
+  @override
+  String get metricsExpansionPack => '메트릭 확장팩';
+
+  @override
+  String purchaseTitle(String title) {
+    return '구매';
+  }
+
+  @override
+  String buyForPrice(String price) {
+    return '$price에 구매';
+  }
+
+  @override
+  String get processingPurchase => '구매 처리 중...';
+
+  @override
+  String get waitingForStoreConfirmation => '스토어 확인 대기 중...';
+
+  @override
+  String get myMetricList => '내 메트릭 목록';
+
+  @override
+  String get botTokenSaved => '봇 토큰 저장됨';
+
+  @override
+  String failedToSaveError(String error) {
+    return '저장 실패';
+  }
+
+  @override
+  String get connectionTestNotImplemented => '연결 테스트가 아직 구현되지 않았습니다';
+
+  @override
+  String get pasteDiscordBotTokenHint => '여기에 Discord 봇 토큰을 붙여넣으세요';
+
+  @override
+  String get botTokenLabel => '봇 토큰';
+
+  @override
+  String get botConfigButton => '봇 구성';
+
+  @override
+  String get customMetricPurchasePlaceholder => '커스텀 메트릭 (구매)';
+
+  @override
+  String get configureBotToken => '봇 토큰 구성';
+
+  @override
+  String get retryButton => '다시 시도';
+
+  @override
+  String get ownerLabel => '소유자';
+
+  @override
+  String get noMessagesInChannel => '이 채널에 메시지 없음';
+
+  @override
+  String failedToImportError(String error) {
+    return '가져오기 실패';
+  }
+
+  @override
+  String get proMembershipUpsell => 'Pro로 업그레이드하여 전체 접근';
+
+  @override
+  String unlockForPrice(String price) {
+    return '$price에 잠금 해제';
+  }
+
+  @override
+  String get startCapture => '캡처 시작';
+
+  @override
+  String get finishAndProcess => '완료 및 처리';
+
+  @override
+  String get cancelButton => '취소';
+
+  @override
+  String get processScreenshots => '스크린샷 처리';
+
+  @override
+  String get startOver => '처음부터 다시';
+
+  @override
+  String get capturingStatus => '캡처 중...';
+
+  @override
+  String get captureComplete => '캡처 완료!';
+
+  @override
+  String get errorDialogTitle => '오류';
+
+  @override
+  String failedToLoadConversation(String error) {
+    return '대화 로드 실패';
+  }
+
+  @override
+  String get selectConversationTitle => '대화 선택';
+
+  @override
+  String get platformCredentialsTitle => '플랫폼 자격 증명';
+
+  @override
+  String get saveCredentialsTooltip => '자격 증명 저장';
+
+  @override
+  String get upgradeToProPlusTitle => 'Pro+로 업그레이드';
+
+  @override
+  String get upgradeNowButton => '지금 업그레이드';
+
+  @override
+  String get selectLanguageTooltip => '언어 선택';
+
+  @override
+  String get nextSizeButton => '다음 크기';
+
+  @override
+  String get startSequenceButton => '시퀀스 시작';
+
+  @override
+  String get nextSizeInstruction => '계속하려면 다음 크기를 누르세요';
+
+  @override
+  String get okButton => '확인';
+
+  @override
+  String get noMessagesInDateRangeBody =>
+      'No messages were found in the selected date range. Try adjusting the date range.';
+
+  @override
+  String get credentialsSavedSuccess => 'Credentials saved successfully';
+
+  @override
+  String errorSavingCredentials(String error) {
+    return 'Error saving credentials: $error';
+  }
+
+  @override
+  String get credentialsSecurityInfo =>
+      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+
+  @override
+  String get savingButton => 'Saving...';
+
+  @override
+  String get saveAllCredentials => 'Save Credentials';
+
+  @override
+  String get proPlusLabel => 'Pro+';
+
+  @override
+  String get upgradeButton => 'Upgrade';
+
+  @override
+  String get usernameLabel => 'Username';
+
+  @override
+  String get passwordLabel => 'Password';
+
+  @override
+  String get upgradeToProPlusBody =>
+      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+
+  @override
+  String get noConversationsFoundBody =>
+      'No conversations were found. Make sure your credentials are correct and try again.';
 }

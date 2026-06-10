@@ -189,55 +189,55 @@ abstract class AppLocalizations {
   /// Step 1 description for Discord setup
   ///
   /// In en, this message translates to:
-  /// **'Go to discord.com/developers, create a new application, and add a bot to it. Copy the bot token.'**
+  /// **'1. Go to discord.com/developers and click \'New Application\'\n2. Enter a name (e.g., \'AIRTA Bot\') and click Create\n3. In the left sidebar, click \'Bot\'\n4. Click \'Add Bot\' and confirm \'Yes, do it!\'\n5. Under the bot username, click \'Reset Token\' then \'Copy\' to save it\n6. Turn OFF \'Public Bot\' (private use only)\n7. Turn ON \'Message Content Intent\' and \'Server Members Intent\''**
   String get discordStep1Description;
 
   /// Step 2 title for Discord setup
   ///
   /// In en, this message translates to:
-  /// **'Enable Bot Privileges'**
+  /// **'Get Your Bot Token'**
   String get discordStep2Title;
 
   /// Step 2 description for Discord setup
   ///
   /// In en, this message translates to:
-  /// **'In the bot settings, enable \'Message Content Intent\' and \'Server Members Intent\'.'**
+  /// **'In the Bot section (left sidebar), click \'Reset Token\' under the bot username, then click \'Copy\'. This token is your bot\'s password—keep it secret! Paste it into AIRTA\'s Discord settings.'**
   String get discordStep2Description;
 
   /// Step 3 title for Discord setup
   ///
   /// In en, this message translates to:
-  /// **'Invite Bot to Server'**
+  /// **'Invite Bot to Your Server'**
   String get discordStep3Title;
 
   /// Step 3 description for Discord setup
   ///
   /// In en, this message translates to:
-  /// **'Use OAuth2 URL generator to invite the bot to your Discord server with required permissions.'**
+  /// **'1. In the left sidebar, click \'OAuth2\' then \'URL Generator\'\n2. Under \'SCOPES\', check \'bot\'\n3. Under \'BOT PERMISSIONS\', check:\n   • Read Messages/View Channels\n   • Read Message History\n   • Send Messages (optional)\n4. Copy the generated URL at the bottom\n5. Paste it in a new browser tab and select your server\n6. Click \'Authorize\' and complete the CAPTCHA'**
   String get discordStep3Description;
 
   /// Step 4 title for Discord setup
   ///
   /// In en, this message translates to:
-  /// **'Configure in App'**
+  /// **'Enter Token in AIRTA'**
   String get discordStep4Title;
 
   /// Step 4 description for Discord setup
   ///
   /// In en, this message translates to:
-  /// **'Enter your bot token in the app settings (contact support if you need help).'**
+  /// **'Return to this app, go to Settings → Discord Bot Configuration, paste your bot token, and tap Save. The app will verify your bot can connect to Discord.'**
   String get discordStep4Description;
 
   /// Step 5 title for Discord setup
   ///
   /// In en, this message translates to:
-  /// **'Select Channel'**
+  /// **'Select a Channel to Analyze'**
   String get discordStep5Title;
 
   /// Step 5 description for Discord setup
   ///
   /// In en, this message translates to:
-  /// **'Tap \'Select Discord Channel\', choose your server, then select the channel to analyze.'**
+  /// **'Back on the main screen, tap \'Select Discord Channel\'. Choose your server from the list, then pick the channel you want to analyze. AIRTA will fetch recent messages and analyze them for relationship toxicity patterns.'**
   String get discordStep5Description;
 
   /// Button to go to bot configuration page
@@ -245,6 +245,144 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Bot Configuration'**
   String get discordBotConfiguration;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Discord Bot Configuration'**
+  String get discordBotConfigTitle;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Bot Token Setup'**
+  String get discordBotTokenSetupTitle;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your Discord bot token below. This is required to access your Discord servers and channels.'**
+  String get discordBotTokenSetupDescription;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Where to find your bot token:'**
+  String get discordWhereToFindToken;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Go to discord.com/developers'**
+  String get discordStepDiscordDevelopers;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Click on your application'**
+  String get discordStepClickApplication;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Go to \"Bot\" section'**
+  String get discordStepGoToBot;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Click \"Reset Token\" if needed'**
+  String get discordStepResetToken;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Copy the token and paste it below'**
+  String get discordStepCopyToken;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'⚠️ Never share this token with anyone!'**
+  String get discordNeverShareToken;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Bot Token'**
+  String get discordBotTokenLabel;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Paste your Discord bot token here'**
+  String get discordBotTokenHint;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your bot token'**
+  String get discordTokenRequiredError;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Token appears too short'**
+  String get discordTokenTooShortError;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Save Token'**
+  String get discordSaveToken;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Saving...'**
+  String get discordSaving;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Test Connection'**
+  String get discordTestConnection;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'View Full Setup Instructions'**
+  String get discordViewFullSetup;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Bot token saved successfully'**
+  String get discordTokenSavedSuccess;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save'**
+  String get discordTokenSaveFailed;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Connection test not yet implemented'**
+  String get discordConnectionTestNotImplemented;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to configure your bot?'**
+  String get discordReadyToConfigureTitle;
+
+  /// Discord bot settings localization
+  ///
+  /// In en, this message translates to:
+  /// **'Once you\'ve created your Discord bot following the steps above, enter your bot token in the settings to start analyzing.'**
+  String get discordReadyToConfigureDescription;
 
   /// Button to dismiss help dialog
   ///
@@ -354,7 +492,7 @@ abstract class AppLocalizations {
   /// **'The embedded PDF window starts closed to keep the report compact.'**
   String get pdfPreviewDescription;
 
-  /// Button to dismiss dialog
+  /// Button to dismiss purchase dialog
   ///
   /// In en, this message translates to:
   /// **'Not now'**
@@ -2628,10 +2766,10 @@ abstract class AppLocalizations {
   /// **'Continuing to load the massive thread with {name}…'**
   String continuingToLoadMassiveThread(String name);
 
-  /// No description provided for @noMessagesInDateRange.
+  /// Status when no messages in date range
   ///
   /// In en, this message translates to:
-  /// **'No messages found in the selected date range. Please select different dates or clear the date filter.'**
+  /// **'No Messages Found in Date Range'**
   String get noMessagesInDateRange;
 
   /// Title label on the Purchase Custom Metric tile in the metrics grid
@@ -7997,6 +8135,426 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enable Discord'**
   String get enableDiscord;
+
+  /// Title for About page
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get aboutTitle;
+
+  /// About page app description
+  ///
+  /// In en, this message translates to:
+  /// **'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.'**
+  String get aboutDescription;
+
+  /// Section title for contact information
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Us'**
+  String get contactUs;
+
+  /// Label for support email
+  ///
+  /// In en, this message translates to:
+  /// **'Support'**
+  String get supportEmail;
+
+  /// No description provided for @supportEmailDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Get help with using the app'**
+  String get supportEmailDesc;
+
+  /// Label for business email
+  ///
+  /// In en, this message translates to:
+  /// **'Business'**
+  String get businessEmail;
+
+  /// No description provided for @businessEmailDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Partnerships and inquiries'**
+  String get businessEmailDesc;
+
+  /// Label for privacy email
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy'**
+  String get privacyEmail;
+
+  /// No description provided for @privacyEmailDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Data and privacy questions'**
+  String get privacyEmailDesc;
+
+  /// Section title for important links
+  ///
+  /// In en, this message translates to:
+  /// **'Links'**
+  String get importantLinks;
+
+  /// Website link label
+  ///
+  /// In en, this message translates to:
+  /// **'Website'**
+  String get website;
+
+  /// Privacy policy link label
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacyPolicy;
+
+  /// Terms of service link label
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Service'**
+  String get termsOfService;
+
+  /// GitHub repository link label
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub'**
+  String get github;
+
+  /// No description provided for @allRightsReserved.
+  ///
+  /// In en, this message translates to:
+  /// **'All rights reserved.'**
+  String get allRightsReserved;
+
+  /// Title for The Good metrics pack
+  ///
+  /// In en, this message translates to:
+  /// **'The Good'**
+  String get packTheGood;
+
+  /// Title for The Bad metrics pack
+  ///
+  /// In en, this message translates to:
+  /// **'The Bad'**
+  String get packTheBad;
+
+  /// Title for The Ugly metrics pack
+  ///
+  /// In en, this message translates to:
+  /// **'The Ugly'**
+  String get packTheUgly;
+
+  /// Title for The Narcissist metrics pack
+  ///
+  /// In en, this message translates to:
+  /// **'The Narcissist'**
+  String get packTheNarcissist;
+
+  /// Subtitle for metrics expansion packs
+  ///
+  /// In en, this message translates to:
+  /// **'Metrics Expansion Pack'**
+  String get metricsExpansionPack;
+
+  /// Dialog title for purchasing an item
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase {title}'**
+  String purchaseTitle(String title);
+
+  /// Button to purchase item at given price
+  ///
+  /// In en, this message translates to:
+  /// **'Buy for {price}'**
+  String buyForPrice(String price);
+
+  /// Dialog title shown while processing purchase
+  ///
+  /// In en, this message translates to:
+  /// **'Processing Purchase...'**
+  String get processingPurchase;
+
+  /// Status text while waiting for store confirmation
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for store confirmation...'**
+  String get waitingForStoreConfirmation;
+
+  /// Hint text for metric list
+  ///
+  /// In en, this message translates to:
+  /// **'My Metric List'**
+  String get myMetricList;
+
+  /// SnackBar message when bot token is saved
+  ///
+  /// In en, this message translates to:
+  /// **'Bot token saved successfully'**
+  String get botTokenSaved;
+
+  /// Error message when saving fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save: {error}'**
+  String failedToSaveError(String error);
+
+  /// Status message when connection test is not available
+  ///
+  /// In en, this message translates to:
+  /// **'Connection test not yet implemented'**
+  String get connectionTestNotImplemented;
+
+  /// Hint text for Discord bot token input
+  ///
+  /// In en, this message translates to:
+  /// **'Paste your Discord bot token here'**
+  String get pasteDiscordBotTokenHint;
+
+  /// Label for bot token field
+  ///
+  /// In en, this message translates to:
+  /// **'Bot Token'**
+  String get botTokenLabel;
+
+  /// Button label for bot configuration
+  ///
+  /// In en, this message translates to:
+  /// **'Bot Config'**
+  String get botConfigButton;
+
+  /// Placeholder text for custom metric purchase
+  ///
+  /// In en, this message translates to:
+  /// **'Custom metric purchase would start here'**
+  String get customMetricPurchasePlaceholder;
+
+  /// Button to configure bot token
+  ///
+  /// In en, this message translates to:
+  /// **'Configure Bot Token'**
+  String get configureBotToken;
+
+  /// Button to retry an operation
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retryButton;
+
+  /// Label indicating server owner
+  ///
+  /// In en, this message translates to:
+  /// **'Owner'**
+  String get ownerLabel;
+
+  /// Status when no messages are found
+  ///
+  /// In en, this message translates to:
+  /// **'No messages found in this channel'**
+  String get noMessagesInChannel;
+
+  /// Error message when import fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to import: {error}'**
+  String failedToImportError(String error);
+
+  /// Upsell text for Pro membership
+  ///
+  /// In en, this message translates to:
+  /// **'Pro Membership - \$0.99/mo'**
+  String get proMembershipUpsell;
+
+  /// Button to unlock feature for price
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock for {price}'**
+  String unlockForPrice(String price);
+
+  /// Button to start screenshot capture
+  ///
+  /// In en, this message translates to:
+  /// **'Start Capture'**
+  String get startCapture;
+
+  /// Button to finish and process screenshots
+  ///
+  /// In en, this message translates to:
+  /// **'Finish & Process'**
+  String get finishAndProcess;
+
+  /// Cancel button
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancelButton;
+
+  /// Button to process screenshots
+  ///
+  /// In en, this message translates to:
+  /// **'Process Screenshots'**
+  String get processScreenshots;
+
+  /// Button to start over
+  ///
+  /// In en, this message translates to:
+  /// **'Start Over'**
+  String get startOver;
+
+  /// Status while capturing
+  ///
+  /// In en, this message translates to:
+  /// **'Capturing...'**
+  String get capturingStatus;
+
+  /// Status when capture is complete
+  ///
+  /// In en, this message translates to:
+  /// **'Capture Complete'**
+  String get captureComplete;
+
+  /// Title for error dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get errorDialogTitle;
+
+  /// Error when loading conversation fails
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load conversation: {error}'**
+  String failedToLoadConversation(String error);
+
+  /// Title for conversation selection
+  ///
+  /// In en, this message translates to:
+  /// **'Select Conversation'**
+  String get selectConversationTitle;
+
+  /// Title for platform credentials page
+  ///
+  /// In en, this message translates to:
+  /// **'Platform Credentials'**
+  String get platformCredentialsTitle;
+
+  /// Tooltip for save credentials button
+  ///
+  /// In en, this message translates to:
+  /// **'Save Credentials'**
+  String get saveCredentialsTooltip;
+
+  /// Dialog title for Pro Plus upgrade
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade to Pro Plus'**
+  String get upgradeToProPlusTitle;
+
+  /// Button to upgrade now
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade Now'**
+  String get upgradeNowButton;
+
+  /// Tooltip for language selector
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
+  String get selectLanguageTooltip;
+
+  /// Button to go to next screenshot size
+  ///
+  /// In en, this message translates to:
+  /// **'Next Size'**
+  String get nextSizeButton;
+
+  /// Button to start screenshot sequence
+  ///
+  /// In en, this message translates to:
+  /// **'Start Sequence'**
+  String get startSequenceButton;
+
+  /// Instruction for next size button
+  ///
+  /// In en, this message translates to:
+  /// **'Click \"Next Size\" for next dimension'**
+  String get nextSizeInstruction;
+
+  /// OK button
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get okButton;
+
+  /// Body text when no messages found in date range
+  ///
+  /// In en, this message translates to:
+  /// **'No messages were found in the selected date range. Try adjusting the date range.'**
+  String get noMessagesInDateRangeBody;
+
+  /// Success message when platform credentials are saved
+  ///
+  /// In en, this message translates to:
+  /// **'Credentials saved successfully'**
+  String get credentialsSavedSuccess;
+
+  /// Error message when saving platform credentials fails
+  ///
+  /// In en, this message translates to:
+  /// **'Error saving credentials: {error}'**
+  String errorSavingCredentials(String error);
+
+  /// Security information about credential storage
+  ///
+  /// In en, this message translates to:
+  /// **'Your credentials are stored securely on this device only and are never uploaded to our servers.'**
+  String get credentialsSecurityInfo;
+
+  /// Button label while saving is in progress
+  ///
+  /// In en, this message translates to:
+  /// **'Saving...'**
+  String get savingButton;
+
+  /// Button label to save all platform credentials
+  ///
+  /// In en, this message translates to:
+  /// **'Save Credentials'**
+  String get saveAllCredentials;
+
+  /// Label indicating Pro Plus tier requirement
+  ///
+  /// In en, this message translates to:
+  /// **'Pro+'**
+  String get proPlusLabel;
+
+  /// Button to open upgrade/upsell dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade'**
+  String get upgradeButton;
+
+  /// Label for username input field
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get usernameLabel;
+
+  /// Label for password input field
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get passwordLabel;
+
+  /// Body text for upgrade to Pro Plus dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade to Pro Plus to access third-party platform integrations and advanced features.'**
+  String get upgradeToProPlusBody;
+
+  /// Body text when no conversations are found
+  ///
+  /// In en, this message translates to:
+  /// **'No conversations were found. Make sure your credentials are correct and try again.'**
+  String get noConversationsFoundBody;
 }
 
 class _AppLocalizationsDelegate

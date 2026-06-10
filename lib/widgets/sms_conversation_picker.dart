@@ -219,7 +219,7 @@ class _SmsConversationPickerState extends State<SmsConversationPicker> {
                 }
                 if (context.mounted) Navigator.of(context).pop();
               },
-              child: const Text('OK'),
+              child: Text(l10n.okButton),
             ),
           ],
         ),

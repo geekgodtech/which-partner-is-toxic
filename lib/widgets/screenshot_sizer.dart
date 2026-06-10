@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
+import 'package:airta/l10n/app_localizations.dart';
 import 'dart:html' as html;
 import 'dart:js' as js;
 
@@ -137,6 +138,7 @@ class _ScreenshotSizerState extends State<ScreenshotSizer> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Positioned(
       right: 16,
       top: 16,
@@ -302,8 +304,8 @@ class _ScreenshotSizerState extends State<ScreenshotSizer> {
                       backgroundColor: Colors.blue,
                       minimumSize: const Size.fromHeight(36),
                     ),
-                    child: const Text(
-                      'Next Size',
+                    child: Text(
+                      l10n.nextSizeButton,
                       style: TextStyle(fontSize: 12),
                     ),
                   ),
@@ -316,8 +318,8 @@ class _ScreenshotSizerState extends State<ScreenshotSizer> {
                       backgroundColor: Colors.orange,
                       minimumSize: const Size.fromHeight(36),
                     ),
-                    child: const Text(
-                      'Start Sequence',
+                    child: Text(
+                      l10n.startSequenceButton,
                       style: TextStyle(fontSize: 12),
                     ),
                   ),
@@ -352,8 +354,8 @@ class _ScreenshotSizerState extends State<ScreenshotSizer> {
                     '3. Click "Capture" to save screenshot',
                     style: TextStyle(color: Colors.white, fontSize: 10),
                   ),
-                  const Text(
-                    '4. Click "Next Size" for next dimension',
+                  Text(
+                    l10n.nextSizeInstruction,
                     style: TextStyle(color: Colors.white, fontSize: 10),
                   ),
                   const SizedBox(height: 8),
