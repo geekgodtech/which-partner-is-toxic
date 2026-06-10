@@ -328,3 +328,64 @@
 | `banking@airta.net` | Banking matters |
 | `privacy@airta.net` | Privacy inquiries (in docs/) |
 | `legal@airta.net` | Legal matters (in docs/) |
+
+---
+
+## Session - 2026-06-10 22:00 (Adaptive/Devin)
+
+### What was accomplished
+
+#### Firebase — Fully Configured (airta-app project)
+- Deployed Firestore security rules successfully via Firebase CLI
+- Enabled Remote Config API for airta-app project
+- Published all 17 Remote Config parameters (pricing, features, Discord, platforms, etc.)
+- Updated `FIREBASE_SETUP_TODO.md` to mark everything as complete
+- Updated `AGENTS.md` Firebase section from "NEEDS SETUP" to "FULLY CONFIGURED"
+- Committed and pushed: `2b03414`
+
+#### Website Anti-Spam & Quality Controls
+- **CAPTCHA (Cloudflare Turnstile)** added to Try It Out demo page (`docs/try-it.html`)
+  - Requires passing "I'm not a robot" challenge before Analyze button enables
+  - Both file upload + CAPTCHA required to proceed
+  - Real site key `0x4AAAAADhzzijTCPFT095B` registered and deployed (was test key initially)
+- **Spell/grammar check** added to metric pack submission forms (`submit-50.html` + `submit-100.html`)
+  - Uses free LanguageTool API — checks all metric names and definitions before submission
+  - Supports all 16 languages (en, es, fr, de, it, pt, nl, pl, ru, tr, uk, ar, zh, ja, ko, hi)
+  - Red-highlighted error fields, error banner with specific issues, blocks submission until fixed
+- **2-analysis cookie limit** on web demo (`docs/try-it.html`)
+  - Cookie `airta_demo_usage` (365-day expiry) tracks analysis count
+  - Button shows remaining count after first use
+  - Permanently blocks after 2 analyses: "Download the app for unlimited access"
+- Committed and pushed: `0e79f56`, `d7d5905`, `caddc53`
+
+#### PROJECT_VISION.md — Updated to Reflect Current State
+- Firebase section: fully configured
+- Referral Program: marked as FULLY IMPLEMENTED
+- Launch checklist: 30 completed items now (was 16)
+- Added developer_license_9_99 to product ID table
+- Outstanding list updated (removed done items, added Turnstile registration)
+- Committed and pushed: `74a0bfb`
+
+### Current State
+- **Git:** main branch, HEAD at `caddc53`, all pushed
+- **Firebase:** airta-app fully live (Firestore + Remote Config + Android + Web apps)
+- **Website:** CAPTCHA active, spell check on submissions, 2-use limit on demo
+- **Cloudflare Turnstile:** Real site key deployed (`0x4AAAAADhzzijTCPFT095B`)
+- **Phone:** Not deployed this session (no app code changes)
+
+### Next Steps / Open Items
+- 44 hard-coded English strings still need localization (see previous session)
+- Create Google Play Developer account ($25)
+- Create Apple Developer account ($99/year)
+- Create product IDs in store consoles
+- Add real Discord credentials to Firebase Remote Config
+- Re-enable PDF export (rename .disabled → .dart)
+- Dr. AIRTA video feature (Phase 1 — see PROJECT_VISION.md)
+- Social Media Aggregator Dashboard (see PROJECT_VISION.md)
+
+### Key Facts
+- Firebase project: `airta-app` (account: ceo@airta.net)
+- Cloudflare Turnstile site key: `0x4AAAAADhzzijTCPFT095B`
+- Cloudflare Turnstile secret key: `0x4AAAAADhzzqkV0RGV7O3wt5qOkwVpvtg`
+- LanguageTool API: free tier, no key needed, rate limited
+- Cookie for demo limit: `airta_demo_usage` (365-day, max 2)
