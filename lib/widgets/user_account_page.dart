@@ -5,6 +5,7 @@ import 'package:airta/services/developer_license_service.dart';
 import 'package:airta/services/user_submitted_packs_service.dart';
 import 'package:airta/widgets/referral_screen.dart';
 import 'package:airta/widgets/membership_landing_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// User account page showing membership, referrals, purchases, sales, and developer license.
 class UserAccountPage extends StatefulWidget {
@@ -641,6 +642,41 @@ class _UserAccountPageState extends State<UserAccountPage> {
                 style:
                     const TextStyle(color: Color(0xFF6666aa), fontSize: 11),
               ),
+            const SizedBox(height: 12),
+            const Divider(color: Color(0xFF2a2a5a), height: 1),
+            const SizedBox(height: 12),
+            // Quick links for developers
+            Row(
+              children: [
+                Expanded(
+                  child: _buildQuickLink(
+                    icon: Icons.verified,
+                    label: 'View License',
+                    onTap: () => _showDeveloperLicenseDetails(context),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Expanded(
+                  child: _buildQuickLink(
+                    icon: Icons.add_circle_outline,
+                    label: 'Submit 50 Metrics (\$5.00)',
+                    onTap: () => _launchSubmitPage('50'),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: _buildQuickLink(
+                    icon: Icons.add_box_outlined,
+                    label: 'Submit 100 Metrics (\$10.00)',
+                    onTap: () => _launchSubmitPage('100'),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 8),
             const Text(
               'You can submit metric packs for sale and earn 50% of each sale.',
@@ -839,6 +875,172 @@ class _UserAccountPageState extends State<UserAccountPage> {
 
   String _formatDate(DateTime dt) {
     return '${dt.month}/${dt.day}/${dt.year}';
+  }
+
+
+  Widget _buildQuickLink({
+    required IconData icon,
+    required String label,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        decoration: BoxDecoration(
+          color: const Color(0xFF1a1a3a),
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: const Color(0xFF2a2a5a)),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, color: const Color(0xFF6060ff), size: 18),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                label,
+                style: const TextStyle(
+                  color: Color(0xFFd0d0ff),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            const Icon(Icons.arrow_forward_ios,
+                color: Color(0xFF6060ff), size: 14),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _launchSubmitPage(String metricCount) async {
+    // Launch the appropriate submit page on airta.net
+    final url = metricCount == '50'
+        ? 'https://geekgodtech.github.io/AIRTA/submit-50.html'
+        : 'https://geekgodtech.github.io/AIRTA/submit-100.html';
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Could not open submit page. Please visit airta.net'),
+            backgroundColor: Color(0xFF5a2a2a),
+          ),
+        );
+      }
+    }
+  }
+
+  void _showDeveloperLicenseDetails(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF1a1a3e),
+        title: const Row(
+          children: [
+            Icon(Icons.verified, color: Color(0xFF60ff60), size: 24),
+            SizedBox(width: 10),
+            Text(
+              'Developer License',
+              style: TextStyle(color: Color(0xFFd0d0ff), fontSize: 16),
+            ),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildLicenseDetail('Status:', 'Active'),
+            const SizedBox(height: 8),
+            _buildLicenseDetail('Email:', _devLicenseService.licenseEmail),
+            const SizedBox(height: 8),
+            _buildLicenseDetail(
+              'Purchased:',
+              _formatDate(_devLicenseService.purchaseDate!),
+            ),
+            const SizedBox(height: 8),
+            _buildLicenseDetail('Price:', r'\$29.99 (Lifetime)'),
+            const SizedBox(height: 16),
+            const Divider(color: Color(0xFF2a2a5a)),
+            const SizedBox(height: 8),
+            const Text(
+              'Benefits:',
+              style: TextStyle(
+                color: Color(0xFFd0d0ff),
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 8),
+            _buildBenefitItem('Submit 50-metric packs (\$5.00 each)'),
+            _buildBenefitItem('Submit 100-metric packs (\$10.00 each)'),
+            _buildBenefitItem('Earn 50% of every sale'),
+            _buildBenefitItem('Cash out at \$9.99 or \$19.99 thresholds'),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: const Text(
+              'Close',
+              style: TextStyle(color: Color(0xFF6060ff)),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLicenseDetail(String label, String value) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: const TextStyle(
+            color: Color(0xFF8888aa),
+            fontSize: 12,
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            value,
+            style: const TextStyle(
+              color: Color(0xFFd0d0ff),
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBenefitItem(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 4),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(Icons.check, color: Color(0xFF60ff60), size: 14),
+          const SizedBox(width: 6),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(
+                color: Color(0xFFa0a0c0),
+                fontSize: 11,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> _showDeveloperLicensePurchase(BuildContext context) async {
