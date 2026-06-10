@@ -204,7 +204,7 @@ static const String discordClientSecret = String.fromEnvironment(
 
 ```bash
 flutter build apk --release \
-  --dart-define=DEEPSEEK_API_KEY=sk-61422c74411549248f23b4656d4152ae \
+  --dart-define=DEEPSEEK_API_KEY=YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV \
   --dart-define=DISCORD_BOT_TOKEN=your_bot_token_here \
   --dart-define=DISCORD_CLIENT_ID=your_client_id_here \
   --dart-define=DISCORD_CLIENT_SECRET=your_client_secret_here

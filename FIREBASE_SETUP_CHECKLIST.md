@@ -141,7 +141,7 @@ flutter pub get
 ## Step 8: Build Release APK (5 minutes)
 
 ```bash
-flutter build apk --release --dart-define=DEEPSEEK_API_KEY=sk-61422c74411549248f23b4656d4152ae
+flutter build apk --release --dart-define=DEEPSEEK_API_KEY=YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV
 ```
 
 ---

@@ -97,3 +97,7 @@ backup_*.py
 AirtaSuite/
 # APK releases (too large for git, use GitHub Releases instead)
 docs/releases/*.apk
+
+# Secrets file — never commit
+secrets.env
+MASTER_SESSION_LOG.md

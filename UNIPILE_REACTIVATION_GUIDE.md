@@ -89,7 +89,7 @@ static const String _apiKey = String.fromEnvironment(
 2. Build APK with credentials:
 ```bash
 flutter build apk --release \
-  --dart-define=DEEPSEEK_API_KEY=sk-61422c74411549248f23b4656d4152ae \
+  --dart-define=DEEPSEEK_API_KEY=YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV \
   --dart-define=UNIPILE_API_URL=https://apiXXX.unipile.com:XXX/api/v1 \
   --dart-define=UNIPILE_API_KEY=your_actual_unipile_api_key_here
 ```
@@ -122,7 +122,7 @@ After re-enabling Unipile integration:
 1. **Build with credentials:**
    ```bash
    flutter build apk --release \
-     --dart-define=DEEPSEEK_API_KEY=sk-61422c74411549248f23b4656d4152ae \
+     --dart-define=DEEPSEEK_API_KEY=YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV \
      --dart-define=UNIPILE_API_URL=<your_url> \
      --dart-define=UNIPILE_API_KEY=<your_key>
    ```

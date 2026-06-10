@@ -1,0 +1,10 @@
+EN installedPacksAccordionSubtitle: '{count} Metrics ù Community Pack'
+Traceback (most recent call last):
+  File "C:\My Projects\AIRTA\_t.py", line 7, in <module>
+    print("KO installedPacksAccordionSubtitle:", repr(ko.get("installedPacksAccordionSubtitle", "MISSING")))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Michael\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\uac1c' in position 8: character maps to <undefined>
+KO installedPacksAccordionSubtitle: 

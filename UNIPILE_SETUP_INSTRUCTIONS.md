@@ -43,7 +43,7 @@ When you get your Unipile credentials, build the APK with:
 
 ```bash
 flutter build apk --release \
-  --dart-define=DEEPSEEK_API_KEY=sk-61422c74411549248f23b4656d4152ae \
+  --dart-define=DEEPSEEK_API_KEY=YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV \
   --dart-define=UNIPILE_API_URL=https://apiXXX.unipile.com:XXX/api/v1 \
   --dart-define=UNIPILE_API_KEY=your_actual_unipile_api_key_here
 ```
@@ -51,7 +51,7 @@ flutter build apk --release \
 **Example** (replace with your actual values):
 ```bash
 flutter build apk --release \
-  --dart-define=DEEPSEEK_API_KEY=sk-61422c74411549248f23b4656d4152ae \
+  --dart-define=DEEPSEEK_API_KEY=YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV \
   --dart-define=UNIPILE_API_URL=https://api22.unipile.com:15260/api/v1 \
   --dart-define=UNIPILE_API_KEY=unipile_abc123xyz456
 ```

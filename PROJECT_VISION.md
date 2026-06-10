@@ -237,7 +237,7 @@ Uses the same DeepSeek API with the report as context. Would be a Pro/Pro Plus f
 - Credentials stored in deploy.ps1 (gitignored)
 
 ### DeepSeek API
-- Key: sk-61422c74411549248f23b4656d4152ae
+- Key: YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV
 - Stored in deploy.ps1 and run_with_secrets.ps1 (both gitignored)
 - dart-define: DEEPSEEK_API_KEY
 

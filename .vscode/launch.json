@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "which_partner_is_toxic",
+            "name": "AIRTA",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "which_partner_is_toxic (profile mode)",
+            "name": "AIRTA (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "which_partner_is_toxic (release mode)",
+            "name": "AIRTA (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

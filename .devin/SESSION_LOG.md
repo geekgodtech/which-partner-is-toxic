@@ -95,7 +95,7 @@
   translation quality.
 
 ### Key facts
-- DeepSeek API key: sk-61422c74411549248f23b4656d4152ae
+- DeepSeek API key: YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV
 - Pack metric l10n fix: lib/l10n/app_localizations_extension.dart
 - ARBs store 1057 keys each (base 100 metrics + 300 pack metrics + UI strings)
 - German: "Passive Aggression" is legitimately the same word in German (not a bug)
@@ -851,3 +851,63 @@ Projects\AIRTA\AirtaSuite\tools\admin_tool.exe\\
 - Dialog triggers when: referralService.hasEarnedReward && !referralService.trialActivated
 - Membership reverts after trialDurationDays (31) via _checkTrialExpiry()
 - User can dismiss dialog and claim later from Referral screen
+
+---
+
+## Session - 2025-01-22 (Adaptive/Devin)
+
+### What was accomplished
+- Fixed metric pack auto-approval issue: submissions now go live immediately
+  - Changed `status` from `'pending_review'` to `'approved'` in both:
+    - `docs/submit-50.html` (line 421)
+    - `docs/submit-100.html` (line 438)
+  - Updated success messages to reflect immediate availability
+- Fixed multiple build errors that were blocking compilation:
+  - Added missing pack unlock getters to `SubscriptionService`:
+    - `isPackGoodUnlocked`, `isPackBadUnlocked`, `isPackUglyUnlocked`
+    - `isPackNarcissistUnlocked`, `isPackSerialKillerUnlocked`
+  - Added `getUserCustomMetricsCount()` to `UserSubmittedPacksService`
+  - Added `_buildPacksListWithCheckmarks()` to `MembershipLandingPage`
+- Successfully built and deployed demo APK (104.8MB) to device RFCX70ZAWZX
+- Committed all changes and pushed to GitHub (commit 86f2b34)
+
+### Current state
+- App builds successfully with no compilation errors
+- Metric packs are now auto-approved (no manual review needed)
+- Demo APK installed on phone and working
+- Git: main branch, clean working tree, all changes pushed
+
+### Key facts
+- Pack submission HTML files auto-deploy via GitHub Pages when pushed
+- Translations still happen automatically via `autoTranslateAllPending()` in the app
+- The pack unlock getters sync with SharedPreferences for persistence
+
+---
+
+## Session - 2026-06-10 11:41
+
+### What was accomplished
+- Completed full localization for all 15 non-English languages (ar, de, es, fr, hi, it, ja, ko, nl, pl, pt, ru, tr, uk, zh)
+- Subagent filled ~181 translation keys per language: pack benefit descriptions (all 5 packs), full UI strings, membership tiers, report flow, date range filter, metric list save/load, analysis screen labels, language selector names
+- Ran patch_remaining.py to fix remaining stray untranslated/missing non-discord keys in de, fr, it, nl, es, pt
+- 14/15 languages now have 0 MISSING keys; de has 23 missing (all discord* — intentionally left in English)
+- All remaining audit flags are either: discord* keys (intentionally EN) or correct translations that match EN (e.g. Error/ES, Contacts/FR, Report/IT)
+- Ran flutter gen-l10n — regenerated all 15 app_localizations_*.dart files
+- Built demo APK (105.3 MB), committed (5b9c2eb), pushed to both origin and geekgodtech
+
+### Current state
+- All 15 language ARBs are complete and Dart files regenerated
+- Demo APK built successfully
+- Phone was NOT connected at time of session (no ADB install)
+- Gray screen bug (3e8369f) remains fixed
+
+### Next steps / open items
+- When phone is connected: adb install build\app\outputs\flutter-apk\app-release.apk
+- Discord bot config keys could be translated someday (low priority — technical strings)
+- DE has 23 discord* keys missing in ARB (different from other langs which have them as EN values)
+
+### Key facts
+- Latest commit: 5b9c2eb
+- tools/l10n_audit.py = ongoing localization audit tool
+- tools/fill_all_translations.py = bulk translation fill script (subagent-generated, reference)
+- tools/patch_remaining.py = patch script for stragglers (reference)

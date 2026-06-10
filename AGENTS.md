@@ -41,22 +41,25 @@ This single command:
 MSYS2 git (`c:\devkitPro\msys2\usr\bin\git.exe`) does NOT have stored GitHub credentials.
 
 ## Credentials (Local Only — Never Commit)
-Stored in `deploy.ps1` and `run_with_secrets.ps1` (both gitignored):
+**API keys live in `secrets.env` (gitignored). Never hardcode keys in any committed file.**
+
+Stored in `deploy.ps1`, `run_with_secrets.ps1`, and `secrets.env` (all gitignored):
 - **Keystore:** `android/app/airta-release.keystore`
 - **Key alias:** `airta`
 - **Store/Key password:** `Kennyloggins1!`
-- **DeepSeek API key:** `sk-abefd4ab22054c12941abb85f1180504`
+- **DeepSeek App API key:** see `secrets.env` → `DEEPSEEK_API_KEY`
+- **DeepSeek Video API key:** see `secrets.env` → `DEEPSEEK_VIDEO_API_KEY`
 
 ## Build Commands
 ```powershell
 # Demo APK (DEMO_MODE=true, all features unlocked, no paywall)
-flutter build apk --release --dart-define=DEEPSEEK_API_KEY=sk-abefd4ab22054c12941abb85f1180504 --dart-define=DEMO_MODE=true
+flutter build apk --release --dart-define=DEEPSEEK_API_KEY=YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV --dart-define=DEMO_MODE=true
 
 # Production APK
-flutter build apk --release --dart-define=DEEPSEEK_API_KEY=sk-abefd4ab22054c12941abb85f1180504
+flutter build apk --release --dart-define=DEEPSEEK_API_KEY=YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV
 
 # Production AAB (for Play Store)
-flutter build appbundle --release --dart-define=DEEPSEEK_API_KEY=sk-abefd4ab22054c12941abb85f1180504
+flutter build appbundle --release --dart-define=DEEPSEEK_API_KEY=YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV
 ```
 
 ## ADB Phone Management

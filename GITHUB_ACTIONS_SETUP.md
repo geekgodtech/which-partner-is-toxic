@@ -37,7 +37,7 @@ git push -u origin main
 2. Click **Settings** → **Secrets and variables** → **Actions**
 3. Click **New repository secret**
 4. Name: `DEEPSEEK_API_KEY`
-5. Value: `sk-61422c74411549248f23b4656d4152ae`
+5. Value: `YOUR_DEEPSEEK_API_KEY_FROM_SECRETS_ENV`
 6. Click **Add secret**
 
 ### 3. Workflow is Already Created!
