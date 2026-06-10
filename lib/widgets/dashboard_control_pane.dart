@@ -529,7 +529,6 @@ class _DiscordButtonState extends State<_DiscordButton> {
             disabledBackgroundColor: const Color(0xFF5865F2).withOpacity(0.35),
             disabledForegroundColor: Colors.white38,
             minimumSize: const Size(double.infinity, 48),
-            alignment: Alignment.center,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -542,20 +541,23 @@ class _DiscordButtonState extends State<_DiscordButton> {
                     color: Colors.white,
                   ),
                 )
-              : Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.discord,
-                      size: 20,
-                      color: canUse ? Colors.white : Colors.white38,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      l10n.selectDiscordChannel,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
+              : SizedBox(
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.discord,
+                        size: 20,
+                        color: canUse ? Colors.white : Colors.white38,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        l10n.selectDiscordChannel,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
                 ),
         ),
       ],
