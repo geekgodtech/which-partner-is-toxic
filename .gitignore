@@ -95,3 +95,5 @@ backup_*.py
 
 # AirtaSuite build output (contains EXE with embedded keys)
 AirtaSuite/
+# APK releases (too large for git, use GitHub Releases instead)
+docs/releases/*.apk
