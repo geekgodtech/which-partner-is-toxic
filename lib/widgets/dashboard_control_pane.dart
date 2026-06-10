@@ -25,6 +25,7 @@ import 'package:airta/widgets/user_submitted_packs_page.dart';
 import 'package:airta/widgets/referral_screen.dart';
 import 'package:airta/services/referral_service.dart';
 import 'package:airta/widgets/user_account_page.dart';
+import 'package:airta/services/user_submitted_packs_service.dart';
 // UNIPILE INTEGRATION - COMMENTED OUT PENDING BUSINESS NEGOTIATION
 // Uncomment these imports if Unipile deal is finalized:
 // import 'package:airta/widgets/unipile_auth_view.dart';
@@ -1306,7 +1307,7 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
     const totalPacks = 5; // Good, Bad, Ugly, Narcissist, Serial Killer
     final packsStillAvailable = totalPacks - purchasedPacks;
 
-    // Count metrics
+    // Count metrics from standard packs
     final ownedMetrics = controller.standardMetrics.length +
         (goodUnlocked ? controller.packGoodMetrics.length : 0) +
         (badUnlocked ? controller.packBadMetrics.length : 0) +
@@ -1315,13 +1316,33 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
         (serialKillerUnlocked ? controller.packSerialKillerMetrics.length : 0) +
         controller.customMetrics.length;
 
+    // Calculate standard pack metrics available
     final totalAvailableMetrics = controller.standardMetrics.length +
         controller.packGoodMetrics.length +
         controller.packBadMetrics.length +
         controller.packUglyMetrics.length +
         controller.packNarcissistMetrics.length +
         controller.packSerialKillerMetrics.length;
-    final metricsStillAvailable = totalAvailableMetrics - ownedMetrics;
+
+    // Get user-submitted packs metrics count
+    final userPacksService = UserSubmittedPacksService();
+    final userPacksAvailable = userPacksService.availablePacks;
+    final userPacksPurchased = userPacksService.purchasedPackIds;
+
+    // Calculate metrics in user packs that haven't been purchased
+    int userPackMetricsAvailable = 0;
+    int userPackMetricsOwned = 0;
+    for (final pack in userPacksAvailable) {
+      final packMetricsCount = pack.metrics.length;
+      if (userPacksPurchased.contains(pack.id)) {
+        userPackMetricsOwned += packMetricsCount;
+      } else {
+        userPackMetricsAvailable += packMetricsCount;
+      }
+    }
+
+    // Total metrics still available (standard packs + user packs)
+    final metricsStillAvailable = (totalAvailableMetrics - ownedMetrics) + userPackMetricsAvailable;
 
     // Determine if we should use horizontal or vertical layout based on screen width
     final screenWidth = MediaQuery.of(context).size.width;
