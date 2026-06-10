@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AIRTA – AI Relationship Analyzer</title>
   <meta name="robots" content="noindex, nofollow" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d0d1a; color: #e8e8f0; line-height: 1.6; }
@@ -26,6 +27,57 @@
     footer { text-align: center; padding: 40px 20px; color: #4a4a6a; font-size: 0.85rem; border-top: 1px solid #1a1a3a; }
     h2 { font-size: 1.5rem; color: #d0d0ff; margin-bottom: 24px; text-align: center; }
     .disclaimer-banner { background: #1a1204; border: 1px solid #4a3a04; border-radius: 12px; padding: 20px 24px; margin-bottom: 60px; color: #c0a840; font-size: 0.9rem; text-align: center; }
+
+    /* === Try It Out (inline demo) === */
+    #tryit-section .tryit-subtitle { color: #8888aa; text-align: center; font-size: 0.95rem; margin-bottom: 30px; }
+    #tryit-section .panel { background: #12122a; border: 1px solid #2a2a5a; border-radius: 14px; padding: 24px; margin-bottom: 20px; }
+    #tryit-section .panel h3 { color: #d0d0ff; font-size: 1.1rem; margin-bottom: 12px; font-weight: 600; }
+    #tryit-section .panel p { color: #8888aa; font-size: 0.85rem; margin-bottom: 12px; }
+    #tryit-section .btn { border: none; border-radius: 8px; padding: 12px 24px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    #tryit-section .btn-primary { background: #4040cc; color: white; }
+    #tryit-section .btn-primary:hover { background: #5050dd; }
+    #tryit-section .btn-primary:disabled { background: #2a2a5a; color: #6666aa; cursor: not-allowed; }
+    #tryit-section .btn-secondary { background: #1e1e4a; color: #a0a0ff; border: 1px solid #3a3a7a; }
+    #tryit-section .btn-secondary:hover { background: #2a2a6a; }
+    #tryit-section .slider-container { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
+    #tryit-section .slider-container input[type="range"] { flex: 1; accent-color: #6060ff; height: 6px; }
+    #tryit-section .slider-label { color: #a0a0c0; font-size: 0.85rem; min-width: 120px; }
+    #tryit-section .slider-value { color: #60ff60; font-weight: 700; font-size: 1.1rem; min-width: 30px; text-align: center; }
+    #tryit-section .file-drop { border: 2px dashed #2a2a5a; border-radius: 10px; padding: 30px; text-align: center; cursor: pointer; transition: all 0.2s; position: relative; }
+    #tryit-section .file-drop:hover, #tryit-section .file-drop.dragover { border-color: #6060ff; background: rgba(96, 96, 255, 0.05); }
+    #tryit-section .file-drop input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    #tryit-section .file-drop .icon { font-size: 2rem; margin-bottom: 8px; }
+    #tryit-section .file-drop .text { color: #8888aa; font-size: 0.9rem; }
+    #tryit-section .file-loaded { color: #60ff60; font-size: 0.85rem; margin-top: 8px; }
+    #tryit-section .status { color: #c0c040; font-size: 0.85rem; margin-top: 12px; min-height: 20px; }
+    #tryit-section .progress-bar { width: 100%; height: 6px; background: #1a1a3a; border-radius: 3px; margin-top: 8px; overflow: hidden; display: none; }
+    #tryit-section .progress-bar .fill { height: 100%; background: linear-gradient(90deg, #4040cc, #60ff60); width: 0%; transition: width 0.5s; border-radius: 3px; }
+    #tryit-section .report { display: none; }
+    #tryit-section .report.visible { display: block; }
+    #tryit-section .report-header { text-align: center; margin-bottom: 20px; }
+    #tryit-section .report-header h2 { color: #60ff60; font-size: 1.3rem; }
+    #tryit-section .exec-summary { background: #0d0d1a; border: 1px solid #2a2a5a; border-radius: 10px; padding: 16px; margin-bottom: 20px; }
+    #tryit-section .exec-summary h3 { color: #a0a0c0; font-size: 0.9rem; margin-bottom: 8px; }
+    #tryit-section .exec-summary p { color: #d0d0ff; font-size: 0.85rem; line-height: 1.7; }
+    #tryit-section .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    @media (max-width: 600px) { #tryit-section .metrics-grid { grid-template-columns: 1fr; } }
+    #tryit-section .metric-bar { background: #0d0d1a; border: 1px solid #2a2a5a; border-radius: 8px; padding: 10px 12px; }
+    #tryit-section .metric-bar .name { color: #a0a0c0; font-size: 0.8rem; margin-bottom: 4px; }
+    #tryit-section .metric-bar .bar-bg { width: 100%; height: 8px; background: #1a1a3a; border-radius: 4px; overflow: hidden; }
+    #tryit-section .metric-bar .bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
+    #tryit-section .metric-bar .score { color: #e8e8f0; font-size: 0.75rem; text-align: right; margin-top: 2px; }
+    #tryit-section .evidence-section { margin-top: 20px; }
+    #tryit-section .evidence-section h3 { color: #a0a0c0; font-size: 0.95rem; margin-bottom: 12px; }
+    #tryit-section .evidence-item { background: #0d0d1a; border-left: 3px solid #cc4040; border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 10px; }
+    #tryit-section .evidence-item .behavior { color: #ff8080; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; }
+    #tryit-section .evidence-item .quote { color: #d0d0ff; font-size: 0.85rem; font-style: italic; margin-bottom: 4px; }
+    #tryit-section .evidence-item .context { color: #6666aa; font-size: 0.78rem; }
+    #tryit-section .evidence-item .speaker { color: #8888aa; font-size: 0.75rem; }
+    #tryit-section .download-sample { text-align: center; margin-bottom: 20px; }
+    #tryit-section .download-sample a { color: #60ff60; text-decoration: none; font-size: 0.9rem; border: 1px solid #2a5a2a; padding: 8px 16px; border-radius: 8px; transition: all 0.2s; }
+    #tryit-section .download-sample a:hover { background: #1a3a1a; }
+    #tryit-section .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid #4a4a6a; border-top-color: #60ff60; border-radius: 50%; animation: tryit-spin 0.8s linear infinite; }
+    @keyframes tryit-spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
@@ -34,8 +86,8 @@
   <img id="logo" src="logo-09.jpg" alt="AIRTA Logo" />
   <p>AI-powered analysis of your relationship conversations. Know the truth.</p>
   <div class="badges">
-    <a class="badge" href="demo.html">📱 Android — Try the Demo</a>
-    <a class="badge" href="demo.html">🍎 iOS — Try the Demo</a>
+    <a class="badge" href="#try-it">� Try Web Demo — Free</a>
+    <a class="badge" href="demo.html">📱 Download Android APK</a>
     <a class="badge" href="#">📱 Google Play — Coming Soon</a>
     <a class="badge" href="#">🍎 App Store — Coming Soon</a>
   </div>
@@ -82,14 +134,74 @@
     </div>
   </div>
 
-  <!-- TRY IT OUT SECTION -->
-  <h2>Try It Out</h2>
-  <div style="background:#12122a; border:1px solid #2a2a5a; border-radius:14px; padding:24px; margin-bottom:60px; text-align:center;">
-    <p style="color:#d0d0ff; font-size:1.1rem; font-weight:600; margin-bottom:8px;">See AIRTA in action — right in your browser</p>
-    <p style="color:#8888aa; font-size:0.88rem; margin-bottom:16px;">Upload a sample conversation, pick how many metrics to analyze, and get a real uncensored AI report instantly.</p>
-    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-      <a href="Sample.txt" download style="background:#1a3a1a; border:1px solid #2a5a2a; border-radius:10px; padding:12px 20px; color:#60ff60; text-decoration:none; font-size:0.9rem; transition:background 0.2s;">📥 Download Sample.txt</a>
-      <a href="try-it.html" style="background:#4040cc; border:none; border-radius:10px; padding:12px 24px; color:white; text-decoration:none; font-size:0.9rem; font-weight:600; transition:background 0.2s;">🔬 Launch Web Demo</a>
+  <!-- TRY IT OUT — INLINE DEMO -->
+  <h2 id="try-it">Try It Out</h2>
+  <div id="tryit-section" style="margin-bottom:60px;">
+    <p class="tryit-subtitle">Upload a text conversation file. Select how many metrics to analyze. Get your uncensored report.</p>
+
+    <div class="download-sample">
+      <a href="Sample.txt" download>📥 Download Sample Conversation (Sample.txt)</a>
+    </div>
+
+    <div class="panel" style="margin-bottom:20px; border-color:#2a5a2a;">
+      <h3 style="color:#60ff60;">Use Your Own Conversation</h3>
+      <p style="color:#a0a0c0; margin-bottom:8px;">The Sample.txt file is just an example. You can edit it or replace its contents with any real conversation you've exported from your phone or messaging app. Just keep it in plain text format.</p>
+      <p style="color:#8888aa; font-size:0.82rem; margin-bottom:12px;">The AI analyzes the raw text — it works with any conversation format as long as it's readable.</p>
+      <p style="color:#a0a0c0; font-size:0.85rem; font-weight:600; margin-bottom:6px;">Supported file types:</p>
+      <ul style="color:#8888aa; font-size:0.83rem; padding-left:20px; list-style:disc;">
+        <li><strong style="color:#d0d0ff;">.txt</strong> — Plain text exports (SMS Backup, Google Messages export, any chat log)</li>
+        <li><strong style="color:#d0d0ff;">.csv</strong> — CSV exports from WhatsApp, Signal, or other messaging apps</li>
+        <li><strong style="color:#d0d0ff;">.text</strong> — Any plain text file with a different extension</li>
+      </ul>
+      <p style="color:#6666aa; font-size:0.78rem; margin-top:10px;">Tip: On Android, export your SMS thread from the Messages app. On iPhone, use an iMessage export tool or simply copy-paste a conversation into a .txt file.</p>
+    </div>
+
+    <!-- INPUT PANEL -->
+    <div class="panel" id="inputPanel">
+      <h3>1. Load Conversation</h3>
+      <p>Upload a .txt or .csv file containing a conversation (SMS export, chat log, WhatsApp export, etc.)</p>
+      <div class="file-drop" id="fileDrop">
+        <input type="file" id="fileInput" accept=".txt,.text,.csv" />
+        <div class="icon">📂</div>
+        <div class="text">Click or drop a .txt / .csv file here</div>
+      </div>
+      <div class="file-loaded" id="fileLoaded"></div>
+
+      <h3 style="margin-top:24px;">2. Choose Random Metrics</h3>
+      <p>Select how many of the 20 available metrics to randomly analyze.</p>
+      <div class="slider-container">
+        <span class="slider-label">Metrics to analyze:</span>
+        <input type="range" id="metricSlider" min="3" max="20" value="10" />
+        <span class="slider-value" id="sliderValue">10</span>
+      </div>
+
+      <h3 style="margin-top:24px;">3. Verify You're Human</h3>
+      <div style="display:flex; justify-content:center; margin:12px 0;">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAADhzzijTCPFT095B" data-theme="dark" data-callback="onCaptchaSuccess" data-expired-callback="onCaptchaExpired"></div>
+      </div>
+      <div id="captchaStatus" style="text-align:center; color:#6666aa; font-size:0.8rem; min-height:18px;"></div>
+
+      <div style="margin-top:20px; text-align:center;">
+        <button class="btn btn-primary" id="analyzeBtn" disabled>
+          🔬 Analyze Conversation
+        </button>
+      </div>
+      <div class="status" id="status"></div>
+      <div class="progress-bar" id="progressBar"><div class="fill" id="progressFill"></div></div>
+    </div>
+
+    <!-- REPORT PANEL -->
+    <div class="panel report" id="reportPanel">
+      <div class="report-header">
+        <h2>🧠 AIRTA Analysis Report</h2>
+      </div>
+      <div class="exec-summary" id="execSummary"></div>
+      <h3 style="color:#a0a0c0; font-size:0.95rem; margin-bottom:12px;">Metric Scores</h3>
+      <div class="metrics-grid" id="metricsGrid"></div>
+      <div class="evidence-section" id="evidenceSection"></div>
+      <div style="text-align:center; margin-top:24px;">
+        <button class="btn btn-secondary" onclick="resetDemo()">� Run Another Analysis</button>
+      </div>
     </div>
   </div>
 
@@ -112,7 +224,300 @@
 </footer>
 
 <script>
-  // Static logo - logo-09.jpg
+// 20 core metrics for the demo
+const METRICS = [
+  { name: 'Contempt', description: 'Looks for superiority, disgust, mockery, eye-rolling language, or insults that place one partner beneath the other.' },
+  { name: 'Defensiveness', description: 'Tracks reflexive self-protection, counterattacks, excuses, and refusal to consider the other person\'s complaint.' },
+  { name: 'Stonewalling', description: 'Identifies shutdown, withdrawal, ignoring, refusal to answer, or ending conversations to avoid engagement.' },
+  { name: 'Criticism', description: 'Detects attacks on character or personality instead of specific behaviors, needs, or incidents.' },
+  { name: 'Gaslighting Indicators', description: 'Flags attempts to make someone doubt memory, perception, sanity, or the legitimacy of their experience.' },
+  { name: 'Blame Shifting', description: 'Measures whether responsibility is redirected onto the other partner instead of being acknowledged directly.' },
+  { name: 'Escalation Pattern', description: 'Evaluates whether tone, accusations, intensity, or threats increase instead of moving toward resolution.' },
+  { name: 'Repair Attempt Recognition', description: 'Checks whether apologies, humor, pauses, reassurance, or peace offerings are noticed and accepted.' },
+  { name: 'Accountability Language', description: 'Looks for clear ownership of harm, specific responsibility, and willingness to change behavior.' },
+  { name: 'Boundary Respect', description: 'Assesses whether stated limits around time, privacy, body, emotions, or contact are honored.' },
+  { name: 'Coercive Control Indicators', description: 'Flags patterns of intimidation, restriction, monitoring, dependency, or control over choices and movement.' },
+  { name: 'Threat Language', description: 'Identifies explicit or implied threats involving safety, abandonment, exposure, retaliation, or punishment.' },
+  { name: 'Dismissiveness', description: 'Detects brushing off concerns, treating needs as unimportant, or refusing to take distress seriously.' },
+  { name: 'Invalidation', description: 'Measures denial, ridicule, or correction of another person\'s emotions instead of acknowledging them.' },
+  { name: 'Empathy Expression', description: 'Looks for perspective-taking, care, emotional recognition, and concern for the other person\'s experience.' },
+  { name: 'Reciprocity', description: 'Assesses whether attention, effort, apology, compromise, and emotional support flow both ways.' },
+  { name: 'Emotional Regulation', description: 'Evaluates ability to stay grounded, pause, self-soothe, and communicate without explosive reactivity.' },
+  { name: 'Sarcasm Used as Harm', description: 'Flags sarcasm used to belittle, punish, humiliate, or disguise hostility as humor.' },
+  { name: 'Name Calling', description: 'Identifies derogatory labels, insults, profanity directed at the person, or identity-based attacks.' },
+  { name: 'Silent Treatment Pattern', description: 'Detects prolonged deliberate silence used as punishment, control, or emotional withdrawal.' },
+];
+
+let conversationText = '';
+const DEEPSEEK_API_KEY = 'sk-61422c74411549248f23b4656d4152ae';
+const DEEPSEEK_URL = 'https://api.deepseek.com/v1/chat/completions';
+
+// DOM refs
+const fileInput = document.getElementById('fileInput');
+const fileDrop = document.getElementById('fileDrop');
+const fileLoaded = document.getElementById('fileLoaded');
+const metricSlider = document.getElementById('metricSlider');
+const sliderValue = document.getElementById('sliderValue');
+const analyzeBtn = document.getElementById('analyzeBtn');
+const status = document.getElementById('status');
+const progressBar = document.getElementById('progressBar');
+const progressFill = document.getElementById('progressFill');
+const inputPanel = document.getElementById('inputPanel');
+const reportPanel = document.getElementById('reportPanel');
+
+// Usage limit — 2 analyses per user via cookie
+const MAX_ANALYSES = 2;
+
+function getUsageCount() {
+  const match = document.cookie.match(/airta_demo_usage=(\d+)/);
+  return match ? parseInt(match[1]) : 0;
+}
+
+function incrementUsage() {
+  const count = getUsageCount() + 1;
+  // Cookie expires in 365 days
+  const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
+  document.cookie = `airta_demo_usage=${count}; expires=${expires}; path=/; SameSite=Lax`;
+  return count;
+}
+
+function isUsageLimitReached() {
+  return getUsageCount() >= MAX_ANALYSES;
+}
+
+// CAPTCHA state
+let captchaPassed = false;
+
+function onCaptchaSuccess(token) {
+  captchaPassed = true;
+  document.getElementById('captchaStatus').textContent = '✓ Verified';
+  document.getElementById('captchaStatus').style.color = '#60ff60';
+  updateAnalyzeButton();
+}
+
+function onCaptchaExpired() {
+  captchaPassed = false;
+  document.getElementById('captchaStatus').textContent = 'Verification expired — please re-verify';
+  document.getElementById('captchaStatus').style.color = '#c0c040';
+  updateAnalyzeButton();
+}
+
+// Make callbacks global for Turnstile
+window.onCaptchaSuccess = onCaptchaSuccess;
+window.onCaptchaExpired = onCaptchaExpired;
+
+function updateAnalyzeButton() {
+  if (isUsageLimitReached()) {
+    analyzeBtn.disabled = true;
+    analyzeBtn.textContent = 'Demo Limit Reached (2/2)';
+    return;
+  }
+  analyzeBtn.disabled = !(conversationText && captchaPassed);
+  const used = getUsageCount();
+  if (used > 0) {
+    analyzeBtn.textContent = `🔬 Analyze Conversation (${MAX_ANALYSES - used} remaining)`;
+  }
+}
+
+// Slider
+metricSlider.addEventListener('input', () => {
+  sliderValue.textContent = metricSlider.value;
+});
+
+// File handling
+fileInput.addEventListener('change', handleFile);
+fileDrop.addEventListener('dragover', (e) => { e.preventDefault(); fileDrop.classList.add('dragover'); });
+fileDrop.addEventListener('dragleave', () => fileDrop.classList.remove('dragover'));
+fileDrop.addEventListener('drop', (e) => { e.preventDefault(); fileDrop.classList.remove('dragover'); if (e.dataTransfer.files.length) handleFileObj(e.dataTransfer.files[0]); });
+
+function handleFile(e) { if (e.target.files.length) handleFileObj(e.target.files[0]); }
+
+function handleFileObj(file) {
+  if (!file.name.endsWith('.txt') && !file.name.endsWith('.text') && !file.name.endsWith('.csv')) {
+    fileLoaded.textContent = 'Please upload a .txt, .text, or .csv file';
+    fileLoaded.style.color = '#ff8080';
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    conversationText = e.target.result;
+    const lines = conversationText.split('\n').filter(l => l.trim()).length;
+    fileLoaded.textContent = `✓ Loaded: ${file.name} (${lines} lines)`;
+    fileLoaded.style.color = '#60ff60';
+    updateAnalyzeButton();
+  };
+  reader.readAsText(file);
+}
+
+// Analysis
+analyzeBtn.addEventListener('click', runAnalysis);
+
+async function runAnalysis() {
+  if (!conversationText) return;
+  if (isUsageLimitReached()) {
+    status.textContent = 'You\'ve used your 2 free demo analyses. Download the app for unlimited access!';
+    status.style.color = '#c0c040';
+    analyzeBtn.disabled = true;
+    analyzeBtn.textContent = 'Demo Limit Reached (2/2)';
+    return;
+  }
+
+  const count = parseInt(metricSlider.value);
+  const selected = selectRandomMetrics(count);
+
+  analyzeBtn.disabled = true;
+  status.innerHTML = '<span class="spinner"></span> Sending to DeepSeek AI for analysis...';
+  progressBar.style.display = 'block';
+  progressFill.style.width = '20%';
+
+  const metricNames = selected.map(m => m.name).join(', ');
+  const prompt = `You are AIRTA, an AI forensic relationship analyst. You have ZERO filter and tell the brutal, uncensored truth.
+Analyze this conversation for the following psychological metrics: ${metricNames}
+
+For each metric, provide:
+- A score from 0.0 (not evidenced) to 1.0 (strongly evidenced)
+- Direct quote evidence from the transcript
+
+Be brutally honest. Do NOT soften findings. Call out toxicity, manipulation, abuse — whatever you see.
+
+CONVERSATION TRANSCRIPT:
+${conversationText.substring(0, 12000)}
+
+Return ONLY valid JSON with this exact structure:
+{
+  "executiveSummary": "A comprehensive, brutally honest clinical overview (minimum 150 words). Be direct, uncensored, and specific about what you found.",
+  "metricScores": { "MetricName": 0.85, ... },
+  "evidenceExamples": [
+    { "speaker": "who said it", "behavior": "which metric", "quote": "exact text from transcript", "context": "why this demonstrates the metric" }
+  ]
+}`;
+
+  try {
+    progressFill.style.width = '40%';
+    status.innerHTML = '<span class="spinner"></span> AI is analyzing psychological patterns...';
+
+    const response = await fetch(DEEPSEEK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${DEEPSEEK_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.3,
+        max_tokens: 4000,
+      }),
+    });
+
+    progressFill.style.width = '70%';
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    const content = data.choices[0].message.content;
+
+    progressFill.style.width = '90%';
+    status.innerHTML = '<span class="spinner"></span> Rendering report...';
+
+    // Parse JSON from response (handle markdown code fences)
+    let jsonStr = content;
+    const fenceMatch = content.match(/```(?:json)?\s*([\s\S]*?)```/);
+    if (fenceMatch) jsonStr = fenceMatch[1];
+    const report = JSON.parse(jsonStr.trim());
+
+    progressFill.style.width = '100%';
+    incrementUsage();
+    setTimeout(() => displayReport(report, selected), 300);
+
+  } catch (err) {
+    status.textContent = `Error: ${err.message}`;
+    status.style.color = '#ff8080';
+    analyzeBtn.disabled = false;
+    progressBar.style.display = 'none';
+  }
+}
+
+function selectRandomMetrics(count) {
+  const shuffled = [...METRICS].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
+}
+
+function displayReport(report, selectedMetrics) {
+  inputPanel.style.display = 'none';
+  reportPanel.classList.add('visible');
+
+  // Executive summary
+  const execDiv = document.getElementById('execSummary');
+  execDiv.innerHTML = `<h3>Executive Summary</h3><p>${report.executiveSummary}</p>`;
+
+  // Metric scores
+  const grid = document.getElementById('metricsGrid');
+  grid.innerHTML = '';
+  const scores = report.metricScores || {};
+  const sortedMetrics = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+
+  for (const [name, score] of sortedMetrics) {
+    const pct = Math.round(score * 100);
+    const color = score > 0.7 ? '#ff4040' : score > 0.4 ? '#c0c040' : '#40cc40';
+    grid.innerHTML += `
+      <div class="metric-bar">
+        <div class="name">${name}</div>
+        <div class="bar-bg"><div class="bar-fill" style="width:${pct}%; background:${color};"></div></div>
+        <div class="score" style="color:${color}">${pct}%</div>
+      </div>`;
+  }
+
+  // Evidence
+  const evidenceDiv = document.getElementById('evidenceSection');
+  const examples = report.evidenceExamples || [];
+  if (examples.length > 0) {
+    let html = '<h3>Evidence Examples</h3>';
+    for (const ex of examples.slice(0, 15)) {
+      html += `
+        <div class="evidence-item">
+          <div class="behavior">${ex.behavior || 'N/A'}</div>
+          <div class="quote">"${ex.quote || ''}"</div>
+          <div class="context">${ex.context || ''}</div>
+          <div class="speaker">— ${ex.speaker || 'Unknown'}</div>
+        </div>`;
+    }
+    evidenceDiv.innerHTML = html;
+  }
+}
+
+function resetDemo() {
+  if (isUsageLimitReached()) {
+    status.textContent = 'You\'ve used your 2 free demo analyses. Download the app for unlimited access!';
+    status.style.color = '#c0c040';
+    reportPanel.classList.remove('visible');
+    inputPanel.style.display = 'block';
+    analyzeBtn.disabled = true;
+    analyzeBtn.textContent = 'Demo Limit Reached (2/2)';
+    progressBar.style.display = 'none';
+    progressFill.style.width = '0%';
+    return;
+  }
+  reportPanel.classList.remove('visible');
+  inputPanel.style.display = 'block';
+  analyzeBtn.disabled = false;
+  status.textContent = '';
+  progressBar.style.display = 'none';
+  progressFill.style.width = '0%';
+  updateAnalyzeButton();
+}
+
+// On page load, check if limit already reached
+if (isUsageLimitReached()) {
+  status.textContent = 'You\'ve used your 2 free demo analyses. Download the app for unlimited access!';
+  status.style.color = '#c0c040';
+  analyzeBtn.disabled = true;
+  analyzeBtn.textContent = 'Demo Limit Reached (2/2)';
+} else if (getUsageCount() > 0) {
+  analyzeBtn.textContent = `🔬 Analyze Conversation (${MAX_ANALYSES - getUsageCount()} remaining)`;
+}
 </script>
 </body>
 </html>
