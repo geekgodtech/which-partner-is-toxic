@@ -27,9 +27,9 @@ class ToxicityAnalyzerMasterView extends StatelessWidget {
         ),
         actions: [
           const DarkModeSwitch(),
-          const SizedBox(width: 8),
+          SizedBox(width: isNarrow ? 4 : 8),
           const LanguageSelector(),
-          const SizedBox(width: 8),
+          SizedBox(width: isNarrow ? 4 : 8),
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),
             onSelected: (value) {
@@ -69,7 +69,7 @@ class ToxicityAnalyzerMasterView extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(width: 4),
+          SizedBox(width: isNarrow ? 2 : 4),
         ],
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),

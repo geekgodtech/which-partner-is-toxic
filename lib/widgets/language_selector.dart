@@ -13,12 +13,14 @@ class LanguageSelector extends StatelessWidget {
       builder: (context, languageService, child) {
         final currentLanguage = languageService.currentLanguage;
         final l10n = AppLocalizations.of(context)!;
+        final mq = MediaQuery.of(context);
+        final isNarrow = mq.size.width < 400;
 
         return PopupMenuButton<String>(
           tooltip: l10n.selectLanguageTooltip,
           offset: const Offset(0, 40),
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            padding: EdgeInsets.symmetric(horizontal: isNarrow ? 4 : 8, vertical: 4),
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
@@ -36,8 +38,8 @@ class LanguageSelector extends StatelessWidget {
                 ),
                 Text(
                   currentLanguage.code.toUpperCase(),
-                  style: const TextStyle(
-                    fontSize: 10,
+                  style: TextStyle(
+                    fontSize: isNarrow ? 9 : 10,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),

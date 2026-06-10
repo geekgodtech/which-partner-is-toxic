@@ -8,7 +8,8 @@ class DarkModeSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeService = ThemeService();
-    final l10n = AppLocalizations.of(context)!;
+    final mq = MediaQuery.of(context);
+    final isNarrow = mq.size.width < 400;
 
     return ListenableBuilder(
       listenable: themeService,
@@ -18,33 +19,35 @@ class DarkModeSwitch extends StatelessWidget {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Text with icons above
+            // Icons only on narrow screens, text with icons on wider screens
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
                   Icons.light_mode,
                   color: isDarkMode ? Colors.grey[600] : Colors.orange,
-                  size: 14,
+                  size: isNarrow ? 16 : 14,
                 ),
-                const SizedBox(width: 4),
-                Text(
-                  '${l10n.lightMode} / ${l10n.darkMode}',
-                  style: TextStyle(
-                    color: isDarkMode ? Colors.grey[400] : Colors.black87,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
+                if (!isNarrow) ...[
+                  const SizedBox(width: 4),
+                  Text(
+                    '/',
+                    style: TextStyle(
+                      color: isDarkMode ? Colors.grey[400] : Colors.black87,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-                const SizedBox(width: 4),
+                  const SizedBox(width: 4),
+                ],
                 Icon(
                   Icons.dark_mode,
                   color: isDarkMode ? Colors.blue[300] : Colors.grey[600],
-                  size: 14,
+                  size: isNarrow ? 16 : 14,
                 ),
               ],
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 2),
             // Half-height rocker switch below
             GestureDetector(
               onTap: () => themeService.toggleDarkMode(),

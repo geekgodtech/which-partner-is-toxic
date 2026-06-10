@@ -16,6 +16,7 @@ import 'package:airta/services/unipile_integration_service.dart';
 import 'package:airta/services/android_sms_service.dart' if (dart.library.io) 'package:airta/services/android_sms_service.dart';
 import 'package:airta/services/custom_metric_service.dart';
 import 'package:airta/services/referral_service.dart';
+import 'package:airta/services/user_submitted_packs_service.dart';
 
 part 'metric_pack_catalogs.dart';
 
@@ -53,6 +54,8 @@ class ToxicityAnalyzerController extends ChangeNotifier {
     if (isPackSerialKillerUnlocked) metrics.addAll(packSerialKillerMetrics);
     // 3. User-created custom metrics
     metrics.addAll(customMetrics);
+    // 4. User-submitted packs purchased from the marketplace
+    metrics.addAll(UserSubmittedPacksService().allInstalledMetrics);
     return metrics;
   }
   final List<PsychologicalMetric> packGoodMetrics = _buildPackGoodCatalog();
