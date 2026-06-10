@@ -61,6 +61,36 @@
     .spell-check-banner ul li { margin-bottom: 4px; }
     .checking-banner { background: #0d1a2a; border: 1px solid #2a4a6a; border-radius: 10px; padding: 16px 20px; margin-bottom: 20px; text-align: center; }
     .checking-banner p { color: #80c0ff; font-size: 0.9rem; }
+        .global-banner {
+      background: linear-gradient(135deg, #1a3a1a 0%, #0d1a0d 100%);
+      border: 2px solid #3a7a3a;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .global-banner .global-icon { font-size: 2.5rem; }
+    .global-banner .global-text {
+      color: #a0ffa0;
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: left;
+      flex: 1;
+    }
+    .global-banner .global-text strong {
+      color: #60ff60;
+      font-size: 1.1rem;
+    }
+    .global-banner .roi-text {
+      color: #ffaa40;
+      font-weight: 600;
+      display: block;
+      margin-top: 6px;
+    }
     @media (max-width: 600px) {
       header h1 { font-size: 1.4rem; }
       .pricing-banner .price { font-size: 1.5rem; }
@@ -75,6 +105,14 @@
   <div class="pricing-banner">
     <div class="price">$5.00 Sales Price</div>
     <div class="credit">$2.50 Credit per sale to YOU, the creator of this pack</div>
+  </div>
+  <div class="global-banner">
+    <div class="global-icon">🌍</div>
+    <div class="global-text">
+      <strong>16 Languages = Global Exposure!</strong><br>
+      Your pack is automatically translated and sold in 16 language markets.<br>
+      <span class="roi-text">ROI in days: Make back your $29.99 license fee in as little as 6-12 sales!</span>
+    </div>
   </div>
 </header>
 

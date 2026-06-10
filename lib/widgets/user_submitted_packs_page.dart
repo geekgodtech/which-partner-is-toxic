@@ -421,25 +421,86 @@ class _UserSubmittedPacksPageState extends State<UserSubmittedPacksPage>
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: const Color(0xFF1a1a3e),
-        title: const Text('Creator Credits',
-            style: TextStyle(color: Color(0xFFd0d0ff))),
+        title: const Row(
+          children: [
+            Icon(Icons.language, color: Color(0xFF60ff60), size: 24),
+            SizedBox(width: 10),
+            Text('Global Creator Earnings',
+                style: TextStyle(color: Color(0xFFd0d0ff), fontSize: 16)),
+          ],
+        ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Earn credits when users purchase your submitted metric packs!',
-              style: TextStyle(color: Color(0xFFa0a0c0), fontSize: 13),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: const Color(0xFF1a3a1a),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: const Color(0xFF2a5a2a)),
+              ),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.public, color: Color(0xFF60ff60), size: 18),
+                      SizedBox(width: 8),
+                      Text(
+                        '16 Languages = 16x Exposure!',
+                        style: TextStyle(
+                          color: Color(0xFF60ff60),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 6),
+                  Text(
+                    'Every pack you submit is automatically translated into 16 languages and sold worldwide. One-time work, ongoing global passive income!',
+                    style: TextStyle(color: Color(0xFFa0ffa0), fontSize: 11),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 16),
+            const Text(
+              'Earnings & Rewards:',
+              style: TextStyle(
+                color: Color(0xFFd0d0ff),
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 8),
             _buildCreditTier('\$9.99', 'Redeem for 1 free month of Standard membership'),
             const SizedBox(height: 8),
             _buildCreditTier('\$19.99', 'Redeem for pack credit or PayPal payout'),
-            const SizedBox(height: 16),
-            const Text(
-              'Submit a pack to start earning!',
-              style: TextStyle(
-                  color: Color(0xFF60ff60), fontSize: 12, fontStyle: FontStyle.italic),
+            const SizedBox(height: 12),
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: const Color(0xFF1a1a3a),
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.trending_up, color: Color(0xFFffaa40), size: 16),
+                  SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Earn \$2.50-\$5.00 per sale. Just 6-12 sales to recover your \$29.99 license fee!',
+                      style: TextStyle(
+                        color: Color(0xFFffaa40),
+                        fontSize: 11,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -502,14 +563,40 @@ class _PacksListView extends StatelessWidget {
             const Icon(Icons.inventory_2_outlined,
                 color: Color(0xFF4a4a6a), size: 48),
             const SizedBox(height: 12),
-            Text(
-              'No packs available in this language yet',
-              style: TextStyle(color: Color(0xFF6666aa), fontSize: 14),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Submit your own at airta.net!',
-              style: TextStyle(color: Color(0xFF4040cc), fontSize: 12),
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0xFF1a1a3a),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: const Color(0xFF2a2a5a)),
+              ),
+              child: Column(
+                children: [
+                  const Icon(Icons.language, color: Color(0xFF6060ff), size: 36),
+                  const SizedBox(height: 12),
+                  const Text(
+                    'Be the First Creator in This Language!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color(0xFFd0d0ff),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Submit a pack once, get it auto-translated to 16 languages, and earn from sales worldwide.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Color(0xFF8888aa), fontSize: 11),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    'Visit airta.net to submit your pack!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Color(0xFF60ff60), fontSize: 12, fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

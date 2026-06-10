@@ -678,9 +678,25 @@ class _UserAccountPageState extends State<UserAccountPage> {
               ],
             ),
             const SizedBox(height: 8),
-            const Text(
-              'You can submit metric packs for sale and earn 50% of each sale.',
-              style: TextStyle(color: Color(0xFFa0a0c0), fontSize: 12),
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: const Color(0xFF1a3a1a),
+                borderRadius: BorderRadius.circular(6),
+                border: Border.all(color: const Color(0xFF2a5a2a)),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.public, color: Color(0xFF60ff60), size: 16),
+                  SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Your packs reach 16 languages worldwide. Earn \$2.50-\$5.00 per global sale!',
+                      style: TextStyle(color: Color(0xFFa0ffa0), fontSize: 11),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -691,8 +707,47 @@ class _UserAccountPageState extends State<UserAccountPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Color(0xFF1a3a1a), Color(0xFF0d1a0d)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: const Color(0xFF2a5a2a)),
+            ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.public, color: Color(0xFF60ff60), size: 20),
+                    SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        'Go Global — Earn Worldwide!',
+                        style: TextStyle(
+                          color: Color(0xFF60ff60),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Submit metric packs once. Our AI auto-translates them into 16 languages and sells them in every market. Earn \$2.50-\$5.00 per sale from a global audience!',
+                  style: TextStyle(color: Color(0xFFa0ffa0), fontSize: 12),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
           const Text(
-            'Want to create and sell your own metric packs?',
+            'Become a Metric Pack Creator',
             style: TextStyle(
                 color: Color(0xFFd0d0ff),
                 fontSize: 14,
@@ -700,22 +755,58 @@ class _UserAccountPageState extends State<UserAccountPage> {
           ),
           const SizedBox(height: 6),
           const Text(
-            'Purchase a Metric Pack Developer License for a one-time fee of \$29.99. '
-            'This grants you lifetime access to submit packs and earn 50% of every sale.',
-            style: TextStyle(color: Color(0xFF8888aa), fontSize: 12),
+            'One-time \$29.99 Developer License = Lifetime access to submit packs. '
+            'Make back your investment in as little as 6-12 sales, then it\'s pure profit!',
+            style: TextStyle(color: Color(0xFFa0a0c0), fontSize: 12),
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              _buildBenefitChip(Icons.language, '16 Languages'),
+              const SizedBox(width: 8),
+              _buildBenefitChip(Icons.trending_up, '50% Per Sale'),
+              const SizedBox(width: 8),
+              _buildBenefitChip(Icons.schedule, 'Days to ROI'),
+            ],
           ),
           const SizedBox(height: 12),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton.icon(
               onPressed: () => _showDeveloperLicensePurchase(context),
-              icon: const Icon(Icons.shopping_cart, size: 16),
-              label: const Text('Get Developer License — \$29.99'),
+              icon: const Icon(Icons.rocket_launch, size: 18),
+              label: const Text('Start Creating — \$29.99'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF4040cc),
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(vertical: 12),
+                backgroundColor: const Color(0xFF60ff60),
+                foregroundColor: const Color(0xFF0d1a0d),
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                textStyle: const TextStyle(fontWeight: FontWeight.w700),
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBenefitChip(IconData icon, String label) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: const Color(0xFF1a1a3a),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: const Color(0xFF2a2a5a)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: const Color(0xFF6060ff), size: 14),
+          const SizedBox(width: 4),
+          Text(
+            label,
+            style: const TextStyle(
+              color: Color(0xFFa0a0c0),
+              fontSize: 11,
             ),
           ),
         ],
