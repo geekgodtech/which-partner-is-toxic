@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AIRTA – Try It Out</title>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d0d1a; color: #e8e8f0; line-height: 1.6; min-height: 100vh; }
@@ -105,6 +106,14 @@
       <span class="slider-value" id="sliderValue">10</span>
     </div>
 
+    <h2 style="margin-top:24px;">3. Verify You're Human</h2>
+    <div style="display:flex; justify-content:center; margin:12px 0;">
+      <!-- CAPTCHA: Replace sitekey with your real Cloudflare Turnstile key from https://dash.cloudflare.com/turnstile -->
+      <!-- Current key is Cloudflare's test key (always passes) - register your domain for production -->
+      <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="dark" data-callback="onCaptchaSuccess" data-expired-callback="onCaptchaExpired"></div>
+    </div>
+    <div id="captchaStatus" style="text-align:center; color:#6666aa; font-size:0.8rem; min-height:18px;"></div>
+
     <div style="margin-top:20px; text-align:center;">
       <button class="btn btn-primary" id="analyzeBtn" disabled>
         🔬 Analyze Conversation
@@ -175,6 +184,31 @@ const progressFill = document.getElementById('progressFill');
 const inputPanel = document.getElementById('inputPanel');
 const reportPanel = document.getElementById('reportPanel');
 
+// CAPTCHA state
+let captchaPassed = false;
+
+function onCaptchaSuccess(token) {
+  captchaPassed = true;
+  document.getElementById('captchaStatus').textContent = '✓ Verified';
+  document.getElementById('captchaStatus').style.color = '#60ff60';
+  updateAnalyzeButton();
+}
+
+function onCaptchaExpired() {
+  captchaPassed = false;
+  document.getElementById('captchaStatus').textContent = 'Verification expired — please re-verify';
+  document.getElementById('captchaStatus').style.color = '#c0c040';
+  updateAnalyzeButton();
+}
+
+// Make callbacks global for Turnstile
+window.onCaptchaSuccess = onCaptchaSuccess;
+window.onCaptchaExpired = onCaptchaExpired;
+
+function updateAnalyzeButton() {
+  analyzeBtn.disabled = !(conversationText && captchaPassed);
+}
+
 // Slider
 metricSlider.addEventListener('input', () => {
   sliderValue.textContent = metricSlider.value;
@@ -200,7 +234,7 @@ function handleFileObj(file) {
     const lines = conversationText.split('\n').filter(l => l.trim()).length;
     fileLoaded.textContent = `✓ Loaded: ${file.name} (${lines} lines)`;
     fileLoaded.style.color = '#60ff60';
-    analyzeBtn.disabled = false;
+    updateAnalyzeButton();
   };
   reader.readAsText(file);
 }

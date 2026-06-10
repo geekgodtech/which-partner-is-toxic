@@ -52,6 +52,15 @@
     footer { text-align: center; padding: 40px 20px; color: #4a4a6a; font-size: 0.85rem; border-top: 1px solid #1a1a3a; }
     .back-link { display: inline-block; margin-bottom: 20px; color: #6060ff; text-decoration: none; font-size: 0.9rem; }
     .back-link:hover { color: #8080ff; }
+    .spell-error { border-color: #ff4040 !important; background: #1a0808 !important; }
+    .spell-error-msg { color: #ff8080; font-size: 0.78rem; margin-top: 4px; }
+    .spell-check-banner { display: none; background: #1a1204; border: 1px solid #4a3a04; border-radius: 10px; padding: 16px 20px; margin-bottom: 20px; }
+    .spell-check-banner h4 { color: #ff8080; font-size: 1rem; margin-bottom: 6px; }
+    .spell-check-banner p { color: #c0a840; font-size: 0.85rem; }
+    .spell-check-banner ul { color: #ff8080; font-size: 0.82rem; padding-left: 20px; margin-top: 8px; max-height: 200px; overflow-y: auto; }
+    .spell-check-banner ul li { margin-bottom: 4px; }
+    .checking-banner { background: #0d1a2a; border: 1px solid #2a4a6a; border-radius: 10px; padding: 16px 20px; margin-bottom: 20px; text-align: center; }
+    .checking-banner p { color: #80c0ff; font-size: 0.9rem; }
     @media (max-width: 600px) {
       header h1 { font-size: 1.4rem; }
       .pricing-banner .price { font-size: 1.5rem; }
@@ -137,6 +146,15 @@
     </div>
 
     <div id="metricsContainer"></div>
+
+    <div class="checking-banner" id="checkingBanner" style="display:none;">
+      <p>🔍 Checking spelling and grammar across all metrics...</p>
+    </div>
+    <div class="spell-check-banner" id="spellBanner">
+      <h4>⚠️ Spelling / Grammar Errors Found</h4>
+      <p>Please fix the highlighted fields below before submitting. All submissions must be free of spelling and grammar errors.</p>
+      <ul id="spellErrorList"></ul>
+    </div>
 
     <button type="submit" class="submit-btn" id="submitBtn">Submit Metric Pack (50 Metrics)</button>
   </form>
@@ -232,10 +250,115 @@
   }
   form.addEventListener('input', updateProgress);
 
-  // Submit
+  // LanguageTool API spell/grammar check (supports all 16 languages)
+  const LANG_MAP = {
+    'en': 'en-US', 'es': 'es', 'fr': 'fr', 'de': 'de-DE',
+    'it': 'it', 'pt': 'pt-BR', 'nl': 'nl', 'pl': 'pl-PL',
+    'ru': 'ru-RU', 'tr': 'tr', 'uk': 'uk-UA', 'ar': 'ar',
+    'zh': 'zh-CN', 'ja': 'ja-JP', 'ko': 'ko', 'hi': 'hi'
+  };
+
+  async function checkSpelling(text, lang) {
+    if (!text || text.length < 3) return [];
+    try {
+      const params = new URLSearchParams();
+      params.append('text', text);
+      params.append('language', lang);
+      params.append('enabledOnly', 'false');
+      const resp = await fetch('https://api.languagetool.org/v2/check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      });
+      if (!resp.ok) return [];
+      const data = await resp.json();
+      return data.matches || [];
+    } catch (e) {
+      console.warn('Spell check API error:', e);
+      return [];
+    }
+  }
+
+  async function runSpellCheck() {
+    const lang = LANG_MAP[document.getElementById('submissionLanguage').value] || 'en-US';
+    const errors = [];
+    const checkingBanner = document.getElementById('checkingBanner');
+    const spellBanner = document.getElementById('spellBanner');
+    const spellErrorList = document.getElementById('spellErrorList');
+
+    // Clear previous errors
+    spellBanner.style.display = 'none';
+    spellErrorList.innerHTML = '';
+    document.querySelectorAll('.spell-error').forEach(el => el.classList.remove('spell-error'));
+    document.querySelectorAll('.spell-error-msg').forEach(el => el.remove());
+
+    checkingBanner.style.display = 'block';
+
+    // Check pack name
+    const packNameEl = document.getElementById('packName');
+    const packMatches = await checkSpelling(packNameEl.value, lang);
+    if (packMatches.length > 0) {
+      packNameEl.classList.add('spell-error');
+      const suggestions = packMatches.map(m => `"${m.context.text.substring(m.context.offset, m.context.offset + m.context.length)}" — ${m.message}`);
+      errors.push({ field: 'Pack Name', issues: suggestions });
+    }
+
+    // Check metrics in batches (to avoid rate limiting)
+    for (let i = 1; i <= METRIC_COUNT; i++) {
+      const nameEl = document.getElementById(`metricName${i}`);
+      const defEl = document.getElementById(`metricDef${i}`);
+      const nameVal = nameEl.value.trim();
+      const defVal = defEl.value.trim();
+
+      if (nameVal) {
+        const nameMatches = await checkSpelling(nameVal, lang);
+        if (nameMatches.length > 0) {
+          nameEl.classList.add('spell-error');
+          const suggestions = nameMatches.map(m => `"${m.context.text.substring(m.context.offset, m.context.offset + m.context.length)}" — ${m.message}`);
+          errors.push({ field: `Metric ${i} Name`, issues: suggestions });
+        }
+      }
+
+      if (defVal) {
+        const defMatches = await checkSpelling(defVal, lang);
+        if (defMatches.length > 0) {
+          defEl.classList.add('spell-error');
+          const suggestions = defMatches.map(m => `"${m.context.text.substring(m.context.offset, m.context.offset + m.context.length)}" — ${m.message}`);
+          errors.push({ field: `Metric ${i} Definition`, issues: suggestions });
+        }
+      }
+
+      // Small delay every 5 metrics to avoid rate limiting
+      if (i % 5 === 0) await new Promise(r => setTimeout(r, 500));
+    }
+
+    checkingBanner.style.display = 'none';
+    return errors;
+  }
+
+  // Submit with spell check gate
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     submitBtn.disabled = true;
+    submitBtn.textContent = 'Checking spelling & grammar...';
+
+    // Run spell check first
+    const spellErrors = await runSpellCheck();
+    if (spellErrors.length > 0) {
+      const spellBanner = document.getElementById('spellBanner');
+      const spellErrorList = document.getElementById('spellErrorList');
+      spellBanner.style.display = 'block';
+      spellErrorList.innerHTML = spellErrors.map(e =>
+        `<li><strong>${e.field}:</strong> ${e.issues[0]}</li>`
+      ).join('');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Metric Pack (50 Metrics)';
+      // Scroll to first error
+      const firstError = document.querySelector('.spell-error');
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
     submitBtn.textContent = 'Submitting...';
 
     const metrics = [];
