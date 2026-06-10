@@ -471,25 +471,25 @@ class _DiscordButtonState extends State<_DiscordButton> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // White circle (plain, empty)
+                    // Outlined white circle with 'i' inside (maroon background shows through)
                     Container(
                       width: 40,
                       height: 40,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
                         shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 3),
                       ),
-                    ),
-                    const SizedBox(width: 4),
-                    // Bold white "i" on maroon background
-                    const Text(
-                      'i',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.w900,
-                        fontFamily: 'Roboto',
-                        height: 1.0,
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'i',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Roboto',
+                          height: 1.0,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 2),
