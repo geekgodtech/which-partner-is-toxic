@@ -243,6 +243,8 @@ class UserSubmittedPacksService extends ChangeNotifier {
       if (p.submissionLanguage == langCode) return true;
       // Include if has translation for this language
       if (p.translationComplete && p.hasTranslationFor(langCode)) return true;
+      // Fallback: always show English-submitted packs on all language tabs
+      if (p.submissionLanguage == 'en') return true;
       return false;
     }).toList();
   }
