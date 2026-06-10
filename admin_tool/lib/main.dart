@@ -6,10 +6,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-      apiKey: 'AIzaSyD_placeholder', // Replace with real values
-      appId: '1:000000000000:web:placeholder',
-      messagingSenderId: '000000000000',
-      projectId: 'airta-6e049',
+      apiKey: 'AIzaSyCoFnDNv-95zCFfiss0nh0E5uazF3-hGfk',
+      appId: '1:201308661380:web:479c8ba0454cb3dc9844d1',
+      messagingSenderId: '201308661380',
+      projectId: 'airta-app',
     ),
   );
   runApp(const AdminApp());

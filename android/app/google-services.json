@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1075538671730",
-    "project_id": "airta-6e049",
-    "storage_bucket": "airta-6e049.firebasestorage.app"
+    "project_number": "201308661380",
+    "project_id": "airta-app",
+    "storage_bucket": "airta-app.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1075538671730:android:cec89ea9eac9bb50a42aeb",
+        "mobilesdk_app_id": "1:201308661380:android:8599c2e705afda679844d1",
         "android_client_info": {
           "package_name": "com.airta.airelationshiptoxicityanalyzer"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCkUwNaUgV7_JoY7kfTE7zvWIAmzOzY2gc"
+          "current_key": "AIzaSyDy9nj_LMy16ZoaRPIuhszkNdeezYsX4g8"
         }
       ],
       "services": {

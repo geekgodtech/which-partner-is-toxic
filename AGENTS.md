@@ -98,14 +98,18 @@ Installing a sideloaded APK downloaded from a URL DOES trigger a Play Protect wa
 - 16 languages, multiple device sizes per platform
 - Firebase Remote Config causes errors in headless screenshot mode — expected/harmless
 
-## Firebase — NEEDS SETUP (HIGH PRIORITY)
-**Read `FIREBASE_SETUP_TODO.md` for the full soup-to-nuts checklist.**
+## Firebase — FULLY CONFIGURED
+**Project:** `airta-app` | **Account:** `ceo@airta.net`
+**Console:** https://console.firebase.google.com/project/airta-app
 
-Quick summary of what needs to be done:
-1. Enable Firestore Database in Firebase Console
-2. Register a Web App to get a real `appId` (needed for web forms + admin tool)
-3. Create all 18 Remote Config parameters
-4. Deploy Firestore security rules
-5. Update placeholder appId in: `docs/submit-50.html`, `docs/submit-100.html`, `admin_tool/lib/main.dart`
+Everything is live:
+- Firestore Database (us-east1) with security rules deployed
+- Remote Config with all 17 parameters published
+- Android app registered (`1:201308661380:android:8599c2e705afda679844d1`)
+- Web app registered (`1:201308661380:web:479c8ba0454cb3dc9844d1`)
+- Firebase CLI authenticated (token at `~/.config/configstore/firebase-tools.json`)
+- Config files: `firebase.json`, `.firebaserc` in project root
 
-Firebase MCP server is configured in `~/.codeium/windsurf/mcp_config.json` — needs `npx firebase-tools login` to authenticate first.
+**Deploy rules:** `npx firebase-tools deploy --only firestore:rules --project airta-app --config "C:/My Projects/AIRTA/firebase.json"`
+
+See `FIREBASE_SETUP_TODO.md` for full reference of all values and collections.

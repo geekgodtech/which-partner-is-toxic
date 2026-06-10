@@ -1,30 +1,24 @@
-# FIREBASE SETUP — COMPLETE TODO LIST (SOUP TO NUTS)
+# FIREBASE SETUP — COMPLETE (ALL DONE)
 
-**Project ID:** `airta-6e049`
-**Console URL:** https://console.firebase.google.com/project/airta-6e049
+**Project ID:** `airta-app`
+**Console URL:** https://console.firebase.google.com/project/airta-app
+**Account:** `ceo@airta.net`
 
-**STATUS:** Firebase project exists. google-services.json is in the Android app.
-Firestore, Remote Config, and Web App registration are NOT yet configured in the console.
+**STATUS: FULLY CONFIGURED** — Firestore enabled, rules deployed, Remote Config published,
+Android + Web apps registered, all config files updated.
 
 ---
 
-## STEP 0: AUTHENTICATE FIREBASE CLI (USER MUST DO THIS MANUALLY)
+## AUTHENTICATION — DONE
 
-Node.js is installed. Run this in a normal PowerShell/terminal window (NOT in Devin):
+Firebase CLI authenticated as `ceo@airta.net`.
+Node.js installed at `C:\Program Files\nodejs\`.
+Firebase CLI token stored at `~/.config/configstore/firebase-tools.json`.
 
+To re-authenticate if needed:
 ```powershell
 npx -y firebase-tools@latest login
 ```
-
-This opens a browser to authenticate with Google. Once complete, the Firebase MCP
-server and CLI will have full access to the `airta-6e049` project.
-
-After login, verify access works:
-```powershell
-npx firebase-tools@latest projects:list
-```
-
-You should see `airta-6e049` in the output.
 
 ---
 
@@ -141,22 +135,29 @@ Or manually: copy the contents of `firestore.rules` → paste in Firebase Consol
 
 ---
 
-## PRIORITY 5: VERIFY EXISTING CONFIG FILES
+## CURRENT CONFIG VALUES (ALL LIVE)
 
-### Already correct (no changes needed):
-- `android/app/google-services.json` — has correct project_number, project_id, api_key, app_id
-- `ios/Runner/GoogleService-Info.plist` — should already exist (verify)
-
-### Known values:
 | Key | Value |
 |-----|-------|
-| Project ID | `airta-6e049` |
-| Project Number | `1075538671730` |
-| Android API Key | `AIzaSyCkUwNaUgV7_JoY7kfTE7zvWIAmzOzY2gc` |
-| Android App ID | `1:1075538671730:android:cec89ea9eac9bb50a42aeb` |
+| Project ID | `airta-app` |
+| Project Number | `201308661380` |
+| Android API Key | `AIzaSyDy9nj_LMy16ZoaRPIuhszkNdeezYsX4g8` |
+| Android App ID | `1:201308661380:android:8599c2e705afda679844d1` |
+| Web API Key | `AIzaSyCoFnDNv-95zCFfiss0nh0E5uazF3-hGfk` |
+| Web App ID | `1:201308661380:web:479c8ba0454cb3dc9844d1` |
+| Auth Domain | `airta-app.firebaseapp.com` |
+| Storage Bucket | `airta-app.firebasestorage.app` |
+| Messaging Sender ID | `201308661380` |
 | Package Name | `com.airta.airelationshiptoxicityanalyzer` |
-| Storage Bucket | `airta-6e049.firebasestorage.app` |
-| Web App ID | **NEEDS TO BE CREATED** (see Priority 2) |
+| Measurement ID | `G-ZN9ZRRZTBE` |
+
+### Config files updated:
+- `android/app/google-services.json` — new project credentials
+- `docs/submit-50.html` — web Firebase config
+- `docs/submit-100.html` — web Firebase config
+- `admin_tool/lib/main.dart` — web Firebase config
+- `firebase.json` — Firestore rules reference
+- `.firebaserc` — default project set to `airta-app`
 
 ---
 
@@ -187,11 +188,11 @@ After auth, future agents can use the Firebase MCP tools to read/write Firestore
 
 ## VERIFICATION CHECKLIST
 
-After completing the above, verify:
-- [ ] Firestore Database is enabled and accessible
-- [ ] Security rules are deployed (matches firestore.rules file)
-- [ ] Web App is registered and appId is updated in submit-50.html, submit-100.html, and admin_tool
-- [ ] All 18 Remote Config parameters are created and published
-- [ ] `npx firebase-tools login` has been run successfully
+- [x] Firestore Database is enabled and accessible (us-east1)
+- [x] Security rules are deployed (matches firestore.rules file)
+- [x] Web App is registered and appId is updated in submit-50.html, submit-100.html, and admin_tool
+- [x] All 17 Remote Config parameters are created and published
+- [x] `npx firebase-tools login` has been run successfully (ceo@airta.net)
 - [ ] Admin tool can connect and list users (run: `cd admin_tool && flutter run -d windows`)
 - [ ] Web submission forms can write to Firestore (test submit-50.html in browser)
+- [ ] iOS GoogleService-Info.plist needs to be generated if iOS build is needed
