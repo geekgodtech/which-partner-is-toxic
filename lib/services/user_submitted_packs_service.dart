@@ -207,7 +207,9 @@ class UserSubmittedPacksService extends ChangeNotifier {
     }
   }
 
-  /// Fetch approved packs from Firebase Firestore.
+  /// Fetch approved and pending_review packs from Firebase Firestore.
+  /// Submissions are auto-approved client-side; pending_review packs appear
+  /// immediately and are translated/approved in the background.
   Future<void> fetchPacks() async {
     _isLoading = true;
     _error = null;
@@ -215,15 +217,23 @@ class UserSubmittedPacksService extends ChangeNotifier {
 
     try {
       final firestore = FirebaseFirestore.instance;
-      final snapshot = await firestore
-          .collection('user_submitted_packs')
-          .where('status', isEqualTo: 'approved')
-          .get();
 
-      // Sort client-side by submissionDate descending — avoids needing a
-      // composite Firestore index on (status + createdAt) which was
-      // throwing and showing 'Failed to load packs'.
-      _availablePacks = snapshot.docs
+      // Fetch both approved and pending_review packs in parallel
+      final snapshots = await Future.wait([
+        firestore
+            .collection('user_submitted_packs')
+            .where('status', isEqualTo: 'approved')
+            .get(),
+        firestore
+            .collection('user_submitted_packs')
+            .where('status', isEqualTo: 'pending_review')
+            .get(),
+      ]);
+
+      final allDocs = [...snapshots[0].docs, ...snapshots[1].docs];
+
+      // Sort client-side by submissionDate descending
+      _availablePacks = allDocs
           .map((doc) => UserSubmittedPack.fromFirestore(doc))
           .toList()
           ..sort((a, b) => b.submissionDate.compareTo(a.submissionDate));

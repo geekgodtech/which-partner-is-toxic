@@ -215,22 +215,48 @@ Important:
     }
   }
 
-  /// Auto-translate all approved packs that haven't been translated yet.
-  /// Call this after fetching packs to ensure all packs are available in all languages.
+  /// Auto-translate all packs (approved + pending_review) that haven't been
+  /// translated yet. pending_review packs are auto-approved after translation.
   Future<int> autoTranslateAllPending() async {
     try {
       final firestore = FirebaseFirestore.instance;
-      final snapshot = await firestore
-          .collection('user_submitted_packs')
-          .where('status', isEqualTo: 'approved')
-          .where('translationComplete', isEqualTo: false)
-          .limit(10) // Process in batches
-          .get();
+
+      // Fetch both approved and pending_review packs needing translation
+      final results = await Future.wait([
+        firestore
+            .collection('user_submitted_packs')
+            .where('status', isEqualTo: 'approved')
+            .where('translationComplete', isEqualTo: false)
+            .limit(10)
+            .get(),
+        firestore
+            .collection('user_submitted_packs')
+            .where('status', isEqualTo: 'pending_review')
+            .where('translationComplete', isEqualTo: false)
+            .limit(10)
+            .get(),
+      ]);
+
+      final allDocs = [...results[0].docs, ...results[1].docs];
 
       int translated = 0;
-      for (final doc in snapshot.docs) {
+      for (final doc in allDocs) {
         final success = await translatePackToAllLanguages(doc.id);
-        if (success) translated++;
+        if (success) {
+          translated++;
+          // Auto-approve pending_review packs once translation completes
+          final data = doc.data();
+          if ((data['status'] as String?) == 'pending_review') {
+            await firestore
+                .collection('user_submitted_packs')
+                .doc(doc.id)
+                .update({
+              'status': 'approved',
+              'approvedAt': FieldValue.serverTimestamp(),
+            });
+            debugPrint('PackTranslationService: Auto-approved pack ${doc.id}');
+          }
+        }
         // Delay to avoid rate limiting
         await Future.delayed(const Duration(milliseconds: 200));
       }

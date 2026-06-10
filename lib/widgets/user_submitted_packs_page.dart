@@ -595,6 +595,7 @@ class _UserSubmittedPacksPageState extends State<UserSubmittedPacksPage>
   }
 }
 
+
 /// Displays the list of packs for a specific language in a scrollable table.
 class _PacksListView extends StatelessWidget {
   final String languageCode;
@@ -644,10 +645,13 @@ class _PacksListView extends StatelessWidget {
                     style: TextStyle(color: Color(0xFF8888aa), fontSize: 11),
                   ),
                   const SizedBox(height: 12),
-                  Text(
+                  const Text(
                     'Visit airta.net to submit your pack!',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xFF60ff60), fontSize: 12, fontWeight: FontWeight.w500),
+                    style: TextStyle(
+                        color: Color(0xFF60ff60),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
@@ -657,19 +661,105 @@ class _PacksListView extends StatelessWidget {
       );
     }
 
-    return ListView.builder(
-      padding: const EdgeInsets.all(12),
-      itemCount: packs.length,
-      itemBuilder: (context, index) => _PackRow(
-        pack: packs[index],
-        service: service,
-        languageCode: languageCode,
-      ),
+    return Column(
+      children: [
+        // ── Column headers ────────────────────────────────────────────────
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+          child: LayoutBuilder(builder: (context, constraints) {
+            final isSmall = constraints.maxWidth < 500;
+            if (isSmall) {
+              return const Row(
+                children: [
+                  SizedBox(width: 28), // chevron space
+                  Expanded(
+                    child: Text('Pack Name',
+                        style: TextStyle(
+                            color: Color(0xFF5a5a8a),
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 0.5)),
+                  ),
+                ],
+              );
+            }
+            return const Row(
+              children: [
+                SizedBox(width: 28),
+                Expanded(
+                  flex: 3,
+                  child: Text('Pack Name',
+                      style: TextStyle(
+                          color: Color(0xFF5a5a8a),
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.5)),
+                ),
+                SizedBox(width: 8),
+                SizedBox(
+                  width: 52,
+                  child: Text('Metrics',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Color(0xFF5a5a8a),
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.5)),
+                ),
+                SizedBox(
+                  width: 58,
+                  child: Text('Price',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Color(0xFF5a5a8a),
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.5)),
+                ),
+                SizedBox(
+                  width: 64,
+                  child: Text('Status',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Color(0xFF5a5a8a),
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.5)),
+                ),
+                SizedBox(
+                  width: 46,
+                  child: Text('Sold',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Color(0xFF5a5a8a),
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.5)),
+                ),
+              ],
+            );
+          }),
+        ),
+        const Divider(height: 1, color: Color(0xFF2a2a4a)),
+        // ── Pack rows ─────────────────────────────────────────────────────
+        Expanded(
+          child: ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            itemCount: packs.length,
+            itemBuilder: (context, index) => _PackRow(
+              pack: packs[index],
+              service: service,
+              languageCode: languageCode,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
 
 /// A single pack row with accordion expansion to show metric names.
+/// On small screens (<500px wide) shows a 2-line card layout so nothing is truncated.
 class _PackRow extends StatefulWidget {
   final UserSubmittedPack pack;
   final UserSubmittedPacksService service;
@@ -692,6 +782,8 @@ class _PackRowState extends State<_PackRow> {
   Widget build(BuildContext context) {
     final pack = widget.pack;
     final isPurchased = widget.service.isPurchased(pack.id);
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isSmall = screenWidth < 500;
 
     return Card(
       color: const Color(0xFF12122a),
@@ -705,126 +797,22 @@ class _PackRowState extends State<_PackRow> {
       ),
       margin: const EdgeInsets.only(bottom: 8),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Main row content
+          // ── Tappable header ─────────────────────────────────────────────
           InkWell(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
             onTap: () => setState(() => _expanded = !_expanded),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              child: Row(
-                children: [
-                  // Expand/collapse indicator
-                  Icon(
-                    _expanded
-                        ? Icons.keyboard_arrow_down
-                        : Icons.keyboard_arrow_right,
-                    color: const Color(0xFF6666aa),
-                    size: 20,
-                  ),
-                  const SizedBox(width: 8),
-                  // Pack name (translated for current language tab)
-                  Expanded(
-                    flex: 3,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          pack.getPackName(widget.languageCode),
-                          style: const TextStyle(
-                            color: Color(0xFFd0d0ff),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        if (pack.submissionLanguage != widget.languageCode)
-                          Text(
-                            'Translated from ${_getLanguageName(pack.submissionLanguage)}',
-                            style: const TextStyle(
-                              color: Color(0xFF6060ff),
-                              fontSize: 10,
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  // Qty
-                  SizedBox(
-                    width: 36,
-                    child: Text(
-                      '${pack.metricCount}',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          color: Color(0xFFa0a0c0), fontSize: 12),
-                    ),
-                  ),
-                  // Price
-                  SizedBox(
-                    width: 50,
-                    child: Text(
-                      pack.priceFormatted,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          color: Color(0xFF60ff60),
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  const SizedBox(width: 6),
-                  // Purchase button or sold indicator
-                  if (isPurchased)
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF1a3a1a),
-                        borderRadius: BorderRadius.circular(6),
-                        border: Border.all(color: const Color(0xFF2a5a2a)),
-                      ),
-                      child: const Text(
-                        'Owned',
-                        style: TextStyle(
-                            color: Color(0xFF60ff60), fontSize: 11),
-                      ),
-                    )
-                  else
-                    SizedBox(
-                      height: 28,
-                      child: ElevatedButton(
-                        onPressed: () => _confirmPurchase(context),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF4040cc),
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          textStyle: const TextStyle(fontSize: 11),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                        ),
-                        child: const Text('Buy'),
-                      ),
-                    ),
-                  const SizedBox(width: 6),
-                  // Sold count
-                  SizedBox(
-                    width: 40,
-                    child: Text(
-                      '${pack.salesCount} sold',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          color: Color(0xFF6666aa), fontSize: 10),
-                    ),
-                  ),
-                ],
-              ),
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 6),
+              child: isSmall
+                  ? _buildSmallLayout(context, pack, isPurchased)
+                  : _buildWideLayout(context, pack, isPurchased),
             ),
           ),
-          // Creator + date subtitle
+          // ── Creator + date ──────────────────────────────────────────────
           Padding(
-            padding: const EdgeInsets.only(left: 40, right: 12, bottom: 6),
+            padding: const EdgeInsets.fromLTRB(38, 0, 12, 6),
             child: Row(
               children: [
                 Text(
@@ -841,7 +829,7 @@ class _PackRowState extends State<_PackRow> {
               ],
             ),
           ),
-          // Expanded metric names accordion
+          // ── Expanded accordion: metric names ────────────────────────────
           if (_expanded)
             Container(
               decoration: const BoxDecoration(
@@ -854,7 +842,6 @@ class _PackRowState extends State<_PackRow> {
                 shrinkWrap: true,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                // Use translated metrics for current language tab
                 itemCount: pack.getMetrics(widget.languageCode).length,
                 itemBuilder: (context, index) {
                   final metrics = pack.getMetrics(widget.languageCode);
@@ -890,26 +877,183 @@ class _PackRowState extends State<_PackRow> {
     );
   }
 
-  String _getLanguageName(String langCode) {
-    const names = {
-      'en': 'English',
-      'es': 'Spanish',
-      'fr': 'French',
-      'de': 'German',
-      'it': 'Italian',
-      'pt': 'Portuguese',
-      'nl': 'Dutch',
-      'pl': 'Polish',
-      'ru': 'Russian',
-      'tr': 'Turkish',
-      'uk': 'Ukrainian',
-      'ar': 'Arabic',
-      'zh': 'Chinese',
-      'ja': 'Japanese',
-      'ko': 'Korean',
-      'hi': 'Hindi',
-    };
-    return names[langCode] ?? langCode.toUpperCase();
+  /// Wide layout (tablets / landscape): all columns inline in one row.
+  Widget _buildWideLayout(
+      BuildContext context, UserSubmittedPack pack, bool isPurchased) {
+    return Row(
+      children: [
+        Icon(
+          _expanded ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_right,
+          color: const Color(0xFF6666aa),
+          size: 20,
+        ),
+        const SizedBox(width: 6),
+        Expanded(
+          flex: 3,
+          child: Text(
+            pack.getPackName(widget.languageCode),
+            style: const TextStyle(
+              color: Color(0xFFd0d0ff),
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+            ),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        const SizedBox(width: 8),
+        SizedBox(
+          width: 52,
+          child: Text(
+            '${pack.metricCount}',
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: Color(0xFFa0a0c0), fontSize: 12),
+          ),
+        ),
+        SizedBox(
+          width: 58,
+          child: Text(
+            pack.priceFormatted,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                color: Color(0xFF60ff60),
+                fontSize: 13,
+                fontWeight: FontWeight.w600),
+          ),
+        ),
+        const SizedBox(width: 6),
+        SizedBox(
+          width: 64,
+          child: isPurchased
+              ? Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF1a3a1a),
+                    borderRadius: BorderRadius.circular(6),
+                    border: Border.all(color: const Color(0xFF2a5a2a)),
+                  ),
+                  child: const Text('Owned',
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(color: Color(0xFF60ff60), fontSize: 11)),
+                )
+              : SizedBox(
+                  height: 28,
+                  child: ElevatedButton(
+                    onPressed: () => _confirmPurchase(context),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF4040cc),
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                      textStyle: const TextStyle(fontSize: 11),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                    ),
+                    child: const Text('Buy'),
+                  ),
+                ),
+        ),
+        const SizedBox(width: 6),
+        SizedBox(
+          width: 46,
+          child: Text(
+            '${pack.salesCount}',
+            textAlign: TextAlign.center,
+            style:
+                const TextStyle(color: Color(0xFF6666aa), fontSize: 11),
+          ),
+        ),
+      ],
+    );
+  }
+
+  /// Small-screen layout: pack name prominently on its own line,
+  /// info chips (metric count / price / status / sold) on a second line.
+  Widget _buildSmallLayout(
+      BuildContext context, UserSubmittedPack pack, bool isPurchased) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Line 1: chevron + full pack name
+        Row(
+          children: [
+            Icon(
+              _expanded
+                  ? Icons.keyboard_arrow_down
+                  : Icons.keyboard_arrow_right,
+              color: const Color(0xFF6060ff),
+              size: 20,
+            ),
+            const SizedBox(width: 6),
+            Expanded(
+              child: Text(
+                pack.getPackName(widget.languageCode),
+                style: const TextStyle(
+                  color: Color(0xFFd0d0ff),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 6),
+        // Line 2: info chips
+        Padding(
+          padding: const EdgeInsets.only(left: 26),
+          child: Row(
+            children: [
+              _InfoChip(
+                label: '${pack.metricCount} metrics',
+                color: const Color(0xFF252550),
+                textColor: const Color(0xFF9090cc),
+              ),
+              const SizedBox(width: 6),
+              _InfoChip(
+                label: pack.priceFormatted,
+                color: const Color(0xFF1a3a1a),
+                textColor: const Color(0xFF60ff60),
+              ),
+              const SizedBox(width: 6),
+              if (isPurchased)
+                const _InfoChip(
+                  label: 'Owned',
+                  color: Color(0xFF1a3a1a),
+                  textColor: Color(0xFF60ff60),
+                  bold: true,
+                )
+              else
+                GestureDetector(
+                  onTap: () => _confirmPurchase(context),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF4040cc),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: const Text('Buy',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600)),
+                  ),
+                ),
+              const Spacer(),
+              Text(
+                '${pack.salesCount} sold',
+                style: const TextStyle(
+                    color: Color(0xFF5555aa), fontSize: 10),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
   }
 
   String _formatDate(String isoDate) {
@@ -928,7 +1072,7 @@ class _PackRowState extends State<_PackRow> {
       builder: (ctx) => AlertDialog(
         backgroundColor: const Color(0xFF1a1a3e),
         title: Text(
-          'Purchase "${pack.packName}"?',
+          'Purchase "${pack.getPackName(widget.languageCode)}"?',
           style: const TextStyle(color: Color(0xFFd0d0ff), fontSize: 16),
         ),
         content: Column(
@@ -966,14 +1110,15 @@ class _PackRowState extends State<_PackRow> {
               backgroundColor: const Color(0xFF4040cc),
               foregroundColor: Colors.white,
             ),
-            child: Text('Buy for \${pack.priceFormatted}'),
+            child: Text('Buy for ${pack.priceFormatted}'),
           ),
         ],
       ),
     );
 
     if (confirmed == true && context.mounted) {
-      final success = await widget.service.purchasePack(pack, preferredLanguage: widget.languageCode);
+      final success = await widget.service.purchasePack(pack,
+          preferredLanguage: widget.languageCode);
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -987,5 +1132,39 @@ class _PackRowState extends State<_PackRow> {
         if (success) setState(() {});
       }
     }
+  }
+}
+
+/// Small chip widget for the compact small-screen pack row info line.
+class _InfoChip extends StatelessWidget {
+  final String label;
+  final Color color;
+  final Color textColor;
+  final bool bold;
+
+  const _InfoChip({
+    required this.label,
+    required this.color,
+    required this.textColor,
+    this.bold = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          color: textColor,
+          fontSize: 11,
+          fontWeight: bold ? FontWeight.w700 : FontWeight.normal,
+        ),
+      ),
+    );
   }
 }
