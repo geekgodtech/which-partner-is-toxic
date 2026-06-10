@@ -218,12 +218,15 @@ class UserSubmittedPacksService extends ChangeNotifier {
       final snapshot = await firestore
           .collection('user_submitted_packs')
           .where('status', isEqualTo: 'approved')
-          .orderBy('createdAt', descending: true)
           .get();
 
+      // Sort client-side by submissionDate descending — avoids needing a
+      // composite Firestore index on (status + createdAt) which was
+      // throwing and showing 'Failed to load packs'.
       _availablePacks = snapshot.docs
           .map((doc) => UserSubmittedPack.fromFirestore(doc))
-          .toList();
+          .toList()
+          ..sort((a, b) => b.submissionDate.compareTo(a.submissionDate));
 
       _isLoading = false;
       notifyListeners();
