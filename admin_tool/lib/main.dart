@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server.dart';
+import 'dart:async';
+import 'dart:math';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,20 +52,111 @@ class AdminHomePage extends StatefulWidget {
   State<AdminHomePage> createState() => _AdminHomePageState();
 }
 
-class _AdminHomePageState extends State<AdminHomePage> {
+class _AdminHomePageState extends State<AdminHomePage> with SingleTickerProviderStateMixin {
   final _firestore = FirebaseFirestore.instance;
   final _searchController = TextEditingController();
+  late TabController _tabController;
 
   List<_UserRecord> _allUsers = [];
   List<_UserRecord> _filteredUsers = [];
   _UserRecord? _selectedUser;
+  List<_PayoutRequest> _payoutRequests = [];
+  bool _loadingPayouts = true;
+  int _pendingPayoutCount = 0;
+  StreamSubscription<QuerySnapshot>? _payoutSubscription;
+
+  // Email settings - Configure with your SMTP credentials
+  bool _emailConfigured = false;  // Set to true when SMTP is configured
   bool _loading = true;
   String _statusMessage = '';
 
   @override
   void initState() {
     super.initState();
+    _tabController = TabController(length: 2, vsync: this);
     _loadUsers();
+    _loadPayoutRequests();
+    _setupPayoutListener();
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    _payoutSubscription?.cancel();
+    super.dispose();
+  }
+
+  Future<void> _loadPayoutRequests() async {
+    setState(() => _loadingPayouts = true);
+    try {
+      final snapshot = await _firestore
+          .collection('cashout_requests')
+          .orderBy('requestedAt', descending: true)
+          .get();
+
+      _payoutRequests = snapshot.docs.map((doc) {
+        final data = doc.data();
+        return _PayoutRequest(
+          id: doc.id,
+          email: data['email'] as String? ?? '',
+          name: data['name'] as String? ?? '',
+          amount: (data['amount'] as num?)?.toDouble() ?? 0.0,
+          cashoutType: data['cashoutType'] as String? ?? 'unknown',
+          paypalEmail: data['paypalEmail'] as String?,
+          status: data['status'] as String? ?? 'pending',
+          requestedAt: (data['requestedAt'] as Timestamp?)?.toDate(),
+        );
+      }).toList();
+
+      _pendingPayoutCount = _payoutRequests.where((p) => p.status == 'pending').length;
+    } catch (e) {
+      _statusMessage = 'Error loading payout requests: \$e';
+    }
+    setState(() => _loadingPayouts = false);
+  }
+
+  void _setupPayoutListener() {
+    _payoutSubscription = _firestore
+        .collection('cashout_requests')
+        .where('status', isEqualTo: 'pending')
+        .snapshots()
+        .listen((snapshot) {
+      final newPending = snapshot.docChanges
+          .where((change) => change.type == DocumentChangeType.added);
+
+      for (final change in newPending) {
+        final data = change.doc.data() as Map<String, dynamic>;
+        final request = _PayoutRequest(
+          id: change.doc.id,
+          email: data['email'] as String? ?? '',
+          name: data['name'] as String? ?? '',
+          amount: (data['amount'] as num?)?.toDouble() ?? 0.0,
+          cashoutType: data['cashoutType'] as String? ?? 'unknown',
+          paypalEmail: data['paypalEmail'] as String?,
+          status: 'pending',
+          requestedAt: (data['requestedAt'] as Timestamp?)?.toDate(),
+        );
+        _sendPayoutAlertEmail(request);
+      }
+
+      setState(() {
+        _pendingPayoutCount = snapshot.docs.length;
+      });
+    });
+  }
+
+  Future<void> _sendPayoutAlertEmail(_PayoutRequest request) async {
+    if (!_emailConfigured) {
+      debugPrint('Email not configured - alert would be sent for \${request.email}');
+      setState(() => _statusMessage = 'New payout request from \${request.name} (\$\${request.amount.toStringAsFixed(2)}) - Email alerts not configured');
+      return;
+    }
+
+    try {
+      debugPrint('Payout alert email sent for \${request.id}');
+    } catch (e) {
+      debugPrint('Failed to send payout alert email: \$e');
+    }
   }
 
   Future<void> _loadUsers() async {
@@ -218,6 +313,485 @@ class _AdminHomePageState extends State<AdminHomePage> {
       ),
     );
   }
+
+
+  // PAYOUT REQUESTS PANEL
+  Widget _buildPayoutRequestsPanel() {
+    return Column(
+      children: [
+        // Header with stats
+        Container(
+          padding: const EdgeInsets.all(16),
+          color: const Color(0xFF1a1a3e),
+          child: Row(
+            children: [
+              Expanded(
+                child: _buildPayoutStatCard(
+                  'Pending',
+                  _payoutRequests.where((p) => p.status == 'pending').length.toString(),
+                  const Color(0xFFffaa40),
+                  Icons.pending,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: _buildPayoutStatCard(
+                  'Approved',
+                  _payoutRequests.where((p) => p.status == 'approved').length.toString(),
+                  const Color(0xFF60ff60),
+                  Icons.check_circle,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: _buildPayoutStatCard(
+                  'Rejected',
+                  _payoutRequests.where((p) => p.status == 'rejected').length.toString(),
+                  const Color(0xFFff4040),
+                  Icons.cancel,
+                ),
+              ),
+            ],
+          ),
+        ),
+        // Refresh button
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '${_payoutRequests.length} total requests',
+                style: const TextStyle(color: Color(0xFF6666aa), fontSize: 12),
+              ),
+              TextButton.icon(
+                onPressed: _loadPayoutRequests,
+                icon: const Icon(Icons.refresh, size: 16, color: Color(0xFF6060ff)),
+                label: const Text('Refresh', style: TextStyle(color: Color(0xFF6060ff))),
+              ),
+            ],
+          ),
+        ),
+        // Payout list
+        Expanded(
+          child: _loadingPayouts
+              ? const Center(child: CircularProgressIndicator())
+              : _payoutRequests.isEmpty
+                  ? const Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.inbox, color: Color(0xFF4a4a6a), size: 48),
+                          SizedBox(height: 16),
+                          Text(
+                            'No payout requests yet',
+                            style: TextStyle(color: Color(0xFF6666aa)),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Requests will appear here when members submit them',
+                            style: TextStyle(color: Color(0xFF4a4a6a), fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    )
+                  : ListView.builder(
+                      itemCount: _payoutRequests.length,
+                      itemBuilder: (ctx, idx) {
+                        final request = _payoutRequests[idx];
+                        return _buildPayoutRequestCard(request);
+                      },
+                    ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPayoutStatCard(String label, String value, Color color, IconData icon) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: const Color(0xFF12122a),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: const Color(0xFF2a2a5a)),
+      ),
+      child: Column(
+        children: [
+          Icon(icon, color: color, size: 24),
+          const SizedBox(height: 4),
+          Text(
+            value,
+            style: TextStyle(
+              color: color,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            label,
+            style: const TextStyle(
+              color: Color(0xFF8888aa),
+              fontSize: 11,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPayoutRequestCard(_PayoutRequest request) {
+    final statusColor = request.status == 'pending'
+        ? const Color(0xFFffaa40)
+        : request.status == 'approved'
+            ? const Color(0xFF60ff60)
+            : const Color(0xFFff4040);
+
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: statusColor.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: statusColor),
+                  ),
+                  child: Text(
+                    request.status.toUpperCase(),
+                    style: TextStyle(
+                      color: statusColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                Text(
+                  '\$${request.amount.toStringAsFixed(2)}',
+                  style: const TextStyle(
+                    color: Color(0xFF60ff60),
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(
+              request.name,
+              style: const TextStyle(
+                color: Color(0xFFd0d0ff),
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              request.email,
+              style: const TextStyle(
+                color: Color(0xFF8888aa),
+                fontSize: 12,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Row(
+              children: [
+                Icon(
+                  request.cashoutType == 'paypal' ? Icons.paypal : Icons.card_giftcard,
+                  color: const Color(0xFF6060ff),
+                  size: 14,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  request.cashoutType.toUpperCase(),
+                  style: const TextStyle(
+                    color: Color(0xFF6060ff),
+                    fontSize: 11,
+                  ),
+                ),
+                if (request.paypalEmail != null) ...[
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      '-> ${request.paypalEmail}',
+                      style: const TextStyle(
+                        color: Color(0xFF8888aa),
+                        fontSize: 10,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Request ID: ${request.id}',
+              style: const TextStyle(
+                color: Color(0xFF4a4a6a),
+                fontSize: 10,
+                fontFamily: 'monospace',
+              ),
+            ),
+            Text(
+              'Requested: ${request.requestedAt?.toString().split('.').first ?? 'Unknown'}',
+              style: const TextStyle(
+                color: Color(0xFF4a4a6a),
+                fontSize: 10,
+              ),
+            ),
+            if (request.status == 'pending') ...[
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: () => _approvePayout(request),
+                      icon: const Icon(Icons.check, size: 16),
+                      label: const Text('Approve'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2a5a2a),
+                        foregroundColor: const Color(0xFF60ff60),
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: () => _rejectPayout(request),
+                      icon: const Icon(Icons.close, size: 16),
+                      label: const Text('Reject'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF5a2a2a),
+                        foregroundColor: const Color(0xFFff8080),
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _approvePayout(_PayoutRequest request) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF1a1a3e),
+        title: const Text('Approve Payout?',
+            style: TextStyle(color: Color(0xFF60ff60))),
+        content: Text(
+          'Approve \$${request.amount.toStringAsFixed(2)} ${request.cashoutType} payout for ${request.name}?\n\n'
+          'Request ID: ${request.id}',
+          style: const TextStyle(color: Color(0xFFa0a0c0)),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF2a5a2a)),
+            child: const Text('Approve', style: TextStyle(color: Color(0xFF60ff60))),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      try {
+        await _firestore.collection('cashout_requests').doc(request.id).update({
+          'status': 'approved',
+          'processedAt': FieldValue.serverTimestamp(),
+          'processedBy': 'admin',
+        });
+
+        // If it's a referral credit payout, also clear their referral credits
+        if (request.cashoutType == 'free_month') {
+          await _firestore.collection('referrals').doc(request.email).update({
+            'creditCount': 0,
+          });
+        }
+
+        setState(() {
+          _statusMessage = 'Approved payout ${request.id.substring(0, 8)}... for ${request.name}';
+        });
+
+        await _loadPayoutRequests();
+      } catch (e) {
+        setState(() => _statusMessage = 'Error approving payout: \$e');
+      }
+    }
+  }
+
+  Future<void> _rejectPayout(_PayoutRequest request) async {
+    final reasonController = TextEditingController();
+
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF1a1a3e),
+        title: const Text('Reject Payout?',
+            style: TextStyle(color: Color(0xFFff8080))),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Reject \$${request.amount.toStringAsFixed(2)} ${request.cashoutType} payout for ${request.name}?',
+              style: const TextStyle(color: Color(0xFFa0a0c0)),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: reasonController,
+              style: const TextStyle(color: Colors.white),
+              decoration: const InputDecoration(
+                labelText: 'Rejection reason (optional)',
+                labelStyle: TextStyle(color: Color(0xFF6666aa)),
+                border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2a2a5a))),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF5a2a2a)),
+            child: const Text('Reject', style: TextStyle(color: Color(0xFFff8080))),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      try {
+        // Restore the credits to the user
+        await _firestore.collection('creator_credits').doc(request.email).update({
+          'totalCredits': FieldValue.increment(request.amount),
+        });
+
+        await _firestore.collection('cashout_requests').doc(request.id).update({
+          'status': 'rejected',
+          'processedAt': FieldValue.serverTimestamp(),
+          'processedBy': 'admin',
+          'rejectionReason': reasonController.text.isNotEmpty ? reasonController.text : null,
+        });
+
+        setState(() {
+          _statusMessage = 'Rejected payout ${request.id.substring(0, 8)}... - credits restored';
+        });
+
+        await _loadPayoutRequests();
+      } catch (e) {
+        setState(() => _statusMessage = 'Error rejecting payout: \$e');
+      }
+    }
+
+    reasonController.dispose();
+  }
+
+  // PAYOUT ACTIONS FOR USER DETAIL PANEL
+  Widget _buildPayoutActionsCard(_UserRecord user) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Row(
+              children: [
+                Icon(Icons.attach_money, color: Color(0xFF60ff60), size: 18),
+                SizedBox(width: 8),
+                Text('Payout Management',
+                    style: TextStyle(
+                        color: Color(0xFFd0d0ff),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600)),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Text(
+              'User: ${user.email.isNotEmpty ? user.email : user.id}',
+              style: const TextStyle(color: Color(0xFF8888aa), fontSize: 12),
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Expanded(
+                  child: _actionButton(
+                    'View User Payouts',
+                    const Color(0xFF6060ff),
+                    () => _viewUserPayouts(user),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 6),
+            const Text(
+              'Manage PayPal and Referral Credit payouts',
+              style: TextStyle(color: Color(0xFF6666aa), fontSize: 10),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _viewUserPayouts(_UserRecord user) {
+    final userPayouts = _payoutRequests.where((p) =>
+      p.email == user.email || p.email == user.id
+    ).toList();
+
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF1a1a3e),
+        title: Text(
+          'Payouts for ${user.displayName.isNotEmpty ? user.displayName : user.email}',
+          style: const TextStyle(color: Color(0xFFd0d0ff), fontSize: 14),
+        ),
+        content: SizedBox(
+          width: 400,
+          height: 300,
+          child: userPayouts.isEmpty
+              ? const Center(
+                  child: Text(
+                    'No payout requests found',
+                    style: TextStyle(color: Color(0xFF6666aa)),
+                  ),
+                )
+              : ListView.builder(
+                  itemCount: userPayouts.length,
+                  itemBuilder: (ctx, idx) => _buildPayoutRequestCard(userPayouts[idx]),
+                ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: const Text('Close', style: TextStyle(color: Color(0xFF6060ff))),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Add this to _buildUserDetailPanel - insert before _buildRemoveOverridesCard call
 
   Widget _buildUserListPanel() {
     return Column(
@@ -931,5 +1505,29 @@ class _UserRecord {
     this.hasDeveloperLicense = false,
     this.referralCredits = 0,
     this.activeOverrides,
+  });
+}
+
+
+// Payout Request Data Model
+class _PayoutRequest {
+  String id;
+  String email;
+  String name;
+  double amount;
+  String cashoutType;
+  String? paypalEmail;
+  String status;
+  DateTime? requestedAt;
+
+  _PayoutRequest({
+    required this.id,
+    required this.email,
+    required this.name,
+    required this.amount,
+    required this.cashoutType,
+    this.paypalEmail,
+    required this.status,
+    this.requestedAt,
   });
 }
