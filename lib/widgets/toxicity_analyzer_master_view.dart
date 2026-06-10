@@ -129,7 +129,10 @@ class _HamburgerMenu extends StatelessWidget {
                     ),
                   ),
                 ),
-                const LanguageSelector(),
+                SizedBox(
+                  width: 100,
+                  child: const LanguageSelector(),
+                ),
               ],
             ),
           ),
