@@ -142,6 +142,17 @@
   - Enable Pro Plus tier
 - [ ] Market Pro Plus ($24.99/month)
 
+### **Phase 5: Creator Payout Automation (Post Business Banking)**
+- [ ] Set up business banking account for holding creator payouts
+- [ ] Create Cloud Function to auto-transfer creator credits to holding account
+  - Trigger: On new sale (when `sales_transactions` document created)
+  - Transfer: Move `creatorCreditPerSale` amount to holding account
+  - Keep reference in Firestore for reconciliation
+- [ ] Add admin dashboard to view holding account balance
+- [ ] Automate actual payouts (PayPal/ACH) from holding account
+- [ ] Add tax reporting (1099 generation for creators)
+- [ ] **Prerequisite:** Business banking account + proper business entity set up
+
 ---
 
 ## 🎯 IMMEDIATE NEXT STEPS (Today):
