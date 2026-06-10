@@ -15,6 +15,7 @@ import 'package:airta/services/language_service.dart';
 import 'package:airta/services/unipile_integration_service.dart';
 import 'package:airta/services/android_sms_service.dart' if (dart.library.io) 'package:airta/services/android_sms_service.dart';
 import 'package:airta/services/custom_metric_service.dart';
+import 'package:airta/services/referral_service.dart';
 
 part 'metric_pack_catalogs.dart';
 
@@ -777,6 +778,12 @@ class ToxicityAnalyzerController extends ChangeNotifier {
       _recordCompletedReportRun();
       if (!hasCompletedFirstReport) {
         await markFirstReportCompleted();
+        // Check referral attribution - does this report's phone number
+        // match any pending referral in the database?
+        final threadPhone = analysisThread.threadId;
+        if (threadPhone.isNotEmpty) {
+          await ReferralService().checkAndCreditReferral(threadPhone);
+        }
       }
       statusMessage = 'AI analysis completed. PDF generation disabled in this build.';
       notifyListeners();

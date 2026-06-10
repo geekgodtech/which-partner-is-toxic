@@ -22,6 +22,8 @@ import 'package:airta/widgets/discord_setup_help.dart';
 import 'package:airta/services/remote_config_service.dart';
 import 'package:airta/services/custom_metric_service.dart';
 import 'package:airta/widgets/user_submitted_packs_page.dart';
+import 'package:airta/widgets/referral_screen.dart';
+import 'package:airta/services/referral_service.dart';
 // UNIPILE INTEGRATION - COMMENTED OUT PENDING BUSINESS NEGOTIATION
 // Uncomment these imports if Unipile deal is finalized:
 // import 'package:airta/widgets/unipile_auth_view.dart';
@@ -1099,6 +1101,7 @@ class _MetricSelectorSectionState extends State<_MetricSelectorSection> {
     final salesTiles = <Widget>[
       _PurchaseCustomMetricTile(controller: controller),
       _UserSubmittedPacksTile(),
+      _ReferFriendsTile(),
       if (!goodUnlocked)         _MetricPackTile.good(controller: controller),
       if (!badUnlocked)          _MetricPackTile.bad(controller: controller),
       if (!uglyUnlocked)         _MetricPackTile.ugly(controller: controller),
@@ -2108,6 +2111,139 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
 /// Shown while waiting for the store to confirm a custom metric purchase.
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// REFERRAL PROGRAM TILE
+// ---------------------------------------------------------------------------
+
+class _ReferFriendsTile extends StatelessWidget {
+  const _ReferFriendsTile();
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final referralService = ReferralService();
+    final credits = referralService.creditCount;
+    final required = ReferralService.requiredCredits;
+
+    return AnimatedScale(
+      scale: 0.94,
+      duration: const Duration(milliseconds: 160),
+      child: Material(
+        color: const Color(0xFF2a1a3a).withOpacity(0.85),
+        borderRadius: BorderRadius.circular(14),
+        elevation: 1,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(14),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => const ReferralScreen(),
+              ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 3),
+                                child: Icon(Icons.card_giftcard,
+                                    color: const Color(0xFFc080ff),
+                                    size: (constraints.maxWidth * 0.165).clamp(14.0, 26.0)),
+                              ),
+                              const SizedBox(width: 5),
+                              Expanded(
+                                child: AutoSizeText(
+                                  'Refer Friends\nGet FREE Month',
+                                  maxLines: 2,
+                                  minFontSize: 10,
+                                  wrapWords: false,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: colorScheme.onSecondaryContainer,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: (constraints.maxWidth * 0.24).clamp(14.0, 28.0),
+                                    height: 1.12,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: constraints.maxWidth * 0.03),
+                          Expanded(
+                            child: AutoSizeText(
+                              'Refer 5 friends who run a report and earn a free month of Standard!',
+                              minFontSize: 9,
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                color: colorScheme.onSecondaryContainer.withOpacity(0.78),
+                                fontSize: 32,
+                                height: 1.3,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Progress indicator
+                        Row(
+                          children: List.generate(required, (i) {
+                            return Container(
+                              width: 10,
+                              height: 10,
+                              margin: const EdgeInsets.only(right: 3),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: i < credits
+                                    ? const Color(0xFF40cc40)
+                                    : const Color(0xFF2a2a5a),
+                              ),
+                            );
+                          }),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF6040aa),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Text(
+                            '/',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 11,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 // USER SUBMITTED METRIC PACKS TILE
 // ---------------------------------------------------------------------------
 

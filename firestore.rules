@@ -27,5 +27,11 @@ service cloud.firestore {
       allow create: if true;
       allow read: if true;
     }
+
+    // Referral Program - devices can read/write their own referral records
+    match /referrals/{deviceId} {
+      allow read: if true;
+      allow write: if true;
+    }
   }
 }

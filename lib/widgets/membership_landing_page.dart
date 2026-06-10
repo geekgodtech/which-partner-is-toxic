@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:airta/controllers/toxicity_analyzer_controller.dart';
 import 'package:airta/l10n/app_localizations.dart';
 import 'package:airta/services/subscription_service.dart';
+import 'package:airta/widgets/referral_screen.dart';
+import 'package:airta/services/referral_service.dart';
 
 class MembershipLandingPage extends StatelessWidget {
   const MembershipLandingPage({super.key});
@@ -152,6 +154,9 @@ class MembershipLandingPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     const _ComingSoonCard(),
+                    // Referral Program Section
+                    const SizedBox(height: 32),
+                    const _ReferralProgramCard(),
                     // Restore Purchases Section
                     const SizedBox(height: 32),
                     _RestorePurchasesButton(),
@@ -1117,5 +1122,97 @@ class _RestorePurchasesButton extends StatelessWidget {
         ),
       );
     }
+  }
+}
+
+
+// ---------------------------------------------------------------------------
+// REFERRAL PROGRAM CARD
+// ---------------------------------------------------------------------------
+
+class _ReferralProgramCard extends StatelessWidget {
+  const _ReferralProgramCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final referralService = ReferralService();
+    final credits = referralService.creditCount;
+    final required = ReferralService.requiredCredits;
+
+    return Card(
+      elevation: 3,
+      color: const Color(0xFF1a1a3e),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: const BorderSide(color: Color(0xFF4a2a7a), width: 1.5),
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const ReferralScreen()),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Icon(Icons.card_giftcard, color: Color(0xFFc080ff), size: 28),
+                  const SizedBox(width: 12),
+                  const Expanded(
+                    child: Text(
+                      'Refer Friends â€” Get a FREE Month!',
+                      style: TextStyle(
+                        color: Color(0xFFd0d0ff),
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              const Text(
+                'Refer 5 friends who download AIRTA and run their first report. '
+                'You earn a free 31-day Standard membership!',
+                style: TextStyle(color: Color(0xFF8888aa), fontSize: 13),
+              ),
+              const SizedBox(height: 16),
+              // Progress bar
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: LinearProgressIndicator(
+                  value: credits / required,
+                  backgroundColor: const Color(0xFF1a1a3a),
+                  valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF40cc40)),
+                  minHeight: 8,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    ' /  referral credits',
+                    style: const TextStyle(color: Color(0xFFa0a0c0), fontSize: 12),
+                  ),
+                  const Text(
+                    'Tap to refer >>',
+                    style: TextStyle(
+                      color: Color(0xFFc080ff),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

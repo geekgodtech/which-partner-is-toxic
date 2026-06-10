@@ -15,6 +15,7 @@ import 'package:airta/services/version_check_service.dart';
 import 'package:airta/services/language_service.dart';
 import 'package:airta/services/theme_service.dart';
 import 'package:airta/services/user_submitted_packs_service.dart';
+import 'package:airta/services/referral_service.dart';
 import 'package:airta/l10n/app_localizations.dart';
 import 'package:airta/screens/force_update_screen.dart';
 import 'package:airta/screens/disclaimer_screen.dart';
@@ -49,6 +50,9 @@ void main() async {
 
   // Initialize user submitted packs service
   await UserSubmittedPacksService().initialize();
+
+  // Initialize referral service
+  await ReferralService().initialize();
 
   runApp(const ToxicityAnalyzerApp());
 }
