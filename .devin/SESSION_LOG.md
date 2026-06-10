@@ -389,3 +389,36 @@
 - Cloudflare Turnstile secret key: `0x4AAAAADhzzqkV0RGV7O3wt5qOkwVpvtg`
 - LanguageTool API: free tier, no key needed, rate limited
 - Cookie for demo limit: `airta_demo_usage` (365-day, max 2)
+
+---
+
+## Session - 2026-06-10 (Adaptive/Devin)
+
+### What was accomplished
+- **Integrated web demo directly into main index.html page**
+  - Moved full Try It Out demo from separate `try-it.html` into `index.html` as inline section
+  - Added Cloudflare Turnstile CAPTCHA script to `<head>`
+  - Scoped all demo CSS under `#tryit-section` selector to avoid conflicts with main page styles
+  - Included complete JavaScript: file upload, metric slider, DeepSeek AI integration, report rendering
+  - Replaced teaser "Try It Out" block with fully functional interactive demo
+- **Updated badge links** in header:
+  - "🔬 Try Web Demo — Free" now links to `#try-it` anchor on same page
+  - "📱 Download Android APK" links to `demo.html` (APK download)
+- **Created redirect page** for old `try-it.html` URLs — auto-redirects to `index.html#try-it`
+- **Deployed to GitHub Pages** — commit `e826ae1`
+
+### Current state
+- Website (`docs/index.html`) now has integrated web demo with all features:
+  - File upload (.txt, .csv) with drag-and-drop
+  - Metric slider (3-20 random metrics from 20 available)
+  - Cloudflare Turnstile CAPTCHA verification
+  - DeepSeek AI analysis with progress bar
+  - Full forensic-style report with executive summary, metric scores, evidence examples
+  - 2-analysis cookie limit enforced
+- Old `try-it.html` redirects to main page
+- Live at: https://geekgodtech.github.io/AIRTA/
+
+### Next steps / open items
+- (From previous session) Localize 44 hard-coded English strings
+- (From previous session) Create Google Play Developer account ($25)
+- (From previous session) Create Apple Developer account ($99/year)
