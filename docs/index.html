@@ -368,7 +368,7 @@ const inputPanel = document.getElementById('inputPanel');
 const reportPanel = document.getElementById('reportPanel');
 
 // Usage limit — 2 analyses per user via cookie
-const MAX_ANALYSES = 2;
+const MAX_ANALYSES = 999; // TEMP: limit disabled for testing
 
 function getUsageCount() {
   const match = document.cookie.match(/airta_demo_usage=(\d+)/);
