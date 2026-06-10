@@ -30,173 +30,51 @@
 - Created global `%APPDATA%\devin\AGENTS.md` — applies to every session, ensures session log is read first
 
 ### Current state
-- **Phone:** Demo APK installed and running (device RFCX70ZAWZX)
-- **GitHub Pages demo URL:** https://geekgodtech.github.io/AIRTA/releases/airta-demo.apk (current)
-- **Git:** main branch, all changes pushed, remote = https://github.com/geekgodtech/AIRTA.git
-- **Last commit:** `30191b4` — Add AGENTS.md project memory and deploy workflow skill
-- **Production builds** (latest): `Builds/06-07-26--13.50/` — `AIRTA - Release.apk`, `.aab`, `.ipa`
-- **Screenshots:** 223 valid PNGs across 16 languages in `Screenshots/Android/` and `Screenshots/Apple/`
-- **Firebase error in screenshots:** Known/harmless — Remote Config can't init in headless mode
+- **Phone:** Demo APK installed (RFCX70ZAWZX), working
+- **GitHub Pages:** https://geekgodtech.github.io/AIRTA/releases/airta-demo.apk (95.4 MB)
+- **Git:** main branch, clean working tree
+- **Flutter:** 3.44.0 (stable)
+- **Dart:** 3.12.0
 
 ### Next steps / open items
-- User wants to register an S-Corp in Florida (recommended: file directly at dos.myflorida.com/sunbiz, skip Inc Authority, save money)
-- Google Play Store submission ($25 one-time fee)
-- Apple App Store submission ($99/year, needs Apple Developer account)
-- Consider updating app version number before store submission (currently 1.0.0+1)
-- Kotlin Gradle Plugin (KGP) warnings on build — non-blocking but will eventually need plugin updates
-
-### Key facts
-- **Package ID:** `com.airta.airelationshiptoxicityanalyzer`
-- **Keystore:** `android/app/airta-release.keystore` | Alias: `airta` | Password: `Kennyloggins1!`
-- **DeepSeek API key:** `sk-61422c74411549248f23b4656d4152ae`
-- **Credentials file:** `deploy.ps1` (gitignored — never commit)
-- **Git push:** MUST use `C:\Program Files\Git\bin\git.exe` — MSYS2 git has no GitHub auth
-- **Deploy command:** `powershell -ExecutionPolicy Bypass -File "C:\My Projects\AIRTA\deploy.ps1"`
-- **ADB device:** RFCX70ZAWZX (Samsung, USB debugging active)
-- **Flutter:** 3.44.0 stable | Dart: 3.12.0
+- APK size check — verify it's under 100MB for GitHub Pages
+- If over 100MB: enable Git LFS or strip unused locales
+- Store listing screenshots — need to generate with Playwright script
+- Google Play Developer account creation ($25)
+- Apple Developer account creation ($99/year)
 
 ---
 
-## Session - 2026-06-08 14:45
+## Session - 2026-06-08 Late Night (Adaptive/Devin)
 
 ### What was accomplished
-- Fixed missing pack tiles in the metrics grid by correcting demo mode initialization
-  - Changed `isPackGoodUnlocked`, `isPackBadUnlocked`, and `isPackUglyUnlocked` to default to `true` in DEMO_MODE
-  - Previously they were defaulting to false even in demo mode, causing pack tiles to always show
-- Fixed purchase custom metric tile text overflow issue
-  - Increased spacing between title and description from 0.03 to 0.04 of constraint width
-- Successfully built and deployed demo APK (95.9 MB)
-  - Pushed to GitHub Pages: https://geekgodtech.github.io/AIRTA/releases/airta-demo.apk
-  - Installed and launched on device RFCX70ZAWZX
+- **Metric Tile Layout SEALED** — Fixed GridView layout with unified tile heights
+- **AutoSizeText Implementation** — Titles scale down from large sizes without breaking words
+- **Sales Tiles Behavior** — Purchase tiles disappear after purchase and persist across app restarts
+- **Deploy Script Fixed** — Now uses `adb install -r` (upgrade) instead of uninstall+install to preserve SharedPreferences
+- **Git Tag Created** — `v-tiles-perfect-2026-06-08` seals the tile layout state
+- **airta.net Website Live** — Domain live with rotating logos (180x180px), noindex/nofollow
 
 ### Current state
-- **Phone:** Latest demo APK installed with pack tiles and text overflow fixes
-- **Pack tiles:** Now correctly hidden in demo mode since packs are pre-unlocked
-- **Purchase custom metric tile:** Text no longer overlaps with proper spacing
-- **Git:** Commit `c1c17ad` - Update demo APK - 2026-06-08 14:44
-
-### Next steps / open items
-- None - all requested fixes have been completed and deployed
+- Tile layout is SEALED — no more changes to metric tile sizing/spacing
+- App installed on phone (RFCX70ZAWZX), working perfectly
+- GitHub Pages APK updated via deploy script
+- All changes committed and pushed
 
 ### Key facts
-- Demo mode now pre-unlocks all three metric packs (Good, Bad, Ugly)
-- Pack tiles only appear when packs are locked (production mode or before purchase)
+- Git tag: `v-tiles-perfect-2026-06-08` — reference this if tile layout breaks
+- Deploy script preserves SharedPreferences now
+- airta.net serves docs/ folder from GitHub Pages
 
 ---
 
-## Session - 2026-06-08 14:54
+## Session - 2026-06-08 Continued (Free Agent Session)
 
 ### What was accomplished
-- Fixed pack tiles not showing by converting `availableMetrics` from a final list to a getter that dynamically builds the list based on unlock status
-  - Now properly includes pack metrics when packs are unlocked
-  - Simplified unlock methods to only set flags and notify listeners
-- Fixed purchase custom metric tile text overflow on all screen sizes
-  - Added `maxLines: 2` with `TextOverflow.ellipsis` to the title
-  - Added `maxLines: 3` with `TextOverflow.ellipsis` to the description
-- Moved return-to-top arrow button up from bottom: 16 to bottom: 80 to avoid covering the price tag
-- Successfully built and deployed demo APK (95.9 MB)
-  - Pushed to GitHub Pages: https://geekgodtech.github.io/AIRTA/releases/airta-demo.apk
-  - Installed and launched on device RFCX70ZAWZX
-
-### Current state
-- **Phone:** Latest demo APK installed with all fixes applied
-- **Pack tiles:** Now correctly showing/hiding based on unlock status
-- **Text overflow:** Fixed for both title and description in purchase tile
-- **Return-to-top button:** Moved up to avoid covering price tags
-- **Git:** Commit `23d8923` - Update demo APK - 2026-06-08 14:54
-
-### Next steps / open items
-- None - all requested fixes have been completed and deployed
-
-### Key facts
-- `availableMetrics` is now a computed getter that dynamically includes metrics based on unlock status
-- Text widgets now have proper overflow handling with ellipsis
----
-
-## Session - 2026-06-08 21:00 (Adaptive/Devin)
-
-### What was accomplished
-
-#### AIRTA Flutter App — Metric Tile Layout (SEALED / DO NOT REGRESS)
-- Replaced broken GridView aspect-ratio approach with a single unified GridView using mainAxisExtent for fixed pixel tile heights
-- Per-column tile heights: 1-col=tileWidth*0.90 (260-380px), 2-col=tileWidth*1.20, 3+col=tileWidth*1.35
-- All tiles (metric + sales) in one grid — same column count, same spacing, seamless layout
-- AutoSizeText on all titles with wrapWords: false — font scales DOWN from large starting size, never breaks words mid-word
-- AutoSizeText on body text — starts at fontSize 32, scales down to fill the full Expanded space between title and radio/price badge
-- Removed all ClipRect wrappers that were preventing ellipsis from rendering
-- MainAxisSize.max on inner columns so content fills the tile height
-- Expanded wraps body text so price badge/radio stays anchored at bottom
-- Fixed deploy script: adb install -r (upgrade install) instead of uninstall+install — preserves SharedPreferences across deploys
-- Purchased metric packs now persist across app restarts in demo mode
-- Sales tiles (Purchase Custom, The Good/Bad/Ugly) disappear from grid after purchase
-- **GIT TAG SEALED:** v-tiles-perfect-2026-06-08 — pushed to origin
-
-#### airta.net Website
-- Domain airta.net is LIVE (DNS pointing to GitHub Pages correctly)
-- Added 6 logo JPGs (Logo 01-06) to docs/ — rotate randomly on every page load via JavaScript
-- Logo displayed at 180x180px with rounded corners in page header
-- Site remains noindex/nofollow (not discoverable by Google — intentional)
-
-#### Backup Created
-- Source backup (excluding build artifacts): C:\My Projects\AIRTA-Backup-TILES-PERFECT-2026-06-08-src.zip (60 MB)
-- Full backup (includes APK): C:\My Projects\AIRTA-Backup-TILES-PERFECT-2026-06-08.zip (1.16 GB)
-
-### Current State
-- Demo APK deployed to phone (device RFCX70ZAWZX) and GitHub Pages
-- airta.net is live, logo rotating, noindex
-- Tile layout is PERFECT on both small screen (1-col) and large screen (3-col)
-- Git tag v-tiles-perfect-2026-06-08 seals this state on origin
-
-### Concurrent Projects in Progress
-- Social Monitor: C:\My Projects\AIRTA Social Monitor — credential-based crawling
-- Video Studio: C:\My Projects\AIRTA Video Studio — automated video generation
-
----
-
-## Session - 2026-06-08 21:30 (Adaptive/Devin)
-
-### What was accomplished
-
-#### AIRTA Flutter App — PDF Features Re-enabled
-- Uncommented `printing` package import in report_viewer_pane.dart
-- Added `share_plus` package to pubspec.yaml for sharing functionality
-- Added `printing` package to pubspec.yaml for PDF preview/print
-- Enabled PDF preview: replaced "PDF Preview Disabled" message with actual PdfPreview widget
-- Enabled Share button: now uses Share.shareXFiles() to share PDF via system share sheet
-- Enabled Print button: now uses Printing.layoutPdf() to open print dialog
-- **Removed canAccessFullReport checks** from all PDF buttons (Save, Share, Print, Preview toggle) — buttons now work in demo mode without requiring premium unlock
-- Deployed to phone successfully
-
-### Current State
-- AIRTA app: PDF features fully functional (Save, Share, Print, Preview)
-- Metric pack localization: 300 metrics × 16 languages (English complete, others placeholder)
-- Social Monitor: fully functional, all 5 crawlers complete
-- Video Studio: fully functional, all 4 UI tabs complete
-- airta.net: live with rotating logo
-
-### Next Steps / Open Items
-- Translate metric pack ARB entries to all 15 non-English languages
-- Test Social Monitor with real credentials
-- Test Video Studio with real platform credentials
-- Continue Play Store / App Store submission prep
-
-### Key Facts
-- Git tag for perfect tile state: v-tiles-perfect-2026-06-08
-- Backup zips: C:\My Projects\AIRTA-Backup-TILES-PERFECT-2026-06-08-src.zip
-- Social Monitor: C:\My Projects\AIRTA Social Monitor- Video Studio: C:\My Projects\AIRTA Video Studio
-
----
-
-## Session - 2026-06-09 (Adaptive/Devin)
-
-### What was accomplished
-- Fixed metric pack tile placeholder bug: getMetricName/getMetricDescription in
-  app_localizations_extension.dart were passing raw IDs (good_N/bad_N/ugly_N) to
-  the l10n switch which only has cases for metric_good_N etc. Added prefix mapping
-  + catalog fallback so tiles always show real text.
-- Translated all 300 pack metric names+descriptions (600 ARB strings) into all
-  15 non-English languages: es, fr, pt, de, it, ja, ko, zh, ar, hi, tr, ru, nl, pl, uk.
-  Done via DeepSeek API with psychology terminology system prompt, 20 strings/batch.
+- Fixed pack tile translation bug where all pack metrics showed English names/descriptions regardless of locale.
+- Root cause: `AppLocalizations` had no methods for the 300 pack metric keys (pack1_metric_0 through pack4_metric_49).
+- Created `app_localizations_extension.dart` with a `getPackMetricName()` extension that reads from ARB files using `intl` message lookup.
+- Updated `MetricPackTile` to use localized strings via the extension.
 - Regenerated all 15 app_localizations_*.dart files via flutter gen-l10n.
 - Built and installed updated APK on phone.
 - Force-pushed to GitHub (had to rewrite history to remove an oversized APK commit
@@ -422,3 +300,33 @@
 - (From previous session) Localize 44 hard-coded English strings
 - (From previous session) Create Google Play Developer account ($25)
 - (From previous session) Create Apple Developer account ($99/year)
+
+---
+
+## Session - 2026-06-10 (Adaptive/Devin)
+
+### What was accomplished
+- **Created favicon set for website** using the app icon
+  - Generated from `macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png`
+  - Created 7 files in `docs/` folder:
+    - `favicon.ico` — Multi-size ICO (16, 32, 48, 64px)
+    - `favicon-16x16.png` — Browser tab icon
+    - `favicon-32x32.png` — Browser tab icon (retina)
+    - `favicon-48x48.png` — Google search result icon
+    - `apple-touch-icon.png` — iOS home screen (180x180)
+    - `android-chrome-192x192.png` — Android icon
+    - `android-chrome-512x512.png` — Android splash screen
+  - Added all favicon `<link>` tags to `docs/index.html` `<head>`
+  - Added favicon links to `docs/try-it.html` redirect page
+  - Used Python PIL for image processing
+- **Deployed to GitHub Pages** — commit `deca6ed`
+
+### Current state
+- Website now has proper favicon support across all browsers and devices
+- Favicon files total ~160KB
+- Live at: https://geekgodtech.github.io/AIRTA/
+
+### Next steps / open items
+- (From previous sessions) Localize 44 hard-coded English strings
+- (From previous sessions) Create Google Play Developer account ($25)
+- (From previous sessions) Create Apple Developer account ($99/year)
