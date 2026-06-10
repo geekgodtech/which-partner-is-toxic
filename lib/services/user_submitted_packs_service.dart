@@ -19,6 +19,8 @@ class UserSubmittedPack {
   final int salesCount;
   final String status; // pending_review, approved, rejected
   final List<SubmittedMetric> metrics;
+  final Map<String, dynamic>? translations; // language code -> translated content
+  final bool translationComplete;
 
   UserSubmittedPack({
     required this.id,
@@ -34,6 +36,8 @@ class UserSubmittedPack {
     required this.salesCount,
     required this.status,
     required this.metrics,
+    this.translations,
+    this.translationComplete = false,
   });
 
   factory UserSubmittedPack.fromFirestore(DocumentSnapshot doc) {
@@ -55,7 +59,45 @@ class UserSubmittedPack {
       salesCount: data['salesCount'] as int? ?? 0,
       status: data['status'] as String? ?? 'pending_review',
       metrics: metricsList,
+      translations: data['translations'] as Map<String, dynamic>?,
+      translationComplete: data['translationComplete'] as bool? ?? false,
     );
+  }
+
+  /// Get the pack name in a specific language.
+  String getPackName(String langCode) {
+    if (translations != null && translations!.containsKey(langCode)) {
+      final trans = translations![langCode] as Map<String, dynamic>?;
+      if (trans != null && trans['packName'] != null) {
+        return trans['packName'] as String;
+      }
+    }
+    return packName;
+  }
+
+  /// Get the metrics in a specific language.
+  List<SubmittedMetric> getMetrics(String langCode) {
+    // Return original metrics if no translation available
+    if (translations == null || !translations!.containsKey(langCode)) {
+      return metrics;
+    }
+
+    final trans = translations![langCode] as Map<String, dynamic>?;
+    if (trans == null || trans['metrics'] == null) {
+      return metrics;
+    }
+
+    final transMetrics = trans['metrics'] as List<dynamic>?;
+    if (transMetrics == null || transMetrics.isEmpty) {
+      return metrics;
+    }
+
+    return transMetrics.map((m) => SubmittedMetric.fromMap(m as Map<String, dynamic>)).toList();
+  }
+
+  /// Check if this pack has a translation for a specific language.
+  bool hasTranslationFor(String langCode) {
+    return translations != null && translations!.containsKey(langCode);
   }
 
   String get priceFormatted => '\$${price.toStringAsFixed(2)}';
@@ -194,10 +236,15 @@ class UserSubmittedPacksService extends ChangeNotifier {
   }
 
   /// Get packs filtered by language.
+  /// Includes packs submitted in this language AND packs that have translations for this language.
   List<UserSubmittedPack> getPacksByLanguage(String langCode) {
-    return _availablePacks
-        .where((p) => p.submissionLanguage == langCode)
-        .toList();
+    return _availablePacks.where((p) {
+      // Include if submitted in this language
+      if (p.submissionLanguage == langCode) return true;
+      // Include if has translation for this language
+      if (p.translationComplete && p.hasTranslationFor(langCode)) return true;
+      return false;
+    }).toList();
   }
 
   /// Check if a pack has been purchased.
@@ -205,7 +252,8 @@ class UserSubmittedPacksService extends ChangeNotifier {
 
   /// Purchase a pack — records the sale in Firestore, credits the creator,
   /// and installs the metrics locally for the purchasing user.
-  Future<bool> purchasePack(UserSubmittedPack pack) async {
+  /// [preferredLanguage] is the language version the user wants (defaults to device locale).
+  Future<bool> purchasePack(UserSubmittedPack pack, {String? preferredLanguage}) async {
     try {
       final firestore = FirebaseFirestore.instance;
 
@@ -233,13 +281,14 @@ class UserSubmittedPacksService extends ChangeNotifier {
         'amount': pack.price,
         'creatorCredit': pack.creatorCreditPerSale,
         'purchasedAt': FieldValue.serverTimestamp(),
+        'purchasedLanguage': preferredLanguage ?? 'original',
       });
 
       // Mark as purchased locally
       _purchasedPackIds.add(pack.id);
 
-      // Install the metrics for the user
-      _installPackMetrics(pack);
+      // Install the metrics for the user in their preferred language
+      _installPackMetrics(pack, language: preferredLanguage);
 
       await _saveLocalData();
       notifyListeners();
@@ -253,10 +302,14 @@ class UserSubmittedPacksService extends ChangeNotifier {
   }
 
   /// Convert submitted metrics into PsychologicalMetric objects and install.
-  void _installPackMetrics(UserSubmittedPack pack) {
+  /// Uses translated version if available for the specified language.
+  void _installPackMetrics(UserSubmittedPack pack, {String? language}) {
+    // Get metrics in the preferred language (falls back to original if not available)
+    final metricsToInstall = pack.getMetrics(language ?? pack.submissionLanguage);
+
     final metrics = <PsychologicalMetric>[];
-    for (int i = 0; i < pack.metrics.length; i++) {
-      final m = pack.metrics[i];
+    for (int i = 0; i < metricsToInstall.length; i++) {
+      final m = metricsToInstall[i];
       metrics.add(PsychologicalMetric(
         id: 'user_pack_${pack.id}_${i + 1}',
         name: m.name,

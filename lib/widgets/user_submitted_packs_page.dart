@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:airta/services/user_submitted_packs_service.dart';
 import 'package:airta/services/developer_license_service.dart';
+import 'package:airta/services/pack_translation_service.dart';
 
 /// Language tab data with flag emoji and code.
 class _LangTab {
@@ -47,8 +48,11 @@ class _UserSubmittedPacksPageState extends State<UserSubmittedPacksPage>
     super.initState();
     _tabController = TabController(length: _languages.length, vsync: this);
     // Initialize and fetch packs
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      UserSubmittedPacksService().initialize();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final service = UserSubmittedPacksService();
+      await service.initialize();
+      // Auto-translate any pending packs in the background
+      PackTranslationService().autoTranslateAllPending();
     });
   }
 
@@ -518,6 +522,7 @@ class _PacksListView extends StatelessWidget {
       itemBuilder: (context, index) => _PackRow(
         pack: packs[index],
         service: service,
+        languageCode: languageCode,
       ),
     );
   }
@@ -527,8 +532,13 @@ class _PacksListView extends StatelessWidget {
 class _PackRow extends StatefulWidget {
   final UserSubmittedPack pack;
   final UserSubmittedPacksService service;
+  final String languageCode;
 
-  const _PackRow({required this.pack, required this.service});
+  const _PackRow({
+    required this.pack,
+    required this.service,
+    required this.languageCode,
+  });
 
   @override
   State<_PackRow> createState() => _PackRowState();
@@ -572,18 +582,31 @@ class _PackRowState extends State<_PackRow> {
                     size: 20,
                   ),
                   const SizedBox(width: 8),
-                  // Pack name
+                  // Pack name (translated for current language tab)
                   Expanded(
                     flex: 3,
-                    child: Text(
-                      pack.packName,
-                      style: const TextStyle(
-                        color: Color(0xFFd0d0ff),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          pack.getPackName(widget.languageCode),
+                          style: const TextStyle(
+                            color: Color(0xFFd0d0ff),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        if (pack.submissionLanguage != widget.languageCode)
+                          Text(
+                            'Translated from ${_getLanguageName(pack.submissionLanguage)}',
+                            style: const TextStyle(
+                              color: Color(0xFF6060ff),
+                              fontSize: 10,
+                            ),
+                          ),
+                      ],
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -690,9 +713,11 @@ class _PackRowState extends State<_PackRow> {
                 shrinkWrap: true,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                itemCount: pack.metrics.length,
+                // Use translated metrics for current language tab
+                itemCount: pack.getMetrics(widget.languageCode).length,
                 itemBuilder: (context, index) {
-                  final metric = pack.metrics[index];
+                  final metrics = pack.getMetrics(widget.languageCode);
+                  final metric = metrics[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 2),
                     child: Row(
@@ -722,6 +747,28 @@ class _PackRowState extends State<_PackRow> {
         ],
       ),
     );
+  }
+
+  String _getLanguageName(String langCode) {
+    const names = {
+      'en': 'English',
+      'es': 'Spanish',
+      'fr': 'French',
+      'de': 'German',
+      'it': 'Italian',
+      'pt': 'Portuguese',
+      'nl': 'Dutch',
+      'pl': 'Polish',
+      'ru': 'Russian',
+      'tr': 'Turkish',
+      'uk': 'Ukrainian',
+      'ar': 'Arabic',
+      'zh': 'Chinese',
+      'ja': 'Japanese',
+      'ko': 'Korean',
+      'hi': 'Hindi',
+    };
+    return names[langCode] ?? langCode.toUpperCase();
   }
 
   String _formatDate(String isoDate) {
@@ -784,7 +831,7 @@ class _PackRowState extends State<_PackRow> {
     );
 
     if (confirmed == true && context.mounted) {
-      final success = await widget.service.purchasePack(pack);
+      final success = await widget.service.purchasePack(pack, preferredLanguage: widget.languageCode);
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
