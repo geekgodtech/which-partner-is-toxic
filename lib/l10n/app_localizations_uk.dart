@@ -160,13 +160,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get analyze20RandomMetrics => 'Аналізувати 20 випадкових метрик';
 
   @override
-  String get membershipOptions => 'Варіанти підписки';
+  String get membershipOptions => 'Варіанти членства';
 
   @override
   String get free => 'Безкоштовно';
 
   @override
-  String get oneTimeUnlock => 'Разове розблокування звіту';
+  String get oneTimeUnlock => 'Одноразове розблокування звіту';
 
   @override
   String get standard => 'Стандарт';
@@ -193,14 +193,14 @@ class AppLocalizationsUk extends AppLocalizations {
   String get printPdf => 'Друкувати PDF';
 
   @override
-  String get closePdfPreview => 'Закрити вікно попереднього перегляду PDF';
+  String get closePdfPreview => 'Закрити вікно перегляду PDF';
 
   @override
-  String get openPdfPreview => 'Відкрити вікно попереднього перегляду PDF';
+  String get openPdfPreview => 'Відкрити вікно перегляду PDF';
 
   @override
   String get pdfPreviewDescription =>
-      'Вбудоване вікно PDF спочатку закрите, щоб звіт залишався компактним.';
+      'Вікно PDF починається закритим для компактності звіту.';
 
   @override
   String get notNow => 'Не зараз';
@@ -209,14 +209,14 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unlockThisReport => 'Розблокувати цей звіт - \$20';
 
   @override
-  String get joinStandard => 'Приєднатися до Стандарт - \$9.99/міс';
+  String get joinStandard => 'Приєднатися до Standard - \$9,99/міс.';
 
   @override
   String get instantUnlockTitle => 'Миттєве розблокування звіту - \$20';
 
   @override
   String get instantUnlockDescription =>
-      'Це разова покупка для розблокування лише поточного звіту. Підписка не потрібна. Майбутні звіти потребуватимуть окремих розблокувань або членства.\n\nПродовжити оплату?';
+      'Це одноразова покупка для розблокування лише поточного звіту. Без підписки.';
 
   @override
   String get purchaseFor20 => 'Купити за \$20';
@@ -274,14 +274,14 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get loadConversationAndSelectMetric =>
-      'Завантажте розмову та виберіть принаймні одну метрику';
+      'Завантажте розмову та виберіть хоча б одну метрику';
 
   @override
   String get selectAtLeastOneMetric =>
-      'Для запуску звіту потрібно вибрати принаймні одну метрику.';
+      'Для створення звіту потрібно вибрати хоча б одну метрику.';
 
   @override
-  String get spinningMetricWheel => 'Обертання колеса метрик...';
+  String get spinningMetricWheel => 'Вибір випадкових метрик...';
 
   @override
   String get loadConversationToAnalyze => 'Завантажте розмову для аналізу';
@@ -300,32 +300,32 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get smsPermissionDescription =>
-      'Для аналізу ваших SMS-розмов на наявність шаблонів стосунків';
+      'Для аналізу SMS-розмов на предмет паттернів стосунків';
 
   @override
   String get contactsPermissionDescription =>
-      'Для відображення імен контактів замість номерів телефонів';
+      'Для відображення імен контактів замість телефонних номерів';
 
   @override
   String get analyzingMessage =>
-      'Зачекайте, поки ваш психологічний аналіз генерується ШІ...';
+      'Зачекайте, поки ШІ генерує ваш психологічний аналіз...';
 
   @override
   String get analyzingStatus => 'Аналіз розмови...';
 
   @override
   String get analyzingSubMessage =>
-      'Будь ласка, наберіться терпіння, цей процес може зайняти до хвилини залежно від швидкості вашого з\'єднання та кількості вибраних метрик';
+      'Будь ласка, наберіться терпіння, цей процес може тривати до хвилини залежно від пристрою.';
 
   @override
-  String get unlockFullReport => 'Розблокувати та показати весь цей звіт';
+  String get unlockFullReport => 'Розблокувати та показати весь звіт';
 
   @override
   String get fullReportLocked => 'Повний звіт заблоковано';
 
   @override
   String get upgradeToUnlock =>
-      'Оновіть своє членство, щоб розблокувати повний звіт психологічного аналізу з усіма метриками та детальними висновками.';
+      'Оновіть членство, щоб розблокувати повний звіт психологічного аналізу.';
 
   @override
   String get language => 'Мова';
@@ -379,18 +379,18 @@ class AppLocalizationsUk extends AppLocalizations {
   String get ukrainian => 'Українська';
 
   @override
-  String get runAnotherAnalysis => 'Запустити ще один аналіз?';
+  String get runAnotherAnalysis => 'Виконати ще один аналіз?';
 
   @override
   String get becomeMemberTitle =>
-      'Станьте учасником, щоб отримати повний звіт аналізу';
+      'Станьте учасником для отримання повного аналітичного звіту';
 
   @override
   String get becomeMemberSubtitle =>
-      'Виберіть рівень доступу, що відповідає розмовам і звітам, які вам потрібно проаналізувати.';
+      'Виберіть рівень доступу, що відповідає вашим розмовам і звітам.';
 
   @override
-  String get benefitAnalyzeSms => 'Аналіз текстових SMS-повідомлень';
+  String get benefitAnalyzeSms => 'Аналізувати SMS-повідомлення';
 
   @override
   String get benefitReportPreview => 'Запустити попередній перегляд звіту';
@@ -412,11 +412,11 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get benefitSavePrintShareThis =>
-      'Зберегти, надрукувати та поділитися цим звітом';
+      'Зберегти, роздрукувати та поділитися цим звітом';
 
   @override
   String get benefitBestSingleAnalysis =>
-      'Найкраще, якщо вам потрібен лише один аналіз';
+      'Найкраще, якщо потрібен лише один аналіз';
 
   @override
   String get unlockThisReportShort => 'Розблокувати цей звіт';
@@ -429,26 +429,26 @@ class AppLocalizationsUk extends AppLocalizations {
       'Зберігати, друкувати та ділитися PDF-звітами';
 
   @override
-  String get benefitTenReports => '10 звітів за 24-годинний період';
+  String get benefitTenReports => '10 звітів кожні 24 години';
 
   @override
   String get benefitBestTextReview =>
-      'Найкраще для аналізу стосунків за текстовими повідомленнями';
+      'Найкраще для перегляду стосунків через текстові повідомлення';
 
   @override
-  String get benefitDateRangeFilter => 'Фільтрувати аналіз за діапазоном дат';
+  String get benefitDateRangeFilter => 'Фільтрація аналізу за діапазоном дат';
 
   @override
-  String get signUpStandard => 'Підписатися на Стандарт';
+  String get signUpStandard => 'Зареєструватися на Standard-членство';
 
   @override
-  String get benefitAddToStandard => 'Додати до підписки Стандарт';
+  String get benefitAddToStandard => 'Додати до Standard-членства';
 
   @override
-  String get benefitAnalyzeDiscord => 'Аналіз чатів серверів Discord';
+  String get benefitAnalyzeDiscord => 'Аналізувати чати Discord';
 
   @override
-  String get benefitRequiresBot => 'Потрібне встановлення бота';
+  String get benefitRequiresBot => 'Потрібна установка бота';
 
   @override
   String get benefitBestGamers => 'Найкраще для геймерів і спільнот Discord';
@@ -457,7 +457,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get addDiscordAnalysis => 'Додати аналіз Discord';
 
   @override
-  String get requiresStandardMembership => 'Потрібна підписка Стандарт';
+  String get requiresStandardMembership => 'Потрібне Standard-членство';
 
   @override
   String get comingSoon => 'Незабаром';
@@ -466,39 +466,38 @@ class AppLocalizationsUk extends AppLocalizations {
   String get comingSoonWithNextUpdate => 'Незабаром у наступному оновленні:';
 
   @override
-  String get proMembershipTier => 'Рівень підписки Pro - \$19.99';
+  String get proMembershipTier => 'Pro-членство - \$19,99';
 
   @override
-  String get proPlusMembershipTier => 'Рівень підписки Pro-Plus - \$24.99';
+  String get proPlusMembershipTier => 'Pro-Plus-членство - \$24,99';
 
   @override
-  String get proGetsLabel => 'Pro включає:';
+  String get proGetsLabel => 'Pro отримує:';
 
   @override
   String get proGetsDescription =>
-      'Аналізуйте гілки чатів з усіх інших популярних платформ обміну повідомленнями та соціальних мереж, таких як:';
+      'Аналізуйте чати з інших популярних месенджерів і соцмереж.';
 
   @override
   String get proPlatformsList =>
-      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X (Twitter), електронна пошта та календар';
+      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X';
 
   @override
-  String get proPlusGetsLabel => 'Pro-Plus включає:';
+  String get proPlusGetsLabel => 'Pro-Plus отримує:';
 
   @override
   String get proPlusGetsDescription =>
-      'Усе, що є в Pro, плюс доповнення Discord за зниженою ціною.';
+      'Все з Pro плюс доповнення Discord за зниженою ціною.';
 
   @override
   String get purchaseSuccessfulUnlocked =>
       'Покупка успішна! Звіт розблоковано.';
 
   @override
-  String get purchaseFailed =>
-      'Покупка не вдалася. Будь ласка, спробуйте ще раз.';
+  String get purchaseFailed => 'Помилка покупки. Будь ласка, спробуйте ще раз.';
 
   @override
-  String get membershipActivated => 'Підписку активовано!';
+  String get membershipActivated => 'Членство активовано!';
 
   @override
   String get dateRangeFilter => 'Фільтр діапазону дат';
@@ -507,17 +506,17 @@ class AppLocalizationsUk extends AppLocalizations {
   String get dateRangeOptional => '(необов\'язково)';
 
   @override
-  String get startDate => 'Початкова дата';
+  String get startDate => 'Дата початку';
 
   @override
-  String get endDate => 'Кінцева дата';
+  String get endDate => 'Дата закінчення';
 
   @override
   String get clear => 'Очистити';
 
   @override
   String get dateRangeRequiresMembership =>
-      'Потребує підписку Standard або вище';
+      'Потрібне Standard-членство або вище';
 
   @override
   String selectUpToCount(Object current, Object max) {
@@ -525,7 +524,7 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get clearSelections => 'Очистити вибір';
+  String get clearSelections => 'Скинути вибір';
 
   @override
   String analyzeRandomMetrics(Object count) {
@@ -533,13 +532,13 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get saveSelections => 'Зберегти Вибір';
+  String get saveSelections => 'Зберегти вибір';
 
   @override
-  String get loadSelections => 'Завантажити Вибори';
+  String get loadSelections => 'Завантажити вибір';
 
   @override
-  String get saveMetricListName => 'Зберегти Список Метрик';
+  String get saveMetricListName => 'Зберегти список метрик';
 
   @override
   String get enterListName => 'Введіть назву для цього списку метрик:';
@@ -548,8 +547,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get chooseSavedMetrics => 'Виберіть збережений список метрик:';
 
   @override
-  String get noSavedLists =>
-      'Немає збережених списків метрик для завантаження на даний момент.';
+  String get noSavedLists => 'Збережених списків метрик немає.';
 
   @override
   String get metricListSaved => 'Список метрик успішно збережено.';
@@ -600,7 +598,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String analysisOfReceiver(Object receiver) {
-    return 'Аналіз $receiver (Отримувач)';
+    return 'Аналіз $receiver (Одержувач)';
   }
 
   @override
@@ -4481,104 +4479,109 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get viewMembershipOptions => 'View Membership Options';
+  String get viewMembershipOptions => 'Переглянути варіанти членства';
 
   @override
-  String get metricExpansionPacksTitle => 'Metric Expansion Packs';
+  String get metricExpansionPacksTitle => 'Пакети розширення метрик';
 
   @override
   String get oneTimePurchasesSubtitle =>
-      'One-time purchases — additional metrics forever';
+      'Одноразові покупки — додаткові метрики назавжди';
 
   @override
-  String get unlockGoodPackButton => 'Unlock The Good Pack';
+  String get unlockGoodPackButton => 'Розблокувати хороший пакет';
 
   @override
-  String get unlockBadPackButton => 'Unlock The Bad Pack';
+  String get unlockBadPackButton => 'Розблокувати поганий пакет';
 
   @override
-  String get unlockUglyPackButton => 'Unlock The Ugly Pack';
+  String get unlockUglyPackButton => 'Розблокувати жахливий пакет';
 
   @override
-  String get unlockNarcissistPackButton => 'Unlock Narcissist Pack';
+  String get unlockNarcissistPackButton => 'Розблокувати пакет нарциса';
 
   @override
-  String get unlockSerialKillerPackButton => 'Unlock Serial Killer Pack';
+  String get unlockSerialKillerPackButton =>
+      'Розблокувати пакет серійного вбивці';
 
   @override
-  String get goodPackBenefit1 => '100 healthy relationship metrics';
+  String get goodPackBenefit1 => '100 метрик здорових стосунків';
 
   @override
-  String get goodPackBenefit2 => 'Positive communication patterns';
+  String get goodPackBenefit2 => 'Позитивні моделі спілкування';
 
   @override
-  String get goodPackBenefit3 => 'Appreciation, empathy & trust signals';
+  String get goodPackBenefit3 => 'Сигнали вдячності, емпатії та довіри';
 
   @override
-  String get goodPackBenefit4 => 'One-time purchase — yours forever';
+  String get goodPackBenefit4 => 'Одноразова покупка — ваше назавжди';
 
   @override
-  String get goodPackBenefit5 => 'Unlocks instantly after purchase';
+  String get goodPackBenefit5 => 'Миттєво розблоковується після покупки';
 
   @override
-  String get badPackBenefit1 => '100 warning-sign relationship metrics';
+  String get badPackBenefit1 => '100 метрик тривожних сигналів';
 
   @override
-  String get badPackBenefit2 => 'Spot manipulation & dismissal patterns';
+  String get badPackBenefit2 => 'Виявлення маніпуляцій і відкидання';
 
   @override
-  String get badPackBenefit3 => 'Guilt-tripping, stonewalling & more';
+  String get badPackBenefit3 => 'Почуття провини, мовчанка і більше';
 
   @override
-  String get badPackBenefit4 => 'One-time purchase — yours forever';
+  String get badPackBenefit4 => 'Одноразова покупка — ваше назавжди';
 
   @override
-  String get badPackBenefit5 => 'Unlocks instantly after purchase';
+  String get badPackBenefit5 => 'Миттєво розблоковується після покупки';
 
   @override
-  String get uglyPackBenefit1 => '100 severe red-flag abuse metrics';
+  String get uglyPackBenefit1 => '100 метрик серйозного насильства';
 
   @override
-  String get uglyPackBenefit2 => 'Identify coercion, threats & control';
+  String get uglyPackBenefit2 => 'Виявлення примусу, погроз і контролю';
 
   @override
-  String get uglyPackBenefit3 => 'Trauma bonding & isolation indicators';
+  String get uglyPackBenefit3 =>
+      'Індикатори травматичної прив\'язаності й ізоляції';
 
   @override
-  String get uglyPackBenefit4 => 'One-time purchase — yours forever';
+  String get uglyPackBenefit4 => 'Одноразова покупка — ваше назавжди';
 
   @override
-  String get uglyPackBenefit5 => 'Unlocks instantly after purchase';
+  String get uglyPackBenefit5 => 'Миттєво розблоковується після покупки';
 
   @override
-  String get narcissistPackBenefit1 => '50 narcissistic behavior metrics';
+  String get narcissistPackBenefit1 => '50 метрик нарцисичної поведінки';
 
   @override
-  String get narcissistPackBenefit2 => 'Detect gaslighting & love-bombing';
+  String get narcissistPackBenefit2 =>
+      'Виявлення газлайтингу та бомбардування любов\'ю';
 
   @override
-  String get narcissistPackBenefit3 => 'Hoovering & devaluation patterns';
+  String get narcissistPackBenefit3 => 'Патерни хувінгу та знецінення';
 
   @override
-  String get narcissistPackBenefit4 => 'One-time purchase — yours forever';
+  String get narcissistPackBenefit4 => 'Одноразова покупка — ваше назавжди';
 
   @override
-  String get narcissistPackBenefit5 => 'Unlocks instantly after purchase';
+  String get narcissistPackBenefit5 => 'Миттєво розблоковується після покупки';
 
   @override
-  String get serialKillerPackBenefit1 => '50 extreme danger indicators';
+  String get serialKillerPackBenefit1 => '50 індикаторів крайньої небезпеки';
 
   @override
-  String get serialKillerPackBenefit2 => 'Detect predatory & violent language';
+  String get serialKillerPackBenefit2 =>
+      'Виявлення хижацької та насильницької мови';
 
   @override
-  String get serialKillerPackBenefit3 => 'Psychopathy & sadism markers';
+  String get serialKillerPackBenefit3 => 'Маркери психопатії та садизму';
 
   @override
-  String get serialKillerPackBenefit4 => 'One-time purchase — yours forever';
+  String get serialKillerPackBenefit4 => 'Одноразова покупка — ваше назавжди';
 
   @override
-  String get serialKillerPackBenefit5 => 'Unlocks instantly after purchase';
+  String get serialKillerPackBenefit5 =>
+      'Миттєво розблоковується після покупки';
 
   @override
   String get allPacksOwned => 'Всі пакети розширення у власності!';
@@ -4618,50 +4621,50 @@ class AppLocalizationsUk extends AppLocalizations {
   String get enableDiscord => 'Увімкнути Discord';
 
   @override
-  String get aboutTitle => 'About';
+  String get aboutTitle => 'Про застосунок';
 
   @override
   String get aboutDescription =>
-      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+      'AIRTA (Аналізатор токсичності стосунків ШІ) допомагає виявляти нездорові патерни у розмовах.';
 
   @override
-  String get contactUs => 'Contact Us';
+  String get contactUs => 'Зв\'яжіться з нами';
 
   @override
-  String get supportEmail => 'Support';
+  String get supportEmail => 'Підтримка';
 
   @override
-  String get supportEmailDesc => 'Get help with using the app';
+  String get supportEmailDesc => 'Отримати допомогу у використанні застосунку';
 
   @override
-  String get businessEmail => 'Business';
+  String get businessEmail => 'Бізнес';
 
   @override
-  String get businessEmailDesc => 'Partnerships and inquiries';
+  String get businessEmailDesc => 'Партнерства та запити';
 
   @override
-  String get privacyEmail => 'Privacy';
+  String get privacyEmail => 'Конфіденційність';
 
   @override
-  String get privacyEmailDesc => 'Data and privacy questions';
+  String get privacyEmailDesc => 'Питання щодо даних і конфіденційності';
 
   @override
-  String get importantLinks => 'Links';
+  String get importantLinks => 'Посилання';
 
   @override
-  String get website => 'Website';
+  String get website => 'Веб-сайт';
 
   @override
-  String get privacyPolicy => 'Privacy Policy';
+  String get privacyPolicy => 'Політика конфіденційності';
 
   @override
-  String get termsOfService => 'Terms of Service';
+  String get termsOfService => 'Умови використання';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get allRightsReserved => 'All rights reserved.';
+  String get allRightsReserved => 'Усі права захищені.';
 
   @override
   String get packTheGood => 'Хороше';
@@ -4811,45 +4814,45 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get noMessagesInDateRangeBody =>
-      'No messages were found in the selected date range. Try adjusting the date range.';
+      'У вибраному діапазоні дат повідомлень не знайдено. Спробуйте змінити діапазон.';
 
   @override
-  String get credentialsSavedSuccess => 'Credentials saved successfully';
+  String get credentialsSavedSuccess => 'Облікові дані успішно збережено';
 
   @override
   String errorSavingCredentials(String error) {
-    return 'Error saving credentials: $error';
+    return 'Помилка збереження облікових даних: $error';
   }
 
   @override
   String get credentialsSecurityInfo =>
-      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+      'Ваші облікові дані надійно зберігаються лише на цьому пристрої й ніколи не завантажуються на наші сервери.';
 
   @override
-  String get savingButton => 'Saving...';
+  String get savingButton => 'Збереження...';
 
   @override
-  String get saveAllCredentials => 'Save Credentials';
+  String get saveAllCredentials => 'Зберегти облікові дані';
 
   @override
   String get proPlusLabel => 'Pro+';
 
   @override
-  String get upgradeButton => 'Upgrade';
+  String get upgradeButton => 'Оновити';
 
   @override
-  String get usernameLabel => 'Username';
+  String get usernameLabel => 'Ім\'я користувача';
 
   @override
-  String get passwordLabel => 'Password';
+  String get passwordLabel => 'Пароль';
 
   @override
   String get upgradeToProPlusBody =>
-      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+      'Оновіться до Pro Plus для доступу до інтеграцій із сторонніми платформами та розширених функцій.';
 
   @override
   String get noConversationsFoundBody =>
-      'No conversations were found. Make sure your credentials are correct and try again.';
+      'Розмов не знайдено. Переконайтеся у правильності облікових даних і спробуйте ще раз.';
 
   @override
   String get tileMyAccountTitle => 'Мій Акаунт';

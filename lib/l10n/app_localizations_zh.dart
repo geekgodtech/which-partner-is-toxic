@@ -152,22 +152,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get gotIt => 'æ˜Žç™½äº†';
 
   @override
-  String get selectFile => 'é€‰æ‹©æ–‡ä»¶';
+  String get selectFile => '选择文件';
 
   @override
-  String get analyzeSelectedMetrics => 'åˆ†æžæ‰€é€‰æŒ‡æ ‡';
+  String get analyzeSelectedMetrics => '分析所选指标';
 
   @override
-  String get analyze20RandomMetrics => 'åˆ†æž 20 ä¸ªéšæœºæŒ‡æ ‡';
+  String get analyze20RandomMetrics => '分析20个随机指标';
 
   @override
-  String get membershipOptions => 'ä¼šå‘˜é€‰é¡¹';
+  String get membershipOptions => '会员选项';
 
   @override
-  String get free => 'å…è´¹';
+  String get free => '免费';
 
   @override
-  String get oneTimeUnlock => 'ä¸€æ¬¡æ€§æŠ¥å‘Šè§£é”';
+  String get oneTimeUnlock => '一次性报告解锁';
 
   @override
   String get standard => 'æ ‡å‡†';
@@ -176,342 +176,329 @@ class AppLocalizationsZh extends AppLocalizations {
   String get discordAddon => 'Discord é™„åŠ ç»„ä»¶';
 
   @override
-  String get analyze => 'åˆ†æž';
+  String get analyze => '分析';
 
   @override
-  String get report => 'æŠ¥å‘Š';
+  String get report => '报告';
 
   @override
-  String get pdfReport => 'PDF æŠ¥å‘Š';
+  String get pdfReport => 'PDF报告';
 
   @override
-  String get openPdf => 'æ‰“å¼€ PDF';
+  String get openPdf => '打开PDF';
 
   @override
-  String get sharePdf => 'åˆ†äº« PDF';
+  String get sharePdf => '分享PDF';
 
   @override
-  String get printPdf => 'æ‰“å° PDF';
+  String get printPdf => '打印PDF';
 
   @override
-  String get closePdfPreview => 'å…³é—­ PDF é¢„è§ˆçª—å£';
+  String get closePdfPreview => '关闭PDF预览窗口';
 
   @override
-  String get openPdfPreview => 'æ‰“å¼€ PDF é¢„è§ˆçª—å£';
+  String get openPdfPreview => '打开PDF预览窗口';
 
   @override
-  String get pdfPreviewDescription =>
-      'åµŒå…¥å¼ PDF çª—å£åˆå§‹ä¸ºå…³é—­çŠ¶æ€ï¼Œä»¥ä¿æŒæŠ¥å‘Šç´§å‡‘ã€‚';
+  String get pdfPreviewDescription => 'PDF窗口开始时关闭以保持报告紧凑。';
 
   @override
   String get notNow => 'æš‚ä¸';
 
   @override
-  String get unlockThisReport => 'è§£é”æ­¤æŠ¥å‘Š - \$20';
+  String get unlockThisReport => '解锁此报告 - \$20';
 
   @override
-  String get joinStandard => 'åŠ å…¥æ ‡å‡†ä¼šå‘˜ - \$9.99/æœˆ';
+  String get joinStandard => '加入Standard - \$9.99/月';
 
   @override
-  String get instantUnlockTitle => 'å³æ—¶æŠ¥å‘Šè§£é” - \$20';
+  String get instantUnlockTitle => '即时报告解锁 - \$20';
 
   @override
-  String get instantUnlockDescription =>
-      'è¿™æ˜¯ä¸€æ¬¡æ€§è´­ä¹°ï¼Œä»…è§£é”å½“å‰æŠ¥å‘Šã€‚æ— éœ€è®¢é˜…ã€‚æœªæ¥çš„æŠ¥å‘Šå°†éœ€è¦å•ç‹¬è§£é”æˆ–ä¼šå‘˜èµ„æ ¼ã€‚\n\nç»§ç»­ä»˜æ¬¾ï¼Ÿ';
+  String get instantUnlockDescription => '这是仅解锁当前报告的一次性购买。无需订阅。';
 
   @override
-  String get purchaseFor20 => 'ä»¥ \$20 è´­ä¹°';
+  String get purchaseFor20 => '以\$20购买';
 
   @override
-  String get share => 'åˆ†äº«';
+  String get share => '分享';
 
   @override
-  String get print => 'æ‰“å°';
+  String get print => '打印';
 
   @override
   String get save => 'ä¿å­˜';
 
   @override
-  String get cancel => 'å–æ¶ˆ';
+  String get cancel => '取消';
 
   @override
   String get ok => 'ç¡®å®š';
 
   @override
-  String get loading => 'åŠ è½½ä¸­...';
+  String get loading => '加载中...';
 
   @override
-  String get error => 'é”™è¯¯';
+  String get error => '错误';
 
   @override
-  String get success => 'æˆåŠŸ';
+  String get success => '成功';
 
   @override
-  String get conversations => 'å¯¹è¯';
+  String get conversations => '对话';
 
   @override
-  String get messages => 'æ¶ˆæ¯';
+  String get messages => '消息';
 
   @override
-  String get selectConversation => 'é€‰æ‹©å¯¹è¯';
+  String get selectConversation => '选择对话';
 
   @override
   String get selectSmsConversation => 'é€‰æ‹©çŸ­ä¿¡ / RCS å¯¹è¯';
 
   @override
-  String get searchConversations => 'æœç´¢å¯¹è¯...';
+  String get searchConversations => '搜索对话...';
 
   @override
-  String get loadingConversations => 'æ­£åœ¨åŠ è½½å¯¹è¯...';
+  String get loadingConversations => '正在加载对话...';
 
   @override
-  String get errorLoadingConversations => 'åŠ è½½å¯¹è¯å‡ºé”™';
+  String get errorLoadingConversations => '加载对话时出错';
 
   @override
-  String get selectConversationToAnalyze => 'é€‰æ‹©è¦åˆ†æžçš„å¯¹è¯';
+  String get selectConversationToAnalyze => '选择要分析的对话';
 
   @override
-  String get analyzeWithSelectedMetrics => 'ä½¿ç”¨æ‰€é€‰æŒ‡æ ‡è¿›è¡Œåˆ†æž';
+  String get analyzeWithSelectedMetrics => '使用选定指标分析';
 
   @override
-  String get loadConversationAndSelectMetric =>
-      'åŠ è½½å¯¹è¯å¹¶è‡³å°‘é€‰æ‹©ä¸€ä¸ªæŒ‡æ ‡';
+  String get loadConversationAndSelectMetric => '加载对话并选择至少一个指标';
 
   @override
-  String get selectAtLeastOneMetric =>
-      'è¿è¡ŒæŠ¥å‘Šè‡³å°‘éœ€è¦é€‰æ‹©ä¸€ä¸ªæŒ‡æ ‡ã€‚';
+  String get selectAtLeastOneMetric => '至少需要选择一个指标才能运行报告。';
 
   @override
-  String get spinningMetricWheel => 'æ­£åœ¨è½¬åŠ¨æŒ‡æ ‡è½®ç›˜...';
+  String get spinningMetricWheel => '随机选择指标中...';
 
   @override
-  String get loadConversationToAnalyze => 'åŠ è½½è¦åˆ†æžçš„å¯¹è¯';
+  String get loadConversationToAnalyze => '加载要分析的对话';
 
   @override
-  String get noConversationsFound => 'æœªæ‰¾åˆ°å¯¹è¯';
+  String get noConversationsFound => '未找到对话';
 
   @override
-  String get permissionsRequired => 'éœ€è¦æƒé™';
+  String get permissionsRequired => '需要权限';
 
   @override
-  String get smsPermission => 'çŸ­ä¿¡';
+  String get smsPermission => '短信';
 
   @override
-  String get contactsPermission => 'è”ç³»äºº';
+  String get contactsPermission => '联系人';
 
   @override
-  String get smsPermissionDescription =>
-      'ç”¨äºŽåˆ†æžæ‚¨çš„çŸ­ä¿¡å¯¹è¯ä¸­çš„å…³ç³»æ¨¡å¼';
+  String get smsPermissionDescription => '用于分析您的短信对话以寻找关系模式';
 
   @override
-  String get contactsPermissionDescription =>
-      'ç”¨äºŽæ˜¾ç¤ºè”ç³»äººå§“åè€Œéžç”µè¯å·ç ';
+  String get contactsPermissionDescription => '用于显示联系人姓名而非电话号码';
 
   @override
-  String get analyzingMessage =>
-      'è¯·ç¨å€™ï¼Œæ‚¨çš„å¿ƒç†åˆ†æžæ­£ç”± AI ç”Ÿæˆ...';
+  String get analyzingMessage => '请稍候，AI正在生成您的心理分析...';
 
   @override
-  String get analyzingStatus => 'æ­£åœ¨åˆ†æžå¯¹è¯...';
+  String get analyzingStatus => '正在分析对话...';
 
   @override
-  String get analyzingSubMessage =>
-      'è¯·è€å¿ƒç­‰å¾…ï¼Œæ­¤è¿‡ç¨‹å¯èƒ½éœ€è¦é•¿è¾¾ä¸€åˆ†é’Ÿï¼Œå…·ä½“å–å†³äºŽæ‚¨çš„è¿žæŽ¥é€Ÿåº¦å’Œæ‰€é€‰æŒ‡æ ‡çš„æ•°é‡';
+  String get analyzingSubMessage => '请耐心等待，此过程可能需要最多一分钟，具体取决于设备。';
 
   @override
-  String get unlockFullReport => 'è§£é”å¹¶æ˜¾ç¤ºæ•´ä¸ªæŠ¥å‘Š';
+  String get unlockFullReport => '解锁并显示整个报告';
 
   @override
-  String get fullReportLocked => 'å®Œæ•´æŠ¥å‘Šå·²é”å®š';
+  String get fullReportLocked => '完整报告已锁定';
 
   @override
-  String get upgradeToUnlock =>
-      'å‡çº§æ‚¨çš„ä¼šå‘˜èµ„æ ¼ä»¥è§£é”åŒ…å«æ‰€æœ‰æŒ‡æ ‡å’Œè¯¦ç»†è§è§£çš„å®Œæ•´å¿ƒç†åˆ†æžæŠ¥å‘Šã€‚';
+  String get upgradeToUnlock => '升级您的会员资格以解锁完整的心理分析报告。';
 
   @override
-  String get language => 'è¯­è¨€';
+  String get language => '语言';
 
   @override
-  String get english => 'è‹±è¯­';
+  String get english => '英语';
 
   @override
-  String get spanish => 'è¥¿ç­ç‰™è¯­';
+  String get spanish => '西班牙语';
 
   @override
-  String get french => 'æ³•è¯­';
+  String get french => '法语';
 
   @override
-  String get german => 'å¾·è¯­';
+  String get german => '德语';
 
   @override
-  String get italian => 'æ„å¤§åˆ©è¯­';
+  String get italian => '意大利语';
 
   @override
-  String get portuguese => 'è‘¡è„ç‰™è¯­';
+  String get portuguese => '葡萄牙语';
 
   @override
-  String get dutch => 'è·å…°è¯­';
+  String get dutch => '荷兰语';
 
   @override
-  String get russian => 'ä¿„è¯­';
+  String get russian => '俄语';
 
   @override
-  String get chinese => 'ä¸­æ–‡';
+  String get chinese => '中文';
 
   @override
-  String get japanese => 'æ—¥è¯­';
+  String get japanese => '日语';
 
   @override
-  String get korean => 'éŸ©è¯­';
+  String get korean => '韩语';
 
   @override
-  String get arabic => 'é˜¿æ‹‰ä¼¯è¯­';
+  String get arabic => '阿拉伯语';
 
   @override
-  String get hindi => 'å°åœ°è¯­';
+  String get hindi => '印地语';
 
   @override
-  String get turkish => 'åœŸè€³å…¶è¯­';
+  String get turkish => '土耳其语';
 
   @override
-  String get polish => 'æ³¢å…°è¯­';
+  String get polish => '波兰语';
 
   @override
-  String get ukrainian => 'ä¹Œå…‹å…°è¯­';
+  String get ukrainian => '乌克兰语';
 
   @override
-  String get runAnotherAnalysis => 'å†è¿›è¡Œä¸€æ¬¡åˆ†æžï¼Ÿ';
+  String get runAnotherAnalysis => '运行另一个分析？';
 
   @override
-  String get becomeMemberTitle => 'æˆä¸ºä¼šå‘˜ä»¥èŽ·å–å®Œæ•´åˆ†æžæŠ¥å‘Š';
+  String get becomeMemberTitle => '成为会员以获得完整分析报告';
 
   @override
-  String get becomeMemberSubtitle =>
-      'é€‰æ‹©é€‚åˆæ‚¨éœ€è¦åˆ†æžçš„å¯¹è¯å’ŒæŠ¥å‘Šçš„è®¿é—®çº§åˆ«ã€‚';
+  String get becomeMemberSubtitle => '选择适合您对话和报告的访问级别。';
 
   @override
-  String get benefitAnalyzeSms => 'åˆ†æž SMS çŸ­ä¿¡';
+  String get benefitAnalyzeSms => '分析短信';
 
   @override
-  String get benefitReportPreview => 'è¿è¡ŒæŠ¥å‘Šé¢„è§ˆ';
+  String get benefitReportPreview => '运行报告预览';
 
   @override
-  String get benefitViewPartialReport => 'æŸ¥çœ‹çº¦ 25% çš„æŠ¥å‘Š';
+  String get benefitViewPartialReport => '查看约25%的报告';
 
   @override
-  String get benefitLockedDetails => 'å®Œæ•´æŠ¥å‘Šè¯¦æƒ…å·²é”å®š';
+  String get benefitLockedDetails => '完整报告详情已锁定';
 
   @override
-  String get currentFreeAccess => 'å½“å‰å…è´¹è®¿é—®';
+  String get currentFreeAccess => '当前免费访问';
 
   @override
-  String get benefitUnlockCurrentReport => 'è§£é”å½“å‰å®Œæ•´æŠ¥å‘Š';
+  String get benefitUnlockCurrentReport => '解锁此完整报告';
 
   @override
-  String get benefitNoSubscription => 'æ— éœ€è®¢é˜…';
+  String get benefitNoSubscription => '无需订阅';
 
   @override
-  String get benefitSavePrintShareThis => 'ä¿å­˜ã€æ‰“å°å’Œåˆ†äº«æ­¤æŠ¥å‘Š';
+  String get benefitSavePrintShareThis => '保存、打印和分享此报告';
 
   @override
-  String get benefitBestSingleAnalysis =>
-      'å¦‚æžœæ‚¨åªéœ€è¦ä¸€æ¬¡åˆ†æžï¼Œåˆ™æœ€é€‚åˆ';
+  String get benefitBestSingleAnalysis => '如果只需要一次分析，这是最佳选择';
 
   @override
-  String get unlockThisReportShort => 'è§£é”æ­¤æŠ¥å‘Š';
+  String get unlockThisReportShort => '解锁此报告';
 
   @override
-  String get benefitFullSmsReport => 'å®Œæ•´ SMS åˆ†æžæŠ¥å‘Š';
+  String get benefitFullSmsReport => '完整短信分析报告';
 
   @override
-  String get benefitSavePrintSharePdf => 'ä¿å­˜ã€æ‰“å°å’Œåˆ†äº« PDF æŠ¥å‘Š';
+  String get benefitSavePrintSharePdf => '保存、打印和分享PDF报告';
 
   @override
-  String get benefitTenReports => 'æ¯ 24 å°æ—¶ 10 ä»½æŠ¥å‘Š';
+  String get benefitTenReports => '每24小时10份报告';
 
   @override
-  String get benefitBestTextReview => 'æœ€é€‚åˆçŸ­ä¿¡å…³ç³»å®¡æŸ¥';
+  String get benefitBestTextReview => '最适合短信关系审查';
 
   @override
-  String get benefitDateRangeFilter => 'æŒ‰æ—¥æœŸèŒƒå›´è¿‡æ»¤åˆ†æž';
+  String get benefitDateRangeFilter => '按日期范围筛选分析';
 
   @override
-  String get signUpStandard => 'æ³¨å†Œæ ‡å‡†ä¼šå‘˜';
+  String get signUpStandard => '注册Standard会员';
 
   @override
-  String get benefitAddToStandard => 'æ·»åŠ åˆ°æ ‡å‡†ä¼šå‘˜';
+  String get benefitAddToStandard => '添加到Standard会员';
 
   @override
-  String get benefitAnalyzeDiscord => 'åˆ†æž Discord æœåŠ¡å™¨èŠå¤©';
+  String get benefitAnalyzeDiscord => '分析Discord聊天';
 
   @override
-  String get benefitRequiresBot => 'éœ€è¦å®‰è£…æœºå™¨äºº';
+  String get benefitRequiresBot => '需要安装机器人';
 
   @override
-  String get benefitBestGamers => 'æœ€é€‚åˆçŽ©å®¶å’Œ Discord ç¤¾åŒº';
+  String get benefitBestGamers => '最适合游戏玩家和Discord社区';
 
   @override
-  String get addDiscordAnalysis => 'æ·»åŠ  Discord åˆ†æž';
+  String get addDiscordAnalysis => '添加Discord分析';
 
   @override
-  String get requiresStandardMembership => 'éœ€è¦æ ‡å‡†ä¼šå‘˜';
+  String get requiresStandardMembership => '需要Standard会员资格';
 
   @override
-  String get comingSoon => 'å³å°†æŽ¨å‡º';
+  String get comingSoon => '即将推出';
 
   @override
-  String get comingSoonWithNextUpdate => 'ä¸‹æ¬¡æ›´æ–°å³å°†æŽ¨å‡ºï¼š';
+  String get comingSoonWithNextUpdate => '即将随下一次更新推出：';
 
   @override
-  String get proMembershipTier => 'Pro ä¼šå‘˜ç­‰çº§ - \$19.99';
+  String get proMembershipTier => 'Pro会员 - \$19.99';
 
   @override
-  String get proPlusMembershipTier => 'Pro-Plus ä¼šå‘˜ç­‰çº§ - \$24.99';
+  String get proPlusMembershipTier => 'Pro-Plus会员 - \$24.99';
 
   @override
-  String get proGetsLabel => 'Pro åŒ…å«ï¼š';
+  String get proGetsLabel => 'Pro获得：';
 
   @override
-  String get proGetsDescription =>
-      'åˆ†æžæ‰€æœ‰å…¶ä»–çƒ­é—¨çŸ­ä¿¡å’Œç¤¾äº¤åª’ä½“å¹³å°çš„èŠå¤©ä¼šè¯ï¼Œä¾‹å¦‚ï¼š';
+  String get proGetsDescription => '分析来自其他流行消息和社交媒体平台的聊天线程。';
 
   @override
   String get proPlatformsList =>
-      'LinkedInã€WhatsAppã€Instagramã€Facebook Messengerã€Telegramã€X (Twitter)ã€ç”µå­é‚®ä»¶å’Œæ—¥åŽ†';
+      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X';
 
   @override
-  String get proPlusGetsLabel => 'Pro-Plus åŒ…å«ï¼š';
+  String get proPlusGetsLabel => 'Pro-Plus获得：';
 
   @override
-  String get proPlusGetsDescription =>
-      'Pro çš„æ‰€æœ‰åŠŸèƒ½ï¼Œå¤–åŠ ä»¥ä¼˜æƒ ä»·æ ¼æä¾›çš„ Discord é™„åŠ ç»„ä»¶ã€‚';
+  String get proPlusGetsDescription => 'Pro的一切，加上折扣价的Discord插件。';
 
   @override
-  String get purchaseSuccessfulUnlocked => 'è´­ä¹°æˆåŠŸï¼æŠ¥å‘Šå·²è§£é”ã€‚';
+  String get purchaseSuccessfulUnlocked => '购买成功！报告已解锁。';
 
   @override
-  String get purchaseFailed => 'è´­ä¹°å¤±è´¥ã€‚è¯·é‡è¯•ã€‚';
+  String get purchaseFailed => '购买失败。请重试。';
 
   @override
-  String get membershipActivated => 'ä¼šå‘˜å·²æ¿€æ´»ï¼';
+  String get membershipActivated => '会员资格已激活！';
 
   @override
-  String get dateRangeFilter => 'æ—¥æœŸèŒƒå›´è¿‡æ»¤å™¨';
+  String get dateRangeFilter => '日期范围筛选';
 
   @override
-  String get dateRangeOptional => '(å¯é€‰)';
+  String get dateRangeOptional => '（可选）';
 
   @override
-  String get startDate => 'å¼€å§‹æ—¥æœŸ';
+  String get startDate => '开始日期';
 
   @override
-  String get endDate => 'ç»“æŸæ—¥æœŸ';
+  String get endDate => '结束日期';
 
   @override
-  String get clear => 'æ¸…é™¤';
+  String get clear => '清除';
 
   @override
-  String get dateRangeRequiresMembership => 'éœ€è¦æ ‡å‡†ä¼šå‘˜æˆ–æ›´é«˜';
+  String get dateRangeRequiresMembership => '需要Standard会员资格或更高';
 
   @override
   String selectUpToCount(Object current, Object max) {
@@ -519,36 +506,36 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get clearSelections => 'æ¸…é™¤é€‰æ‹©';
+  String get clearSelections => '清除选择';
 
   @override
   String analyzeRandomMetrics(Object count) {
-    return 'åˆ†æž $count ä¸ªéšæœºæŒ‡æ ‡';
+    return '分析$count个随机指标';
   }
 
   @override
-  String get saveSelections => 'ä¿å­˜é€‰æ‹©';
+  String get saveSelections => '保存选择';
 
   @override
-  String get loadSelections => 'åŠ è½½é€‰æ‹©';
+  String get loadSelections => '加载选择';
 
   @override
-  String get saveMetricListName => 'ä¿å­˜æŒ‡æ ‡åˆ—è¡¨';
+  String get saveMetricListName => '保存指标列表';
 
   @override
-  String get enterListName => 'ä¸ºæ­¤æŒ‡æ ‡åˆ—è¡¨è¾“å…¥åç§°:';
+  String get enterListName => '输入此指标列表的名称：';
 
   @override
-  String get chooseSavedMetrics => 'é€‰æ‹©ä¿å­˜çš„æŒ‡æ ‡åˆ—è¡¨:';
+  String get chooseSavedMetrics => '选择已保存的指标列表：';
 
   @override
-  String get noSavedLists => 'ç›®å‰æ²¡æœ‰ä¿å­˜çš„æŒ‡æ ‡åˆ—è¡¨å¯åŠ è½½ã€‚';
+  String get noSavedLists => '目前没有已保存的指标列表。';
 
   @override
-  String get metricListSaved => 'æŒ‡æ ‡åˆ—è¡¨ä¿å­˜æˆåŠŸã€‚';
+  String get metricListSaved => '指标列表已成功保存。';
 
   @override
-  String get metricListLoaded => 'æŒ‡æ ‡åˆ—è¡¨åŠ è½½æˆåŠŸã€‚';
+  String get metricListLoaded => '指标列表已成功加载。';
 
   @override
   String get filters => 'ç­›é€‰';
@@ -560,7 +547,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get recent => 'æœ€è¿‘';
 
   @override
-  String get name => 'åç§°';
+  String get name => '姓名';
 
   @override
   String get count => 'æ•°é‡';
@@ -588,12 +575,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String analysisOfSender(Object sender) {
-    return '$sender åˆ†æžï¼ˆå‘é€è€…ï¼‰';
+    return '$sender的分析（发件人）';
   }
 
   @override
   String analysisOfReceiver(Object receiver) {
-    return '$receiver åˆ†æžï¼ˆæŽ¥æ”¶è€…ï¼‰';
+    return '$receiver的分析（收件人）';
   }
 
   @override
@@ -4465,104 +4452,103 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get viewMembershipOptions => 'View Membership Options';
+  String get viewMembershipOptions => '查看会员选项';
 
   @override
-  String get metricExpansionPacksTitle => 'Metric Expansion Packs';
+  String get metricExpansionPacksTitle => '指标扩展包';
 
   @override
-  String get oneTimePurchasesSubtitle =>
-      'One-time purchases — additional metrics forever';
+  String get oneTimePurchasesSubtitle => '一次性购买 — 额外指标永久使用';
 
   @override
-  String get unlockGoodPackButton => 'Unlock The Good Pack';
+  String get unlockGoodPackButton => '解锁好包';
 
   @override
-  String get unlockBadPackButton => 'Unlock The Bad Pack';
+  String get unlockBadPackButton => '解锁坏包';
 
   @override
-  String get unlockUglyPackButton => 'Unlock The Ugly Pack';
+  String get unlockUglyPackButton => '解锁丑包';
 
   @override
-  String get unlockNarcissistPackButton => 'Unlock Narcissist Pack';
+  String get unlockNarcissistPackButton => '解锁自恋包';
 
   @override
-  String get unlockSerialKillerPackButton => 'Unlock Serial Killer Pack';
+  String get unlockSerialKillerPackButton => '解锁连环杀手包';
 
   @override
-  String get goodPackBenefit1 => '100 healthy relationship metrics';
+  String get goodPackBenefit1 => '100个健康关系指标';
 
   @override
-  String get goodPackBenefit2 => 'Positive communication patterns';
+  String get goodPackBenefit2 => '积极的沟通模式';
 
   @override
-  String get goodPackBenefit3 => 'Appreciation, empathy & trust signals';
+  String get goodPackBenefit3 => '感激、同理心和信任信号';
 
   @override
-  String get goodPackBenefit4 => 'One-time purchase — yours forever';
+  String get goodPackBenefit4 => '一次性购买 — 永久属于您';
 
   @override
-  String get goodPackBenefit5 => 'Unlocks instantly after purchase';
+  String get goodPackBenefit5 => '购买后立即解锁';
 
   @override
-  String get badPackBenefit1 => '100 warning-sign relationship metrics';
+  String get badPackBenefit1 => '100个警告信号关系指标';
 
   @override
-  String get badPackBenefit2 => 'Spot manipulation & dismissal patterns';
+  String get badPackBenefit2 => '发现操纵和拒绝模式';
 
   @override
-  String get badPackBenefit3 => 'Guilt-tripping, stonewalling & more';
+  String get badPackBenefit3 => '内疚操控、冷战等';
 
   @override
-  String get badPackBenefit4 => 'One-time purchase — yours forever';
+  String get badPackBenefit4 => '一次性购买 — 永久属于您';
 
   @override
-  String get badPackBenefit5 => 'Unlocks instantly after purchase';
+  String get badPackBenefit5 => '购买后立即解锁';
 
   @override
-  String get uglyPackBenefit1 => '100 severe red-flag abuse metrics';
+  String get uglyPackBenefit1 => '100个严重红旗虐待指标';
 
   @override
-  String get uglyPackBenefit2 => 'Identify coercion, threats & control';
+  String get uglyPackBenefit2 => '识别胁迫、威胁和控制';
 
   @override
-  String get uglyPackBenefit3 => 'Trauma bonding & isolation indicators';
+  String get uglyPackBenefit3 => '创伤性依恋和孤立指标';
 
   @override
-  String get uglyPackBenefit4 => 'One-time purchase — yours forever';
+  String get uglyPackBenefit4 => '一次性购买 — 永久属于您';
 
   @override
-  String get uglyPackBenefit5 => 'Unlocks instantly after purchase';
+  String get uglyPackBenefit5 => '购买后立即解锁';
 
   @override
-  String get narcissistPackBenefit1 => '50 narcissistic behavior metrics';
+  String get narcissistPackBenefit1 => '50个自恋行为指标';
 
   @override
-  String get narcissistPackBenefit2 => 'Detect gaslighting & love-bombing';
+  String get narcissistPackBenefit2 => '检测精神操控和爱情轰炸';
 
   @override
-  String get narcissistPackBenefit3 => 'Hoovering & devaluation patterns';
+  String get narcissistPackBenefit3 => '胡佛吸尘器和贬值模式';
 
   @override
-  String get narcissistPackBenefit4 => 'One-time purchase — yours forever';
+  String get narcissistPackBenefit4 => '一次性购买 — 永久属于您';
 
   @override
-  String get narcissistPackBenefit5 => 'Unlocks instantly after purchase';
+  String get narcissistPackBenefit5 => '购买后立即解锁';
 
   @override
-  String get serialKillerPackBenefit1 => '50 extreme danger indicators';
+  String get serialKillerPackBenefit1 => '50个极端危险指标';
 
   @override
-  String get serialKillerPackBenefit2 => 'Detect predatory & violent language';
+  String get serialKillerPackBenefit2 => '检测掠夺性和暴力语言';
 
   @override
-  String get serialKillerPackBenefit3 => 'Psychopathy & sadism markers';
+  String get serialKillerPackBenefit3 => '精神病和虐待狂标记';
 
   @override
-  String get serialKillerPackBenefit4 => 'One-time purchase — yours forever';
+  String get serialKillerPackBenefit4 => '一次性购买 — 永久属于您';
 
   @override
-  String get serialKillerPackBenefit5 => 'Unlocks instantly after purchase';
+  String get serialKillerPackBenefit5 => '购买后立即解锁';
 
   @override
   String get allPacksOwned => 'å·²æ‹¥æœ‰æ‰€æœ‰æ‰©å±•åŒ…!';
@@ -4602,50 +4588,49 @@ class AppLocalizationsZh extends AppLocalizations {
   String get enableDiscord => 'å¯ç”¨ Discord';
 
   @override
-  String get aboutTitle => 'About';
+  String get aboutTitle => '关于';
 
   @override
-  String get aboutDescription =>
-      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+  String get aboutDescription => 'AIRTA（AI关系毒性分析仪）帮助您识别对话中的不健康模式。';
 
   @override
-  String get contactUs => 'Contact Us';
+  String get contactUs => '联系我们';
 
   @override
-  String get supportEmail => 'Support';
+  String get supportEmail => '支持';
 
   @override
-  String get supportEmailDesc => 'Get help with using the app';
+  String get supportEmailDesc => '获取使用应用的帮助';
 
   @override
-  String get businessEmail => 'Business';
+  String get businessEmail => '商务';
 
   @override
-  String get businessEmailDesc => 'Partnerships and inquiries';
+  String get businessEmailDesc => '合作伙伴关系和咨询';
 
   @override
-  String get privacyEmail => 'Privacy';
+  String get privacyEmail => '隐私';
 
   @override
-  String get privacyEmailDesc => 'Data and privacy questions';
+  String get privacyEmailDesc => '数据和隐私问题';
 
   @override
-  String get importantLinks => 'Links';
+  String get importantLinks => '链接';
 
   @override
-  String get website => 'Website';
+  String get website => '网站';
 
   @override
-  String get privacyPolicy => 'Privacy Policy';
+  String get privacyPolicy => '隐私政策';
 
   @override
-  String get termsOfService => 'Terms of Service';
+  String get termsOfService => '服务条款';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get allRightsReserved => 'All rights reserved.';
+  String get allRightsReserved => '版权所有。';
 
   @override
   String get packTheGood => 'åŒ…ï¼šå¥½çš„';
@@ -4791,46 +4776,42 @@ class AppLocalizationsZh extends AppLocalizations {
   String get okButton => 'ç¡®å®š';
 
   @override
-  String get noMessagesInDateRangeBody =>
-      'No messages were found in the selected date range. Try adjusting the date range.';
+  String get noMessagesInDateRangeBody => '在所选日期范围内未找到消息。请尝试调整日期范围。';
 
   @override
-  String get credentialsSavedSuccess => 'Credentials saved successfully';
+  String get credentialsSavedSuccess => '凭据保存成功';
 
   @override
   String errorSavingCredentials(String error) {
-    return 'Error saving credentials: $error';
+    return '保存凭据时出错：$error';
   }
 
   @override
-  String get credentialsSecurityInfo =>
-      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+  String get credentialsSecurityInfo => '您的凭据仅安全存储在此设备上，绝不会上传到我们的服务器。';
 
   @override
-  String get savingButton => 'Saving...';
+  String get savingButton => '保存中...';
 
   @override
-  String get saveAllCredentials => 'Save Credentials';
+  String get saveAllCredentials => '保存凭据';
 
   @override
   String get proPlusLabel => 'Pro+';
 
   @override
-  String get upgradeButton => 'Upgrade';
+  String get upgradeButton => '升级';
 
   @override
-  String get usernameLabel => 'Username';
+  String get usernameLabel => '用户名';
 
   @override
-  String get passwordLabel => 'Password';
+  String get passwordLabel => '密码';
 
   @override
-  String get upgradeToProPlusBody =>
-      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+  String get upgradeToProPlusBody => '升级到Pro Plus以访问第三方平台集成和高级功能。';
 
   @override
-  String get noConversationsFoundBody =>
-      'No conversations were found. Make sure your credentials are correct and try again.';
+  String get noConversationsFoundBody => '未找到对话。请确保您的凭据正确，然后重试。';
 
   @override
   String get tileMyAccountTitle => '我的账户';

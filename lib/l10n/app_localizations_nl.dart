@@ -154,10 +154,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get selectFile => 'Bestand selecteren';
 
   @override
-  String get analyzeSelectedMetrics => 'Geselecteerde metingen analyseren';
+  String get analyzeSelectedMetrics => 'Geselecteerde statistieken analyseren';
 
   @override
-  String get analyze20RandomMetrics => '20 willekeurige metingen analyseren';
+  String get analyze20RandomMetrics =>
+      '20 willekeurige statistieken analyseren';
 
   @override
   String get membershipOptions => 'Lidmaatschapsopties';
@@ -200,7 +201,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get pdfPreviewDescription =>
-      'Het ingebedde PDF-venster start gesloten om het rapport compact te houden.';
+      'Het PDF-venster begint gesloten om het rapport compact te houden.';
 
   @override
   String get notNow => 'Niet nu';
@@ -209,14 +210,14 @@ class AppLocalizationsNl extends AppLocalizations {
   String get unlockThisReport => 'Dit rapport ontgrendelen - \$20';
 
   @override
-  String get joinStandard => 'Word lid van Standaard - \$9.99/maand';
+  String get joinStandard => 'Word lid van Standard - \$9,99/maand';
 
   @override
-  String get instantUnlockTitle => 'Directe rapportontgrendeling - \$20';
+  String get instantUnlockTitle => 'Onmiddellijke rapportontgrendeling - \$20';
 
   @override
   String get instantUnlockDescription =>
-      'Dit is een eenmalige aankoop om alleen het huidige rapport te ontgrendelen. Geen abonnement vereist. Toekomstige rapporten vereisen aparte ontgrendelingen of een lidmaatschap.\n\nDoorgaan met betaling?';
+      'Dit is een eenmalige aankoop om alleen het huidige rapport te ontgrendelen. Geen abonnement.';
 
   @override
   String get purchaseFor20 => 'Kopen voor \$20';
@@ -243,7 +244,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get error => 'Fout';
 
   @override
-  String get success => 'Gelukt';
+  String get success => 'Succes';
 
   @override
   String get conversations => 'Gesprekken';
@@ -264,26 +265,26 @@ class AppLocalizationsNl extends AppLocalizations {
   String get loadingConversations => 'Gesprekken laden...';
 
   @override
-  String get errorLoadingConversations => 'Fout bij het laden van gesprekken';
+  String get errorLoadingConversations => 'Fout bij laden van gesprekken';
 
   @override
   String get selectConversationToAnalyze =>
-      'Selecteer een gesprek om te analyseren';
+      'Gesprek selecteren om te analyseren';
 
   @override
   String get analyzeWithSelectedMetrics =>
-      'Analyseren met de geselecteerde metingen';
+      'Analyseren met geselecteerde statistieken';
 
   @override
   String get loadConversationAndSelectMetric =>
-      'Laad een gesprek en selecteer ten minste één meting';
+      'Laad een gesprek en selecteer minimaal één statistiek';
 
   @override
   String get selectAtLeastOneMetric =>
-      'Er moet ten minste één meting worden geselecteerd om het rapport uit te voeren.';
+      'Er moet minimaal één statistiek worden geselecteerd om het rapport te genereren.';
 
   @override
-  String get spinningMetricWheel => 'Het metingswiel draait...';
+  String get spinningMetricWheel => 'Willekeurige statistieken selecteren...';
 
   @override
   String get loadConversationToAnalyze => 'Laad een gesprek om te analyseren';
@@ -302,7 +303,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get smsPermissionDescription =>
-      'Om uw SMS-gesprekken te analyseren op relatiepatronen';
+      'Om je SMS-gesprekken te analyseren op relatiepatronen';
 
   @override
   String get contactsPermissionDescription =>
@@ -310,24 +311,25 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get analyzingMessage =>
-      'Even geduld terwijl uw psychologische analyse door AI wordt gegenereerd...';
+      'Even geduld terwijl je psychologische analyse wordt gegenereerd door AI...';
 
   @override
   String get analyzingStatus => 'Gesprek analyseren...';
 
   @override
   String get analyzingSubMessage =>
-      'Heb geduld, dit proces kan tot een minuut duren, afhankelijk van uw verbindingssnelheid en het aantal geselecteerde metingen';
+      'Even geduld, dit proces kan tot een minuut duren afhankelijk van het apparaat.';
 
   @override
-  String get unlockFullReport => 'Ontgrendel en toon dit hele rapport';
+  String get unlockFullReport =>
+      'Dit volledige rapport ontgrendelen en weergeven';
 
   @override
   String get fullReportLocked => 'Volledig rapport vergrendeld';
 
   @override
   String get upgradeToUnlock =>
-      'Upgrade uw lidmaatschap om het volledige psychologische analyserapport te ontgrendelen met alle metingen en gedetailleerde inzichten.';
+      'Upgrade je lidmaatschap om het volledige psychologische analyserapport te ontgrendelen.';
 
   @override
   String get language => 'Taal';
@@ -384,18 +386,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get runAnotherAnalysis => 'Nog een analyse uitvoeren?';
 
   @override
-  String get becomeMemberTitle =>
-      'Word lid om het volledige analyserapport te krijgen';
+  String get becomeMemberTitle => 'Word lid voor het volledige analyserapport';
 
   @override
   String get becomeMemberSubtitle =>
-      'Kies het toegangsniveau dat past bij de gesprekken en rapporten die u wilt analyseren.';
+      'Kies het toegangsniveau dat past bij je gesprekken en rapporten.';
 
   @override
   String get benefitAnalyzeSms => 'SMS-tekstberichten analyseren';
 
   @override
-  String get benefitReportPreview => 'Een rapportvoorbeeld uitvoeren';
+  String get benefitReportPreview => 'Rapportvoorbeeld uitvoeren';
 
   @override
   String get benefitViewPartialReport =>
@@ -419,7 +420,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get benefitBestSingleAnalysis =>
-      'Ideaal als u maar één analyse nodig heeft';
+      'Best als je maar één analyse nodig hebt';
 
   @override
   String get unlockThisReportShort => 'Dit rapport ontgrendelen';
@@ -432,65 +433,66 @@ class AppLocalizationsNl extends AppLocalizations {
       'PDF-rapporten opslaan, afdrukken en delen';
 
   @override
-  String get benefitTenReports => '10 rapporten per periode van 24 uur';
+  String get benefitTenReports => '10 rapporten per 24 uur';
 
   @override
   String get benefitBestTextReview =>
-      'Ideaal voor het beoordelen van relaties via sms';
+      'Best voor tekstberichtrelatiebeoordeling';
 
   @override
   String get benefitDateRangeFilter => 'Analyse filteren op datumbereik';
 
   @override
-  String get signUpStandard => 'Aanmelden voor Standaard-lidmaatschap';
+  String get signUpStandard => 'Aanmelden voor Standard-lidmaatschap';
 
   @override
-  String get benefitAddToStandard => 'Toevoegen aan Standaard-lidmaatschap';
+  String get benefitAddToStandard => 'Toevoegen aan Standard-lidmaatschap';
 
   @override
-  String get benefitAnalyzeDiscord => 'Discord-serverchats analyseren';
+  String get benefitAnalyzeDiscord => 'Discord-chats analyseren';
 
   @override
   String get benefitRequiresBot => 'Vereist botinstallatie';
 
   @override
-  String get benefitBestGamers => 'Ideaal voor gamers en Discord-communities';
+  String get benefitBestGamers => 'Best voor gamers en Discord-communities';
 
   @override
   String get addDiscordAnalysis => 'Discord-analyse toevoegen';
 
   @override
-  String get requiresStandardMembership => 'Vereist Standaard-lidmaatschap';
+  String get requiresStandardMembership => 'Vereist Standard-lidmaatschap';
 
   @override
-  String get comingSoon => 'Binnenkort';
+  String get comingSoon => 'Binnenkort beschikbaar';
 
   @override
-  String get comingSoonWithNextUpdate => 'Binnenkort met de volgende update:';
+  String get comingSoonWithNextUpdate =>
+      'Binnenkort beschikbaar met de volgende update:';
 
   @override
-  String get proMembershipTier => 'Pro-lidmaatschapsniveau - \$19.99';
+  String get proMembershipTier => 'Pro-lidmaatschap - \$19,99';
 
   @override
-  String get proPlusMembershipTier => 'Pro-Plus-lidmaatschapsniveau - \$24.99';
+  String get proPlusMembershipTier => 'Pro-Plus-lidmaatschap - \$24,99';
 
   @override
-  String get proGetsLabel => 'Pro omvat:';
+  String get proGetsLabel => 'Pro krijgt:';
 
   @override
   String get proGetsDescription =>
-      'Analyseer chatgesprekken van alle andere populaire berichten- en socialemediaplatforms zoals:';
+      'Chatthreads van andere populaire berichten- en sociale mediaplatforms analyseren.';
 
   @override
   String get proPlatformsList =>
-      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X (Twitter), e-mail en agenda';
+      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X';
 
   @override
-  String get proPlusGetsLabel => 'Pro-Plus omvat:';
+  String get proPlusGetsLabel => 'Pro-Plus krijgt:';
 
   @override
   String get proPlusGetsDescription =>
-      'Alles van Pro, plus de Discord-add-on tegen een gereduceerde prijs.';
+      'Alles in Pro, plus de Discord-add-on voor een gereduceerde prijs.';
 
   @override
   String get purchaseSuccessfulUnlocked =>
@@ -503,7 +505,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get membershipActivated => 'Lidmaatschap geactiveerd!';
 
   @override
-  String get dateRangeFilter => 'Datumbereik Filter';
+  String get dateRangeFilter => 'Datumbereikfilter';
 
   @override
   String get dateRangeOptional => '(optioneel)';
@@ -531,33 +533,33 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String analyzeRandomMetrics(Object count) {
-    return 'Analyseer $count willekeurige metrieken';
+    return '$count willekeurige statistieken analyseren';
   }
 
   @override
-  String get saveSelections => 'Selecties Opslaan';
+  String get saveSelections => 'Selecties opslaan';
 
   @override
-  String get loadSelections => 'Selecties Laden';
+  String get loadSelections => 'Selecties laden';
 
   @override
-  String get saveMetricListName => 'Metriek-lijst Opslaan';
+  String get saveMetricListName => 'Statistiekenlijst opslaan';
 
   @override
-  String get enterListName => 'Voer een naam in voor deze metriek-lijst:';
+  String get enterListName => 'Voer een naam in voor deze statistiekenlijst:';
 
   @override
-  String get chooseSavedMetrics => 'Kies de opgeslagen metriek-lijst:';
+  String get chooseSavedMetrics => 'Kies een opgeslagen statistiekenlijst:';
 
   @override
   String get noSavedLists =>
-      'Geen opgeslagen metriek-lijsten om te laden op dit moment.';
+      'Er zijn momenteel geen opgeslagen statistiekenlijsten.';
 
   @override
-  String get metricListSaved => 'Metriek-lijst succesvol opgeslagen.';
+  String get metricListSaved => 'Statistiekenlijst succesvol opgeslagen.';
 
   @override
-  String get metricListLoaded => 'Metriek-lijst succesvol geladen.';
+  String get metricListLoaded => 'Statistiekenlijst succesvol geladen.';
 
   @override
   String get filters => 'Filters';
@@ -4486,104 +4488,110 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get viewMembershipOptions => 'View Membership Options';
+  String get viewMembershipOptions => 'Lidmaatschapsopties bekijken';
 
   @override
-  String get metricExpansionPacksTitle => 'Metric Expansion Packs';
+  String get metricExpansionPacksTitle => 'Metrische uitbreidingspakketten';
 
   @override
   String get oneTimePurchasesSubtitle =>
-      'One-time purchases — additional metrics forever';
+      'Eenmalige aankopen — extra statistieken voor altijd';
 
   @override
-  String get unlockGoodPackButton => 'Unlock The Good Pack';
+  String get unlockGoodPackButton => 'Het Goede Pakket ontgrendelen';
 
   @override
-  String get unlockBadPackButton => 'Unlock The Bad Pack';
+  String get unlockBadPackButton => 'Het Slechte Pakket ontgrendelen';
 
   @override
-  String get unlockUglyPackButton => 'Unlock The Ugly Pack';
+  String get unlockUglyPackButton => 'Het Lelijke Pakket ontgrendelen';
 
   @override
-  String get unlockNarcissistPackButton => 'Unlock Narcissist Pack';
+  String get unlockNarcissistPackButton => 'Narcistisch Pakket ontgrendelen';
 
   @override
-  String get unlockSerialKillerPackButton => 'Unlock Serial Killer Pack';
+  String get unlockSerialKillerPackButton =>
+      'Seriemoordenaar Pakket ontgrendelen';
 
   @override
-  String get goodPackBenefit1 => '100 healthy relationship metrics';
+  String get goodPackBenefit1 => '100 statistieken voor gezonde relaties';
 
   @override
-  String get goodPackBenefit2 => 'Positive communication patterns';
+  String get goodPackBenefit2 => 'Positieve communicatiepatronen';
 
   @override
-  String get goodPackBenefit3 => 'Appreciation, empathy & trust signals';
+  String get goodPackBenefit3 =>
+      'Signalen van waardering, empathie en vertrouwen';
 
   @override
-  String get goodPackBenefit4 => 'One-time purchase — yours forever';
+  String get goodPackBenefit4 => 'Eenmalige aankoop — voor altijd van jou';
 
   @override
-  String get goodPackBenefit5 => 'Unlocks instantly after purchase';
+  String get goodPackBenefit5 => 'Direct ontgrendeld na aankoop';
 
   @override
-  String get badPackBenefit1 => '100 warning-sign relationship metrics';
+  String get badPackBenefit1 => '100 statistieken van waarschuwingssignalen';
 
   @override
-  String get badPackBenefit2 => 'Spot manipulation & dismissal patterns';
+  String get badPackBenefit2 => 'Manipulatie- en afwijzingspatronen herkennen';
 
   @override
-  String get badPackBenefit3 => 'Guilt-tripping, stonewalling & more';
+  String get badPackBenefit3 => 'Schuldgevoel opwekken, muren bouwen en meer';
 
   @override
-  String get badPackBenefit4 => 'One-time purchase — yours forever';
+  String get badPackBenefit4 => 'Eenmalige aankoop — voor altijd van jou';
 
   @override
-  String get badPackBenefit5 => 'Unlocks instantly after purchase';
+  String get badPackBenefit5 => 'Direct ontgrendeld na aankoop';
 
   @override
-  String get uglyPackBenefit1 => '100 severe red-flag abuse metrics';
+  String get uglyPackBenefit1 => '100 ernstige rode vlag misbruikstatistieken';
 
   @override
-  String get uglyPackBenefit2 => 'Identify coercion, threats & control';
+  String get uglyPackBenefit2 =>
+      'Dwang, bedreigingen en controle identificeren';
 
   @override
-  String get uglyPackBenefit3 => 'Trauma bonding & isolation indicators';
+  String get uglyPackBenefit3 => 'Traumabinding- en isolatie-indicatoren';
 
   @override
-  String get uglyPackBenefit4 => 'One-time purchase — yours forever';
+  String get uglyPackBenefit4 => 'Eenmalige aankoop — voor altijd van jou';
 
   @override
-  String get uglyPackBenefit5 => 'Unlocks instantly after purchase';
+  String get uglyPackBenefit5 => 'Direct ontgrendeld na aankoop';
 
   @override
-  String get narcissistPackBenefit1 => '50 narcissistic behavior metrics';
+  String get narcissistPackBenefit1 => '50 narcistisch gedragsstatistieken';
 
   @override
-  String get narcissistPackBenefit2 => 'Detect gaslighting & love-bombing';
+  String get narcissistPackBenefit2 => 'Gaslighting en lovebombing detecteren';
 
   @override
-  String get narcissistPackBenefit3 => 'Hoovering & devaluation patterns';
+  String get narcissistPackBenefit3 => 'Hoovering- en devaluatiepatronen';
 
   @override
-  String get narcissistPackBenefit4 => 'One-time purchase — yours forever';
+  String get narcissistPackBenefit4 =>
+      'Eenmalige aankoop — voor altijd van jou';
 
   @override
-  String get narcissistPackBenefit5 => 'Unlocks instantly after purchase';
+  String get narcissistPackBenefit5 => 'Direct ontgrendeld na aankoop';
 
   @override
-  String get serialKillerPackBenefit1 => '50 extreme danger indicators';
+  String get serialKillerPackBenefit1 => '50 extreme gevaarsindicatoren';
 
   @override
-  String get serialKillerPackBenefit2 => 'Detect predatory & violent language';
+  String get serialKillerPackBenefit2 =>
+      'Roofdier- en gewelddadige taal detecteren';
 
   @override
-  String get serialKillerPackBenefit3 => 'Psychopathy & sadism markers';
+  String get serialKillerPackBenefit3 => 'Markers voor psychopathie en sadisme';
 
   @override
-  String get serialKillerPackBenefit4 => 'One-time purchase — yours forever';
+  String get serialKillerPackBenefit4 =>
+      'Eenmalige aankoop — voor altijd van jou';
 
   @override
-  String get serialKillerPackBenefit5 => 'Unlocks instantly after purchase';
+  String get serialKillerPackBenefit5 => 'Direct ontgrendeld na aankoop';
 
   @override
   String get allPacksOwned => 'Alle uitbreidingspakketten in bezit!';
@@ -4624,32 +4632,32 @@ class AppLocalizationsNl extends AppLocalizations {
   String get enableDiscord => 'Discord inschakelen';
 
   @override
-  String get aboutTitle => 'About';
+  String get aboutTitle => 'Over';
 
   @override
   String get aboutDescription =>
-      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+      'AIRTA (AI Relatie Toxiciteitsanalysator) helpt je ongezonde patronen in je gesprekken te identificeren.';
 
   @override
-  String get contactUs => 'Contact Us';
+  String get contactUs => 'Contact';
 
   @override
-  String get supportEmail => 'Support';
+  String get supportEmail => 'Ondersteuning';
 
   @override
-  String get supportEmailDesc => 'Get help with using the app';
+  String get supportEmailDesc => 'Hulp krijgen bij het gebruik van de app';
 
   @override
-  String get businessEmail => 'Business';
+  String get businessEmail => 'Zakelijk';
 
   @override
-  String get businessEmailDesc => 'Partnerships and inquiries';
+  String get businessEmailDesc => 'Partnerschappen en vragen';
 
   @override
   String get privacyEmail => 'Privacy';
 
   @override
-  String get privacyEmailDesc => 'Data and privacy questions';
+  String get privacyEmailDesc => 'Vragen over data en privacy';
 
   @override
   String get importantLinks => 'Links';
@@ -4658,16 +4666,16 @@ class AppLocalizationsNl extends AppLocalizations {
   String get website => 'Website';
 
   @override
-  String get privacyPolicy => 'Privacy Policy';
+  String get privacyPolicy => 'Privacybeleid';
 
   @override
-  String get termsOfService => 'Terms of Service';
+  String get termsOfService => 'Gebruiksvoorwaarden';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get allRightsReserved => 'All rights reserved.';
+  String get allRightsReserved => 'Alle rechten voorbehouden.';
 
   @override
   String get packTheGood => 'The Good Pakket';
@@ -4786,7 +4794,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get selectConversationTitle => 'Gesprek Selecteren';
 
   @override
-  String get platformCredentialsTitle => 'Platform Credentials';
+  String get platformCredentialsTitle => 'Platformreferenties';
 
   @override
   String get saveCredentialsTooltip => 'Credentials Opslaan';
@@ -4814,45 +4822,45 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get noMessagesInDateRangeBody =>
-      'No messages were found in the selected date range. Try adjusting the date range.';
+      'Geen berichten gevonden in het geselecteerde datumbereik. Probeer het bereik aan te passen.';
 
   @override
-  String get credentialsSavedSuccess => 'Credentials saved successfully';
+  String get credentialsSavedSuccess => 'Inloggegevens succesvol opgeslagen';
 
   @override
   String errorSavingCredentials(String error) {
-    return 'Error saving credentials: $error';
+    return 'Fout bij opslaan inloggegevens: $error';
   }
 
   @override
   String get credentialsSecurityInfo =>
-      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+      'Je inloggegevens worden veilig opgeslagen op dit apparaat en worden nooit naar onze servers geüpload.';
 
   @override
-  String get savingButton => 'Saving...';
+  String get savingButton => 'Opslaan...';
 
   @override
-  String get saveAllCredentials => 'Save Credentials';
+  String get saveAllCredentials => 'Inloggegevens opslaan';
 
   @override
   String get proPlusLabel => 'Pro+';
 
   @override
-  String get upgradeButton => 'Upgrade';
+  String get upgradeButton => 'Upgraden';
 
   @override
-  String get usernameLabel => 'Username';
+  String get usernameLabel => 'Gebruikersnaam';
 
   @override
-  String get passwordLabel => 'Password';
+  String get passwordLabel => 'Wachtwoord';
 
   @override
   String get upgradeToProPlusBody =>
-      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+      'Upgrade naar Pro Plus voor toegang tot integraties met externe platforms en geavanceerde functies.';
 
   @override
   String get noConversationsFoundBody =>
-      'No conversations were found. Make sure your credentials are correct and try again.';
+      'Geen gesprekken gevonden. Zorg ervoor dat je inloggegevens correct zijn en probeer opnieuw.';
 
   @override
   String get tileMyAccountTitle => 'Mijn Account';

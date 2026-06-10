@@ -57,27 +57,27 @@
   "@selectSMS": {
     "description": "Button to select SMS messages"
   },
-  "selectFile": "Select file",
+  "selectFile": "파일 선택",
   "@selectFile": {
     "description": "Button to select a file"
   },
-  "analyzeSelectedMetrics": "Analyze Selected metrics",
+  "analyzeSelectedMetrics": "선택한 지표 분석",
   "@analyzeSelectedMetrics": {
     "description": "Button to analyze selected metrics"
   },
-  "analyze20RandomMetrics": "Analyze 20 Random metrics",
+  "analyze20RandomMetrics": "무작위 지표 20개 분석",
   "@analyze20RandomMetrics": {
     "description": "Button to analyze 20 random metrics"
   },
-  "membershipOptions": "Membership Options",
+  "membershipOptions": "멤버십 옵션",
   "@membershipOptions": {
     "description": "Title for membership landing page"
   },
-  "free": "Free",
+  "free": "무료",
   "@free": {
     "description": "Free tier label"
   },
-  "oneTimeUnlock": "One-Time Report Unlock",
+  "oneTimeUnlock": "일회성 보고서 잠금 해제",
   "@oneTimeUnlock": {
     "description": "One-time unlock tier label"
   },
@@ -89,39 +89,39 @@
   "@discordAddon": {
     "description": "Discord addon label"
   },
-  "analyze": "Analyze",
+  "analyze": "분석",
   "@analyze": {
     "description": "Analyze button/action"
   },
-  "report": "Report",
+  "report": "보고서",
   "@report": {
     "description": "Report label"
   },
-  "pdfReport": "PDF Report",
+  "pdfReport": "PDF 보고서",
   "@pdfReport": {
     "description": "PDF report label"
   },
-  "openPdf": "Open PDF",
+  "openPdf": "PDF 열기",
   "@openPdf": {
     "description": "Button to open PDF"
   },
-  "sharePdf": "Share PDF",
+  "sharePdf": "PDF 공유",
   "@sharePdf": {
     "description": "Button to share PDF"
   },
-  "printPdf": "Print PDF",
+  "printPdf": "PDF 인쇄",
   "@printPdf": {
     "description": "Button to print PDF"
   },
-  "closePdfPreview": "Close PDF Preview Window",
+  "closePdfPreview": "PDF 미리보기 창 닫기",
   "@closePdfPreview": {
     "description": "Button to close PDF preview"
   },
-  "openPdfPreview": "Open PDF Preview Window",
+  "openPdfPreview": "PDF 미리보기 창 열기",
   "@openPdfPreview": {
     "description": "Button to open PDF preview"
   },
-  "pdfPreviewDescription": "The embedded PDF window starts closed to keep the report compact.",
+  "pdfPreviewDescription": "보고서를 간결하게 유지하기 위해 PDF 창은 닫힌 상태로 시작합니다.",
   "@pdfPreviewDescription": {
     "description": "Explanation of PDF preview window"
   },
@@ -129,31 +129,31 @@
   "@notNow": {
     "description": "Button to dismiss dialog"
   },
-  "unlockThisReport": "Unlock This Report - $20",
+  "unlockThisReport": "이 보고서 잠금 해제 - $20",
   "@unlockThisReport": {
     "description": "Button to unlock single report"
   },
-  "joinStandard": "Join Standard - $9.99/mo",
+  "joinStandard": "Standard 가입 - $9.99/월",
   "@joinStandard": {
     "description": "Button to join Standard membership"
   },
-  "instantUnlockTitle": "Instant Report Unlock - $20",
+  "instantUnlockTitle": "즉시 보고서 잠금 해제 - $20",
   "@instantUnlockTitle": {
     "description": "Title for instant unlock dialog"
   },
-  "instantUnlockDescription": "This is a one-time purchase to unlock the current report only. No subscription required. Future reports will require separate unlocks or a membership.\n\nProceed with payment?",
+  "instantUnlockDescription": "현재 보고서만 잠금 해제하는 일회성 구매입니다. 구독 없음.",
   "@instantUnlockDescription": {
     "description": "Description for instant unlock purchase"
   },
-  "purchaseFor20": "Purchase for $20",
+  "purchaseFor20": "$20에 구매",
   "@purchaseFor20": {
     "description": "Button to purchase for $20"
   },
-  "share": "Share",
+  "share": "공유",
   "@share": {
     "description": "Share action"
   },
-  "print": "Print",
+  "print": "인쇄",
   "@print": {
     "description": "Print action"
   },
@@ -161,7 +161,7 @@
   "@save": {
     "description": "Save action"
   },
-  "cancel": "Cancel",
+  "cancel": "취소",
   "@cancel": {
     "description": "Cancel action"
   },
@@ -169,27 +169,27 @@
   "@ok": {
     "description": "OK button"
   },
-  "loading": "Loading...",
+  "loading": "로딩 중...",
   "@loading": {
     "description": "Loading indicator text"
   },
-  "error": "Error",
+  "error": "오류",
   "@error": {
     "description": "Error label"
   },
-  "success": "Success",
+  "success": "성공",
   "@success": {
     "description": "Success label"
   },
-  "conversations": "Conversations",
+  "conversations": "대화",
   "@conversations": {
     "description": "Conversations label"
   },
-  "messages": "Messages",
+  "messages": "메시지",
   "@messages": {
     "description": "Messages label"
   },
-  "selectConversation": "Select Conversation",
+  "selectConversation": "대화 선택",
   "@selectConversation": {
     "description": "Select conversation prompt"
   },
@@ -197,212 +197,212 @@
   "@selectSmsConversation": {
     "description": "Title for SMS conversation picker screen"
   },
-  "searchConversations": "Search conversations...",
+  "searchConversations": "대화 검색...",
   "@searchConversations": {
     "description": "Hint text for conversation search field"
   },
-  "loadingConversations": "Loading conversations...",
+  "loadingConversations": "대화 로딩 중...",
   "@loadingConversations": {
     "description": "Loading indicator text for conversations"
   },
-  "errorLoadingConversations": "Error Loading Conversations",
+  "errorLoadingConversations": "대화 로딩 오류",
   "@errorLoadingConversations": {
     "description": "Error dialog title for conversation loading failure"
   },
-  "selectConversationToAnalyze": "Select conversation to analyze",
+  "selectConversationToAnalyze": "분석할 대화 선택",
   "@selectConversationToAnalyze": {
     "description": "Dashboard title prompt"
   },
-  "analyzeWithSelectedMetrics": "Analyze with the selected metrics",
+  "analyzeWithSelectedMetrics": "선택한 지표로 분석",
   "@analyzeWithSelectedMetrics": {
     "description": "Button to analyze with selected metrics"
   },
-  "loadConversationAndSelectMetric": "Load a conversation and select at least one metric",
+  "loadConversationAndSelectMetric": "대화를 불러오고 지표를 하나 이상 선택하세요",
   "@loadConversationAndSelectMetric": {
     "description": "Hint to load conversation first"
   },
-  "selectAtLeastOneMetric": "At least one metric needs to be selected to run the report.",
+  "selectAtLeastOneMetric": "보고서를 실행하려면 지표를 하나 이상 선택해야 합니다.",
   "@selectAtLeastOneMetric": {
     "description": "Error message when no metrics selected"
   },
-  "spinningMetricWheel": "Spinning the metric wheel...",
+  "spinningMetricWheel": "지표를 무작위로 선택 중...",
   "@spinningMetricWheel": {
     "description": "Text shown while randomizing metrics"
   },
-  "loadConversationToAnalyze": "Load a conversation to analyze",
+  "loadConversationToAnalyze": "분석할 대화를 불러오세요",
   "@loadConversationToAnalyze": {
     "description": "Hint to load conversation for random analysis"
   },
-  "noConversationsFound": "No conversations found",
+  "noConversationsFound": "대화를 찾을 수 없습니다",
   "@noConversationsFound": {
     "description": "Message when no conversations exist"
   },
-  "permissionsRequired": "Permissions Required",
+  "permissionsRequired": "권한 필요",
   "@permissionsRequired": {
     "description": "Permissions dialog title"
   },
-  "smsPermission": "Text Messages",
+  "smsPermission": "문자 메시지",
   "@smsPermission": {
     "description": "SMS permission label"
   },
-  "contactsPermission": "Contacts",
+  "contactsPermission": "연락처",
   "@contactsPermission": {
     "description": "Contacts permission label"
   },
-  "smsPermissionDescription": "To analyze your SMS conversations for relationship patterns",
+  "smsPermissionDescription": "관계 패턴 분석을 위해 SMS 대화에 접근합니다",
   "@smsPermissionDescription": {
     "description": "SMS permission description"
   },
-  "contactsPermissionDescription": "To display contact names instead of phone numbers",
+  "contactsPermissionDescription": "전화번호 대신 연락처 이름을 표시합니다",
   "@contactsPermissionDescription": {
     "description": "Contacts permission description"
   },
-  "analyzingMessage": "Stand by while your psychological analysis is generated by AI...",
+  "analyzingMessage": "AI가 심리 분석을 생성하는 동안 잠시 기다려 주세요...",
   "@analyzingMessage": {
     "description": "Message shown while AI is analyzing"
   },
-  "analyzingStatus": "Analyzing conversation...",
+  "analyzingStatus": "대화 분석 중...",
   "@analyzingStatus": {
     "description": "Short status message shown during analysis"
   },
-  "analyzingSubMessage": "Please be patient, this process could take up to a minute depending on your connection speed and the quantity of selected metrics",
+  "analyzingSubMessage": "잠시 기다려 주세요. 기기에 따라 최대 1분이 걸릴 수 있습니다.",
   "@analyzingSubMessage": {
     "description": "Sub-message shown while AI is analyzing"
   },
-  "unlockFullReport": "Unlock and show this entire report",
+  "unlockFullReport": "이 전체 보고서 잠금 해제 및 표시",
   "@unlockFullReport": {
     "description": "Button to unlock full report"
   },
-  "fullReportLocked": "Full Report Locked",
+  "fullReportLocked": "전체 보고서 잠김",
   "@fullReportLocked": {
     "description": "Title when report is locked"
   },
-  "upgradeToUnlock": "Upgrade your membership to unlock the full psychological analysis report with all metrics and detailed insights.",
+  "upgradeToUnlock": "전체 심리 분석 보고서를 잠금 해제하려면 멤버십을 업그레이드하세요.",
   "@upgradeToUnlock": {
     "description": "Message explaining why report is locked"
   },
-  "language": "Language",
+  "language": "언어",
   "@language": {
     "description": "Language selector label"
   },
-  "english": "English",
+  "english": "영어",
   "@english": {
     "description": "English language name"
   },
-  "spanish": "Spanish",
+  "spanish": "스페인어",
   "@spanish": {
     "description": "Spanish language name"
   },
-  "french": "French",
+  "french": "프랑스어",
   "@french": {
     "description": "French language name"
   },
-  "german": "German",
+  "german": "독일어",
   "@german": {
     "description": "German language name"
   },
-  "italian": "Italian",
+  "italian": "이탈리아어",
   "@italian": {
     "description": "Italian language name"
   },
-  "portuguese": "Portuguese",
+  "portuguese": "포르투갈어",
   "@portuguese": {
     "description": "Portuguese language name"
   },
-  "dutch": "Dutch",
+  "dutch": "네덜란드어",
   "@dutch": {
     "description": "Dutch language name"
   },
-  "russian": "Russian",
+  "russian": "러시아어",
   "@russian": {
     "description": "Russian language name"
   },
-  "chinese": "Chinese",
+  "chinese": "중국어",
   "@chinese": {
     "description": "Chinese language name"
   },
-  "japanese": "Japanese",
+  "japanese": "일본어",
   "@japanese": {
     "description": "Japanese language name"
   },
-  "korean": "Korean",
+  "korean": "한국어",
   "@korean": {
     "description": "Korean language name"
   },
-  "arabic": "Arabic",
+  "arabic": "아랍어",
   "@arabic": {
     "description": "Arabic language name"
   },
-  "hindi": "Hindi",
+  "hindi": "힌디어",
   "@hindi": {
     "description": "Hindi language name"
   },
-  "turkish": "Turkish",
+  "turkish": "터키어",
   "@turkish": {
     "description": "Turkish language name"
   },
-  "polish": "Polish",
+  "polish": "폴란드어",
   "@polish": {
     "description": "Polish language name"
   },
-  "ukrainian": "Ukrainian",
+  "ukrainian": "우크라이나어",
   "@ukrainian": {
     "description": "Ukrainian language name"
   },
-  "runAnotherAnalysis": "Run another analysis?",
-  "becomeMemberTitle": "Become a member to get the full analysis report",
-  "becomeMemberSubtitle": "Choose the access level that matches the conversations and reports you need to analyze.",
-  "benefitAnalyzeSms": "Analyze SMS text messages",
-  "benefitReportPreview": "Run a report preview",
-  "benefitViewPartialReport": "View about 25% of the report",
-  "benefitLockedDetails": "Locked full report details",
-  "currentFreeAccess": "Current free access",
-  "benefitUnlockCurrentReport": "Unlock this current full report",
-  "benefitNoSubscription": "No subscription",
-  "benefitSavePrintShareThis": "Save, print, and share this report",
-  "benefitBestSingleAnalysis": "Best if you only need one analysis",
-  "unlockThisReportShort": "Unlock This Report",
-  "benefitFullSmsReport": "Full SMS analysis report",
-  "benefitSavePrintSharePdf": "Save, print, and share PDF reports",
-  "benefitTenReports": "10 reports per 24-hour period",
-  "benefitBestTextReview": "Best for text-message relationship review",
-  "benefitDateRangeFilter": "Filter analysis by date range",
-  "signUpStandard": "Sign up for Standard Membership",
-  "benefitAddToStandard": "Add to Standard membership",
-  "benefitAnalyzeDiscord": "Analyze Discord server chats",
-  "benefitRequiresBot": "Requires bot installation",
-  "benefitBestGamers": "Best for gamers and Discord communities",
-  "addDiscordAnalysis": "Add Discord Analysis",
-  "requiresStandardMembership": "Requires Standard Membership",
-  "comingSoon": "Coming Soon",
-  "comingSoonWithNextUpdate": "Coming soon with next update:",
-  "proMembershipTier": "Pro Membership Tier - $19.99",
-  "proPlusMembershipTier": "Pro-Plus Membership Tier - $24.99",
-  "proGetsLabel": "Pro gets:",
-  "proGetsDescription": "Analyze chat threads from all the other popular texting and social media platforms such as:",
-  "proPlatformsList": "LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X (Twitter), Email, and Calendar",
-  "proPlusGetsLabel": "Pro-Plus gets:",
-  "proPlusGetsDescription": "Everything in Pro, plus the Discord addon at a reduced price.",
-  "purchaseSuccessfulUnlocked": "Purchase successful! Report unlocked.",
-  "purchaseFailed": "Purchase failed. Please try again.",
-  "membershipActivated": "Membership activated!",
-  "dateRangeFilter": "Date Range Filter",
-  "dateRangeOptional": "(optional)",
-  "startDate": "Start Date",
-  "endDate": "End Date",
-  "clear": "Clear",
-  "dateRangeRequiresMembership": "Requires Standard Membership or higher",
+  "runAnotherAnalysis": "다른 분석을 실행하시겠습니까?",
+  "becomeMemberTitle": "전체 분석 보고서를 받으려면 회원이 되세요",
+  "becomeMemberSubtitle": "대화 및 보고서에 맞는 액세스 수준을 선택하세요.",
+  "benefitAnalyzeSms": "SMS 문자 메시지 분석",
+  "benefitReportPreview": "보고서 미리보기 실행",
+  "benefitViewPartialReport": "보고서의 약 25% 보기",
+  "benefitLockedDetails": "전체 보고서 세부 정보 잠김",
+  "currentFreeAccess": "현재 무료 액세스",
+  "benefitUnlockCurrentReport": "이 전체 보고서 잠금 해제",
+  "benefitNoSubscription": "구독 없음",
+  "benefitSavePrintShareThis": "이 보고서 저장, 인쇄 및 공유",
+  "benefitBestSingleAnalysis": "분석이 하나만 필요한 경우 최적",
+  "unlockThisReportShort": "이 보고서 잠금 해제",
+  "benefitFullSmsReport": "전체 SMS 분석 보고서",
+  "benefitSavePrintSharePdf": "PDF 보고서 저장, 인쇄 및 공유",
+  "benefitTenReports": "24시간 내 보고서 10개",
+  "benefitBestTextReview": "문자 메시지 관계 검토에 최적",
+  "benefitDateRangeFilter": "날짜 범위로 분석 필터링",
+  "signUpStandard": "Standard 멤버십 가입",
+  "benefitAddToStandard": "Standard 멤버십에 추가",
+  "benefitAnalyzeDiscord": "Discord 채팅 분석",
+  "benefitRequiresBot": "봇 설치 필요",
+  "benefitBestGamers": "게이머 및 Discord 커뮤니티에 최적",
+  "addDiscordAnalysis": "Discord 분석 추가",
+  "requiresStandardMembership": "Standard 멤버십 필요",
+  "comingSoon": "곧 출시",
+  "comingSoonWithNextUpdate": "다음 업데이트와 함께 곧 출시:",
+  "proMembershipTier": "Pro 멤버십 - $19.99",
+  "proPlusMembershipTier": "Pro-Plus 멤버십 - $24.99",
+  "proGetsLabel": "Pro 혜택:",
+  "proGetsDescription": "다른 인기 메시지 및 소셜 미디어 플랫폼의 채팅 스레드를 분석합니다.",
+  "proPlatformsList": "LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X (Twitter)",
+  "proPlusGetsLabel": "Pro-Plus 혜택:",
+  "proPlusGetsDescription": "Pro의 모든 것과 함께 할인된 가격으로 Discord 애드온.",
+  "purchaseSuccessfulUnlocked": "구매 성공! 보고서가 잠금 해제되었습니다.",
+  "purchaseFailed": "구매 실패. 다시 시도해 주세요.",
+  "membershipActivated": "멤버십이 활성화되었습니다!",
+  "dateRangeFilter": "날짜 범위 필터",
+  "dateRangeOptional": "(선택 사항)",
+  "startDate": "시작 날짜",
+  "endDate": "종료 날짜",
+  "clear": "지우기",
+  "dateRangeRequiresMembership": "Standard 멤버십 이상 필요",
   "selectUpToCount": "{max}개까지 선택 가능. 현재: {current}개",
-  "clearSelections": "Clear Selections",
-  "analyzeRandomMetrics": "Analyze {count} random metrics",
-  "saveSelections": "Save Selections",
-  "loadSelections": "Load Selections",
-  "saveMetricListName": "Save Metric List",
-  "enterListName": "Enter a name for this metric list:",
-  "chooseSavedMetrics": "Choose saved metrics list:",
-  "noSavedLists": "No saved metric lists to load at this time.",
-  "metricListSaved": "Metric list saved successfully.",
-  "metricListLoaded": "Metric list loaded successfully.",
+  "clearSelections": "선택 초기화",
+  "analyzeRandomMetrics": "{count}개의 무작위 지표 분석",
+  "saveSelections": "선택 저장",
+  "loadSelections": "선택 불러오기",
+  "saveMetricListName": "지표 목록 저장",
+  "enterListName": "이 지표 목록의 이름을 입력하세요:",
+  "chooseSavedMetrics": "저장된 지표 목록 선택:",
+  "noSavedLists": "현재 저장된 지표 목록이 없습니다.",
+  "metricListSaved": "지표 목록이 성공적으로 저장되었습니다.",
+  "metricListLoaded": "지표 목록이 성공적으로 불러와졌습니다.",
   "filters": "필터",
   "@filters": {
     "description": "Header for the filters section in SMS conversation picker"
@@ -439,8 +439,8 @@
   "metricScores": "지표 점수",
   "contextualEvidenceExamples": "맥락적 증거 예시",
   "neutralSynthesis": "중립적 종합",
-  "analysisOfSender": "Analysis of {sender} (Sender)",
-  "analysisOfReceiver": "Analysis of {receiver} (Receiver)",
+  "analysisOfSender": "{sender} 분석 (발신자)",
+  "analysisOfReceiver": "{receiver} 분석 (수신자)",
   "finalConclusion": "최종 결론",
   "metric_1_name": "경멸",
   "metric_1_description": "한 파트너를 다른 파트너보다 열등하게 만드는 우월감, 혐오, 조롱, 눈을 굴리는 표현, 또는 모욕을 감지합니다.",

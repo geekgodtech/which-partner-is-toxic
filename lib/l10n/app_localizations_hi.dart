@@ -164,10 +164,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get membershipOptions => 'सदस्यता विकल्प';
 
   @override
-  String get free => 'मुफ़्त';
+  String get free => 'निःशुल्क';
 
   @override
-  String get oneTimeUnlock => 'एक बार की रिपोर्ट अनलॉक';
+  String get oneTimeUnlock => 'एक बार रिपोर्ट अनलॉक';
 
   @override
   String get standard => 'मानक';
@@ -182,45 +182,45 @@ class AppLocalizationsHi extends AppLocalizations {
   String get report => 'रिपोर्ट';
 
   @override
-  String get pdfReport => 'पीडीएफ रिपोर्ट';
+  String get pdfReport => 'PDF रिपोर्ट';
 
   @override
-  String get openPdf => 'पीडीएफ खोलें';
+  String get openPdf => 'PDF खोलें';
 
   @override
-  String get sharePdf => 'पीडीएफ साझा करें';
+  String get sharePdf => 'PDF साझा करें';
 
   @override
-  String get printPdf => 'पीडीएफ प्रिंट करें';
+  String get printPdf => 'PDF प्रिंट करें';
 
   @override
-  String get closePdfPreview => 'पीडीएफ पूर्वावलोकन विंडो बंद करें';
+  String get closePdfPreview => 'PDF पूर्वावलोकन विंडो बंद करें';
 
   @override
-  String get openPdfPreview => 'पीडीएफ पूर्वावलोकन विंडो खोलें';
+  String get openPdfPreview => 'PDF पूर्वावलोकन विंडो खोलें';
 
   @override
   String get pdfPreviewDescription =>
-      'रिपोर्ट को संक्षिप्त रखने के लिए एम्बेडेड पीडीएफ विंडो बंद अवस्था में शुरू होती है।';
+      'रिपोर्ट को संक्षिप्त रखने के लिए PDF विंडो बंद रहती है।';
 
   @override
   String get notNow => 'अभी नहीं';
 
   @override
-  String get unlockThisReport => 'इस रिपोर्ट को अनलॉक करें - \$20';
+  String get unlockThisReport => 'यह रिपोर्ट अनलॉक करें - \$20';
 
   @override
-  String get joinStandard => 'मानक से जुड़ें - \$9.99/माह';
+  String get joinStandard => 'Standard में शामिल हों - \$9.99/माह';
 
   @override
   String get instantUnlockTitle => 'तत्काल रिपोर्ट अनलॉक - \$20';
 
   @override
   String get instantUnlockDescription =>
-      'यह केवल वर्तमान रिपोर्ट को अनलॉक करने के लिए एक बार की खरीद है। किसी सदस्यता की आवश्यकता नहीं है। भविष्य की रिपोर्टों के लिए अलग अनलॉक या सदस्यता की आवश्यकता होगी।\n\nभुगतान के साथ आगे बढ़ें?';
+      'यह केवल वर्तमान रिपोर्ट अनलॉक करने के लिए एक बार की खरीदारी है। कोई सदस्यता नहीं।';
 
   @override
-  String get purchaseFor20 => '\$20 में खरीदें';
+  String get purchaseFor20 => '\$20 के लिए खरीदें';
 
   @override
   String get share => 'साझा करें';
@@ -247,25 +247,25 @@ class AppLocalizationsHi extends AppLocalizations {
   String get success => 'सफलता';
 
   @override
-  String get conversations => 'वार्तालाप';
+  String get conversations => 'बातचीत';
 
   @override
   String get messages => 'संदेश';
 
   @override
-  String get selectConversation => 'वार्तालाप चुनें';
+  String get selectConversation => 'बातचीत चुनें';
 
   @override
   String get selectSmsConversation => 'एसएमएस / आरसीएस चैट चुनें';
 
   @override
-  String get searchConversations => 'वार्तालाप खोजें...';
+  String get searchConversations => 'बातचीत खोजें...';
 
   @override
-  String get loadingConversations => 'वार्तालाप लोड हो रहे हैं...';
+  String get loadingConversations => 'बातचीत लोड हो रही है...';
 
   @override
-  String get errorLoadingConversations => 'वार्तालाप लोड करने में त्रुटि';
+  String get errorLoadingConversations => 'बातचीत लोड करने में त्रुटि';
 
   @override
   String get selectConversationToAnalyze => 'विश्लेषण के लिए बातचीत चुनें';
@@ -276,24 +276,24 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get loadConversationAndSelectMetric =>
-      'एक वार्तालाप लोड करें और कम से कम एक मेट्रिक चुनें';
+      'एक बातचीत लोड करें और कम से कम एक मेट्रिक चुनें';
 
   @override
   String get selectAtLeastOneMetric =>
-      'रिपोर्ट चलाने के लिए कम से कम एक मेट्रिक का चयन करना आवश्यक है।';
+      'रिपोर्ट चलाने के लिए कम से कम एक मेट्रिक चुनी जानी चाहिए।';
 
   @override
-  String get spinningMetricWheel => 'मेट्रिक व्हील घुमाया जा रहा है...';
+  String get spinningMetricWheel =>
+      'मेट्रिक्स यादृच्छिक रूप से चुने जा रहे हैं...';
 
   @override
-  String get loadConversationToAnalyze =>
-      'विश्लेषण के लिए एक वार्तालाप लोड करें';
+  String get loadConversationToAnalyze => 'विश्लेषण के लिए बातचीत लोड करें';
 
   @override
-  String get noConversationsFound => 'कोई वार्तालाप नहीं मिला';
+  String get noConversationsFound => 'कोई बातचीत नहीं मिली';
 
   @override
-  String get permissionsRequired => 'अनुमतियाँ आवश्यक हैं';
+  String get permissionsRequired => 'अनुमतियां आवश्यक';
 
   @override
   String get smsPermission => 'टेक्स्ट संदेश';
@@ -303,22 +303,22 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get smsPermissionDescription =>
-      'रिश्ते के पैटर्न के लिए आपके एसएमएस वार्तालापों का विश्लेषण करने के लिए';
+      'संबंध पैटर्न के लिए आपकी SMS बातचीत का विश्लेषण करने के लिए';
 
   @override
   String get contactsPermissionDescription =>
-      'फ़ोन नंबरों के बजाय संपर्क नाम प्रदर्शित करने के लिए';
+      'फ़ोन नंबरों के बजाय संपर्क नाम दिखाने के लिए';
 
   @override
   String get analyzingMessage =>
-      'कृपया प्रतीक्षा करें जबकि आपका मनोवैज्ञानिक विश्लेषण एआई द्वारा उत्पन्न किया जा रहा है...';
+      'कृपया प्रतीक्षा करें जब तक AI आपका मनोवैज्ञानिक विश्लेषण तैयार करता है...';
 
   @override
-  String get analyzingStatus => 'वार्तालाप का विश्लेषण किया जा रहा है...';
+  String get analyzingStatus => 'बातचीत का विश्लेषण हो रहा है...';
 
   @override
   String get analyzingSubMessage =>
-      'कृपया धैर्य रखें, यह प्रक्रिया आपकी कनेक्शन गति और चयनित मेट्रिक्स की मात्रा के आधार पर एक मिनट तक का समय ले सकती है';
+      'कृपया धैर्य रखें, डिवाइस के आधार पर इस प्रक्रिया में एक मिनट तक लग सकता है।';
 
   @override
   String get unlockFullReport => 'इस पूरी रिपोर्ट को अनलॉक करें और दिखाएं';
@@ -328,7 +328,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get upgradeToUnlock =>
-      'सभी मेट्रिक्स और विस्तृत अंतर्दृष्टि के साथ पूर्ण मनोवैज्ञानिक विश्लेषण रिपोर्ट को अनलॉक करने के लिए अपनी सदस्यता अपग्रेड करें।';
+      'पूर्ण मनोवैज्ञानिक विश्लेषण रिपोर्ट अनलॉक करने के लिए अपनी सदस्यता अपग्रेड करें।';
 
   @override
   String get language => 'भाषा';
@@ -340,7 +340,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get spanish => 'स्पेनिश';
 
   @override
-  String get french => 'फ़्रेंच';
+  String get french => 'फ्रेंच';
 
   @override
   String get german => 'जर्मन';
@@ -370,7 +370,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get arabic => 'अरबी';
 
   @override
-  String get hindi => 'हिन्दी';
+  String get hindi => 'हिंदी';
 
   @override
   String get turkish => 'तुर्की';
@@ -390,26 +390,25 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get becomeMemberSubtitle =>
-      'उस एक्सेस स्तर को चुनें जो आपके द्वारा विश्लेषण की जाने वाली बातचीत और रिपोर्ट से मेल खाता हो।';
+      'वह पहुंच स्तर चुनें जो आपकी बातचीत और रिपोर्ट के लिए उपयुक्त हो।';
 
   @override
-  String get benefitAnalyzeSms => 'एसएमएस टेक्स्ट संदेशों का विश्लेषण करें';
+  String get benefitAnalyzeSms => 'SMS टेक्स्ट संदेशों का विश्लेषण करें';
 
   @override
-  String get benefitReportPreview => 'रिपोर्ट का पूर्वावलोकन चलाएं';
+  String get benefitReportPreview => 'रिपोर्ट पूर्वावलोकन चलाएं';
 
   @override
   String get benefitViewPartialReport => 'रिपोर्ट का लगभग 25% देखें';
 
   @override
-  String get benefitLockedDetails => 'पूर्ण रिपोर्ट विवरण लॉक है';
+  String get benefitLockedDetails => 'पूर्ण रिपोर्ट विवरण लॉक';
 
   @override
-  String get currentFreeAccess => 'वर्तमान मुफ़्त एक्सेस';
+  String get currentFreeAccess => 'वर्तमान निःशुल्क पहुंच';
 
   @override
-  String get benefitUnlockCurrentReport =>
-      'इस वर्तमान पूर्ण रिपोर्ट को अनलॉक करें';
+  String get benefitUnlockCurrentReport => 'यह पूर्ण रिपोर्ट अनलॉक करें';
 
   @override
   String get benefitNoSubscription => 'कोई सदस्यता नहीं';
@@ -420,87 +419,89 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get benefitBestSingleAnalysis =>
-      'यदि आपको केवल एक विश्लेषण की आवश्यकता है तो सर्वोत्तम';
+      'सबसे अच्छा अगर आपको केवल एक विश्लेषण चाहिए';
 
   @override
-  String get unlockThisReportShort => 'इस रिपोर्ट को अनलॉक करें';
+  String get unlockThisReportShort => 'यह रिपोर्ट अनलॉक करें';
 
   @override
-  String get benefitFullSmsReport => 'पूर्ण एसएमएस विश्लेषण रिपोर्ट';
+  String get benefitFullSmsReport => 'पूर्ण SMS विश्लेषण रिपोर्ट';
 
   @override
   String get benefitSavePrintSharePdf =>
-      'पीडीएफ रिपोर्ट सहेजें, प्रिंट करें और साझा करें';
+      'PDF रिपोर्ट सहेजें, प्रिंट करें और साझा करें';
 
   @override
-  String get benefitTenReports => 'प्रति 24 घंटे की अवधि में 10 रिपोर्ट';
+  String get benefitTenReports => '24 घंटे में 10 रिपोर्ट';
 
   @override
   String get benefitBestTextReview =>
-      'टेक्स्ट-संदेश संबंध समीक्षा के लिए सर्वोत्तम';
+      'टेक्स्ट संदेश संबंध समीक्षा के लिए सबसे अच्छा';
 
   @override
-  String get benefitDateRangeFilter => 'दिनांक सीमा से विश्लेषण फ़िल्टर करें';
+  String get benefitDateRangeFilter =>
+      'दिनांक सीमा के अनुसार विश्लेषण फ़िल्टर करें';
 
   @override
-  String get signUpStandard => 'मानक सदस्यता के लिए साइन अप करें';
+  String get signUpStandard => 'Standard सदस्यता के लिए साइन अप करें';
 
   @override
-  String get benefitAddToStandard => 'मानक सदस्यता में जोड़ें';
+  String get benefitAddToStandard => 'Standard सदस्यता में जोड़ें';
 
   @override
-  String get benefitAnalyzeDiscord => 'Discord सर्वर चैट का विश्लेषण करें';
+  String get benefitAnalyzeDiscord => 'Discord चैट का विश्लेषण करें';
 
   @override
-  String get benefitRequiresBot => 'बॉट इंस्टॉलेशन आवश्यक है';
+  String get benefitRequiresBot => 'बॉट इंस्टॉलेशन आवश्यक';
 
   @override
-  String get benefitBestGamers => 'गेमर्स और Discord समुदायों के लिए सर्वोत्तम';
+  String get benefitBestGamers =>
+      'गेमर्स और Discord समुदायों के लिए सबसे अच्छा';
 
   @override
   String get addDiscordAnalysis => 'Discord विश्लेषण जोड़ें';
 
   @override
-  String get requiresStandardMembership => 'मानक सदस्यता आवश्यक है';
+  String get requiresStandardMembership => 'Standard सदस्यता आवश्यक';
 
   @override
   String get comingSoon => 'जल्द आ रहा है';
 
   @override
-  String get comingSoonWithNextUpdate => 'अगले अपडेट के साथ जल्द आ रहा है:';
+  String get comingSoonWithNextUpdate => 'अगले अपडेट के साथ जल्द:';
 
   @override
-  String get proMembershipTier => 'Pro सदस्यता स्तर - \$19.99';
+  String get proMembershipTier => 'Pro सदस्यता - \$19.99';
 
   @override
-  String get proPlusMembershipTier => 'Pro-Plus सदस्यता स्तर - \$24.99';
+  String get proPlusMembershipTier => 'Pro-Plus सदस्यता - \$24.99';
 
   @override
-  String get proGetsLabel => 'Pro में शामिल है:';
+  String get proGetsLabel => 'Pro को मिलता है:';
 
   @override
   String get proGetsDescription =>
-      'निम्नलिखित जैसे अन्य सभी लोकप्रिय टेक्स्टिंग और सोशल मीडिया प्लेटफ़ॉर्म से चैट थ्रेड का विश्लेषण करें:';
+      'अन्य लोकप्रिय मैसेजिंग प्लेटफ़ॉर्म से चैट थ्रेड का विश्लेषण करें।';
 
   @override
   String get proPlatformsList =>
-      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X (Twitter), ईमेल और कैलेंडर';
+      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X';
 
   @override
-  String get proPlusGetsLabel => 'Pro-Plus में शामिल है:';
+  String get proPlusGetsLabel => 'Pro-Plus को मिलता है:';
 
   @override
   String get proPlusGetsDescription =>
-      'Pro की सभी सुविधाएं, साथ ही कम कीमत पर Discord ऐड-ऑन।';
+      'Pro में सब कुछ, साथ ही कम कीमत पर Discord ऐड-ऑन।';
 
   @override
-  String get purchaseSuccessfulUnlocked => 'खरीद सफल! रिपोर्ट अनलॉक हो गई।';
+  String get purchaseSuccessfulUnlocked => 'खरीदारी सफल! रिपोर्ट अनलॉक हो गई।';
 
   @override
-  String get purchaseFailed => 'खरीद विफल। कृपया पुनः प्रयास करें।';
+  String get purchaseFailed => 'खरीदारी विफल। कृपया पुनः प्रयास करें।';
 
   @override
-  String get membershipActivated => 'सदस्यता सक्रिय हो गई!';
+  String get membershipActivated => 'सदस्यता सक्रिय!';
 
   @override
   String get dateRangeFilter => 'दिनांक सीमा फ़िल्टर';
@@ -509,10 +510,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get dateRangeOptional => '(वैकल्पिक)';
 
   @override
-  String get startDate => 'प्रारंभ तिथि';
+  String get startDate => 'प्रारंभ दिनांक';
 
   @override
-  String get endDate => 'समाप्ति तिथि';
+  String get endDate => 'समाप्ति दिनांक';
 
   @override
   String get clear => 'साफ़ करें';
@@ -540,23 +541,22 @@ class AppLocalizationsHi extends AppLocalizations {
   String get loadSelections => 'चयन लोड करें';
 
   @override
-  String get saveMetricListName => 'मेट्रिक्स सूची सहेजें';
+  String get saveMetricListName => 'मेट्रिक सूची सहेजें';
 
   @override
-  String get enterListName => 'इस मेट्रिक्स सूची के लिए एक नाम दर्ज करें:';
+  String get enterListName => 'इस मेट्रिक सूची के लिए एक नाम दर्ज करें:';
 
   @override
-  String get chooseSavedMetrics => 'सहेजी गई मेट्रिक्स सूची चुनें:';
+  String get chooseSavedMetrics => 'सहेजी गई मेट्रिक सूची चुनें:';
 
   @override
-  String get noSavedLists =>
-      'इस समय लोड करने के लिए कोई सहेजी गई मेट्रिक्स सूची नहीं है।';
+  String get noSavedLists => 'अभी कोई सहेजी गई मेट्रिक सूची नहीं है।';
 
   @override
-  String get metricListSaved => 'मेट्रिक्स सूची सफलतापूर्वक सहेजी गई।';
+  String get metricListSaved => 'मेट्रिक सूची सफलतापूर्वक सहेजी गई।';
 
   @override
-  String get metricListLoaded => 'मेट्रिक्स सूची सफलतापूर्वक लोड हुई।';
+  String get metricListLoaded => 'मेट्रिक सूची सफलतापूर्वक लोड की गई।';
 
   @override
   String get filters => 'फ़िल्टर';
@@ -4479,104 +4479,104 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get viewMembershipOptions => 'View Membership Options';
+  String get viewMembershipOptions => 'सदस्यता विकल्प देखें';
 
   @override
-  String get metricExpansionPacksTitle => 'Metric Expansion Packs';
+  String get metricExpansionPacksTitle => 'मेट्रिक विस्तार पैक';
 
   @override
   String get oneTimePurchasesSubtitle =>
-      'One-time purchases — additional metrics forever';
+      'एक बार की खरीदारी — हमेशा के लिए अतिरिक्त मेट्रिक्स';
 
   @override
-  String get unlockGoodPackButton => 'Unlock The Good Pack';
+  String get unlockGoodPackButton => 'गुड पैक अनलॉक करें';
 
   @override
-  String get unlockBadPackButton => 'Unlock The Bad Pack';
+  String get unlockBadPackButton => 'बैड पैक अनलॉक करें';
 
   @override
-  String get unlockUglyPackButton => 'Unlock The Ugly Pack';
+  String get unlockUglyPackButton => 'अग्ली पैक अनलॉक करें';
 
   @override
-  String get unlockNarcissistPackButton => 'Unlock Narcissist Pack';
+  String get unlockNarcissistPackButton => 'नार्सिसिस्ट पैक अनलॉक करें';
 
   @override
-  String get unlockSerialKillerPackButton => 'Unlock Serial Killer Pack';
+  String get unlockSerialKillerPackButton => 'सीरियल किलर पैक अनलॉक करें';
 
   @override
-  String get goodPackBenefit1 => '100 healthy relationship metrics';
+  String get goodPackBenefit1 => '100 स्वस्थ संबंध मेट्रिक्स';
 
   @override
-  String get goodPackBenefit2 => 'Positive communication patterns';
+  String get goodPackBenefit2 => 'सकारात्मक संचार पैटर्न';
 
   @override
-  String get goodPackBenefit3 => 'Appreciation, empathy & trust signals';
+  String get goodPackBenefit3 => 'प्रशंसा, सहानुभूति और विश्वास संकेत';
 
   @override
-  String get goodPackBenefit4 => 'One-time purchase — yours forever';
+  String get goodPackBenefit4 => 'एक बार की खरीदारी — हमेशा आपका';
 
   @override
-  String get goodPackBenefit5 => 'Unlocks instantly after purchase';
+  String get goodPackBenefit5 => 'खरीदारी के तुरंत बाद अनलॉक';
 
   @override
-  String get badPackBenefit1 => '100 warning-sign relationship metrics';
+  String get badPackBenefit1 => '100 चेतावनी संकेत संबंध मेट्रिक्स';
 
   @override
-  String get badPackBenefit2 => 'Spot manipulation & dismissal patterns';
+  String get badPackBenefit2 => 'हेरफेर और अस्वीकृति के पैटर्न पहचानें';
 
   @override
-  String get badPackBenefit3 => 'Guilt-tripping, stonewalling & more';
+  String get badPackBenefit3 => 'दोष देना, दीवार खड़ी करना और अधिक';
 
   @override
-  String get badPackBenefit4 => 'One-time purchase — yours forever';
+  String get badPackBenefit4 => 'एक बार की खरीदारी — हमेशा आपका';
 
   @override
-  String get badPackBenefit5 => 'Unlocks instantly after purchase';
+  String get badPackBenefit5 => 'खरीदारी के तुरंत बाद अनलॉक';
 
   @override
-  String get uglyPackBenefit1 => '100 severe red-flag abuse metrics';
+  String get uglyPackBenefit1 => '100 गंभीर रेड फ्लैग दुर्व्यवहार मेट्रिक्स';
 
   @override
-  String get uglyPackBenefit2 => 'Identify coercion, threats & control';
+  String get uglyPackBenefit2 => 'जबरदस्ती, धमकियां और नियंत्रण पहचानें';
 
   @override
-  String get uglyPackBenefit3 => 'Trauma bonding & isolation indicators';
+  String get uglyPackBenefit3 => 'ट्रॉमा बॉन्डिंग और अलगाव संकेतक';
 
   @override
-  String get uglyPackBenefit4 => 'One-time purchase — yours forever';
+  String get uglyPackBenefit4 => 'एक बार की खरीदारी — हमेशा आपका';
 
   @override
-  String get uglyPackBenefit5 => 'Unlocks instantly after purchase';
+  String get uglyPackBenefit5 => 'खरीदारी के तुरंत बाद अनलॉक';
 
   @override
-  String get narcissistPackBenefit1 => '50 narcissistic behavior metrics';
+  String get narcissistPackBenefit1 => '50 नार्सिसिस्टिक व्यवहार मेट्रिक्स';
 
   @override
-  String get narcissistPackBenefit2 => 'Detect gaslighting & love-bombing';
+  String get narcissistPackBenefit2 => 'गैसलाइटिंग और लव बॉम्बिंग का पता लगाएं';
 
   @override
-  String get narcissistPackBenefit3 => 'Hoovering & devaluation patterns';
+  String get narcissistPackBenefit3 => 'हूवरिंग और अवमूल्यन पैटर्न';
 
   @override
-  String get narcissistPackBenefit4 => 'One-time purchase — yours forever';
+  String get narcissistPackBenefit4 => 'एक बार की खरीदारी — हमेशा आपका';
 
   @override
-  String get narcissistPackBenefit5 => 'Unlocks instantly after purchase';
+  String get narcissistPackBenefit5 => 'खरीदारी के तुरंत बाद अनलॉक';
 
   @override
-  String get serialKillerPackBenefit1 => '50 extreme danger indicators';
+  String get serialKillerPackBenefit1 => '50 अत्यधिक खतरे के संकेतक';
 
   @override
-  String get serialKillerPackBenefit2 => 'Detect predatory & violent language';
+  String get serialKillerPackBenefit2 => 'शिकारी और हिंसक भाषा का पता लगाएं';
 
   @override
-  String get serialKillerPackBenefit3 => 'Psychopathy & sadism markers';
+  String get serialKillerPackBenefit3 => 'मनोरोगी और पाशविकता के मार्कर';
 
   @override
-  String get serialKillerPackBenefit4 => 'One-time purchase — yours forever';
+  String get serialKillerPackBenefit4 => 'एक बार की खरीदारी — हमेशा आपका';
 
   @override
-  String get serialKillerPackBenefit5 => 'Unlocks instantly after purchase';
+  String get serialKillerPackBenefit5 => 'खरीदारी के तुरंत बाद अनलॉक';
 
   @override
   String get allPacksOwned => 'सभी विस्तार पैक स्वामित्व में हैं!';
@@ -4618,50 +4618,50 @@ class AppLocalizationsHi extends AppLocalizations {
   String get enableDiscord => 'Discord सक्षम करें';
 
   @override
-  String get aboutTitle => 'About';
+  String get aboutTitle => 'के बारे में';
 
   @override
   String get aboutDescription =>
-      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+      'AIRTA (AI संबंध विषाक्तता विश्लेषक) आपको अपनी बातचीत में अस्वस्थ पैटर्न पहचानने में मदद करता है।';
 
   @override
-  String get contactUs => 'Contact Us';
+  String get contactUs => 'संपर्क करें';
 
   @override
-  String get supportEmail => 'Support';
+  String get supportEmail => 'सहायता';
 
   @override
-  String get supportEmailDesc => 'Get help with using the app';
+  String get supportEmailDesc => 'ऐप का उपयोग करने में मदद पाएं';
 
   @override
-  String get businessEmail => 'Business';
+  String get businessEmail => 'व्यवसाय';
 
   @override
-  String get businessEmailDesc => 'Partnerships and inquiries';
+  String get businessEmailDesc => 'साझेदारी और पूछताछ';
 
   @override
-  String get privacyEmail => 'Privacy';
+  String get privacyEmail => 'गोपनीयता';
 
   @override
-  String get privacyEmailDesc => 'Data and privacy questions';
+  String get privacyEmailDesc => 'डेटा और गोपनीयता प्रश्न';
 
   @override
-  String get importantLinks => 'Links';
+  String get importantLinks => 'लिंक';
 
   @override
-  String get website => 'Website';
+  String get website => 'वेबसाइट';
 
   @override
-  String get privacyPolicy => 'Privacy Policy';
+  String get privacyPolicy => 'गोपनीयता नीति';
 
   @override
-  String get termsOfService => 'Terms of Service';
+  String get termsOfService => 'सेवा की शर्तें';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get allRightsReserved => 'All rights reserved.';
+  String get allRightsReserved => 'सर्वाधिकार सुरक्षित।';
 
   @override
   String get packTheGood => 'पैक: अच्छा';
@@ -4808,45 +4808,45 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get noMessagesInDateRangeBody =>
-      'No messages were found in the selected date range. Try adjusting the date range.';
+      'चयनित दिनांक सीमा में कोई संदेश नहीं मिला। दिनांक सीमा समायोजित करने का प्रयास करें।';
 
   @override
-  String get credentialsSavedSuccess => 'Credentials saved successfully';
+  String get credentialsSavedSuccess => 'क्रेडेंशियल सफलतापूर्वक सहेजे गए';
 
   @override
   String errorSavingCredentials(String error) {
-    return 'Error saving credentials: $error';
+    return 'क्रेडेंशियल सहेजने में त्रुटि: $error';
   }
 
   @override
   String get credentialsSecurityInfo =>
-      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+      'आपके क्रेडेंशियल केवल इस डिवाइस पर सुरक्षित रूप से संग्रहीत हैं और कभी भी हमारे सर्वर पर अपलोड नहीं किए जाते।';
 
   @override
-  String get savingButton => 'Saving...';
+  String get savingButton => 'सहेज रहे हैं...';
 
   @override
-  String get saveAllCredentials => 'Save Credentials';
+  String get saveAllCredentials => 'क्रेडेंशियल सहेजें';
 
   @override
   String get proPlusLabel => 'Pro+';
 
   @override
-  String get upgradeButton => 'Upgrade';
+  String get upgradeButton => 'अपग्रेड करें';
 
   @override
-  String get usernameLabel => 'Username';
+  String get usernameLabel => 'उपयोगकर्ता नाम';
 
   @override
-  String get passwordLabel => 'Password';
+  String get passwordLabel => 'पासवर्ड';
 
   @override
   String get upgradeToProPlusBody =>
-      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+      'तृतीय-पक्ष प्लेटफ़ॉर्म एकीकरण और उन्नत सुविधाओं तक पहुंचने के लिए Pro Plus में अपग्रेड करें।';
 
   @override
   String get noConversationsFoundBody =>
-      'No conversations were found. Make sure your credentials are correct and try again.';
+      'कोई बातचीत नहीं मिली। सुनिश्चित करें कि आपके क्रेडेंशियल सही हैं और पुनः प्रयास करें।';
 
   @override
   String get tileMyAccountTitle => 'मेरा खाता';

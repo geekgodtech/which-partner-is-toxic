@@ -151,16 +151,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get gotIt => 'Anladım';
 
   @override
-  String get selectFile => 'Dosya Seç';
+  String get selectFile => 'Dosya seç';
 
   @override
-  String get analyzeSelectedMetrics => 'Seçili metrikleri analiz et';
+  String get analyzeSelectedMetrics => 'Seçilen metrikleri analiz et';
 
   @override
   String get analyze20RandomMetrics => '20 rastgele metriği analiz et';
 
   @override
-  String get membershipOptions => 'Üyelik Seçenekleri';
+  String get membershipOptions => 'Üyelik seçenekleri';
 
   @override
   String get free => 'Ücretsiz';
@@ -175,51 +175,51 @@ class AppLocalizationsTr extends AppLocalizations {
   String get discordAddon => 'Discord Eklentisi';
 
   @override
-  String get analyze => 'Analiz Et';
+  String get analyze => 'Analiz et';
 
   @override
   String get report => 'Rapor';
 
   @override
-  String get pdfReport => 'PDF Raporu';
+  String get pdfReport => 'PDF raporu';
 
   @override
-  String get openPdf => 'PDF Aç';
+  String get openPdf => 'PDF aç';
 
   @override
-  String get sharePdf => 'PDF Paylaş';
+  String get sharePdf => 'PDF paylaş';
 
   @override
-  String get printPdf => 'PDF Yazdır';
+  String get printPdf => 'PDF yazdır';
 
   @override
-  String get closePdfPreview => 'PDF Önizleme Penceresini Kapat';
+  String get closePdfPreview => 'PDF önizleme penceresini kapat';
 
   @override
-  String get openPdfPreview => 'PDF Önizleme Penceresini Aç';
+  String get openPdfPreview => 'PDF önizleme penceresini aç';
 
   @override
   String get pdfPreviewDescription =>
-      'Gömülü PDF penceresi, raporu kompakt tutmak için kapalı olarak başlar.';
+      'PDF penceresi raporu kompakt tutmak için başlangıçta kapalıdır.';
 
   @override
   String get notNow => 'Şimdi Değil';
 
   @override
-  String get unlockThisReport => 'Bu raporun kilidini aç - \$20';
+  String get unlockThisReport => 'Bu raporu kilidi aç - \$20';
 
   @override
-  String get joinStandard => 'Standart\'a katıl - \$9.99/ay';
+  String get joinStandard => 'Standard\'a katıl - \$9,99/ay';
 
   @override
   String get instantUnlockTitle => 'Anında rapor kilidi açma - \$20';
 
   @override
   String get instantUnlockDescription =>
-      'Bu, yalnızca mevcut raporun kilidini açmak için tek seferlik bir satın alımdır. Abonelik gerekmez. Gelecekteki raporlar ayrı kilit açma işlemleri veya üyelik gerektirecektir.\n\nÖdemeye devam edilsin mi?';
+      'Bu yalnızca mevcut raporu açmak için tek seferlik bir satın almadır. Abonelik yok.';
 
   @override
-  String get purchaseFor20 => '\$20\'a satın al';
+  String get purchaseFor20 => '\$20 için satın al';
 
   @override
   String get share => 'Paylaş';
@@ -243,7 +243,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get error => 'Hata';
 
   @override
-  String get success => 'Başarılı';
+  String get success => 'Başarı';
 
   @override
   String get conversations => 'Konuşmalar';
@@ -258,19 +258,19 @@ class AppLocalizationsTr extends AppLocalizations {
   String get selectSmsConversation => 'SMS / RCS Sohbet Seç';
 
   @override
-  String get searchConversations => 'Konuşmalarda ara...';
+  String get searchConversations => 'Konuşma ara...';
 
   @override
   String get loadingConversations => 'Konuşmalar yükleniyor...';
 
   @override
-  String get errorLoadingConversations => 'Konuşmaları yükleme hatası';
+  String get errorLoadingConversations => 'Konuşmalar yüklenirken hata';
 
   @override
-  String get selectConversationToAnalyze => 'Analiz etmek için konuşma seçin';
+  String get selectConversationToAnalyze => 'Analiz edilecek konuşmayı seç';
 
   @override
-  String get analyzeWithSelectedMetrics => 'Seçili metriklerle analiz et';
+  String get analyzeWithSelectedMetrics => 'Seçilen metriklerle analiz et';
 
   @override
   String get loadConversationAndSelectMetric =>
@@ -281,52 +281,52 @@ class AppLocalizationsTr extends AppLocalizations {
       'Raporu çalıştırmak için en az bir metrik seçilmelidir.';
 
   @override
-  String get spinningMetricWheel => 'Metrik çarkı döndürülüyor...';
+  String get spinningMetricWheel => 'Rastgele metrikler seçiliyor...';
 
   @override
   String get loadConversationToAnalyze =>
-      'Analiz edilecek bir konuşma yükleyin';
+      'Analiz etmek için bir konuşma yükleyin';
 
   @override
   String get noConversationsFound => 'Konuşma bulunamadı';
 
   @override
-  String get permissionsRequired => 'İzinler Gerekli';
+  String get permissionsRequired => 'İzinler gerekli';
 
   @override
-  String get smsPermission => 'Metin Mesajları';
+  String get smsPermission => 'Kısa mesajlar';
 
   @override
   String get contactsPermission => 'Kişiler';
 
   @override
   String get smsPermissionDescription =>
-      'İlişki kalıpları için SMS konuşmalarınızı analiz etmek üzere';
+      'İlişki kalıpları için SMS konuşmalarınızı analiz etmek amacıyla';
 
   @override
   String get contactsPermissionDescription =>
-      'Telefon numaraları yerine kişi adlarını göstermek için';
+      'Telefon numaraları yerine kişi adlarını görüntülemek için';
 
   @override
   String get analyzingMessage =>
-      'Psikolojik analiziniz yapay zeka tarafından oluşturulurken lütfen bekleyin...';
+      'Yapay zeka psikolojik analizinizi oluştururken bekleyin...';
 
   @override
   String get analyzingStatus => 'Konuşma analiz ediliyor...';
 
   @override
   String get analyzingSubMessage =>
-      'Lütfen sabırlı olun, bu işlem bağlantı hızınıza ve seçilen metrik miktarına bağlı olarak bir dakikaya kadar sürebilir';
+      'Lütfen sabırlı olun, bu işlem cihaza bağlı olarak bir dakikaya kadar sürebilir.';
 
   @override
-  String get unlockFullReport => 'Bu raporun tamamının kilidini aç ve göster';
+  String get unlockFullReport => 'Bu raporun tamamını kilidi aç ve göster';
 
   @override
-  String get fullReportLocked => 'Tam Rapor Kilitli';
+  String get fullReportLocked => 'Tam rapor kilitli';
 
   @override
   String get upgradeToUnlock =>
-      'Tüm metrikler ve ayrıntılı içgörülerle tam psikolojik analiz raporunun kilidini açmak için üyeliğinizi yükseltin.';
+      'Tam psikolojik analiz raporunun kilidini açmak için üyeliğinizi yükseltin.';
 
   @override
   String get language => 'Dil';
@@ -350,7 +350,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get portuguese => 'Portekizce';
 
   @override
-  String get dutch => 'Felemenkçe';
+  String get dutch => 'Hollandaca';
 
   @override
   String get russian => 'Rusça';
@@ -380,23 +380,23 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ukrainian => 'Ukraynaca';
 
   @override
-  String get runAnotherAnalysis => 'Başka bir analiz çalıştırılsın mı?';
+  String get runAnotherAnalysis => 'Başka bir analiz yapılsın mı?';
 
   @override
-  String get becomeMemberTitle => 'Tam analiz raporunu almak için üye olun';
+  String get becomeMemberTitle => 'Tam analiz raporu için üye olun';
 
   @override
   String get becomeMemberSubtitle =>
-      'Analiz etmeniz gereken konuşmalara ve raporlara uygun erişim düzeyini seçin.';
+      'Konuşmalarınıza ve raporlarınıza uyan erişim düzeyini seçin.';
 
   @override
   String get benefitAnalyzeSms => 'SMS metin mesajlarını analiz et';
 
   @override
-  String get benefitReportPreview => 'Bir rapor önizlemesi çalıştır';
+  String get benefitReportPreview => 'Rapor önizlemesi çalıştır';
 
   @override
-  String get benefitViewPartialReport => 'Raporun yaklaşık %25\'ini görüntüle';
+  String get benefitViewPartialReport => 'Raporun yaklaşık %25\'ini gör';
 
   @override
   String get benefitLockedDetails => 'Tam rapor ayrıntıları kilitli';
@@ -405,7 +405,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get currentFreeAccess => 'Mevcut ücretsiz erişim';
 
   @override
-  String get benefitUnlockCurrentReport => 'Bu mevcut tam raporun kilidini aç';
+  String get benefitUnlockCurrentReport => 'Bu tam raporun kilidini aç';
 
   @override
   String get benefitNoSubscription => 'Abonelik yok';
@@ -415,7 +415,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get benefitBestSingleAnalysis =>
-      'Yalnızca bir analize ihtiyacınız varsa en iyisi';
+      'Yalnızca bir analize ihtiyacınız varsa en iyi';
 
   @override
   String get unlockThisReportShort => 'Bu raporun kilidini aç';
@@ -425,73 +425,73 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get benefitSavePrintSharePdf =>
-      'PDF raporlarını kaydet, yazdır ve paylaş';
+      'PDF raporları kaydet, yazdır ve paylaş';
 
   @override
-  String get benefitTenReports => '24 saatlik dönem başına 10 rapor';
+  String get benefitTenReports => '24 saatlik dönemde 10 rapor';
 
   @override
   String get benefitBestTextReview =>
-      'Metin mesajı ilişki incelemesi için en iyisi';
+      'Metin mesajı ilişki incelemesi için en iyi';
 
   @override
-  String get benefitDateRangeFilter => 'Tarih aralığına göre analizi filtrele';
+  String get benefitDateRangeFilter => 'Analizi tarih aralığına göre filtrele';
 
   @override
-  String get signUpStandard => 'Standart Üyeliğe kaydol';
+  String get signUpStandard => 'Standard üyeliğe kaydol';
 
   @override
-  String get benefitAddToStandard => 'Standart Üyeliğe ekle';
+  String get benefitAddToStandard => 'Standard üyeliğe ekle';
 
   @override
-  String get benefitAnalyzeDiscord => 'Discord sunucu sohbetlerini analiz et';
+  String get benefitAnalyzeDiscord => 'Discord sohbetlerini analiz et';
 
   @override
   String get benefitRequiresBot => 'Bot kurulumu gerektirir';
 
   @override
   String get benefitBestGamers =>
-      'Oyuncular ve Discord toplulukları için en iyisi';
+      'Oyuncular ve Discord toplulukları için en iyi';
 
   @override
   String get addDiscordAnalysis => 'Discord analizi ekle';
 
   @override
-  String get requiresStandardMembership => 'Standart Üyelik gerektirir';
+  String get requiresStandardMembership => 'Standard üyelik gerektirir';
 
   @override
   String get comingSoon => 'Yakında';
 
   @override
-  String get comingSoonWithNextUpdate => 'Bir sonraki güncellemede yakında:';
+  String get comingSoonWithNextUpdate => 'Yakında bir sonraki güncellemeyle:';
 
   @override
-  String get proMembershipTier => 'Pro Üyelik Düzeyi - \$19.99';
+  String get proMembershipTier => 'Pro üyelik - \$19,99';
 
   @override
-  String get proPlusMembershipTier => 'Pro-Plus Üyelik Düzeyi - \$24.99';
+  String get proPlusMembershipTier => 'Pro-Plus üyelik - \$24,99';
 
   @override
-  String get proGetsLabel => 'Pro şunları içerir:';
+  String get proGetsLabel => 'Pro şunları alır:';
 
   @override
   String get proGetsDescription =>
-      'Aşağıdaki gibi diğer tüm popüler mesajlaşma ve sosyal medya platformlarındaki sohbet dizilerini analiz edin:';
+      'Diğer popüler mesajlaşma platformlarından sohbet dizilerini analiz edin.';
 
   @override
   String get proPlatformsList =>
-      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X (Twitter), e-posta ve takvim';
+      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X';
 
   @override
-  String get proPlusGetsLabel => 'Pro-Plus şunları içerir:';
+  String get proPlusGetsLabel => 'Pro-Plus şunları alır:';
 
   @override
   String get proPlusGetsDescription =>
-      'Pro\'daki her şey, ayrıca indirimli fiyatla Discord eklentisi.';
+      'Pro\'daki her şey ve indirimli fiyatla Discord eklentisi.';
 
   @override
   String get purchaseSuccessfulUnlocked =>
-      'Satın alma başarılı! Raporun kilidi açıldı.';
+      'Satın alma başarılı! Rapor kilidi açıldı.';
 
   @override
   String get purchaseFailed => 'Satın alma başarısız. Lütfen tekrar deneyin.';
@@ -500,23 +500,23 @@ class AppLocalizationsTr extends AppLocalizations {
   String get membershipActivated => 'Üyelik etkinleştirildi!';
 
   @override
-  String get dateRangeFilter => 'Tarih Aralığı Filtresi';
+  String get dateRangeFilter => 'Tarih aralığı filtresi';
 
   @override
   String get dateRangeOptional => '(isteğe bağlı)';
 
   @override
-  String get startDate => 'Başlangıç Tarihi';
+  String get startDate => 'Başlangıç tarihi';
 
   @override
-  String get endDate => 'Bitiş Tarihi';
+  String get endDate => 'Bitiş tarihi';
 
   @override
   String get clear => 'Temizle';
 
   @override
   String get dateRangeRequiresMembership =>
-      'Standard üyeliği veya üzeri gerektirir';
+      'Standard üyelik veya üstü gerektirir';
 
   @override
   String selectUpToCount(Object current, Object max) {
@@ -528,27 +528,26 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String analyzeRandomMetrics(Object count) {
-    return '$count rastgele metrik analiz et';
+    return '$count rastgele metriği analiz et';
   }
 
   @override
-  String get saveSelections => 'Seçimleri Kaydet';
+  String get saveSelections => 'Seçimleri kaydet';
 
   @override
-  String get loadSelections => 'Seçimleri Yükle';
+  String get loadSelections => 'Seçimleri yükle';
 
   @override
-  String get saveMetricListName => 'Metrik Listesini Kaydet';
+  String get saveMetricListName => 'Metrik listesini kaydet';
 
   @override
   String get enterListName => 'Bu metrik listesi için bir ad girin:';
 
   @override
-  String get chooseSavedMetrics => 'Kaydedilen metrik listesini seçin:';
+  String get chooseSavedMetrics => 'Kaydedilmiş metrik listesi seçin:';
 
   @override
-  String get noSavedLists =>
-      'Şu anda yüklenecek kaydedilmiş metrik listesi yok.';
+  String get noSavedLists => 'Şu anda kaydedilmiş metrik listesi yok.';
 
   @override
   String get metricListSaved => 'Metrik listesi başarıyla kaydedildi.';
@@ -566,7 +565,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get recent => 'Son';
 
   @override
-  String get name => 'İsim';
+  String get name => 'Ad';
 
   @override
   String get count => 'Sayı';
@@ -594,12 +593,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String analysisOfSender(Object sender) {
-    return '$sender Analizi (Gönderen)';
+    return '$sender analizi (Gönderen)';
   }
 
   @override
   String analysisOfReceiver(Object receiver) {
-    return '$receiver Analizi (Alıcı)';
+    return '$receiver analizi (Alıcı)';
   }
 
   @override
@@ -4475,104 +4474,113 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get viewMembershipOptions => 'View Membership Options';
+  String get viewMembershipOptions => 'Üyelik seçeneklerini görüntüle';
 
   @override
-  String get metricExpansionPacksTitle => 'Metric Expansion Packs';
+  String get metricExpansionPacksTitle => 'Metrik genişletme paketleri';
 
   @override
   String get oneTimePurchasesSubtitle =>
-      'One-time purchases — additional metrics forever';
+      'Tek seferlik satın almalar — ek metrikler sonsuza kadar';
 
   @override
-  String get unlockGoodPackButton => 'Unlock The Good Pack';
+  String get unlockGoodPackButton => 'İyi Paketi aç';
 
   @override
-  String get unlockBadPackButton => 'Unlock The Bad Pack';
+  String get unlockBadPackButton => 'Kötü Paketi aç';
 
   @override
-  String get unlockUglyPackButton => 'Unlock The Ugly Pack';
+  String get unlockUglyPackButton => 'Çirkin Paketi aç';
 
   @override
-  String get unlockNarcissistPackButton => 'Unlock Narcissist Pack';
+  String get unlockNarcissistPackButton => 'Narsist Paketi aç';
 
   @override
-  String get unlockSerialKillerPackButton => 'Unlock Serial Killer Pack';
+  String get unlockSerialKillerPackButton => 'Seri Katil Paketini aç';
 
   @override
-  String get goodPackBenefit1 => '100 healthy relationship metrics';
+  String get goodPackBenefit1 => '100 sağlıklı ilişki metriği';
 
   @override
-  String get goodPackBenefit2 => 'Positive communication patterns';
+  String get goodPackBenefit2 => 'Olumlu iletişim kalıpları';
 
   @override
-  String get goodPackBenefit3 => 'Appreciation, empathy & trust signals';
+  String get goodPackBenefit3 => 'Takdir, empati ve güven sinyalleri';
 
   @override
-  String get goodPackBenefit4 => 'One-time purchase — yours forever';
+  String get goodPackBenefit4 =>
+      'Tek seferlik satın alma — sonsuza kadar sizin';
 
   @override
-  String get goodPackBenefit5 => 'Unlocks instantly after purchase';
+  String get goodPackBenefit5 => 'Satın alma sonrası anında kilit açılır';
 
   @override
-  String get badPackBenefit1 => '100 warning-sign relationship metrics';
+  String get badPackBenefit1 => '100 uyarı işareti ilişki metriği';
 
   @override
-  String get badPackBenefit2 => 'Spot manipulation & dismissal patterns';
+  String get badPackBenefit2 =>
+      'Manipülasyon ve reddedilme kalıplarını tespit edin';
 
   @override
-  String get badPackBenefit3 => 'Guilt-tripping, stonewalling & more';
+  String get badPackBenefit3 =>
+      'Suçluluk duygusu yaratma, duvar örme ve daha fazlası';
 
   @override
-  String get badPackBenefit4 => 'One-time purchase — yours forever';
+  String get badPackBenefit4 => 'Tek seferlik satın alma — sonsuza kadar sizin';
 
   @override
-  String get badPackBenefit5 => 'Unlocks instantly after purchase';
+  String get badPackBenefit5 => 'Satın alma sonrası anında kilit açılır';
 
   @override
-  String get uglyPackBenefit1 => '100 severe red-flag abuse metrics';
+  String get uglyPackBenefit1 => '100 ciddi kırmızı bayrak istismar metriği';
 
   @override
-  String get uglyPackBenefit2 => 'Identify coercion, threats & control';
+  String get uglyPackBenefit2 => 'Zorbalık, tehditler ve kontrolü tanımlayın';
 
   @override
-  String get uglyPackBenefit3 => 'Trauma bonding & isolation indicators';
+  String get uglyPackBenefit3 => 'Travma bağı ve izolasyon göstergeleri';
 
   @override
-  String get uglyPackBenefit4 => 'One-time purchase — yours forever';
+  String get uglyPackBenefit4 =>
+      'Tek seferlik satın alma — sonsuza kadar sizin';
 
   @override
-  String get uglyPackBenefit5 => 'Unlocks instantly after purchase';
+  String get uglyPackBenefit5 => 'Satın alma sonrası anında kilit açılır';
 
   @override
-  String get narcissistPackBenefit1 => '50 narcissistic behavior metrics';
+  String get narcissistPackBenefit1 => '50 narsistik davranış metriği';
 
   @override
-  String get narcissistPackBenefit2 => 'Detect gaslighting & love-bombing';
+  String get narcissistPackBenefit2 =>
+      'Gaslighting ve aşk bombardımanını tespit edin';
 
   @override
-  String get narcissistPackBenefit3 => 'Hoovering & devaluation patterns';
+  String get narcissistPackBenefit3 =>
+      'Hoovering ve değersizleştirme kalıpları';
 
   @override
-  String get narcissistPackBenefit4 => 'One-time purchase — yours forever';
+  String get narcissistPackBenefit4 =>
+      'Tek seferlik satın alma — sonsuza kadar sizin';
 
   @override
-  String get narcissistPackBenefit5 => 'Unlocks instantly after purchase';
+  String get narcissistPackBenefit5 => 'Satın alma sonrası anında kilit açılır';
 
   @override
-  String get serialKillerPackBenefit1 => '50 extreme danger indicators';
+  String get serialKillerPackBenefit1 => '50 aşırı tehlike göstergesi';
 
   @override
-  String get serialKillerPackBenefit2 => 'Detect predatory & violent language';
+  String get serialKillerPackBenefit2 => 'Yırtıcı ve şiddetli dili tespit edin';
 
   @override
-  String get serialKillerPackBenefit3 => 'Psychopathy & sadism markers';
+  String get serialKillerPackBenefit3 => 'Psikopati ve sadizm belirteçleri';
 
   @override
-  String get serialKillerPackBenefit4 => 'One-time purchase — yours forever';
+  String get serialKillerPackBenefit4 =>
+      'Tek seferlik satın alma — sonsuza kadar sizin';
 
   @override
-  String get serialKillerPackBenefit5 => 'Unlocks instantly after purchase';
+  String get serialKillerPackBenefit5 =>
+      'Satın alma sonrası anında kilit açılır';
 
   @override
   String get allPacksOwned => 'Tüm genişletme paketlerine sahipsiniz!';
@@ -4614,50 +4622,50 @@ class AppLocalizationsTr extends AppLocalizations {
   String get enableDiscord => 'Discord\'u Etkinleştir';
 
   @override
-  String get aboutTitle => 'About';
+  String get aboutTitle => 'Hakkında';
 
   @override
   String get aboutDescription =>
-      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+      'AIRTA (Yapay Zeka İlişki Toksisitesi Analizörü), konuşmalarınızdaki sağlıksız kalıpları tanımlamanıza yardımcı olur.';
 
   @override
-  String get contactUs => 'Contact Us';
+  String get contactUs => 'İletişim';
 
   @override
-  String get supportEmail => 'Support';
+  String get supportEmail => 'Destek';
 
   @override
-  String get supportEmailDesc => 'Get help with using the app';
+  String get supportEmailDesc => 'Uygulamayı kullanmak için yardım alın';
 
   @override
-  String get businessEmail => 'Business';
+  String get businessEmail => 'İş';
 
   @override
-  String get businessEmailDesc => 'Partnerships and inquiries';
+  String get businessEmailDesc => 'Ortaklıklar ve sorular';
 
   @override
-  String get privacyEmail => 'Privacy';
+  String get privacyEmail => 'Gizlilik';
 
   @override
-  String get privacyEmailDesc => 'Data and privacy questions';
+  String get privacyEmailDesc => 'Veri ve gizlilik soruları';
 
   @override
-  String get importantLinks => 'Links';
+  String get importantLinks => 'Bağlantılar';
 
   @override
-  String get website => 'Website';
+  String get website => 'Web sitesi';
 
   @override
-  String get privacyPolicy => 'Privacy Policy';
+  String get privacyPolicy => 'Gizlilik politikası';
 
   @override
-  String get termsOfService => 'Terms of Service';
+  String get termsOfService => 'Hizmet şartları';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get allRightsReserved => 'All rights reserved.';
+  String get allRightsReserved => 'Tüm hakları saklıdır.';
 
   @override
   String get packTheGood => 'İyiler Paketi';
@@ -4804,45 +4812,45 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get noMessagesInDateRangeBody =>
-      'No messages were found in the selected date range. Try adjusting the date range.';
+      'Seçilen tarih aralığında mesaj bulunamadı. Tarih aralığını ayarlamayı deneyin.';
 
   @override
-  String get credentialsSavedSuccess => 'Credentials saved successfully';
+  String get credentialsSavedSuccess => 'Kimlik bilgileri başarıyla kaydedildi';
 
   @override
   String errorSavingCredentials(String error) {
-    return 'Error saving credentials: $error';
+    return 'Kimlik bilgileri kaydedilirken hata: $error';
   }
 
   @override
   String get credentialsSecurityInfo =>
-      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+      'Kimlik bilgileriniz yalnızca bu cihazda güvenli şekilde saklanır ve sunucularımıza asla yüklenmez.';
 
   @override
-  String get savingButton => 'Saving...';
+  String get savingButton => 'Kaydediliyor...';
 
   @override
-  String get saveAllCredentials => 'Save Credentials';
+  String get saveAllCredentials => 'Kimlik bilgilerini kaydet';
 
   @override
   String get proPlusLabel => 'Pro+';
 
   @override
-  String get upgradeButton => 'Upgrade';
+  String get upgradeButton => 'Yükselt';
 
   @override
-  String get usernameLabel => 'Username';
+  String get usernameLabel => 'Kullanıcı adı';
 
   @override
-  String get passwordLabel => 'Password';
+  String get passwordLabel => 'Şifre';
 
   @override
   String get upgradeToProPlusBody =>
-      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+      'Üçüncü taraf platform entegrasyonlarına ve gelişmiş özelliklere erişmek için Pro Plus\'a yükseltin.';
 
   @override
   String get noConversationsFoundBody =>
-      'No conversations were found. Make sure your credentials are correct and try again.';
+      'Konuşma bulunamadı. Kimlik bilgilerinizin doğru olduğundan emin olun ve tekrar deneyin.';
 
   @override
   String get tileMyAccountTitle => 'Hesabım';

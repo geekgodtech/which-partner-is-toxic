@@ -152,22 +152,22 @@ class AppLocalizationsJa extends AppLocalizations {
   String get gotIt => 'äº†è§£';
 
   @override
-  String get selectFile => 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠž';
+  String get selectFile => 'ファイルを選択';
 
   @override
-  String get analyzeSelectedMetrics => 'é¸æŠžã—ãŸæŒ‡æ¨™ã‚’åˆ†æž';
+  String get analyzeSelectedMetrics => '選択した指標を分析';
 
   @override
-  String get analyze20RandomMetrics => '20ã®ãƒ©ãƒ³ãƒ€ãƒ ãªæŒ‡æ¨™ã‚’åˆ†æž';
+  String get analyze20RandomMetrics => 'ランダムな指標20個を分析';
 
   @override
-  String get membershipOptions => 'ãƒ¡ãƒ³ãƒãƒ¼ã‚·ãƒƒãƒ—ã‚ªãƒ—ã‚·ãƒ§ãƒ³';
+  String get membershipOptions => 'メンバーシップオプション';
 
   @override
-  String get free => 'ç„¡æ–™';
+  String get free => '無料';
 
   @override
-  String get oneTimeUnlock => 'ãƒ¬ãƒãƒ¼ãƒˆã®ä¸€å›žé™ã‚Šã®ãƒ­ãƒƒã‚¯è§£é™¤';
+  String get oneTimeUnlock => '一度限りのレポートアンロック';
 
   @override
   String get standard => 'ã‚¹ã‚¿ãƒ³ãƒ€ãƒ¼ãƒ‰';
@@ -176,363 +176,330 @@ class AppLocalizationsJa extends AppLocalizations {
   String get discordAddon => 'Discordã‚¢ãƒ‰ã‚ªãƒ³';
 
   @override
-  String get analyze => 'åˆ†æž';
+  String get analyze => '分析';
 
   @override
-  String get report => 'ãƒ¬ãƒãƒ¼ãƒˆ';
+  String get report => 'レポート';
 
   @override
-  String get pdfReport => 'PDFãƒ¬ãƒãƒ¼ãƒˆ';
+  String get pdfReport => 'PDFレポート';
 
   @override
-  String get openPdf => 'PDFã‚’é–‹ã';
+  String get openPdf => 'PDFを開く';
 
   @override
-  String get sharePdf => 'PDFã‚’å…±æœ‰';
+  String get sharePdf => 'PDFを共有';
 
   @override
-  String get printPdf => 'PDFã‚’å°åˆ·';
+  String get printPdf => 'PDFを印刷';
 
   @override
-  String get closePdfPreview => 'PDFãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ã‚‹';
+  String get closePdfPreview => 'PDFプレビューウィンドウを閉じる';
 
   @override
-  String get openPdfPreview => 'PDFãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‹ã';
+  String get openPdfPreview => 'PDFプレビューウィンドウを開く';
 
   @override
-  String get pdfPreviewDescription =>
-      'åŸ‹ã‚è¾¼ã¾ã‚ŒãŸPDFã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¯ã€ãƒ¬ãƒãƒ¼ãƒˆã‚’ã‚³ãƒ³ãƒ‘ã‚¯ãƒˆã«ä¿ã¤ãŸã‚æœ€åˆã¯é–‰ã˜ãŸçŠ¶æ…‹ã§å§‹ã¾ã‚Šã¾ã™ã€‚';
+  String get pdfPreviewDescription => 'PDFウィンドウはレポートをコンパクトに保つため最初は閉じています。';
 
   @override
   String get notNow => 'ä»Šã¯ã—ãªã„';
 
   @override
-  String get unlockThisReport =>
-      'ã“ã®ãƒ¬ãƒãƒ¼ãƒˆã®ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ - \$20';
+  String get unlockThisReport => 'このレポートをアンロック - \$20';
 
   @override
-  String get joinStandard => 'ã‚¹ã‚¿ãƒ³ãƒ€ãƒ¼ãƒ‰ã«åŠ å…¥ - \$9.99/æœˆ';
+  String get joinStandard => 'Standardに参加 - \$9.99/月';
 
   @override
-  String get instantUnlockTitle => 'å³æ™‚ãƒ¬ãƒãƒ¼ãƒˆãƒ­ãƒƒã‚¯è§£é™¤ - \$20';
+  String get instantUnlockTitle => '即時レポートアンロック - \$20';
 
   @override
   String get instantUnlockDescription =>
-      'ã“ã‚Œã¯ç¾åœ¨ã®ãƒ¬ãƒãƒ¼ãƒˆã®ã¿ã®ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã™ã‚‹ä¸€å›žé™ã‚Šã®è³¼å…¥ã§ã™ã€‚ã‚µãƒ–ã‚¹ã‚¯ãƒªãƒ—ã‚·ãƒ§ãƒ³ã¯ä¸è¦ã§ã™ã€‚ä»Šå¾Œã®ãƒ¬ãƒãƒ¼ãƒˆã«ã¯å€‹åˆ¥ã®ãƒ­ãƒƒã‚¯è§£é™¤ã¾ãŸã¯ãƒ¡ãƒ³ãƒãƒ¼ã‚·ãƒƒãƒ—ãŒå¿…è¦ã§ã™ã€‚\n\næ”¯æ‰•ã„ã‚’ç¶šè¡Œã—ã¾ã™ã‹ï¼Ÿ';
+      '現在のレポートのみをアンロックするための一度限りの購入です。サブスクリプションなし。';
 
   @override
-  String get purchaseFor20 => '\$20ã§è³¼å…¥';
+  String get purchaseFor20 => '\$20で購入';
 
   @override
-  String get share => 'å…±æœ‰';
+  String get share => '共有';
 
   @override
-  String get print => 'å°åˆ·';
+  String get print => '印刷';
 
   @override
   String get save => 'ä¿å­˜';
 
   @override
-  String get cancel => 'ã‚­ãƒ£ãƒ³ã‚»ãƒ«';
+  String get cancel => 'キャンセル';
 
   @override
   String get ok => 'OK';
 
   @override
-  String get loading => 'èª­ã¿è¾¼ã¿ä¸­...';
+  String get loading => '読み込み中...';
 
   @override
-  String get error => 'ã‚¨ãƒ©ãƒ¼';
+  String get error => 'エラー';
 
   @override
-  String get success => 'æˆåŠŸ';
+  String get success => '成功';
 
   @override
-  String get conversations => 'ä¼šè©±';
+  String get conversations => '会話';
 
   @override
-  String get messages => 'ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸';
+  String get messages => 'メッセージ';
 
   @override
-  String get selectConversation => 'ä¼šè©±ã‚’é¸æŠž';
+  String get selectConversation => '会話を選択';
 
   @override
   String get selectSmsConversation => 'SMS / RCSãƒãƒ£ãƒƒãƒˆã‚’é¸æŠž';
 
   @override
-  String get searchConversations => 'ä¼šè©±ã‚’æ¤œç´¢...';
+  String get searchConversations => '会話を検索...';
 
   @override
-  String get loadingConversations => 'ä¼šè©±ã‚’èª­ã¿è¾¼ã¿ä¸­...';
+  String get loadingConversations => '会話を読み込み中...';
 
   @override
-  String get errorLoadingConversations => 'ä¼šè©±ã®èª­ã¿è¾¼ã¿ã‚¨ãƒ©ãƒ¼';
+  String get errorLoadingConversations => '会話の読み込みエラー';
 
   @override
-  String get selectConversationToAnalyze => 'åˆ†æžã™ã‚‹ä¼šè©±ã‚’é¸æŠž';
+  String get selectConversationToAnalyze => '分析する会話を選択';
 
   @override
-  String get analyzeWithSelectedMetrics => 'é¸æŠžã—ãŸæŒ‡æ¨™ã§åˆ†æž';
+  String get analyzeWithSelectedMetrics => '選択した指標で分析';
 
   @override
-  String get loadConversationAndSelectMetric =>
-      'ä¼šè©±ã‚’èª­ã¿è¾¼ã¿ã€å°‘ãªãã¨ã‚‚1ã¤ã®æŒ‡æ¨™ã‚’é¸æŠžã—ã¦ãã ã•ã„';
+  String get loadConversationAndSelectMetric => '会話を読み込み、少なくとも1つの指標を選択してください';
 
   @override
-  String get selectAtLeastOneMetric =>
-      'ãƒ¬ãƒãƒ¼ãƒˆã‚’å®Ÿè¡Œã™ã‚‹ã«ã¯ã€å°‘ãªãã¨ã‚‚1ã¤ã®æŒ‡æ¨™ã‚’é¸æŠžã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚';
+  String get selectAtLeastOneMetric => 'レポートを実行するには少なくとも1つの指標を選択する必要があります。';
 
   @override
-  String get spinningMetricWheel => 'æŒ‡æ¨™ãƒ›ã‚¤ãƒ¼ãƒ«ã‚’å›žè»¢ä¸­...';
+  String get spinningMetricWheel => '指標をランダムに選択中...';
 
   @override
-  String get loadConversationToAnalyze => 'åˆ†æžã™ã‚‹ä¼šè©±ã‚’èª­ã¿è¾¼ã‚€';
+  String get loadConversationToAnalyze => '分析する会話を読み込む';
 
   @override
-  String get noConversationsFound => 'ä¼šè©±ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“';
+  String get noConversationsFound => '会話が見つかりません';
 
   @override
-  String get permissionsRequired => 'æ¨©é™ãŒå¿…è¦ã§ã™';
+  String get permissionsRequired => '権限が必要';
 
   @override
-  String get smsPermission => 'ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸';
+  String get smsPermission => 'テキストメッセージ';
 
   @override
-  String get contactsPermission => 'é€£çµ¡å…ˆ';
+  String get contactsPermission => '連絡先';
 
   @override
-  String get smsPermissionDescription =>
-      'é–¢ä¿‚ãƒ‘ã‚¿ãƒ¼ãƒ³ã«ã¤ã„ã¦SMSä¼šè©±ã‚’åˆ†æžã™ã‚‹ãŸã‚';
+  String get smsPermissionDescription => '関係パターンのSMS会話を分析するため';
 
   @override
-  String get contactsPermissionDescription =>
-      'é›»è©±ç•ªå·ã®ä»£ã‚ã‚Šã«é€£çµ¡å…ˆåã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚';
+  String get contactsPermissionDescription => '電話番号の代わりに連絡先名を表示するため';
 
   @override
-  String get analyzingMessage =>
-      'AIãŒå¿ƒç†åˆ†æžã‚’ç”Ÿæˆã—ã¦ã„ã‚‹é–“ãŠå¾…ã¡ãã ã•ã„...';
+  String get analyzingMessage => 'AIが心理分析を生成するまでお待ちください...';
 
   @override
-  String get analyzingStatus => 'ä¼šè©±ã‚’åˆ†æžä¸­...';
+  String get analyzingStatus => '会話を分析中...';
 
   @override
-  String get analyzingSubMessage =>
-      'ãŠå¾…ã¡ãã ã•ã„ã€‚ã“ã®ãƒ—ãƒ­ã‚»ã‚¹ã¯ã€æŽ¥ç¶šé€Ÿåº¦ã¨é¸æŠžã—ãŸæŒ‡æ¨™ã®æ•°ã«ã‚ˆã£ã¦æœ€å¤§1åˆ†ã‹ã‹ã‚‹å ´åˆãŒã‚ã‚Šã¾ã™';
+  String get analyzingSubMessage => 'デバイスによっては最大1分かかる場合があります。しばらくお待ちください。';
 
   @override
-  String get unlockFullReport =>
-      'ã“ã®ãƒ¬ãƒãƒ¼ãƒˆå…¨ä½“ã®ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã—ã¦è¡¨ç¤º';
+  String get unlockFullReport => 'このレポート全体をアンロックして表示';
 
   @override
-  String get fullReportLocked =>
-      'å®Œå…¨ãªãƒ¬ãƒãƒ¼ãƒˆã¯ãƒ­ãƒƒã‚¯ã•ã‚Œã¦ã„ã¾ã™';
+  String get fullReportLocked => '完全なレポートはロックされています';
 
   @override
-  String get upgradeToUnlock =>
-      'ãƒ¡ãƒ³ãƒãƒ¼ã‚·ãƒƒãƒ—ã‚’ã‚¢ãƒƒãƒ—ã‚°ãƒ¬ãƒ¼ãƒ‰ã—ã¦ã€ã™ã¹ã¦ã®æŒ‡æ¨™ã¨è©³ç´°ãªæ´žå¯Ÿã‚’å«ã‚€å®Œå…¨ãªå¿ƒç†åˆ†æžãƒ¬ãƒãƒ¼ãƒˆã®ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã—ã¦ãã ã•ã„ã€‚';
+  String get upgradeToUnlock => '完全な心理分析レポートをアンロックするにはメンバーシップをアップグレードしてください。';
 
   @override
-  String get language => 'è¨€èªž';
+  String get language => '言語';
 
   @override
-  String get english => 'è‹±èªž';
+  String get english => '英語';
 
   @override
-  String get spanish => 'ã‚¹ãƒšã‚¤ãƒ³èªž';
+  String get spanish => 'スペイン語';
 
   @override
-  String get french => 'ãƒ•ãƒ©ãƒ³ã‚¹èªž';
+  String get french => 'フランス語';
 
   @override
-  String get german => 'ãƒ‰ã‚¤ãƒ„èªž';
+  String get german => 'ドイツ語';
 
   @override
-  String get italian => 'ã‚¤ã‚¿ãƒªã‚¢èªž';
+  String get italian => 'イタリア語';
 
   @override
-  String get portuguese => 'ãƒãƒ«ãƒˆã‚¬ãƒ«èªž';
+  String get portuguese => 'ポルトガル語';
 
   @override
-  String get dutch => 'ã‚ªãƒ©ãƒ³ãƒ€èªž';
+  String get dutch => 'オランダ語';
 
   @override
-  String get russian => 'ãƒ­ã‚·ã‚¢èªž';
+  String get russian => 'ロシア語';
 
   @override
-  String get chinese => 'ä¸­å›½èªž';
+  String get chinese => '中国語';
 
   @override
-  String get japanese => 'æ—¥æœ¬èªž';
+  String get japanese => '日本語';
 
   @override
-  String get korean => 'éŸ“å›½èªž';
+  String get korean => '韓国語';
 
   @override
-  String get arabic => 'ã‚¢ãƒ©ãƒ“ã‚¢èªž';
+  String get arabic => 'アラビア語';
 
   @override
-  String get hindi => 'ãƒ’ãƒ³ãƒ‡ã‚£ãƒ¼èªž';
+  String get hindi => 'ヒンディー語';
 
   @override
-  String get turkish => 'ãƒˆãƒ«ã‚³èªž';
+  String get turkish => 'トルコ語';
 
   @override
-  String get polish => 'ãƒãƒ¼ãƒ©ãƒ³ãƒ‰èªž';
+  String get polish => 'ポーランド語';
 
   @override
-  String get ukrainian => 'ã‚¦ã‚¯ãƒ©ã‚¤ãƒŠèªž';
+  String get ukrainian => 'ウクライナ語';
 
   @override
-  String get runAnotherAnalysis => 'åˆ¥ã®åˆ†æžã‚’å®Ÿè¡Œã—ã¾ã™ã‹ï¼Ÿ';
+  String get runAnotherAnalysis => '別の分析を実行しますか？';
 
   @override
-  String get becomeMemberTitle =>
-      'ãƒ¡ãƒ³ãƒãƒ¼ã«ãªã£ã¦å®Œå…¨ãªåˆ†æžãƒ¬ãƒãƒ¼ãƒˆã‚’å–å¾—';
+  String get becomeMemberTitle => '完全な分析レポートを取得するには会員になってください';
 
   @override
-  String get becomeMemberSubtitle =>
-      'åˆ†æžãŒå¿…è¦ãªä¼šè©±ã‚„ãƒ¬ãƒãƒ¼ãƒˆã«åˆã£ãŸã‚¢ã‚¯ã‚»ã‚¹ãƒ¬ãƒ™ãƒ«ã‚’é¸æŠžã—ã¦ãã ã•ã„ã€‚';
+  String get becomeMemberSubtitle => '会話やレポートに合ったアクセスレベルを選択してください。';
 
   @override
-  String get benefitAnalyzeSms => 'SMSãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’åˆ†æž';
+  String get benefitAnalyzeSms => 'SMSテキストメッセージを分析';
 
   @override
-  String get benefitReportPreview => 'ãƒ¬ãƒãƒ¼ãƒˆã®ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚’å®Ÿè¡Œ';
+  String get benefitReportPreview => 'レポートプレビューを実行';
 
   @override
-  String get benefitViewPartialReport => 'ãƒ¬ãƒãƒ¼ãƒˆã®ç´„25%ã‚’è¡¨ç¤º';
+  String get benefitViewPartialReport => 'レポートの約25%を表示';
 
   @override
-  String get benefitLockedDetails =>
-      'å®Œå…¨ãªãƒ¬ãƒãƒ¼ãƒˆã®è©³ç´°ã¯ãƒ­ãƒƒã‚¯æ¸ˆã¿';
+  String get benefitLockedDetails => '完全なレポートの詳細はロック済み';
 
   @override
-  String get currentFreeAccess => 'ç¾åœ¨ã®ç„¡æ–™ã‚¢ã‚¯ã‚»ã‚¹';
+  String get currentFreeAccess => '現在の無料アクセス';
 
   @override
-  String get benefitUnlockCurrentReport =>
-      'ã“ã®å®Œå…¨ãªãƒ¬ãƒãƒ¼ãƒˆã®ãƒ­ãƒƒã‚¯ã‚’è§£é™¤';
+  String get benefitUnlockCurrentReport => 'この完全なレポートをアンロック';
 
   @override
-  String get benefitNoSubscription => 'ã‚µãƒ–ã‚¹ã‚¯ãƒªãƒ—ã‚·ãƒ§ãƒ³ä¸è¦';
+  String get benefitNoSubscription => 'サブスクリプションなし';
 
   @override
-  String get benefitSavePrintShareThis =>
-      'ã“ã®ãƒ¬ãƒãƒ¼ãƒˆã‚’ä¿å­˜ã€å°åˆ·ã€å…±æœ‰';
+  String get benefitSavePrintShareThis => 'このレポートを保存、印刷、共有';
 
   @override
-  String get benefitBestSingleAnalysis =>
-      'åˆ†æžãŒ1å›žã ã‘å¿…è¦ãªå ´åˆã«æœ€é©';
+  String get benefitBestSingleAnalysis => '1回の分析のみ必要な場合に最適';
 
   @override
-  String get unlockThisReportShort => 'ã“ã®ãƒ¬ãƒãƒ¼ãƒˆã®ãƒ­ãƒƒã‚¯ã‚’è§£é™¤';
+  String get unlockThisReportShort => 'このレポートをアンロック';
 
   @override
-  String get benefitFullSmsReport => 'å®Œå…¨ãªSMSåˆ†æžãƒ¬ãƒãƒ¼ãƒˆ';
+  String get benefitFullSmsReport => '完全なSMS分析レポート';
 
   @override
-  String get benefitSavePrintSharePdf =>
-      'PDFãƒ¬ãƒãƒ¼ãƒˆã‚’ä¿å­˜ã€å°åˆ·ã€å…±æœ‰';
+  String get benefitSavePrintSharePdf => 'PDFレポートを保存、印刷、共有';
 
   @override
-  String get benefitTenReports => '24æ™‚é–“ã”ã¨ã«10ä»¶ã®ãƒ¬ãƒãƒ¼ãƒˆ';
+  String get benefitTenReports => '24時間に10件のレポート';
 
   @override
-  String get benefitBestTextReview =>
-      'ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®é–¢ä¿‚ãƒ¬ãƒ“ãƒ¥ãƒ¼ã«æœ€é©';
+  String get benefitBestTextReview => 'テキストメッセージの関係レビューに最適';
 
   @override
-  String get benefitDateRangeFilter =>
-      'æ—¥ä»˜ç¯„å›²ã§åˆ†æžã‚’ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°';
+  String get benefitDateRangeFilter => '日付範囲で分析をフィルタリング';
 
   @override
-  String get signUpStandard =>
-      'ã‚¹ã‚¿ãƒ³ãƒ€ãƒ¼ãƒ‰ãƒ¡ãƒ³ãƒãƒ¼ã‚·ãƒƒãƒ—ã«ç™»éŒ²';
+  String get signUpStandard => 'Standardメンバーシップに申し込む';
 
   @override
-  String get benefitAddToStandard =>
-      'ã‚¹ã‚¿ãƒ³ãƒ€ãƒ¼ãƒ‰ãƒ¡ãƒ³ãƒãƒ¼ã‚·ãƒƒãƒ—ã«è¿½åŠ ';
+  String get benefitAddToStandard => 'Standardメンバーシップに追加';
 
   @override
-  String get benefitAnalyzeDiscord =>
-      'Discordã‚µãƒ¼ãƒãƒ¼ã®ãƒãƒ£ãƒƒãƒˆã‚’åˆ†æž';
+  String get benefitAnalyzeDiscord => 'Discordチャットを分析';
 
   @override
-  String get benefitRequiresBot => 'ãƒœãƒƒãƒˆã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãŒå¿…è¦';
+  String get benefitRequiresBot => 'ボットのインストールが必要';
 
   @override
-  String get benefitBestGamers =>
-      'ã‚²ãƒ¼ãƒžãƒ¼ã¨Discordã‚³ãƒŸãƒ¥ãƒ‹ãƒ†ã‚£ã«æœ€é©';
+  String get benefitBestGamers => 'ゲーマーとDiscordコミュニティに最適';
 
   @override
-  String get addDiscordAnalysis => 'Discordåˆ†æžã‚’è¿½åŠ ';
+  String get addDiscordAnalysis => 'Discord分析を追加';
 
   @override
-  String get requiresStandardMembership =>
-      'ã‚¹ã‚¿ãƒ³ãƒ€ãƒ¼ãƒ‰ãƒ¡ãƒ³ãƒãƒ¼ã‚·ãƒƒãƒ—ãŒå¿…è¦';
+  String get requiresStandardMembership => 'Standardメンバーシップが必要';
 
   @override
-  String get comingSoon => 'è¿‘æ—¥å…¬é–‹';
+  String get comingSoon => '近日公開';
 
   @override
-  String get comingSoonWithNextUpdate =>
-      'æ¬¡å›žã®ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆã§è¿‘æ—¥å…¬é–‹ï¼š';
+  String get comingSoonWithNextUpdate => '次のアップデートで近日公開：';
 
   @override
-  String get proMembershipTier => 'Proãƒ¡ãƒ³ãƒãƒ¼ã‚·ãƒƒãƒ—å±¤ - \$19.99';
+  String get proMembershipTier => 'Proメンバーシップ - \$19.99';
 
   @override
-  String get proPlusMembershipTier =>
-      'Pro-Plusãƒ¡ãƒ³ãƒãƒ¼ã‚·ãƒƒãƒ—å±¤ - \$24.99';
+  String get proPlusMembershipTier => 'Pro-Plusメンバーシップ - \$24.99';
 
   @override
-  String get proGetsLabel => 'Proã®å†…å®¹ï¼š';
+  String get proGetsLabel => 'Proの特典：';
 
   @override
-  String get proGetsDescription =>
-      'æ¬¡ã®ã‚ˆã†ãªä»–ã®ã™ã¹ã¦ã®äººæ°—ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ³ã‚°ãŠã‚ˆã³ã‚½ãƒ¼ã‚·ãƒ£ãƒ«ãƒ¡ãƒ‡ã‚£ã‚¢ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ã®ãƒãƒ£ãƒƒãƒˆã‚¹ãƒ¬ãƒƒãƒ‰ã‚’åˆ†æžï¼š';
+  String get proGetsDescription => '他の人気メッセージングプラットフォームのチャットスレッドを分析。';
 
   @override
   String get proPlatformsList =>
-      'LinkedInã€WhatsAppã€Instagramã€Facebook Messengerã€Telegramã€X (Twitter)ã€ãƒ¡ãƒ¼ãƒ«ã€ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼';
+      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X';
 
   @override
-  String get proPlusGetsLabel => 'Pro-Plusã®å†…å®¹ï¼š';
+  String get proPlusGetsLabel => 'Pro-Plusの特典：';
 
   @override
-  String get proPlusGetsDescription =>
-      'Proã®ã™ã¹ã¦ã®æ©Ÿèƒ½ã«åŠ ãˆã€å‰²å¼•ä¾¡æ ¼ã®Discordã‚¢ãƒ‰ã‚ªãƒ³ã€‚';
+  String get proPlusGetsDescription => 'Proのすべてに加え、割引価格でDiscordアドオン。';
 
   @override
-  String get purchaseSuccessfulUnlocked =>
-      'è³¼å…¥æˆåŠŸï¼ãƒ¬ãƒãƒ¼ãƒˆã®ãƒ­ãƒƒã‚¯ãŒè§£é™¤ã•ã‚Œã¾ã—ãŸã€‚';
+  String get purchaseSuccessfulUnlocked => '購入成功！レポートがアンロックされました。';
 
   @override
-  String get purchaseFailed =>
-      'è³¼å…¥ã«å¤±æ•—ã—ã¾ã—ãŸã€‚ã‚‚ã†ä¸€åº¦ãŠè©¦ã—ãã ã•ã„ã€‚';
+  String get purchaseFailed => '購入に失敗しました。再試行してください。';
 
   @override
-  String get membershipActivated =>
-      'ãƒ¡ãƒ³ãƒãƒ¼ã‚·ãƒƒãƒ—ãŒæœ‰åŠ¹ã«ãªã‚Šã¾ã—ãŸï¼';
+  String get membershipActivated => 'メンバーシップが有効化されました！';
 
   @override
-  String get dateRangeFilter => 'æ—¥ä»˜ç¯„å›²ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼';
+  String get dateRangeFilter => '日付範囲フィルター';
 
   @override
-  String get dateRangeOptional => '(ã‚ªãƒ—ã‚·ãƒ§ãƒ³)';
+  String get dateRangeOptional => '（任意）';
 
   @override
-  String get startDate => 'é–‹å§‹æ—¥';
+  String get startDate => '開始日';
 
   @override
-  String get endDate => 'çµ‚äº†æ—¥';
+  String get endDate => '終了日';
 
   @override
-  String get clear => 'ã‚¯ãƒªã‚¢';
+  String get clear => 'クリア';
 
   @override
-  String get dateRangeRequiresMembership =>
-      'Standardãƒ¡ãƒ³ãƒãƒ¼ã‚·ãƒƒãƒ—ä»¥ä¸ŠãŒå¿…è¦';
+  String get dateRangeRequiresMembership => 'Standardメンバーシップ以上が必要';
 
   @override
   String selectUpToCount(Object current, Object max) {
@@ -540,41 +507,36 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get clearSelections => 'é¸æŠžã‚’ã‚¯ãƒªã‚¢';
+  String get clearSelections => '選択をクリア';
 
   @override
   String analyzeRandomMetrics(Object count) {
-    return '$countå€‹ã®ãƒ©ãƒ³ãƒ€ãƒ æŒ‡æ¨™ã‚’åˆ†æž';
+    return '$count個のランダムな指標を分析';
   }
 
   @override
-  String get saveSelections => 'é¸æŠžã‚’ä¿å­˜';
+  String get saveSelections => '選択を保存';
 
   @override
-  String get loadSelections => 'é¸æŠžã‚’èª­ã¿è¾¼ã¿';
+  String get loadSelections => '選択を読み込む';
 
   @override
-  String get saveMetricListName => 'ãƒ¡ãƒˆãƒªã‚¯ã‚¹ãƒªã‚¹ãƒˆã‚’ä¿å­˜';
+  String get saveMetricListName => '指標リストを保存';
 
   @override
-  String get enterListName =>
-      'ã“ã®ãƒ¡ãƒˆãƒªã‚¯ã‚¹ãƒªã‚¹ãƒˆã®åå‰ã‚’å…¥åŠ›:';
+  String get enterListName => 'この指標リストの名前を入力してください：';
 
   @override
-  String get chooseSavedMetrics =>
-      'ä¿å­˜ã•ã‚ŒãŸãƒ¡ãƒˆãƒªã‚¯ã‚¹ãƒªã‚¹ãƒˆã‚’é¸æŠž:';
+  String get chooseSavedMetrics => '保存された指標リストを選択：';
 
   @override
-  String get noSavedLists =>
-      'ç¾åœ¨èª­ã¿è¾¼ã‚€ä¿å­˜æ¸ˆã¿ãƒ¡ãƒˆãƒªã‚¯ã‚¹ãƒªã‚¹ãƒˆãŒã‚ã‚Šã¾ã›ã‚“ã€‚';
+  String get noSavedLists => '現在保存された指標リストはありません。';
 
   @override
-  String get metricListSaved =>
-      'ãƒ¡ãƒˆãƒªã‚¯ã‚¹ãƒªã‚¹ãƒˆãŒæ­£å¸¸ã«ä¿å­˜ã•ã‚Œã¾ã—ãŸã€‚';
+  String get metricListSaved => '指標リストが正常に保存されました。';
 
   @override
-  String get metricListLoaded =>
-      'ãƒ¡ãƒˆãƒªã‚¯ã‚¹ãƒªã‚¹ãƒˆãŒæ­£å¸¸ã«èª­ã¿è¾¼ã¾ã‚Œã¾ã—ãŸã€‚';
+  String get metricListLoaded => '指標リストが正常に読み込まれました。';
 
   @override
   String get filters => 'ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼';
@@ -586,7 +548,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get recent => 'æœ€æ–°';
 
   @override
-  String get name => 'åå‰';
+  String get name => '名前';
 
   @override
   String get count => 'æ•°';
@@ -614,12 +576,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String analysisOfSender(Object sender) {
-    return '$senderã®åˆ†æžï¼ˆé€ä¿¡è€…ï¼‰';
+    return '$senderの分析（送信者）';
   }
 
   @override
   String analysisOfReceiver(Object receiver) {
-    return '$receiverã®åˆ†æžï¼ˆå—ä¿¡è€…ï¼‰';
+    return '$receiverの分析（受信者）';
   }
 
   @override
@@ -4519,104 +4481,103 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get viewMembershipOptions => 'View Membership Options';
+  String get viewMembershipOptions => 'メンバーシップオプションを表示';
 
   @override
-  String get metricExpansionPacksTitle => 'Metric Expansion Packs';
+  String get metricExpansionPacksTitle => 'メトリクス拡張パック';
 
   @override
-  String get oneTimePurchasesSubtitle =>
-      'One-time purchases — additional metrics forever';
+  String get oneTimePurchasesSubtitle => '一度限りの購入 — 追加メトリクスを永続利用';
 
   @override
-  String get unlockGoodPackButton => 'Unlock The Good Pack';
+  String get unlockGoodPackButton => 'グッドパックをアンロック';
 
   @override
-  String get unlockBadPackButton => 'Unlock The Bad Pack';
+  String get unlockBadPackButton => 'バッドパックをアンロック';
 
   @override
-  String get unlockUglyPackButton => 'Unlock The Ugly Pack';
+  String get unlockUglyPackButton => 'アグリーパックをアンロック';
 
   @override
-  String get unlockNarcissistPackButton => 'Unlock Narcissist Pack';
+  String get unlockNarcissistPackButton => 'ナルシシストパックをアンロック';
 
   @override
-  String get unlockSerialKillerPackButton => 'Unlock Serial Killer Pack';
+  String get unlockSerialKillerPackButton => 'シリアルキラーパックをアンロック';
 
   @override
-  String get goodPackBenefit1 => '100 healthy relationship metrics';
+  String get goodPackBenefit1 => '健全な関係の指標100個';
 
   @override
-  String get goodPackBenefit2 => 'Positive communication patterns';
+  String get goodPackBenefit2 => 'ポジティブなコミュニケーションパターン';
 
   @override
-  String get goodPackBenefit3 => 'Appreciation, empathy & trust signals';
+  String get goodPackBenefit3 => '感謝・共感・信頼のシグナル';
 
   @override
-  String get goodPackBenefit4 => 'One-time purchase — yours forever';
+  String get goodPackBenefit4 => '一度限りの購入 — 永続利用';
 
   @override
-  String get goodPackBenefit5 => 'Unlocks instantly after purchase';
+  String get goodPackBenefit5 => '購入後すぐにアンロック';
 
   @override
-  String get badPackBenefit1 => '100 warning-sign relationship metrics';
+  String get badPackBenefit1 => '警告サイン関係指標100個';
 
   @override
-  String get badPackBenefit2 => 'Spot manipulation & dismissal patterns';
+  String get badPackBenefit2 => '操作と拒絶のパターンを発見';
 
   @override
-  String get badPackBenefit3 => 'Guilt-tripping, stonewalling & more';
+  String get badPackBenefit3 => '罪悪感の植え付け、沈黙の壁など';
 
   @override
-  String get badPackBenefit4 => 'One-time purchase — yours forever';
+  String get badPackBenefit4 => '一度限りの購入 — 永続利用';
 
   @override
-  String get badPackBenefit5 => 'Unlocks instantly after purchase';
+  String get badPackBenefit5 => '購入後すぐにアンロック';
 
   @override
-  String get uglyPackBenefit1 => '100 severe red-flag abuse metrics';
+  String get uglyPackBenefit1 => '深刻な赤旗虐待指標100個';
 
   @override
-  String get uglyPackBenefit2 => 'Identify coercion, threats & control';
+  String get uglyPackBenefit2 => '強制・脅迫・支配を特定';
 
   @override
-  String get uglyPackBenefit3 => 'Trauma bonding & isolation indicators';
+  String get uglyPackBenefit3 => 'トラウマボンディングと孤立の指標';
 
   @override
-  String get uglyPackBenefit4 => 'One-time purchase — yours forever';
+  String get uglyPackBenefit4 => '一度限りの購入 — 永続利用';
 
   @override
-  String get uglyPackBenefit5 => 'Unlocks instantly after purchase';
+  String get uglyPackBenefit5 => '購入後すぐにアンロック';
 
   @override
-  String get narcissistPackBenefit1 => '50 narcissistic behavior metrics';
+  String get narcissistPackBenefit1 => '自己愛的行動指標50個';
 
   @override
-  String get narcissistPackBenefit2 => 'Detect gaslighting & love-bombing';
+  String get narcissistPackBenefit2 => 'ガスライティングとラブボミングを検出';
 
   @override
-  String get narcissistPackBenefit3 => 'Hoovering & devaluation patterns';
+  String get narcissistPackBenefit3 => 'ホバリングと価値下げのパターン';
 
   @override
-  String get narcissistPackBenefit4 => 'One-time purchase — yours forever';
+  String get narcissistPackBenefit4 => '一度限りの購入 — 永続利用';
 
   @override
-  String get narcissistPackBenefit5 => 'Unlocks instantly after purchase';
+  String get narcissistPackBenefit5 => '購入後すぐにアンロック';
 
   @override
-  String get serialKillerPackBenefit1 => '50 extreme danger indicators';
+  String get serialKillerPackBenefit1 => '極端な危険指標50個';
 
   @override
-  String get serialKillerPackBenefit2 => 'Detect predatory & violent language';
+  String get serialKillerPackBenefit2 => '捕食的・暴力的な言語を検出';
 
   @override
-  String get serialKillerPackBenefit3 => 'Psychopathy & sadism markers';
+  String get serialKillerPackBenefit3 => 'サイコパシーとサディズムのマーカー';
 
   @override
-  String get serialKillerPackBenefit4 => 'One-time purchase — yours forever';
+  String get serialKillerPackBenefit4 => '一度限りの購入 — 永続利用';
 
   @override
-  String get serialKillerPackBenefit5 => 'Unlocks instantly after purchase';
+  String get serialKillerPackBenefit5 => '購入後すぐにアンロック';
 
   @override
   String get allPacksOwned =>
@@ -4660,50 +4621,49 @@ class AppLocalizationsJa extends AppLocalizations {
   String get enableDiscord => 'Discordã‚’æœ‰åŠ¹ã«ã™ã‚‹';
 
   @override
-  String get aboutTitle => 'About';
+  String get aboutTitle => 'このアプリについて';
 
   @override
-  String get aboutDescription =>
-      'AIRTA (AI Relationship Toxicity Analyzer) helps you identify unhealthy patterns in your relationships through AI-powered conversation analysis. Our mission is to provide insights that promote healthier, more balanced relationships.';
+  String get aboutDescription => 'AIRTA（AI関係毒性分析器）は、会話の中の不健全なパターンを特定するのに役立ちます。';
 
   @override
-  String get contactUs => 'Contact Us';
+  String get contactUs => 'お問い合わせ';
 
   @override
-  String get supportEmail => 'Support';
+  String get supportEmail => 'サポート';
 
   @override
-  String get supportEmailDesc => 'Get help with using the app';
+  String get supportEmailDesc => 'アプリの使い方のサポートを受ける';
 
   @override
-  String get businessEmail => 'Business';
+  String get businessEmail => 'ビジネス';
 
   @override
-  String get businessEmailDesc => 'Partnerships and inquiries';
+  String get businessEmailDesc => 'パートナーシップとお問い合わせ';
 
   @override
-  String get privacyEmail => 'Privacy';
+  String get privacyEmail => 'プライバシー';
 
   @override
-  String get privacyEmailDesc => 'Data and privacy questions';
+  String get privacyEmailDesc => 'データとプライバシーに関する質問';
 
   @override
-  String get importantLinks => 'Links';
+  String get importantLinks => 'リンク';
 
   @override
-  String get website => 'Website';
+  String get website => 'ウェブサイト';
 
   @override
-  String get privacyPolicy => 'Privacy Policy';
+  String get privacyPolicy => 'プライバシーポリシー';
 
   @override
-  String get termsOfService => 'Terms of Service';
+  String get termsOfService => '利用規約';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get allRightsReserved => 'All rights reserved.';
+  String get allRightsReserved => '全著作権所有。';
 
   @override
   String get packTheGood => 'ãƒ‘ãƒƒã‚¯ï¼šè‰¯ã„';
@@ -4853,45 +4813,45 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noMessagesInDateRangeBody =>
-      'No messages were found in the selected date range. Try adjusting the date range.';
+      '選択した日付範囲にメッセージが見つかりませんでした。日付範囲を調整してみてください。';
 
   @override
-  String get credentialsSavedSuccess => 'Credentials saved successfully';
+  String get credentialsSavedSuccess => '認証情報が正常に保存されました';
 
   @override
   String errorSavingCredentials(String error) {
-    return 'Error saving credentials: $error';
+    return '認証情報の保存エラー: $error';
   }
 
   @override
   String get credentialsSecurityInfo =>
-      'Your credentials are stored securely on this device only and are never uploaded to our servers.';
+      '認証情報はこのデバイスにのみ安全に保存され、サーバーにはアップロードされません。';
 
   @override
-  String get savingButton => 'Saving...';
+  String get savingButton => '保存中...';
 
   @override
-  String get saveAllCredentials => 'Save Credentials';
+  String get saveAllCredentials => '認証情報を保存';
 
   @override
   String get proPlusLabel => 'Pro+';
 
   @override
-  String get upgradeButton => 'Upgrade';
+  String get upgradeButton => 'アップグレード';
 
   @override
-  String get usernameLabel => 'Username';
+  String get usernameLabel => 'ユーザー名';
 
   @override
-  String get passwordLabel => 'Password';
+  String get passwordLabel => 'パスワード';
 
   @override
   String get upgradeToProPlusBody =>
-      'Upgrade to Pro Plus to access third-party platform integrations and advanced features.';
+      'サードパーティプラットフォーム連携と高度な機能にアクセスするにはPro Plusにアップグレードしてください。';
 
   @override
   String get noConversationsFoundBody =>
-      'No conversations were found. Make sure your credentials are correct and try again.';
+      '会話が見つかりませんでした。認証情報が正しいか確認して再試行してください。';
 
   @override
   String get tileMyAccountTitle => 'マイアカウント';

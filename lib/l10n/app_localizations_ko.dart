@@ -151,22 +151,22 @@ class AppLocalizationsKo extends AppLocalizations {
   String get gotIt => '알겠습니다';
 
   @override
-  String get selectFile => 'Select file';
+  String get selectFile => '파일 선택';
 
   @override
-  String get analyzeSelectedMetrics => 'Analyze Selected metrics';
+  String get analyzeSelectedMetrics => '선택한 지표 분석';
 
   @override
-  String get analyze20RandomMetrics => 'Analyze 20 Random metrics';
+  String get analyze20RandomMetrics => '무작위 지표 20개 분석';
 
   @override
-  String get membershipOptions => 'Membership Options';
+  String get membershipOptions => '멤버십 옵션';
 
   @override
-  String get free => 'Free';
+  String get free => '무료';
 
   @override
-  String get oneTimeUnlock => 'One-Time Report Unlock';
+  String get oneTimeUnlock => '일회성 보고서 잠금 해제';
 
   @override
   String get standard => 'Standard';
@@ -175,345 +175,329 @@ class AppLocalizationsKo extends AppLocalizations {
   String get discordAddon => 'Discord Addon';
 
   @override
-  String get analyze => 'Analyze';
+  String get analyze => '분석';
 
   @override
-  String get report => 'Report';
+  String get report => '보고서';
 
   @override
-  String get pdfReport => 'PDF Report';
+  String get pdfReport => 'PDF 보고서';
 
   @override
-  String get openPdf => 'Open PDF';
+  String get openPdf => 'PDF 열기';
 
   @override
-  String get sharePdf => 'Share PDF';
+  String get sharePdf => 'PDF 공유';
 
   @override
-  String get printPdf => 'Print PDF';
+  String get printPdf => 'PDF 인쇄';
 
   @override
-  String get closePdfPreview => 'Close PDF Preview Window';
+  String get closePdfPreview => 'PDF 미리보기 창 닫기';
 
   @override
-  String get openPdfPreview => 'Open PDF Preview Window';
+  String get openPdfPreview => 'PDF 미리보기 창 열기';
 
   @override
-  String get pdfPreviewDescription =>
-      'The embedded PDF window starts closed to keep the report compact.';
+  String get pdfPreviewDescription => '보고서를 간결하게 유지하기 위해 PDF 창은 닫힌 상태로 시작합니다.';
 
   @override
   String get notNow => '지금 아님';
 
   @override
-  String get unlockThisReport => 'Unlock This Report - \$20';
+  String get unlockThisReport => '이 보고서 잠금 해제 - \$20';
 
   @override
-  String get joinStandard => 'Join Standard - \$9.99/mo';
+  String get joinStandard => 'Standard 가입 - \$9.99/월';
 
   @override
-  String get instantUnlockTitle => 'Instant Report Unlock - \$20';
+  String get instantUnlockTitle => '즉시 보고서 잠금 해제 - \$20';
 
   @override
-  String get instantUnlockDescription =>
-      'This is a one-time purchase to unlock the current report only. No subscription required. Future reports will require separate unlocks or a membership.\n\nProceed with payment?';
+  String get instantUnlockDescription => '현재 보고서만 잠금 해제하는 일회성 구매입니다. 구독 없음.';
 
   @override
-  String get purchaseFor20 => 'Purchase for \$20';
+  String get purchaseFor20 => '\$20에 구매';
 
   @override
-  String get share => 'Share';
+  String get share => '공유';
 
   @override
-  String get print => 'Print';
+  String get print => '인쇄';
 
   @override
   String get save => '저장';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => '취소';
 
   @override
   String get ok => 'OK';
 
   @override
-  String get loading => 'Loading...';
+  String get loading => '로딩 중...';
 
   @override
-  String get error => 'Error';
+  String get error => '오류';
 
   @override
-  String get success => 'Success';
+  String get success => '성공';
 
   @override
-  String get conversations => 'Conversations';
+  String get conversations => '대화';
 
   @override
-  String get messages => 'Messages';
+  String get messages => '메시지';
 
   @override
-  String get selectConversation => 'Select Conversation';
+  String get selectConversation => '대화 선택';
 
   @override
   String get selectSmsConversation => 'SMS / RCS 채팅 선택';
 
   @override
-  String get searchConversations => 'Search conversations...';
+  String get searchConversations => '대화 검색...';
 
   @override
-  String get loadingConversations => 'Loading conversations...';
+  String get loadingConversations => '대화 로딩 중...';
 
   @override
-  String get errorLoadingConversations => 'Error Loading Conversations';
+  String get errorLoadingConversations => '대화 로딩 오류';
 
   @override
-  String get selectConversationToAnalyze => 'Select conversation to analyze';
+  String get selectConversationToAnalyze => '분석할 대화 선택';
 
   @override
-  String get analyzeWithSelectedMetrics => 'Analyze with the selected metrics';
+  String get analyzeWithSelectedMetrics => '선택한 지표로 분석';
 
   @override
-  String get loadConversationAndSelectMetric =>
-      'Load a conversation and select at least one metric';
+  String get loadConversationAndSelectMetric => '대화를 불러오고 지표를 하나 이상 선택하세요';
 
   @override
-  String get selectAtLeastOneMetric =>
-      'At least one metric needs to be selected to run the report.';
+  String get selectAtLeastOneMetric => '보고서를 실행하려면 지표를 하나 이상 선택해야 합니다.';
 
   @override
-  String get spinningMetricWheel => 'Spinning the metric wheel...';
+  String get spinningMetricWheel => '지표를 무작위로 선택 중...';
 
   @override
-  String get loadConversationToAnalyze => 'Load a conversation to analyze';
+  String get loadConversationToAnalyze => '분석할 대화를 불러오세요';
 
   @override
-  String get noConversationsFound => 'No conversations found';
+  String get noConversationsFound => '대화를 찾을 수 없습니다';
 
   @override
-  String get permissionsRequired => 'Permissions Required';
+  String get permissionsRequired => '권한 필요';
 
   @override
-  String get smsPermission => 'Text Messages';
+  String get smsPermission => '문자 메시지';
 
   @override
-  String get contactsPermission => 'Contacts';
+  String get contactsPermission => '연락처';
 
   @override
-  String get smsPermissionDescription =>
-      'To analyze your SMS conversations for relationship patterns';
+  String get smsPermissionDescription => '관계 패턴 분석을 위해 SMS 대화에 접근합니다';
 
   @override
-  String get contactsPermissionDescription =>
-      'To display contact names instead of phone numbers';
+  String get contactsPermissionDescription => '전화번호 대신 연락처 이름을 표시합니다';
 
   @override
-  String get analyzingMessage =>
-      'Stand by while your psychological analysis is generated by AI...';
+  String get analyzingMessage => 'AI가 심리 분석을 생성하는 동안 잠시 기다려 주세요...';
 
   @override
-  String get analyzingStatus => 'Analyzing conversation...';
+  String get analyzingStatus => '대화 분석 중...';
 
   @override
-  String get analyzingSubMessage =>
-      'Please be patient, this process could take up to a minute depending on your connection speed and the quantity of selected metrics';
+  String get analyzingSubMessage => '잠시 기다려 주세요. 기기에 따라 최대 1분이 걸릴 수 있습니다.';
 
   @override
-  String get unlockFullReport => 'Unlock and show this entire report';
+  String get unlockFullReport => '이 전체 보고서 잠금 해제 및 표시';
 
   @override
-  String get fullReportLocked => 'Full Report Locked';
+  String get fullReportLocked => '전체 보고서 잠김';
 
   @override
-  String get upgradeToUnlock =>
-      'Upgrade your membership to unlock the full psychological analysis report with all metrics and detailed insights.';
+  String get upgradeToUnlock => '전체 심리 분석 보고서를 잠금 해제하려면 멤버십을 업그레이드하세요.';
 
   @override
-  String get language => 'Language';
+  String get language => '언어';
 
   @override
-  String get english => 'English';
+  String get english => '영어';
 
   @override
-  String get spanish => 'Spanish';
+  String get spanish => '스페인어';
 
   @override
-  String get french => 'French';
+  String get french => '프랑스어';
 
   @override
-  String get german => 'German';
+  String get german => '독일어';
 
   @override
-  String get italian => 'Italian';
+  String get italian => '이탈리아어';
 
   @override
-  String get portuguese => 'Portuguese';
+  String get portuguese => '포르투갈어';
 
   @override
-  String get dutch => 'Dutch';
+  String get dutch => '네덜란드어';
 
   @override
-  String get russian => 'Russian';
+  String get russian => '러시아어';
 
   @override
-  String get chinese => 'Chinese';
+  String get chinese => '중국어';
 
   @override
-  String get japanese => 'Japanese';
+  String get japanese => '일본어';
 
   @override
-  String get korean => 'Korean';
+  String get korean => '한국어';
 
   @override
-  String get arabic => 'Arabic';
+  String get arabic => '아랍어';
 
   @override
-  String get hindi => 'Hindi';
+  String get hindi => '힌디어';
 
   @override
-  String get turkish => 'Turkish';
+  String get turkish => '터키어';
 
   @override
-  String get polish => 'Polish';
+  String get polish => '폴란드어';
 
   @override
-  String get ukrainian => 'Ukrainian';
+  String get ukrainian => '우크라이나어';
 
   @override
-  String get runAnotherAnalysis => 'Run another analysis?';
+  String get runAnotherAnalysis => '다른 분석을 실행하시겠습니까?';
 
   @override
-  String get becomeMemberTitle =>
-      'Become a member to get the full analysis report';
+  String get becomeMemberTitle => '전체 분석 보고서를 받으려면 회원이 되세요';
 
   @override
-  String get becomeMemberSubtitle =>
-      'Choose the access level that matches the conversations and reports you need to analyze.';
+  String get becomeMemberSubtitle => '대화 및 보고서에 맞는 액세스 수준을 선택하세요.';
 
   @override
-  String get benefitAnalyzeSms => 'Analyze SMS text messages';
+  String get benefitAnalyzeSms => 'SMS 문자 메시지 분석';
 
   @override
-  String get benefitReportPreview => 'Run a report preview';
+  String get benefitReportPreview => '보고서 미리보기 실행';
 
   @override
-  String get benefitViewPartialReport => 'View about 25% of the report';
+  String get benefitViewPartialReport => '보고서의 약 25% 보기';
 
   @override
-  String get benefitLockedDetails => 'Locked full report details';
+  String get benefitLockedDetails => '전체 보고서 세부 정보 잠김';
 
   @override
-  String get currentFreeAccess => 'Current free access';
+  String get currentFreeAccess => '현재 무료 액세스';
 
   @override
-  String get benefitUnlockCurrentReport => 'Unlock this current full report';
+  String get benefitUnlockCurrentReport => '이 전체 보고서 잠금 해제';
 
   @override
-  String get benefitNoSubscription => 'No subscription';
+  String get benefitNoSubscription => '구독 없음';
 
   @override
-  String get benefitSavePrintShareThis => 'Save, print, and share this report';
+  String get benefitSavePrintShareThis => '이 보고서 저장, 인쇄 및 공유';
 
   @override
-  String get benefitBestSingleAnalysis => 'Best if you only need one analysis';
+  String get benefitBestSingleAnalysis => '분석이 하나만 필요한 경우 최적';
 
   @override
-  String get unlockThisReportShort => 'Unlock This Report';
+  String get unlockThisReportShort => '이 보고서 잠금 해제';
 
   @override
-  String get benefitFullSmsReport => 'Full SMS analysis report';
+  String get benefitFullSmsReport => '전체 SMS 분석 보고서';
 
   @override
-  String get benefitSavePrintSharePdf => 'Save, print, and share PDF reports';
+  String get benefitSavePrintSharePdf => 'PDF 보고서 저장, 인쇄 및 공유';
 
   @override
-  String get benefitTenReports => '10 reports per 24-hour period';
+  String get benefitTenReports => '24시간 내 보고서 10개';
 
   @override
-  String get benefitBestTextReview =>
-      'Best for text-message relationship review';
+  String get benefitBestTextReview => '문자 메시지 관계 검토에 최적';
 
   @override
-  String get benefitDateRangeFilter => 'Filter analysis by date range';
+  String get benefitDateRangeFilter => '날짜 범위로 분석 필터링';
 
   @override
-  String get signUpStandard => 'Sign up for Standard Membership';
+  String get signUpStandard => 'Standard 멤버십 가입';
 
   @override
-  String get benefitAddToStandard => 'Add to Standard membership';
+  String get benefitAddToStandard => 'Standard 멤버십에 추가';
 
   @override
-  String get benefitAnalyzeDiscord => 'Analyze Discord server chats';
+  String get benefitAnalyzeDiscord => 'Discord 채팅 분석';
 
   @override
-  String get benefitRequiresBot => 'Requires bot installation';
+  String get benefitRequiresBot => '봇 설치 필요';
 
   @override
-  String get benefitBestGamers => 'Best for gamers and Discord communities';
+  String get benefitBestGamers => '게이머 및 Discord 커뮤니티에 최적';
 
   @override
-  String get addDiscordAnalysis => 'Add Discord Analysis';
+  String get addDiscordAnalysis => 'Discord 분석 추가';
 
   @override
-  String get requiresStandardMembership => 'Requires Standard Membership';
+  String get requiresStandardMembership => 'Standard 멤버십 필요';
 
   @override
-  String get comingSoon => 'Coming Soon';
+  String get comingSoon => '곧 출시';
 
   @override
-  String get comingSoonWithNextUpdate => 'Coming soon with next update:';
+  String get comingSoonWithNextUpdate => '다음 업데이트와 함께 곧 출시:';
 
   @override
-  String get proMembershipTier => 'Pro Membership Tier - \$19.99';
+  String get proMembershipTier => 'Pro 멤버십 - \$19.99';
 
   @override
-  String get proPlusMembershipTier => 'Pro-Plus Membership Tier - \$24.99';
+  String get proPlusMembershipTier => 'Pro-Plus 멤버십 - \$24.99';
 
   @override
-  String get proGetsLabel => 'Pro gets:';
+  String get proGetsLabel => 'Pro 혜택:';
 
   @override
-  String get proGetsDescription =>
-      'Analyze chat threads from all the other popular texting and social media platforms such as:';
+  String get proGetsDescription => '다른 인기 메시지 및 소셜 미디어 플랫폼의 채팅 스레드를 분석합니다.';
 
   @override
   String get proPlatformsList =>
-      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X (Twitter), Email, and Calendar';
+      'LinkedIn, WhatsApp, Instagram, Facebook Messenger, Telegram, X (Twitter)';
 
   @override
-  String get proPlusGetsLabel => 'Pro-Plus gets:';
+  String get proPlusGetsLabel => 'Pro-Plus 혜택:';
 
   @override
-  String get proPlusGetsDescription =>
-      'Everything in Pro, plus the Discord addon at a reduced price.';
+  String get proPlusGetsDescription => 'Pro의 모든 것과 함께 할인된 가격으로 Discord 애드온.';
 
   @override
-  String get purchaseSuccessfulUnlocked =>
-      'Purchase successful! Report unlocked.';
+  String get purchaseSuccessfulUnlocked => '구매 성공! 보고서가 잠금 해제되었습니다.';
 
   @override
-  String get purchaseFailed => 'Purchase failed. Please try again.';
+  String get purchaseFailed => '구매 실패. 다시 시도해 주세요.';
 
   @override
-  String get membershipActivated => 'Membership activated!';
+  String get membershipActivated => '멤버십이 활성화되었습니다!';
 
   @override
-  String get dateRangeFilter => 'Date Range Filter';
+  String get dateRangeFilter => '날짜 범위 필터';
 
   @override
-  String get dateRangeOptional => '(optional)';
+  String get dateRangeOptional => '(선택 사항)';
 
   @override
-  String get startDate => 'Start Date';
+  String get startDate => '시작 날짜';
 
   @override
-  String get endDate => 'End Date';
+  String get endDate => '종료 날짜';
 
   @override
-  String get clear => 'Clear';
+  String get clear => '지우기';
 
   @override
-  String get dateRangeRequiresMembership =>
-      'Requires Standard Membership or higher';
+  String get dateRangeRequiresMembership => 'Standard 멤버십 이상 필요';
 
   @override
   String selectUpToCount(Object current, Object max) {
@@ -521,36 +505,36 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get clearSelections => 'Clear Selections';
+  String get clearSelections => '선택 초기화';
 
   @override
   String analyzeRandomMetrics(Object count) {
-    return 'Analyze $count random metrics';
+    return '$count개의 무작위 지표 분석';
   }
 
   @override
-  String get saveSelections => 'Save Selections';
+  String get saveSelections => '선택 저장';
 
   @override
-  String get loadSelections => 'Load Selections';
+  String get loadSelections => '선택 불러오기';
 
   @override
-  String get saveMetricListName => 'Save Metric List';
+  String get saveMetricListName => '지표 목록 저장';
 
   @override
-  String get enterListName => 'Enter a name for this metric list:';
+  String get enterListName => '이 지표 목록의 이름을 입력하세요:';
 
   @override
-  String get chooseSavedMetrics => 'Choose saved metrics list:';
+  String get chooseSavedMetrics => '저장된 지표 목록 선택:';
 
   @override
-  String get noSavedLists => 'No saved metric lists to load at this time.';
+  String get noSavedLists => '현재 저장된 지표 목록이 없습니다.';
 
   @override
-  String get metricListSaved => 'Metric list saved successfully.';
+  String get metricListSaved => '지표 목록이 성공적으로 저장되었습니다.';
 
   @override
-  String get metricListLoaded => 'Metric list loaded successfully.';
+  String get metricListLoaded => '지표 목록이 성공적으로 불러와졌습니다.';
 
   @override
   String get filters => '필터';
@@ -590,12 +574,12 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String analysisOfSender(Object sender) {
-    return 'Analysis of $sender (Sender)';
+    return '$sender 분석 (발신자)';
   }
 
   @override
   String analysisOfReceiver(Object receiver) {
-    return 'Analysis of $receiver (Receiver)';
+    return '$receiver 분석 (수신자)';
   }
 
   @override
