@@ -1787,7 +1787,7 @@ class _PurchaseCustomMetricTile extends StatelessWidget {
                         child: Text(
                           r'$4.99',
                           style: TextStyle(
-                            color: colorScheme.onSecondary,
+                            color: Colors.white,
                             fontWeight: FontWeight.w800,
                             fontSize: 12,
                           ),
@@ -2152,7 +2152,7 @@ class _MyAccountTile extends StatelessWidget {
       scale: 0.94,
       duration: const Duration(milliseconds: 160),
       child: Material(
-        color: const Color(0xFF1a2a3a).withOpacity(0.85),
+        color: colorScheme.secondaryContainer.withOpacity(0.72),
         borderRadius: BorderRadius.circular(14),
         elevation: 1,
         child: InkWell(
@@ -2182,7 +2182,7 @@ class _MyAccountTile extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(top: 3),
                                 child: Icon(Icons.account_circle,
-                                    color: const Color(0xFF60a0ff),
+                                    color: colorScheme.primary,
                                     size: (constraints.maxWidth * 0.165).clamp(14.0, 26.0)),
                               ),
                               const SizedBox(width: 5),
@@ -2224,19 +2224,19 @@ class _MyAccountTile extends StatelessWidget {
                       children: [
                         Text(
                           tier.displayName,
-                          style: const TextStyle(
-                              color: Color(0xFF60a0ff),
+                          style: TextStyle(
+                              color: colorScheme.primary,
                               fontSize: 11,
                               fontWeight: FontWeight.w600),
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF2a4a6a),
+                            color: colorScheme.primary.withOpacity(0.8),
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: const Icon(Icons.arrow_forward_ios,
-                              color: Color(0xFF60a0ff), size: 10),
+                          child: Icon(Icons.arrow_forward_ios,
+                              color: colorScheme.onPrimary, size: 10),
                         ),
                       ],
                     ),
@@ -2268,7 +2268,7 @@ class _ReferFriendsTile extends StatelessWidget {
       scale: 0.94,
       duration: const Duration(milliseconds: 160),
       child: Material(
-        color: const Color(0xFF2a1a3a).withOpacity(0.85),
+        color: colorScheme.tertiaryContainer.withOpacity(0.72),
         borderRadius: BorderRadius.circular(14),
         elevation: 1,
         child: InkWell(
@@ -2298,7 +2298,7 @@ class _ReferFriendsTile extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(top: 3),
                                 child: Icon(Icons.card_giftcard,
-                                    color: const Color(0xFFc080ff),
+                                    color: colorScheme.tertiary,
                                     size: (constraints.maxWidth * 0.165).clamp(14.0, 26.0)),
                               ),
                               const SizedBox(width: 5),
@@ -2350,7 +2350,7 @@ class _ReferFriendsTile extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 color: i < credits
                                     ? const Color(0xFF40cc40)
-                                    : const Color(0xFF2a2a5a),
+                                    : colorScheme.onSurface.withOpacity(0.2),
                               ),
                             );
                           }),
@@ -2358,13 +2358,13 @@ class _ReferFriendsTile extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF6040aa),
+                            color: colorScheme.tertiary,
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Text(
                             '/',
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: colorScheme.onTertiary,
                               fontWeight: FontWeight.w800,
                               fontSize: 11,
                             ),
@@ -2396,7 +2396,7 @@ class _UserSubmittedPacksTile extends StatelessWidget {
       scale: 0.94,
       duration: const Duration(milliseconds: 160),
       child: Material(
-        color: const Color(0xFF1a2a3a).withOpacity(0.85),
+        color: colorScheme.secondaryContainer.withOpacity(0.72),
         borderRadius: BorderRadius.circular(14),
         elevation: 1,
         child: InkWell(
@@ -2426,7 +2426,7 @@ class _UserSubmittedPacksTile extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(top: 3),
                                 child: Icon(Icons.people_outline,
-                                    color: const Color(0xFF60a0ff),
+                                    color: colorScheme.primary,
                                     size: (constraints.maxWidth * 0.165).clamp(14.0, 26.0)),
                               ),
                               const SizedBox(width: 5),
@@ -2470,7 +2470,7 @@ class _UserSubmittedPacksTile extends StatelessWidget {
                         padding:
                             const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF4060aa),
+                          color: colorScheme.secondary,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Text(
