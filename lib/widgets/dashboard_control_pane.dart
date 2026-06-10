@@ -538,7 +538,7 @@ class _DiscordButtonState extends State<_DiscordButton> {
                   ),
                 )
               : Row(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Icon(Icons.discord, size: 20),
                     const SizedBox(width: 8),
