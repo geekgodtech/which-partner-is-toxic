@@ -136,6 +136,31 @@ class _UserAccountPageState extends State<UserAccountPage> {
                       fontWeight: FontWeight.w700),
                 ),
               ),
+              // Red Upgrade button for non-top tiers
+              if (tier == MembershipTier.standard ||
+                  tier == MembershipTier.free ||
+                  tier == MembershipTier.oneTimeUnlock) ...[  
+                const SizedBox(width: 8),
+                GestureDetector(
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const MembershipLandingPage()),
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFcc0000),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: const Text(
+                      'Upgrade',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ),
+              ],
               if (isTrialActive) ...[
                 const SizedBox(width: 8),
                 Container(
@@ -403,38 +428,43 @@ class _UserAccountPageState extends State<UserAccountPage> {
             ),
           ),
           const SizedBox(height: 8),
-          if (purchasedPacks.isEmpty)
+          // Built-in expansion packs
+          ...[
+            if (_subService.isPackGoodUnlocked)
+              _buildPackRow('THE GOOD — Healthy Patterns', '100 Metrics', Icons.favorite, const Color(0xFF40aa40)),
+            if (_subService.isPackBadUnlocked)
+              _buildPackRow('THE BAD — Warning Signs', '100 Metrics', Icons.warning_amber_rounded, const Color(0xFFaaaa40)),
+            if (_subService.isPackUglyUnlocked)
+              _buildPackRow('THE UGLY — Abuse Indicators', '100 Metrics', Icons.dangerous, const Color(0xFFaa4040)),
+            if (_subService.isPackNarcissistUnlocked)
+              _buildPackRow('NARCISSIST Patterns', '50 Metrics', Icons.psychology, const Color(0xFF9040aa)),
+            if (_subService.isPackSerialKillerUnlocked)
+              _buildPackRow('SERIAL KILLER Patterns', '51 Metrics', Icons.crisis_alert, const Color(0xFFaa2020)),
+          ],
+          // User-submitted packs
+          if (purchasedPacks.isNotEmpty)
+            ...purchasedPacks.map((packId) {
+              final pack = _packsService.availablePacks
+                  .where((p) => p.id == packId)
+                  .firstOrNull;
+              return _buildPackRow(
+                pack?.packName ?? packId,
+                '${pack?.metricCount ?? 0} Metrics',
+                Icons.inventory_2,
+                const Color(0xFF6060ff),
+              );
+            }),
+          // Empty state
+          if (!_subService.isPackGoodUnlocked &&
+              !_subService.isPackBadUnlocked &&
+              !_subService.isPackUglyUnlocked &&
+              !_subService.isPackNarcissistUnlocked &&
+              !_subService.isPackSerialKillerUnlocked &&
+              purchasedPacks.isEmpty)
             const Text(
               'No metric packs purchased yet',
               style: TextStyle(color: Color(0xFF6666aa), fontSize: 12),
-            )
-          else
-            ...purchasedPacks.map((packId) => Padding(
-              padding: const EdgeInsets.only(bottom: 6),
-              child: Row(
-                children: [
-                  const Icon(Icons.inventory_2, color: Color(0xFF6060ff), size: 18),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Text(
-                      packId,
-                      style: const TextStyle(color: Color(0xFFd0d0ff), fontSize: 13),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF1a1a3a),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: const Text(
-                      'Owned',
-                      style: TextStyle(color: Color(0xFF6666aa), fontSize: 10),
-                    ),
-                  ),
-                ],
-              ),
-            )),
+            ),
           const SizedBox(height: 16),
           const Divider(color: Color(0xFF2a2a5a), height: 1),
           const SizedBox(height: 16),
@@ -496,17 +526,54 @@ class _UserAccountPageState extends State<UserAccountPage> {
 
   int _calculateTotalMetricsOwned() {
     // Base metrics + purchased packs + custom metrics
-    int total = 50; // Base free metrics
-    if (_subService.isPackGoodUnlocked) total += 100;
-    if (_subService.isPackBadUnlocked) total += 100;
-    if (_subService.isPackUglyUnlocked) total += 100;
-    if (_subService.isPackNarcissistUnlocked) total += 50;
-    if (_subService.isPackSerialKillerUnlocked) total += 50;
-    total += _packsService.purchasedPackIds.length * 25; // Avg 25 metrics per user pack
+    int total = 50;                                         // Base free metrics
+    if (_subService.isPackGoodUnlocked) total += 100;        // THE GOOD
+    if (_subService.isPackBadUnlocked) total += 100;         // THE BAD
+    if (_subService.isPackUglyUnlocked) total += 100;        // THE UGLY
+    if (_subService.isPackNarcissistUnlocked) total += 50;   // NARCISSIST
+    if (_subService.isPackSerialKillerUnlocked) total += 51; // SERIAL KILLER (51 metrics)
+    for (final packId in _packsService.purchasedPackIds) {
+      final pack = _packsService.availablePacks
+          .where((p) => p.id == packId)
+          .firstOrNull;
+      total += pack?.metricCount ?? 25;
+    }
     total += _packsService.getUserCustomMetricsCount();
     return total;
   }
 
+  Widget _buildPackRow(String name, String subtitle, IconData icon, Color color) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        children: [
+          Icon(icon, color: color, size: 18),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(name,
+                    style: const TextStyle(color: Color(0xFFd0d0ff), fontSize: 13)),
+                Text(subtitle,
+                    style: const TextStyle(color: Color(0xFF8888aa), fontSize: 11)),
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+            decoration: BoxDecoration(
+              color: const Color(0xFF1a2a1a),
+              borderRadius: BorderRadius.circular(4),
+              border: Border.all(color: const Color(0xFF2a4a2a)),
+            ),
+            child: const Text('Owned',
+                style: TextStyle(color: Color(0xFF60cc60), fontSize: 10)),
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _buildEmailNotificationsCard() {
     return _CardContainer(
